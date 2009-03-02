@@ -15,13 +15,4 @@
         <property name="defaultUri" value="http://localhost:8080/mailservice"/>
     </bean>
 
-    <bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-		<property name="classesToBeBound">
-			<list>
-				<value>org.mail.mailschema.MailRequest</value>
-				<value>org.mail.mailschema.MailResponse</value>
-			</list>
-		</property>
-	</bean>
-
 </beans>
