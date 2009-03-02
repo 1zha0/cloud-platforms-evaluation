@@ -1,8 +1,8 @@
-package edu.unsw.evaluation;
+package edu.unsw.evaluation.azure;
 
 import org.springframework.ws.client.core.WebServiceTemplate;
 
-public class MailClient {
+public class AzureClients {
 
 	private WebServiceTemplate webServiceTemplate;
 
