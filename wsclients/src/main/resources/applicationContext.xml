@@ -2,17 +2,31 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-    <bean id="mailclient" class="de.mail.MailClient">
-    	<property name="webServiceTemplate" ref="webServiceTemplate"/>
-    </bean>
-
     <bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory"/>
 
     <bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
         <constructor-arg ref="messageFactory"/>
-        <property name="marshaller" ref="marshaller"/>
-        <property name="unmarshaller" ref="marshaller"/>
-        <property name="defaultUri" value="http://localhost:8080/mailservice"/>
+        <property name="azureUri" value="http://azureva.cloudapp.net/GoodDayAzure.asmx?wsdl"/>
     </bean>
 
+
+    <!--
+    The folowing example shows how override the default configuration,
+    and to use Commons Http to authenticate using HTTP authentication:
+    
+    <bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
+        <constructor-arg ref="messageFactory"/>
+        <property name="messageSender">
+            <bean class="org.springframework.ws.transport.http.CommonsHttpMessageSender">
+                <property name="credentials">
+                    <bean class="org.apache.commons.httpclient.UsernamePasswordCredentials">
+                        <constructor-arg value="name"/>
+                        <constructor-arg value="key"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+        <property name="defaultUri" value="http://example.com/WebService"/>
+    </bean>
+    -->
 </beans>
