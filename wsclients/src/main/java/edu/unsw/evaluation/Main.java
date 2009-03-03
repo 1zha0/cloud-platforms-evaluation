@@ -49,8 +49,8 @@ public class Main {
             message.writeTo(System.out);
             System.out.println();
 
-            StreamResult result = new StreamResult(System.out);
-            webServiceTemplate.sendSourceAndReceiveToResult(message.getPayloadSource(), result);
+            webServiceTemplate.sendSourceAndReceiveToResult(message.getPayloadSource(), message.getPayloadResult());
+            message.writeTo(System.out);
             System.out.println();
 
 
