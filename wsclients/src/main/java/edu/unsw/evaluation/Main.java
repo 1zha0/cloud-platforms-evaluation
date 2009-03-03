@@ -4,7 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.xml.transform.Result;
+import javax.xml.transform.stream.StreamResult;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.ws.WebServiceMessage;
@@ -47,12 +47,15 @@ public class Main {
 
             WebServiceMessage message = messageFactory.createWebServiceMessage(new ByteArrayInputStream(MESSAGE.getBytes()));
             message.writeTo(System.out);
+            System.out.println();
 
-            webServiceTemplate.sendSourceAndReceiveToResult(message.getPayloadSource(), message.getPayloadResult());
+            StreamResult result = new StreamResult(System.out);
+            webServiceTemplate.sendSourceAndReceiveToResult(message.getPayloadSource(), result);
+            System.out.println();
+
 
 //            DOMParser parser = new DOMParser();
 //            parser.setDocumentSource(message.getPayloadResult().);
-            Result result = message.getPayloadResult();
 
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
