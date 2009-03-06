@@ -1,0 +1,5 @@
+D:\azure\AzureEvalution\AzureEvalution\AzureEvalution_WebRole\obj\Debug\ResolveAssemblyReference.cache
+D:\azure\AzureEvalution\AzureEvalution\AzureEvalution_WebRole\bin\AzureEvalution_WebRole.dll
+D:\azure\AzureEvalution\AzureEvalution\AzureEvalution_WebRole\bin\AzureEvalution_WebRole.pdb
+D:\azure\AzureEvalution\AzureEvalution\AzureEvalution_WebRole\obj\Debug\AzureEvalution_WebRole.dll
+D:\azure\AzureEvalution\AzureEvalution\AzureEvalution_WebRole\obj\Debug\AzureEvalution_WebRole.pdb
