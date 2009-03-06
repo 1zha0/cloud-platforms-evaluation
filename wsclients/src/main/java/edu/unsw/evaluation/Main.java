@@ -1,10 +1,15 @@
 package edu.unsw.evaluation;
 
+import edu.unsw.evaluation.template.Pair;
+import edu.unsw.evaluation.template.SoapMessageUtils;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.xml.transform.stream.StreamResult;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.ws.WebServiceMessage;
@@ -17,41 +22,35 @@ import org.springframework.ws.soap.saaj.SaajSoapMessageFactory;
  */
 public class Main {
 
+    private static final Logger log = LoggerFactory.getLogger(Main.class);
     private static ApplicationContext context =
             new ClassPathXmlApplicationContext(new String[]{"classpath:applicationContext.xml"});
-//        private static final String MESSAGE =
-//            "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-//            "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
-//            "<soap:Body>" +
-//            "<SayGoodDay xmlns=\"http://azureva.org/\">" +
-//            "<yourNamePlz>Clayton</yourNamePlz>" +
-//            "</SayGoodDay>" +
-//            "</soap:Body>" +
-//            "</soap:Envelope>";
-    private static final String MESSAGE =
-            "<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">" +
-            "<soap12:Body>" +
-            "<SayGoodDay xmlns=\"http://azureva.org/\">" +
-            "<yourNamePlz>Clayton</yourNamePlz>" +
-            "</SayGoodDay>" +
-            "</soap12:Body>" +
-            "</soap12:Envelope>";
 
     public static void main(String[] args) {
         try {
             WebServiceTemplate webServiceTemplate = (WebServiceTemplate) context.getBean("webServiceTemplate");
             SaajSoapMessageFactory messageFactory = (SaajSoapMessageFactory) context.getBean("messageFactory");
 
-            WebServiceMessage message = messageFactory.createWebServiceMessage(new ByteArrayInputStream(MESSAGE.getBytes()));
+            Map<String, List<Pair<String, String>>> map = new HashMap<String, List<Pair<String, String>>>();
+            List<Pair<String, String>> params = new LinkedList<Pair<String, String>>();
+            params.add(new Pair<String, String>("yourNamePlz", "Clay"));
+            map.put("SayGoodDay", params);
+
+            WebServiceMessage message = messageFactory.createWebServiceMessage(
+                    new ByteArrayInputStream(SoapMessageUtils.getSoap12Message(map).getBytes()));
+            log.debug("Out going mesage : ");
             message.writeTo(System.out);
             System.out.println("\n");
 
+            long timer = Calendar.getInstance().getTimeInMillis();
             webServiceTemplate.sendSourceAndReceiveToResult(message.getPayloadSource(), message.getPayloadResult());
+            timer = Calendar.getInstance().getTimeInMillis() - timer;
+            log.debug("In coming mesage : ");
             message.writeTo(System.out);
-            System.out.println();
-
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("\n");
+            log.debug("Time consume : " + timer + "\n");
+        } catch (Exception ex) {
+            log.error("", ex);
         }
 
     }
