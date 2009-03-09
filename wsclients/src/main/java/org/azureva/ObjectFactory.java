@@ -30,11 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SayGoodDay }
+     * Create an instance of {@link Read }
      * 
      */
-    public SayGoodDay createSayGoodDay() {
-        return new SayGoodDay();
+    public Read createRead() {
+        return new Read();
     }
 
     /**
@@ -46,19 +46,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DeleteResponse }
+     * Create an instance of {@link Result }
      * 
      */
-    public DeleteResponse createDeleteResponse() {
-        return new DeleteResponse();
+    public Result createResult() {
+        return new Result();
     }
 
     /**
-     * Create an instance of {@link Read }
+     * Create an instance of {@link SayGoodDay }
      * 
      */
-    public Read createRead() {
-        return new Read();
+    public SayGoodDay createSayGoodDay() {
+        return new SayGoodDay();
     }
 
     /**
@@ -67,6 +67,14 @@ public class ObjectFactory {
      */
     public SayGoodDayResponse createSayGoodDayResponse() {
         return new SayGoodDayResponse();
+    }
+
+    /**
+     * Create an instance of {@link Delete }
+     * 
+     */
+    public Delete createDelete() {
+        return new Delete();
     }
 
     /**
@@ -86,27 +94,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Create }
+     * Create an instance of {@link DeleteResponse }
      * 
      */
-    public Create createCreate() {
-        return new Create();
-    }
-
-    /**
-     * Create an instance of {@link Delete }
-     * 
-     */
-    public Delete createDelete() {
-        return new Delete();
-    }
-
-    /**
-     * Create an instance of {@link Result }
-     * 
-     */
-    public Result createResult() {
-        return new Result();
+    public DeleteResponse createDeleteResponse() {
+        return new DeleteResponse();
     }
 
     /**
@@ -115,6 +107,14 @@ public class ObjectFactory {
      */
     public CreateResponse createCreateResponse() {
         return new CreateResponse();
+    }
+
+    /**
+     * Create an instance of {@link Create }
+     * 
+     */
+    public Create createCreate() {
+        return new Create();
     }
 
 }
