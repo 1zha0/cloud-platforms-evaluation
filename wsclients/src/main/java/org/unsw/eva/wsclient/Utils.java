@@ -1,6 +1,6 @@
 package org.unsw.eva.wsclient;
 
-import org.azureva.Result;
+import org.cloudcomputingevaluation.Result;
 
 /**
  *
