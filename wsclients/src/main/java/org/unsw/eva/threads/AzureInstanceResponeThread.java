@@ -10,6 +10,7 @@ import java.util.Calendar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.wsclient.App;
 import org.unsw.eva.wsclient.SOAPVersion;
 
 /**
@@ -21,10 +22,13 @@ public class AzureInstanceResponeThread implements Runnable {
     private static final Logger log = LoggerFactory.getLogger(AzureInstanceResponeThread.class);
     private int pos;
     private SOAPVersion version;
+    private App app;
+    private String MESSAGE = Utils.getSendString();
 
-    public AzureInstanceResponeThread(int i, SOAPVersion version) {
+    public AzureInstanceResponeThread(int i, SOAPVersion version, App app) {
         this.pos = i;
         this.version = version;
+        this.app = app;
     }
 
     public void run() {
@@ -42,14 +46,15 @@ public class AzureInstanceResponeThread implements Runnable {
         Long azure = 0L;
 
 
-        String out = String.valueOf(Calendar.getInstance().getTimeInMillis());
         Long timmer = Calendar.getInstance().getTimeInMillis();
         CloudComputingEvaluationSoap endpoint = service.getAzureEvaluationSoap();
-        Result result = endpoint.instanceResponse(out);
+        Result result = endpoint.instanceResponse(MESSAGE);
         azure = Calendar.getInstance().getTimeInMillis() - timmer;
-        log.debug(pos + " Azure SOAP 1.1 : " + azure + " " + result.getValue().contains(out) + "  " +
+        log.debug(pos + " Azure SOAP 1.1 : " + azure + " " + result.getValue().equals(MESSAGE) + "  " +
                 Utils.convertResultToString(result));
 
+        app.addConnectionTime(azure);
+        app.addComputationTime(result.getTimer());
     }
 
     private void soap12() {
@@ -57,13 +62,14 @@ public class AzureInstanceResponeThread implements Runnable {
         Long azure = 0L;
 
 
-        String out = String.valueOf(Calendar.getInstance().getTimeInMillis());
         Long timmer = Calendar.getInstance().getTimeInMillis();
         CloudComputingEvaluationSoap endpoint = service.getAzureEvaluationSoap12();
-        Result result = endpoint.instanceResponse(out);
+        Result result = endpoint.instanceResponse(MESSAGE);
         azure = Calendar.getInstance().getTimeInMillis() - timmer;
-        log.debug(pos + " Azure SOAP 1.2 : " + azure + " " + result.getValue().contains(out) + "  " +
+        log.debug(pos + " Azure SOAP 1.2 : " + azure + " " + result.getValue().equals(MESSAGE) + "  " +
                 Utils.convertResultToString(result));
 
+        app.addConnectionTime(azure);
+        app.addComputationTime(result.getTimer());
     }
 }
