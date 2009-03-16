@@ -8,7 +8,7 @@ import org.cloudcomputingevaluation.Result;
  */
 public class Utils {
 
-    public static String convertResultToString(Result result) {
+    public static synchronized String convertResultToString(Result result) {
 
         StringBuilder sb = new StringBuilder(result.getClass().getName());
         sb.append("( id : ");
@@ -18,7 +18,7 @@ public class Utils {
         sb.append(" | timer : ");
         sb.append(result.getTimer());
         sb.append(" )");
-        sb.append(result.toString());
+//        sb.append(result.toString());
 
         return sb.toString();
     }
