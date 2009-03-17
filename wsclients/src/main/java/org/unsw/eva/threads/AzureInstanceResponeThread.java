@@ -45,16 +45,19 @@ public class AzureInstanceResponeThread implements Runnable {
         CloudComputingEvaluation service = new CloudComputingEvaluation();
         Long azure = 0L;
 
+        CloudComputingEvaluationSoap endpoint = service.getAzureEvaluationSoap();
 
         Long timmer = Calendar.getInstance().getTimeInMillis();
-        CloudComputingEvaluationSoap endpoint = service.getAzureEvaluationSoap();
         Result result = endpoint.instanceResponse(MESSAGE);
         azure = Calendar.getInstance().getTimeInMillis() - timmer;
-        log.debug("Thread No. : " + pos + " Azure SOAP 1.1 : " + azure + " " + result.getValue().equals(MESSAGE) + "  " +
-                Utils.convertResultToString(result));
 
         app.addConnectionTime(azure);
         app.addComputationTime(result.getTimer());
+        if (!result.getValue().equals(MESSAGE)) {
+            app.errorOccured();
+        }
+        log.debug("Thread No. : " + pos + " Azure SOAP 1.1 : " + azure + " " + result.getValue().equals(MESSAGE) + "  " +
+                Utils.convertResultToString(result));
     }
 
     private void soap12() {
@@ -66,10 +69,12 @@ public class AzureInstanceResponeThread implements Runnable {
         CloudComputingEvaluationSoap endpoint = service.getAzureEvaluationSoap12();
         Result result = endpoint.instanceResponse(MESSAGE);
         azure = Calendar.getInstance().getTimeInMillis() - timmer;
-        log.debug("Thread No. : " + pos + " Azure SOAP 1.2 : " + azure + " " + result.getValue().equals(MESSAGE) + "  " +
-                Utils.convertResultToString(result));
-
         app.addConnectionTime(azure);
         app.addComputationTime(result.getTimer());
+        if (!result.getValue().equals(MESSAGE)) {
+            app.errorOccured();
+        }
+        log.debug("Thread No. : " + pos + " Azure SOAP 1.2 : " + azure + " " + result.getValue().equals(MESSAGE) + "  " +
+                Utils.convertResultToString(result));
     }
 }
