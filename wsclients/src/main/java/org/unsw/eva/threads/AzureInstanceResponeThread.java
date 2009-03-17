@@ -50,7 +50,7 @@ public class AzureInstanceResponeThread implements Runnable {
         CloudComputingEvaluationSoap endpoint = service.getAzureEvaluationSoap();
         Result result = endpoint.instanceResponse(MESSAGE);
         azure = Calendar.getInstance().getTimeInMillis() - timmer;
-        log.debug(pos + " Azure SOAP 1.1 : " + azure + " " + result.getValue().equals(MESSAGE) + "  " +
+        log.debug("Thread No. : " + pos + " Azure SOAP 1.1 : " + azure + " " + result.getValue().equals(MESSAGE) + "  " +
                 Utils.convertResultToString(result));
 
         app.addConnectionTime(azure);
@@ -66,7 +66,7 @@ public class AzureInstanceResponeThread implements Runnable {
         CloudComputingEvaluationSoap endpoint = service.getAzureEvaluationSoap12();
         Result result = endpoint.instanceResponse(MESSAGE);
         azure = Calendar.getInstance().getTimeInMillis() - timmer;
-        log.debug(pos + " Azure SOAP 1.2 : " + azure + " " + result.getValue().equals(MESSAGE) + "  " +
+        log.debug("Thread No. : " + pos + " Azure SOAP 1.2 : " + azure + " " + result.getValue().equals(MESSAGE) + "  " +
                 Utils.convertResultToString(result));
 
         app.addConnectionTime(azure);
