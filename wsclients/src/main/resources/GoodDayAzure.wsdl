@@ -80,59 +80,59 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="createDateByNumber">
+            <s:element name="createDataByNumber">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="createDateByNumberResponse">
+            <s:element name="createDataByNumberResponse">
                 <s:complexType>
                     <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="createDateByNumberResult" type="tns:Result" />
+                        <s:element minOccurs="0" maxOccurs="1" name="createDataByNumberResult" type="tns:Result" />
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="readDateByNumber">
+            <s:element name="readDataByNumber">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="readDateByNumberResponse">
+            <s:element name="readDataByNumberResponse">
                 <s:complexType>
                     <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="readDateByNumberResult" type="tns:Result" />
+                        <s:element minOccurs="0" maxOccurs="1" name="readDataByNumberResult" type="tns:Result" />
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="updateDateByNumber">
+            <s:element name="updateDataByNumber">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="updateDateByNumberResponse">
+            <s:element name="updateDataByNumberResponse">
                 <s:complexType>
                     <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="updateDateByNumberResult" type="tns:Result" />
+                        <s:element minOccurs="0" maxOccurs="1" name="updateDataByNumberResult" type="tns:Result" />
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="deleteDateByNumber">
+            <s:element name="deleteDataByNumber">
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
                     </s:sequence>
                 </s:complexType>
             </s:element>
-            <s:element name="deleteDateByNumberResponse">
+            <s:element name="deleteDataByNumberResponse">
                 <s:complexType>
                     <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="deleteDateByNumberResult" type="tns:Result" />
+                        <s:element minOccurs="0" maxOccurs="1" name="deleteDataByNumberResult" type="tns:Result" />
                     </s:sequence>
                 </s:complexType>
             </s:element>
@@ -178,29 +178,29 @@
     <wsdl:message name="deleteSoapOut">
         <wsdl:part name="parameters" element="tns:deleteResponse" />
     </wsdl:message>
-    <wsdl:message name="createDateByNumberSoapIn">
-        <wsdl:part name="parameters" element="tns:createDateByNumber" />
+    <wsdl:message name="createDataByNumberSoapIn">
+        <wsdl:part name="parameters" element="tns:createDataByNumber" />
     </wsdl:message>
-    <wsdl:message name="createDateByNumberSoapOut">
-        <wsdl:part name="parameters" element="tns:createDateByNumberResponse" />
+    <wsdl:message name="createDataByNumberSoapOut">
+        <wsdl:part name="parameters" element="tns:createDataByNumberResponse" />
     </wsdl:message>
-    <wsdl:message name="readDateByNumberSoapIn">
-        <wsdl:part name="parameters" element="tns:readDateByNumber" />
+    <wsdl:message name="readDataByNumberSoapIn">
+        <wsdl:part name="parameters" element="tns:readDataByNumber" />
     </wsdl:message>
-    <wsdl:message name="readDateByNumberSoapOut">
-        <wsdl:part name="parameters" element="tns:readDateByNumberResponse" />
+    <wsdl:message name="readDataByNumberSoapOut">
+        <wsdl:part name="parameters" element="tns:readDataByNumberResponse" />
     </wsdl:message>
-    <wsdl:message name="updateDateByNumberSoapIn">
-        <wsdl:part name="parameters" element="tns:updateDateByNumber" />
+    <wsdl:message name="updateDataByNumberSoapIn">
+        <wsdl:part name="parameters" element="tns:updateDataByNumber" />
     </wsdl:message>
-    <wsdl:message name="updateDateByNumberSoapOut">
-        <wsdl:part name="parameters" element="tns:updateDateByNumberResponse" />
+    <wsdl:message name="updateDataByNumberSoapOut">
+        <wsdl:part name="parameters" element="tns:updateDataByNumberResponse" />
     </wsdl:message>
-    <wsdl:message name="deleteDateByNumberSoapIn">
-        <wsdl:part name="parameters" element="tns:deleteDateByNumber" />
+    <wsdl:message name="deleteDataByNumberSoapIn">
+        <wsdl:part name="parameters" element="tns:deleteDataByNumber" />
     </wsdl:message>
-    <wsdl:message name="deleteDateByNumberSoapOut">
-        <wsdl:part name="parameters" element="tns:deleteDateByNumberResponse" />
+    <wsdl:message name="deleteDataByNumberSoapOut">
+        <wsdl:part name="parameters" element="tns:deleteDataByNumberResponse" />
     </wsdl:message>
     <wsdl:message name="bigFileReceiveSoapIn">
         <wsdl:part name="parameters" element="tns:bigFileReceive" />
@@ -229,21 +229,21 @@
             <wsdl:input message="tns:deleteSoapIn" />
             <wsdl:output message="tns:deleteSoapOut" />
         </wsdl:operation>
-        <wsdl:operation name="createDateByNumber">
-            <wsdl:input message="tns:createDateByNumberSoapIn" />
-            <wsdl:output message="tns:createDateByNumberSoapOut" />
+        <wsdl:operation name="createDataByNumber">
+            <wsdl:input message="tns:createDataByNumberSoapIn" />
+            <wsdl:output message="tns:createDataByNumberSoapOut" />
         </wsdl:operation>
-        <wsdl:operation name="readDateByNumber">
-            <wsdl:input message="tns:readDateByNumberSoapIn" />
-            <wsdl:output message="tns:readDateByNumberSoapOut" />
+        <wsdl:operation name="readDataByNumber">
+            <wsdl:input message="tns:readDataByNumberSoapIn" />
+            <wsdl:output message="tns:readDataByNumberSoapOut" />
         </wsdl:operation>
-        <wsdl:operation name="updateDateByNumber">
-            <wsdl:input message="tns:updateDateByNumberSoapIn" />
-            <wsdl:output message="tns:updateDateByNumberSoapOut" />
+        <wsdl:operation name="updateDataByNumber">
+            <wsdl:input message="tns:updateDataByNumberSoapIn" />
+            <wsdl:output message="tns:updateDataByNumberSoapOut" />
         </wsdl:operation>
-        <wsdl:operation name="deleteDateByNumber">
-            <wsdl:input message="tns:deleteDateByNumberSoapIn" />
-            <wsdl:output message="tns:deleteDateByNumberSoapOut" />
+        <wsdl:operation name="deleteDataByNumber">
+            <wsdl:input message="tns:deleteDataByNumberSoapIn" />
+            <wsdl:output message="tns:deleteDataByNumberSoapOut" />
         </wsdl:operation>
         <wsdl:operation name="bigFileReceive">
             <wsdl:input message="tns:bigFileReceiveSoapIn" />
@@ -297,8 +297,8 @@
                 <soap:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="createDateByNumber">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/createDateByNumber" style="document" />
+        <wsdl:operation name="createDataByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/createDataByNumber" style="document" />
             <wsdl:input>
                 <soap:body use="literal" />
             </wsdl:input>
@@ -306,8 +306,8 @@
                 <soap:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="readDateByNumber">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/readDateByNumber" style="document" />
+        <wsdl:operation name="readDataByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/readDataByNumber" style="document" />
             <wsdl:input>
                 <soap:body use="literal" />
             </wsdl:input>
@@ -315,8 +315,8 @@
                 <soap:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="updateDateByNumber">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/updateDateByNumber" style="document" />
+        <wsdl:operation name="updateDataByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/updateDataByNumber" style="document" />
             <wsdl:input>
                 <soap:body use="literal" />
             </wsdl:input>
@@ -324,8 +324,8 @@
                 <soap:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="deleteDateByNumber">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/deleteDateByNumber" style="document" />
+        <wsdl:operation name="deleteDataByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/deleteDataByNumber" style="document" />
             <wsdl:input>
                 <soap:body use="literal" />
             </wsdl:input>
@@ -390,8 +390,8 @@
                 <soap12:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="createDateByNumber">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/createDateByNumber" style="document" />
+        <wsdl:operation name="createDataByNumber">
+            <soap12:operation soapAction="http://cloudComputingEvaluation.org/createDataByNumber" style="document" />
             <wsdl:input>
                 <soap12:body use="literal" />
             </wsdl:input>
@@ -399,8 +399,8 @@
                 <soap12:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="readDateByNumber">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/readDateByNumber" style="document" />
+        <wsdl:operation name="readDataByNumber">
+            <soap12:operation soapAction="http://cloudComputingEvaluation.org/readDataByNumber" style="document" />
             <wsdl:input>
                 <soap12:body use="literal" />
             </wsdl:input>
@@ -408,8 +408,8 @@
                 <soap12:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="updateDateByNumber">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/updateDateByNumber" style="document" />
+        <wsdl:operation name="updateDataByNumber">
+            <soap12:operation soapAction="http://cloudComputingEvaluation.org/updateDataByNumber" style="document" />
             <wsdl:input>
                 <soap12:body use="literal" />
             </wsdl:input>
@@ -417,8 +417,8 @@
                 <soap12:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="deleteDateByNumber">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/deleteDateByNumber" style="document" />
+        <wsdl:operation name="deleteDataByNumber">
+            <soap12:operation soapAction="http://cloudComputingEvaluation.org/deleteDataByNumber" style="document" />
             <wsdl:input>
                 <soap12:body use="literal" />
             </wsdl:input>
