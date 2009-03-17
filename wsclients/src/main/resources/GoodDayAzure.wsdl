@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
-                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-                  xmlns:tns="http://cloudComputingEvaluation.org/"
-                  xmlns:s="http://www.w3.org/2001/XMLSchema"
-                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-                  targetNamespace="http://cloudComputingEvaluation.org/"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://cloudComputingEvaluation.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://cloudComputingEvaluation.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
     <wsdl:types>
         <s:schema elementFormDefault="qualified" targetNamespace="http://cloudComputingEvaluation.org/">
             <s:element name="InstanceResponse">
@@ -89,6 +80,72 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
+            <s:element name="createDateByNumber">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="createDateByNumberResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="createDateByNumberResult" type="tns:Result" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="readDateByNumber">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="readDateByNumberResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="readDateByNumberResult" type="tns:Result" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="updateDateByNumber">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="updateDateByNumberResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="updateDateByNumberResult" type="tns:Result" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="deleteDateByNumber">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="deleteDateByNumberResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="deleteDateByNumberResult" type="tns:Result" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="bigFileReceive">
+                <s:complexType />
+            </s:element>
+            <s:element name="bigFileReceiveResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="bigFileReceiveResult" type="tns:Result" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
         </s:schema>
     </wsdl:types>
     <wsdl:message name="InstanceResponseSoapIn">
@@ -121,6 +178,36 @@
     <wsdl:message name="deleteSoapOut">
         <wsdl:part name="parameters" element="tns:deleteResponse" />
     </wsdl:message>
+    <wsdl:message name="createDateByNumberSoapIn">
+        <wsdl:part name="parameters" element="tns:createDateByNumber" />
+    </wsdl:message>
+    <wsdl:message name="createDateByNumberSoapOut">
+        <wsdl:part name="parameters" element="tns:createDateByNumberResponse" />
+    </wsdl:message>
+    <wsdl:message name="readDateByNumberSoapIn">
+        <wsdl:part name="parameters" element="tns:readDateByNumber" />
+    </wsdl:message>
+    <wsdl:message name="readDateByNumberSoapOut">
+        <wsdl:part name="parameters" element="tns:readDateByNumberResponse" />
+    </wsdl:message>
+    <wsdl:message name="updateDateByNumberSoapIn">
+        <wsdl:part name="parameters" element="tns:updateDateByNumber" />
+    </wsdl:message>
+    <wsdl:message name="updateDateByNumberSoapOut">
+        <wsdl:part name="parameters" element="tns:updateDateByNumberResponse" />
+    </wsdl:message>
+    <wsdl:message name="deleteDateByNumberSoapIn">
+        <wsdl:part name="parameters" element="tns:deleteDateByNumber" />
+    </wsdl:message>
+    <wsdl:message name="deleteDateByNumberSoapOut">
+        <wsdl:part name="parameters" element="tns:deleteDateByNumberResponse" />
+    </wsdl:message>
+    <wsdl:message name="bigFileReceiveSoapIn">
+        <wsdl:part name="parameters" element="tns:bigFileReceive" />
+    </wsdl:message>
+    <wsdl:message name="bigFileReceiveSoapOut">
+        <wsdl:part name="parameters" element="tns:bigFileReceiveResponse" />
+    </wsdl:message>
     <wsdl:portType name="CloudComputingEvaluationSoap">
         <wsdl:operation name="InstanceResponse">
             <wsdl:input message="tns:InstanceResponseSoapIn" />
@@ -141,6 +228,26 @@
         <wsdl:operation name="delete">
             <wsdl:input message="tns:deleteSoapIn" />
             <wsdl:output message="tns:deleteSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="createDateByNumber">
+            <wsdl:input message="tns:createDateByNumberSoapIn" />
+            <wsdl:output message="tns:createDateByNumberSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="readDateByNumber">
+            <wsdl:input message="tns:readDateByNumberSoapIn" />
+            <wsdl:output message="tns:readDateByNumberSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="updateDateByNumber">
+            <wsdl:input message="tns:updateDateByNumberSoapIn" />
+            <wsdl:output message="tns:updateDateByNumberSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="deleteDateByNumber">
+            <wsdl:input message="tns:deleteDateByNumberSoapIn" />
+            <wsdl:output message="tns:deleteDateByNumberSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="bigFileReceive">
+            <wsdl:input message="tns:bigFileReceiveSoapIn" />
+            <wsdl:output message="tns:bigFileReceiveSoapOut" />
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="CloudComputingEvaluationSoap" type="tns:CloudComputingEvaluationSoap">
@@ -190,6 +297,51 @@
                 <soap:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
+        <wsdl:operation name="createDateByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/createDateByNumber" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="readDateByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/readDateByNumber" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateDateByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/updateDateByNumber" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteDateByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/deleteDateByNumber" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="bigFileReceive">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/bigFileReceive" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
     </wsdl:binding>
     <wsdl:binding name="CloudComputingEvaluationSoap12" type="tns:CloudComputingEvaluationSoap">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -231,6 +383,51 @@
         </wsdl:operation>
         <wsdl:operation name="delete">
             <soap12:operation soapAction="http://cloudComputingEvaluation.org/delete" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createDateByNumber">
+            <soap12:operation soapAction="http://cloudComputingEvaluation.org/createDateByNumber" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="readDateByNumber">
+            <soap12:operation soapAction="http://cloudComputingEvaluation.org/readDateByNumber" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateDateByNumber">
+            <soap12:operation soapAction="http://cloudComputingEvaluation.org/updateDateByNumber" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteDateByNumber">
+            <soap12:operation soapAction="http://cloudComputingEvaluation.org/deleteDateByNumber" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="bigFileReceive">
+            <soap12:operation soapAction="http://cloudComputingEvaluation.org/bigFileReceive" style="document" />
             <wsdl:input>
                 <soap12:body use="literal" />
             </wsdl:input>
