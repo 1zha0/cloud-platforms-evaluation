@@ -443,5 +443,8 @@
         <wsdl:port name="AzureEvaluationSoap12" binding="tns:CloudComputingEvaluationSoap12">
             <soap12:address location="http://azureva.cloudapp.net/CloudComputingEvaluation.asmx" />
         </wsdl:port>
+        <wsdl:port name="AmazonSoap12" binding="tns:CloudComputingEvaluationSoap12">
+            <soap12:address location="http://174.129.238.95:8080/server-1.0-SNAPSHOT/service/cxfserver" />
+        </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>
