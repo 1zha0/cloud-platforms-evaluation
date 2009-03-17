@@ -70,8 +70,7 @@
                   <!--argument>
                      -Djava.util.logging.config.file=${env.CXF_HOME}/etc/logging.properties
                      </argument-->
-                        <argument>client.WSClient</argument>
-                        <argument>30305</argument>
+                        <argument>org.unsw.eva.wsclient.App</argument>
                     </arguments>
                 </configuration>
             </plugin>
