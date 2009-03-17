@@ -119,7 +119,7 @@
                                     <wsdlOptions>
                                         <wsdlOption>
                                             <wsdl>
-                                    ${basedir}/src/main/resources/GoodDayAzure.wsdl
+                                    ${basedir}/src/main/resources/CloudComputingEva.wsdl
                                             </wsdl>
                                         </wsdlOption>
                                     </wsdlOptions>
