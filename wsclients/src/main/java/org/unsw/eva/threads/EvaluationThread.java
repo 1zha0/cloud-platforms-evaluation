@@ -75,6 +75,10 @@ public abstract class EvaluationThread implements Runnable {
         this.result = result;
     }
 
+    public SOAPVersion getVersion() {
+        return version;
+    }
+
     public abstract Result doSOAP11Call();
 
     public abstract Result doSOAP12Call();
