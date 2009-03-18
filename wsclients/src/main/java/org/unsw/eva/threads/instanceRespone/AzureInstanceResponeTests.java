@@ -12,11 +12,11 @@ import org.unsw.eva.wsclient.SOAPVersion;
  *
  * @author shrimpy
  */
-public class AzureInstanceResponeThread extends EvaluationThread {
+public class AzureInstanceResponeTests extends EvaluationThread {
 
     private CloudComputingEvaluation service = new CloudComputingEvaluation();
 
-    public AzureInstanceResponeThread(String name, App app, SOAPVersion version) {
+    public AzureInstanceResponeTests(String name, App app, SOAPVersion version) {
         super(name, app, version);
     }
 
