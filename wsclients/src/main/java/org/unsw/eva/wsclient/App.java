@@ -1,7 +1,7 @@
 package org.unsw.eva.wsclient;
 
 import org.unsw.eva.threads.EvaluationThread;
-import org.unsw.eva.threads.instanceRespone.AzureInstanceResponeThread;
+import org.unsw.eva.threads.instanceRespone.AzureInstanceResponeTests;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,7 +35,7 @@ public class App {
     }
 
     public App() {
-        testSuit.add(new AzureInstanceResponeThread("AzureInstancResponse", this, SOAPVersion.SOAP_11));
+        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse", this, SOAPVersion.SOAP_11));
 
         for (EvaluationThread evaThread : testSuit) {
             log.info(evaThread.getName() + " is running, please wait for " + SECONDS + " minutes.");
