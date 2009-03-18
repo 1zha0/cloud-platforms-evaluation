@@ -30,22 +30,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Delete }
-     * 
-     */
-    public Delete createDelete() {
-        return new Delete();
-    }
-
-    /**
-     * Create an instance of {@link Result }
-     * 
-     */
-    public Result createResult() {
-        return new Result();
-    }
-
-    /**
      * Create an instance of {@link DeleteDataByNumber }
      * 
      */
@@ -54,75 +38,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DeleteResponse }
+     * Create an instance of {@link CleanDefaultDataResponse }
      * 
      */
-    public DeleteResponse createDeleteResponse() {
-        return new DeleteResponse();
-    }
-
-    /**
-     * Create an instance of {@link CreateDataByNumberResponse }
-     * 
-     */
-    public CreateDataByNumberResponse createCreateDataByNumberResponse() {
-        return new CreateDataByNumberResponse();
-    }
-
-    /**
-     * Create an instance of {@link DeleteDataByNumberResponse }
-     * 
-     */
-    public DeleteDataByNumberResponse createDeleteDataByNumberResponse() {
-        return new DeleteDataByNumberResponse();
-    }
-
-    /**
-     * Create an instance of {@link UpdateDataByNumberResponse }
-     * 
-     */
-    public UpdateDataByNumberResponse createUpdateDataByNumberResponse() {
-        return new UpdateDataByNumberResponse();
-    }
-
-    /**
-     * Create an instance of {@link CreateDataByNumber }
-     * 
-     */
-    public CreateDataByNumber createCreateDataByNumber() {
-        return new CreateDataByNumber();
-    }
-
-    /**
-     * Create an instance of {@link UpdateDataByNumber }
-     * 
-     */
-    public UpdateDataByNumber createUpdateDataByNumber() {
-        return new UpdateDataByNumber();
-    }
-
-    /**
-     * Create an instance of {@link Update }
-     * 
-     */
-    public Update createUpdate() {
-        return new Update();
-    }
-
-    /**
-     * Create an instance of {@link ReadDataByNumber }
-     * 
-     */
-    public ReadDataByNumber createReadDataByNumber() {
-        return new ReadDataByNumber();
-    }
-
-    /**
-     * Create an instance of {@link ReadDataByNumberResponse }
-     * 
-     */
-    public ReadDataByNumberResponse createReadDataByNumberResponse() {
-        return new ReadDataByNumberResponse();
+    public CleanDefaultDataResponse createCleanDefaultDataResponse() {
+        return new CleanDefaultDataResponse();
     }
 
     /**
@@ -134,11 +54,67 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ReadResponse }
+     * Create an instance of {@link SetupDefaultDataResponse }
      * 
      */
-    public ReadResponse createReadResponse() {
-        return new ReadResponse();
+    public SetupDefaultDataResponse createSetupDefaultDataResponse() {
+        return new SetupDefaultDataResponse();
+    }
+
+    /**
+     * Create an instance of {@link DeleteResponse }
+     * 
+     */
+    public DeleteResponse createDeleteResponse() {
+        return new DeleteResponse();
+    }
+
+    /**
+     * Create an instance of {@link CreateDataByNumber }
+     * 
+     */
+    public CreateDataByNumber createCreateDataByNumber() {
+        return new CreateDataByNumber();
+    }
+
+    /**
+     * Create an instance of {@link SetupDefaultData }
+     * 
+     */
+    public SetupDefaultData createSetupDefaultData() {
+        return new SetupDefaultData();
+    }
+
+    /**
+     * Create an instance of {@link Result }
+     * 
+     */
+    public Result createResult() {
+        return new Result();
+    }
+
+    /**
+     * Create an instance of {@link UpdateDataByNumber }
+     * 
+     */
+    public UpdateDataByNumber createUpdateDataByNumber() {
+        return new UpdateDataByNumber();
+    }
+
+    /**
+     * Create an instance of {@link UpdateDataByNumberResponse }
+     * 
+     */
+    public UpdateDataByNumberResponse createUpdateDataByNumberResponse() {
+        return new UpdateDataByNumberResponse();
+    }
+
+    /**
+     * Create an instance of {@link InstanceResponseResponse }
+     * 
+     */
+    public InstanceResponseResponse createInstanceResponseResponse() {
+        return new InstanceResponseResponse();
     }
 
     /**
@@ -150,11 +126,83 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InstanceResponseResponse }
+     * Create an instance of {@link ReadDataByNumber }
      * 
      */
-    public InstanceResponseResponse createInstanceResponseResponse() {
-        return new InstanceResponseResponse();
+    public ReadDataByNumber createReadDataByNumber() {
+        return new ReadDataByNumber();
+    }
+
+    /**
+     * Create an instance of {@link ReadResponse }
+     * 
+     */
+    public ReadResponse createReadResponse() {
+        return new ReadResponse();
+    }
+
+    /**
+     * Create an instance of {@link Create }
+     * 
+     */
+    public Create createCreate() {
+        return new Create();
+    }
+
+    /**
+     * Create an instance of {@link Delete }
+     * 
+     */
+    public Delete createDelete() {
+        return new Delete();
+    }
+
+    /**
+     * Create an instance of {@link DeleteDataByNumberResponse }
+     * 
+     */
+    public DeleteDataByNumberResponse createDeleteDataByNumberResponse() {
+        return new DeleteDataByNumberResponse();
+    }
+
+    /**
+     * Create an instance of {@link Read }
+     * 
+     */
+    public Read createRead() {
+        return new Read();
+    }
+
+    /**
+     * Create an instance of {@link CreateDataByNumberResponse }
+     * 
+     */
+    public CreateDataByNumberResponse createCreateDataByNumberResponse() {
+        return new CreateDataByNumberResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReadDataByNumberResponse }
+     * 
+     */
+    public ReadDataByNumberResponse createReadDataByNumberResponse() {
+        return new ReadDataByNumberResponse();
+    }
+
+    /**
+     * Create an instance of {@link BigFileReceive }
+     * 
+     */
+    public BigFileReceive createBigFileReceive() {
+        return new BigFileReceive();
+    }
+
+    /**
+     * Create an instance of {@link Update }
+     * 
+     */
+    public Update createUpdate() {
+        return new Update();
     }
 
     /**
@@ -174,27 +222,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BigFileReceive }
+     * Create an instance of {@link CleanDefaultData }
      * 
      */
-    public BigFileReceive createBigFileReceive() {
-        return new BigFileReceive();
-    }
-
-    /**
-     * Create an instance of {@link Read }
-     * 
-     */
-    public Read createRead() {
-        return new Read();
-    }
-
-    /**
-     * Create an instance of {@link Create }
-     * 
-     */
-    public Create createCreate() {
-        return new Create();
+    public CleanDefaultData createCleanDefaultData() {
+        return new CleanDefaultData();
     }
 
 }

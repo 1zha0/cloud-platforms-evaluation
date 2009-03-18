@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.threads.create.AmazonEC2CreateTests;
 import org.unsw.eva.threads.create.AzureCreateTests;
 import org.unsw.eva.threads.instanceRespone.AmazonEC2InstanceResponseTests;
 import org.unsw.eva.threads.instanceRespone.AppEngineInstanceResponseTests;
@@ -43,7 +44,8 @@ public class App {
 //        testSuit.add(new AzureCreateTests("AzureCreate", this, SOAPVersion.SOAP_11));
 //        testSuit.add(new AzureCreateTests("AzureCreate", this, SOAPVersion.SOAP_12));
 //        testSuit.add(new AppEngineInstanceResponseTests("AppEngineInstanceResponse", this, SOAPVersion.SOAP_11));
-        testSuit.add(new AmazonEC2InstanceResponseTests("AmazonEC2InstanceResponse", this, SOAPVersion.SOAP_12));
+//        testSuit.add(new AmazonEC2InstanceResponseTests("AmazonEC2InstanceResponse", this, SOAPVersion.SOAP_12));
+        testSuit.add(new AmazonEC2CreateTests("AmazonEC2Create", this, SOAPVersion.SOAP_12));
 
         for (EvaluationThread evaThread : testSuit) {
             log.info(evaThread.getName() + " is running, please wait for " + SECONDS + " seconds.");

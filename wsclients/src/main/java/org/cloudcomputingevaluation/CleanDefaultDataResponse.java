@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="content" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="cleanDefaultDataResult" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,35 +28,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "content"
+    "cleanDefaultDataResult"
 })
-@XmlRootElement(name = "create")
-public class Create {
+@XmlRootElement(name = "cleanDefaultDataResponse")
+public class CleanDefaultDataResponse {
 
-    protected String content;
+    protected boolean cleanDefaultDataResult;
 
     /**
-     * Gets the value of the content property.
+     * Gets the value of the cleanDefaultDataResult property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getContent() {
-        return content;
+    public boolean isCleanDefaultDataResult() {
+        return cleanDefaultDataResult;
     }
 
     /**
-     * Sets the value of the content property.
+     * Sets the value of the cleanDefaultDataResult property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setContent(String value) {
-        this.content = value;
+    public void setCleanDefaultDataResult(boolean value) {
+        this.cleanDefaultDataResult = value;
     }
 
 }
