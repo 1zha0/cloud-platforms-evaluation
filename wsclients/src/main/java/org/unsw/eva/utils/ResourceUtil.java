@@ -1,4 +1,4 @@
-package org.unsw.eva.wsclient;
+package org.unsw.eva.utils;
 
 import org.cloudcomputingevaluation.Result;
 
@@ -6,7 +6,7 @@ import org.cloudcomputingevaluation.Result;
  *
  * @author shrimpy
  */
-public class Utils {
+public class ResourceUtil {
 
     public static synchronized String convertResultToString(Result result) {
 

@@ -30,11 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Read }
+     * Create an instance of {@link ReadResponse }
      * 
      */
-    public Read createRead() {
-        return new Read();
+    public ReadResponse createReadResponse() {
+        return new ReadResponse();
     }
 
     /**
@@ -54,19 +54,99 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ReadResponse }
+     * Create an instance of {@link DeleteDataByNumberResponse }
      * 
      */
-    public ReadResponse createReadResponse() {
-        return new ReadResponse();
+    public DeleteDataByNumberResponse createDeleteDataByNumberResponse() {
+        return new DeleteDataByNumberResponse();
     }
 
     /**
-     * Create an instance of {@link InstanceResponseResponse }
+     * Create an instance of {@link BigFileReceiveResponse }
      * 
      */
-    public InstanceResponseResponse createInstanceResponseResponse() {
-        return new InstanceResponseResponse();
+    public BigFileReceiveResponse createBigFileReceiveResponse() {
+        return new BigFileReceiveResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateDataByNumberResponse }
+     * 
+     */
+    public UpdateDataByNumberResponse createUpdateDataByNumberResponse() {
+        return new UpdateDataByNumberResponse();
+    }
+
+    /**
+     * Create an instance of {@link CreateResponse }
+     * 
+     */
+    public CreateResponse createCreateResponse() {
+        return new CreateResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateDataByNumber }
+     * 
+     */
+    public UpdateDataByNumber createUpdateDataByNumber() {
+        return new UpdateDataByNumber();
+    }
+
+    /**
+     * Create an instance of {@link Update }
+     * 
+     */
+    public Update createUpdate() {
+        return new Update();
+    }
+
+    /**
+     * Create an instance of {@link CreateDataByNumberResponse }
+     * 
+     */
+    public CreateDataByNumberResponse createCreateDataByNumberResponse() {
+        return new CreateDataByNumberResponse();
+    }
+
+    /**
+     * Create an instance of {@link BigFileReceive }
+     * 
+     */
+    public BigFileReceive createBigFileReceive() {
+        return new BigFileReceive();
+    }
+
+    /**
+     * Create an instance of {@link UpdateResponse }
+     * 
+     */
+    public UpdateResponse createUpdateResponse() {
+        return new UpdateResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReadDataByNumberResponse }
+     * 
+     */
+    public ReadDataByNumberResponse createReadDataByNumberResponse() {
+        return new ReadDataByNumberResponse();
+    }
+
+    /**
+     * Create an instance of {@link Delete }
+     * 
+     */
+    public Delete createDelete() {
+        return new Delete();
+    }
+
+    /**
+     * Create an instance of {@link Read }
+     * 
+     */
+    public Read createRead() {
+        return new Read();
     }
 
     /**
@@ -86,35 +166,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdateResponse }
+     * Create an instance of {@link CreateDataByNumber }
      * 
      */
-    public UpdateResponse createUpdateResponse() {
-        return new UpdateResponse();
+    public CreateDataByNumber createCreateDataByNumber() {
+        return new CreateDataByNumber();
     }
 
     /**
-     * Create an instance of {@link CreateResponse }
+     * Create an instance of {@link DeleteDataByNumber }
      * 
      */
-    public CreateResponse createCreateResponse() {
-        return new CreateResponse();
+    public DeleteDataByNumber createDeleteDataByNumber() {
+        return new DeleteDataByNumber();
     }
 
     /**
-     * Create an instance of {@link Delete }
+     * Create an instance of {@link InstanceResponseResponse }
      * 
      */
-    public Delete createDelete() {
-        return new Delete();
+    public InstanceResponseResponse createInstanceResponseResponse() {
+        return new InstanceResponseResponse();
     }
 
     /**
-     * Create an instance of {@link Update }
+     * Create an instance of {@link ReadDataByNumber }
      * 
      */
-    public Update createUpdate() {
-        return new Update();
+    public ReadDataByNumber createReadDataByNumber() {
+        return new ReadDataByNumber();
     }
 
 }

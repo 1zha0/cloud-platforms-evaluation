@@ -1,18 +1,20 @@
 package org.unsw.eva.wsclient;
 
-import java.lang.Thread;
+import org.unsw.eva.threads.EvaluationThread;
+import org.unsw.eva.threads.instanceRespone.AzureInstanceResponeThread;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.unsw.eva.threads.AzureInstanceResponeThread;
 
 /**
  * @author shrimpy
  */
 public class App {
 
+    public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
     private static final Logger log = LoggerFactory.getLogger(App.class);
     private long totalConnectionTime = 0;
     private long totalComputationTime = 0;
@@ -28,18 +30,30 @@ public class App {
         new App();
     }
 
+    private long currentTimeDifference(long startTime) {
+        return (Calendar.getInstance().getTimeInMillis() - startTime) / 1000;
+    }
+
     public App() {
+        testSuit.add(new AzureInstanceResponeThread("AzureInstancResponse", this, SOAPVersion.SOAP_11));
+
+        for (EvaluationThread evaThread : testSuit) {
+            log.info(evaThread.getName() + " is running, please wait for " + SECONDS + " minutes.");
+            runThreads(evaThread);
+        }
+    }
+
+    private void runThreads(EvaluationThread evaThread) {
         List<Thread> threadGroup = new ArrayList<Thread>();
-        long start = Calendar.getInstance().getTimeInMillis();
+        Thread t;
         int numberOfThreads = 0;
 
-        Thread t;
-        int pos = 0;
-        while ((Calendar.getInstance().getTimeInMillis() - start) / 1000 < SECONDS) {
+        long start = Calendar.getInstance().getTimeInMillis();
+        while (currentTimeDifference(start) < SECONDS) {
+
             for (Thread thread : threadGroup.toArray(new Thread[0])) {
                 if (!thread.isAlive()) {
                     threadGroup.remove(thread);
-                    pos--;
                 }
             }
             if (threadGroup.size() >= THREADS) {
@@ -50,13 +64,15 @@ public class App {
                     log.error("Failed to sleep thread in App.", ex);
                 }
             }
-            t = new Thread(new AzureInstanceResponeThread(pos, SOAPVersion.SOAP_11, this));
+            t = new Thread(evaThread);
             threadGroup.add(t);
-            pos++;
             numberOfThreads++;
             t.start();
         }
 
+        /**
+         * Waiting for all the thread finished running.
+         */
         for (Thread thread : threadGroup) {
             if (thread.isAlive()) {
                 try {
@@ -68,12 +84,14 @@ public class App {
             }
         }
 
+        log.debug("====================================================================================================================");
         log.debug(numberOfThreads + " threads in total, " + THREADS + " fired at the same time. Total running time is : " + SECONDS + " seconds.");
         log.debug("Average connection time : " + totalConnectionTime / numberOfThreads +
                 " | Average computation time : " + totalComputationTime / numberOfThreads);
         log.debug("Min connection time : " + minConnectionTime + " | Max connection time : " + maxConnectionTime);
         log.debug("Min computation time : " + minComputationTime + " | Max computation time : " + maxComputationTime);
         log.debug("Error number is : " + errorCounter);
+        log.debug("====================================================================================================================");
     }
 
     public synchronized void addConnectionTime(long i) {
