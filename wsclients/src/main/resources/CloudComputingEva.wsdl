@@ -146,6 +146,36 @@
                     </s:sequence>
                 </s:complexType>
             </s:element>
+            <s:element name="setupDefaultData">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="numberOfEntries" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="offset" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="setupDefaultDataResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="setupDefaultDataResult" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="cleanDefaultData">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="numberOfEntries" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="offset" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="cleanDefaultDataResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="cleanDefaultDataResult" type="s:boolean" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
         </s:schema>
     </wsdl:types>
     <wsdl:message name="InstanceResponseSoapIn">
@@ -208,6 +238,18 @@
     <wsdl:message name="bigFileReceiveSoapOut">
         <wsdl:part name="parameters" element="tns:bigFileReceiveResponse" />
     </wsdl:message>
+    <wsdl:message name="setupDefaultDataSoapIn">
+        <wsdl:part name="parameters" element="tns:setupDefaultData" />
+    </wsdl:message>
+    <wsdl:message name="setupDefaultDataSoapOut">
+        <wsdl:part name="parameters" element="tns:setupDefaultDataResponse" />
+    </wsdl:message>
+    <wsdl:message name="cleanDefaultDataSoapIn">
+        <wsdl:part name="parameters" element="tns:cleanDefaultData" />
+    </wsdl:message>
+    <wsdl:message name="cleanDefaultDataSoapOut">
+        <wsdl:part name="parameters" element="tns:cleanDefaultDataResponse" />
+    </wsdl:message>
     <wsdl:portType name="CloudComputingEvaluationSoap">
         <wsdl:operation name="InstanceResponse">
             <wsdl:input message="tns:InstanceResponseSoapIn" />
@@ -248,6 +290,14 @@
         <wsdl:operation name="bigFileReceive">
             <wsdl:input message="tns:bigFileReceiveSoapIn" />
             <wsdl:output message="tns:bigFileReceiveSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="setupDefaultData">
+            <wsdl:input message="tns:setupDefaultDataSoapIn" />
+            <wsdl:output message="tns:setupDefaultDataSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="cleanDefaultData">
+            <wsdl:input message="tns:cleanDefaultDataSoapIn" />
+            <wsdl:output message="tns:cleanDefaultDataSoapOut" />
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="CloudComputingEvaluationSoap" type="tns:CloudComputingEvaluationSoap">
@@ -342,6 +392,24 @@
                 <soap:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
+        <wsdl:operation name="setupDefaultData">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/setupDefaultData" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cleanDefaultData">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/cleanDefaultData" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
     </wsdl:binding>
     <wsdl:binding name="CloudComputingEvaluationSoap12" type="tns:CloudComputingEvaluationSoap">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -428,6 +496,24 @@
         </wsdl:operation>
         <wsdl:operation name="bigFileReceive">
             <soap12:operation soapAction="http://cloudComputingEvaluation.org/bigFileReceive" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setupDefaultData">
+            <soap12:operation soapAction="http://cloudComputingEvaluation.org/setupDefaultData" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cleanDefaultData">
+            <soap12:operation soapAction="http://cloudComputingEvaluation.org/cleanDefaultData" style="document" />
             <wsdl:input>
                 <soap12:body use="literal" />
             </wsdl:input>
