@@ -37,11 +37,11 @@ public class App {
     }
 
     public App() {
-//        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse 1.1", this, SOAPVersion.SOAP_11));
-//        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse 1.2", this, SOAPVersion.SOAP_12));
+        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse 1.1", this, SOAPVersion.SOAP_11));
+        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse 1.2", this, SOAPVersion.SOAP_12));
         testSuit.add(new AzureCreateTests("AzureCreate 1.1", this, SOAPVersion.SOAP_11));
-//        testSuit.add(new AzureCreateTests("AzureCreate 1.2", this, SOAPVersion.SOAP_12));
-//        testSuit.add(new AppEngineInstanceResponseTests("AppEngineInstanceResponse", this, SOAPVersion.SOAP_11));
+        testSuit.add(new AzureCreateTests("AzureCreate 1.2", this, SOAPVersion.SOAP_12));
+        testSuit.add(new AppEngineInstanceResponseTests("AppEngineInstanceResponse", this, SOAPVersion.SOAP_11));
 
         for (EvaluationThread evaThread : testSuit) {
             log.info(evaThread.getName() + " is running, please wait for " + SECONDS + " seconds.");
