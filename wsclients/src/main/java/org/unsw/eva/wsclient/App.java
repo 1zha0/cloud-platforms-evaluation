@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.threads.instanceRespone.AppEngineInstanceResponseTests;
 
 /**
  * @author shrimpy
@@ -23,8 +24,8 @@ public class App {
     private long minComputationTime = 0;
     private long maxComputationTime = 0;
     private long errorCounter = 0;
-    private static int THREADS = 100;
-    private static int SECONDS = 30;
+    private static int THREADS = 800;
+    private static int SECONDS = 60;
 
     public static void main(String[] args) {
         new App();
@@ -36,9 +37,11 @@ public class App {
 
     public App() {
         testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse", this, SOAPVersion.SOAP_11));
+        testSuit.add(new AppEngineInstanceResponseTests("AppEngineInstanceResponse", this, SOAPVersion.SOAP_11));
 
         for (EvaluationThread evaThread : testSuit) {
-            log.info(evaThread.getName() + " is running, please wait for " + SECONDS + " minutes.");
+            log.info(evaThread.getName() + " is running, please wait for " + SECONDS + " seconds.");
+            reset();
             runThreads(evaThread);
         }
     }
@@ -48,50 +51,56 @@ public class App {
         Thread t;
         int numberOfThreads = 0;
 
-        long start = Calendar.getInstance().getTimeInMillis();
-        while (currentTimeDifference(start) < SECONDS) {
+        try {
 
-            for (Thread thread : threadGroup.toArray(new Thread[0])) {
-                if (!thread.isAlive()) {
-                    threadGroup.remove(thread);
+            long start = Calendar.getInstance().getTimeInMillis();
+            while (currentTimeDifference(start) < SECONDS) {
+
+                for (Thread thread : threadGroup.toArray(new Thread[0])) {
+                    if (!thread.isAlive()) {
+                        threadGroup.remove(thread);
+                    }
+                }
+                if (threadGroup.size() >= THREADS) {
+                    try {
+                        Thread.sleep(100);
+                        continue;
+                    } catch (InterruptedException ex) {
+                        log.error("Failed to sleep thread in App.", ex);
+                    }
+                }
+                t = new Thread(evaThread);
+                threadGroup.add(t);
+                numberOfThreads++;
+                t.start();
+            }
+
+            /**
+             * Waiting for all the thread finished running.
+             */
+            for (Thread thread : threadGroup) {
+                if (thread.isAlive()) {
+                    try {
+                        Thread.sleep(500);
+                        continue;
+                    } catch (InterruptedException ex) {
+                        log.error("Failed to sleep thread in App.", ex);
+                    }
                 }
             }
-            if (threadGroup.size() >= THREADS) {
-                try {
-                    Thread.sleep(100);
-                    continue;
-                } catch (InterruptedException ex) {
-                    log.error("Failed to sleep thread in App.", ex);
-                }
-            }
-            t = new Thread(evaThread);
-            threadGroup.add(t);
-            numberOfThreads++;
-            t.start();
+        } catch (Exception e) {
+        } finally {
+
+            log.debug("====================================================================================================================");
+            log.debug(numberOfThreads + " threads in total, " + THREADS + " fired at the same time. Total running time is : " + SECONDS + " seconds.");
+            log.debug("Average threads per second : " + numberOfThreads / SECONDS);
+            log.debug("Average connection time : " + totalConnectionTime / numberOfThreads +
+                    " | Average computation time : " + totalComputationTime / numberOfThreads);
+            log.debug("Min connection time : " + minConnectionTime + " | Max connection time : " + maxConnectionTime);
+            log.debug("Min computation time : " + minComputationTime + " | Max computation time : " + maxComputationTime);
+            log.debug("Error number is : " + errorCounter);
+            log.debug("====================================================================================================================");
         }
-
-        /**
-         * Waiting for all the thread finished running.
-         */
-        for (Thread thread : threadGroup) {
-            if (thread.isAlive()) {
-                try {
-                    Thread.sleep(500);
-                    continue;
-                } catch (InterruptedException ex) {
-                    log.error("Failed to sleep thread in App.", ex);
-                }
-            }
-        }
-
-        log.debug("====================================================================================================================");
-        log.debug(numberOfThreads + " threads in total, " + THREADS + " fired at the same time. Total running time is : " + SECONDS + " seconds.");
-        log.debug("Average connection time : " + totalConnectionTime / numberOfThreads +
-                " | Average computation time : " + totalComputationTime / numberOfThreads);
-        log.debug("Min connection time : " + minConnectionTime + " | Max connection time : " + maxConnectionTime);
-        log.debug("Min computation time : " + minComputationTime + " | Max computation time : " + maxComputationTime);
-        log.debug("Error number is : " + errorCounter);
-        log.debug("====================================================================================================================");
     }
 
     public synchronized void addConnectionTime(long i) {
@@ -132,5 +141,15 @@ public class App {
 
     public synchronized void errorOccured() {
         errorCounter++;
+    }
+
+    private void reset() {
+        totalConnectionTime = 0;
+        totalComputationTime = 0;
+        minConnectionTime = 0;
+        maxConnectionTime = 0;
+        minComputationTime = 0;
+        maxComputationTime = 0;
+        errorCounter = 0;
     }
 }

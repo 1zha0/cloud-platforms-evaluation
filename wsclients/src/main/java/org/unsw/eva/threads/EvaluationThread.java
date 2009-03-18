@@ -33,16 +33,20 @@ public abstract class EvaluationThread implements Runnable {
     public void run() {
         long start = Calendar.getInstance().getTimeInMillis();
 
-        if (SOAPVersion.SOAP_11.equals(version)) {
-            result = doSOAP11Call();
-        } else if (SOAPVersion.SOAP_12.equals(version)) {
-            result = doSOAP12Call();
-        } else {
-            throw new UnsupportError("Unsupported SOAP Version : '" + version + "'");
-        }
-        app.addConnectionTime(Calendar.getInstance().getTimeInMillis() - start);
-        app.addComputationTime(result.getTimer());
-        if (hasError()) {
+        try {
+            if (SOAPVersion.SOAP_11.equals(version)) {
+                result = doSOAP11Call();
+            } else if (SOAPVersion.SOAP_12.equals(version)) {
+                result = doSOAP12Call();
+            } else {
+                throw new UnsupportError("Unsupported SOAP Version : '" + version + "'");
+            }
+            app.addConnectionTime(Calendar.getInstance().getTimeInMillis() - start);
+            app.addComputationTime(result.getTimer());
+            if (hasError()) {
+                app.errorOccured();
+            }
+        } catch (Exception e) {
             app.errorOccured();
         }
     }
