@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.threads.create.AzureCreateTests;
 import org.unsw.eva.threads.instanceRespone.AppEngineInstanceResponseTests;
 
 /**
@@ -24,8 +25,8 @@ public class App {
     private long minComputationTime = 0;
     private long maxComputationTime = 0;
     private long errorCounter = 0;
-    private static int THREADS = 800;
-    private static int SECONDS = 60;
+    private static int THREADS = 100;
+    private static int SECONDS = 30;
 
     public static void main(String[] args) {
         new App();
@@ -36,8 +37,11 @@ public class App {
     }
 
     public App() {
-        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse", this, SOAPVersion.SOAP_11));
-        testSuit.add(new AppEngineInstanceResponseTests("AppEngineInstanceResponse", this, SOAPVersion.SOAP_11));
+//        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse 1.1", this, SOAPVersion.SOAP_11));
+//        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse 1.2", this, SOAPVersion.SOAP_12));
+        testSuit.add(new AzureCreateTests("AzureCreate 1.1", this, SOAPVersion.SOAP_11));
+//        testSuit.add(new AzureCreateTests("AzureCreate 1.2", this, SOAPVersion.SOAP_12));
+//        testSuit.add(new AppEngineInstanceResponseTests("AppEngineInstanceResponse", this, SOAPVersion.SOAP_11));
 
         for (EvaluationThread evaThread : testSuit) {
             log.info(evaThread.getName() + " is running, please wait for " + SECONDS + " seconds.");
@@ -92,6 +96,7 @@ public class App {
         } finally {
 
             log.debug("====================================================================================================================");
+            log.debug("SOAP protocal : " + evaThread.getVersion().getValue());
             log.debug(numberOfThreads + " threads in total, " + THREADS + " fired at the same time. Total running time is : " + SECONDS + " seconds.");
             log.debug("Average threads per second : " + numberOfThreads / SECONDS);
             log.debug("Average connection time : " + totalConnectionTime / numberOfThreads +
