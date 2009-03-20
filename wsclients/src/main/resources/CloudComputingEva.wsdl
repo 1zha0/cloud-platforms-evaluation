@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions name="CloudComputingEvaluation" targetNamespace="http://cloudComputingEvaluation.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://cloudComputingEvaluation.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+<wsdl:definitions name="CloudComputingEvaluation" targetNamespace="http://cloudComputingEvaluation.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://cloudComputingEvaluation.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
     <wsdl:types>
         <xsd:schema elementFormDefault="qualified" targetNamespace="http://cloudComputingEvaluation.org/">
             <xsd:element name="InstanceResponse">
@@ -25,13 +25,9 @@
             </xsd:complexType>
             <xsd:element name="Result" nillable="true" type="tns:Result"/>
             <xsd:complexType name="CloudComputatonEvaluationException">
-                <xsd:complexContent mixed="false">
-                    <xsd:extension base="q1:Error" xmlns:q1="http://schemas.microsoft.com/sitka/2008/03/">
-                        <xsd:sequence>
-                            <xsd:element minOccurs="0" name="Reason" nillable="true" type="xsd:string"/>
-                        </xsd:sequence>
-                    </xsd:extension>
-                </xsd:complexContent>
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="Reason" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="CloudComputatonEvaluationException" nillable="true" type="tns:CloudComputatonEvaluationException"/>
             <xsd:element name="Create">
@@ -189,168 +185,6 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-        </xsd:schema>
-        <xsd:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/sitka/2008/03/" xmlns:tns="http://schemas.microsoft.com/sitka/2008/03/">
-            <xsd:complexType name="Error">
-                <xsd:sequence>
-                    <xsd:element minOccurs="0" name="Message" nillable="true" type="xsd:string"/>
-                    <xsd:element minOccurs="0" name="StatusCode" type="tns:ErrorCodes"/>
-                </xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="Error" nillable="true" type="tns:Error"/>
-            <xsd:simpleType name="ErrorCodes">
-                <xsd:restriction base="xsd:string">
-                    <xsd:enumeration value="Success"/>
-                    <xsd:enumeration value="EntityNotFound">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1001</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="EntityExists">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1002</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="InvalidEntity">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1003</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="EntityNotModified">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1004</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="InvalidContainerSpecification">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2001</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="UnableToCreateDnsRecord">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3001</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="UnableToRemoveDnsRecord">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3002</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="NoAuthoritySpecified">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3003</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="InvalidContainerQueryRequest">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4001</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="InvalidQueryDefinition">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4002</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="ServiceNotAvailable">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5001</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="OperationTimeout">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5002</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="InvalidRequest">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6001</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="InvalidScope">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6002</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="PreconditionFailed">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6003</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="ContentMatchFailed">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6004</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="SecurityError">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7001</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="InvalidUserId">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7002</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="UnknownError">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8001</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="UnexpectedError">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8002</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                    <xsd:enumeration value="ConcurrencyConflictError">
-                        <xsd:annotation>
-                            <xsd:appinfo>
-                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8003</EnumerationValue>
-                            </xsd:appinfo>
-                        </xsd:annotation>
-                    </xsd:enumeration>
-                </xsd:restriction>
-            </xsd:simpleType>
-            <xsd:element name="ErrorCodes" nillable="true" type="tns:ErrorCodes"/>
         </xsd:schema>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
             <xs:element name="anyType" nillable="true" type="xs:anyType"/>
@@ -713,9 +547,10 @@
     </wsdl:binding>
     <wsdl:service name="CloudComputingEvaluation">
         <wsdl:port name="BasicHttpBinding_ICloudComputingEvaluation" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://localhost:49314/CloudComputingEvaluation.svc"/>
+            <soap:address location="http://rd00155d305aab:20000/CloudComputingEvaluation.svc"/>
         </wsdl:port>
     </wsdl:service>
+
     <wsdl:service name="CloudComputingEvaluation">
         <wsdl:port name="AzureEvaluationSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
             <soap:address location="http://azureva.cloudapp.net/CloudComputingEvaluation.svc" />
