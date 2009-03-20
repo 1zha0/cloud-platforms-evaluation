@@ -14,7 +14,9 @@ public class ResourceUtil {
         sb.append("( id : ");
         sb.append(result.getId());
         sb.append(" | value : ");
-        sb.append(result.getValue().length() > 10 ? result.getValue().substring(0, 8) + "..." : result.getValue());
+        sb.append(result.getValue().getValue().length() > 10
+                ? result.getValue().getValue().substring(0, 8) + "..."
+                : result.getValue().getValue());
         sb.append(" | timer : ");
         sb.append(result.getTimer());
         sb.append(" )");

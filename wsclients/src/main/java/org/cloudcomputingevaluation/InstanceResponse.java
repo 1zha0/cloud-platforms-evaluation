@@ -1,8 +1,10 @@
 
 package org.cloudcomputingevaluation;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -17,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="yourNamePlz" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,35 +30,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "yourNamePlz"
+    "message"
 })
 @XmlRootElement(name = "InstanceResponse")
 public class InstanceResponse {
 
-    protected String yourNamePlz;
+    @XmlElementRef(name = "message", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<String> message;
 
     /**
-     * Gets the value of the yourNamePlz property.
+     * Gets the value of the message property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
      *     
      */
-    public String getYourNamePlz() {
-        return yourNamePlz;
+    public JAXBElement<String> getMessage() {
+        return message;
     }
 
     /**
-     * Sets the value of the yourNamePlz property.
+     * Sets the value of the message property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
      *     
      */
-    public void setYourNamePlz(String value) {
-        this.yourNamePlz = value;
+    public void setMessage(JAXBElement<String> value) {
+        this.message = ((JAXBElement<String> ) value);
     }
 
 }

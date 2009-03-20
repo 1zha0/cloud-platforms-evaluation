@@ -1,8 +1,10 @@
 
 package org.cloudcomputingevaluation;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -17,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="deleteResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
+ *         &lt;element name="DeleteResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,20 +32,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "deleteResult"
 })
-@XmlRootElement(name = "deleteResponse")
+@XmlRootElement(name = "DeleteResponse")
 public class DeleteResponse {
 
-    protected Result deleteResult;
+    @XmlElementRef(name = "DeleteResult", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<Result> deleteResult;
 
     /**
      * Gets the value of the deleteResult property.
      * 
      * @return
      *     possible object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public Result getDeleteResult() {
+    public JAXBElement<Result> getDeleteResult() {
         return deleteResult;
     }
 
@@ -52,11 +55,11 @@ public class DeleteResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public void setDeleteResult(Result value) {
-        this.deleteResult = value;
+    public void setDeleteResult(JAXBElement<Result> value) {
+        this.deleteResult = ((JAXBElement<Result> ) value);
     }
 
 }

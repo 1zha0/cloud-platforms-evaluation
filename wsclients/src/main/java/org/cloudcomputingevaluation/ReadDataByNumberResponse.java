@@ -1,8 +1,10 @@
 
 package org.cloudcomputingevaluation;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -17,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="readDataByNumberResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
+ *         &lt;element name="ReadDataByNumberResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,20 +32,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "readDataByNumberResult"
 })
-@XmlRootElement(name = "readDataByNumberResponse")
+@XmlRootElement(name = "ReadDataByNumberResponse")
 public class ReadDataByNumberResponse {
 
-    protected Result readDataByNumberResult;
+    @XmlElementRef(name = "ReadDataByNumberResult", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<Result> readDataByNumberResult;
 
     /**
      * Gets the value of the readDataByNumberResult property.
      * 
      * @return
      *     possible object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public Result getReadDataByNumberResult() {
+    public JAXBElement<Result> getReadDataByNumberResult() {
         return readDataByNumberResult;
     }
 
@@ -52,11 +55,11 @@ public class ReadDataByNumberResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public void setReadDataByNumberResult(Result value) {
-        this.readDataByNumberResult = value;
+    public void setReadDataByNumberResult(JAXBElement<Result> value) {
+        this.readDataByNumberResult = ((JAXBElement<Result> ) value);
     }
 
 }

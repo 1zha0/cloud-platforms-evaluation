@@ -1,8 +1,10 @@
 
 package org.cloudcomputingevaluation;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -17,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="updateDataByNumberResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
+ *         &lt;element name="UpdateDataByNumberResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,20 +32,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "updateDataByNumberResult"
 })
-@XmlRootElement(name = "updateDataByNumberResponse")
+@XmlRootElement(name = "UpdateDataByNumberResponse")
 public class UpdateDataByNumberResponse {
 
-    protected Result updateDataByNumberResult;
+    @XmlElementRef(name = "UpdateDataByNumberResult", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<Result> updateDataByNumberResult;
 
     /**
      * Gets the value of the updateDataByNumberResult property.
      * 
      * @return
      *     possible object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public Result getUpdateDataByNumberResult() {
+    public JAXBElement<Result> getUpdateDataByNumberResult() {
         return updateDataByNumberResult;
     }
 
@@ -52,11 +55,11 @@ public class UpdateDataByNumberResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public void setUpdateDataByNumberResult(Result value) {
-        this.updateDataByNumberResult = value;
+    public void setUpdateDataByNumberResult(JAXBElement<Result> value) {
+        this.updateDataByNumberResult = ((JAXBElement<Result> ) value);
     }
 
 }

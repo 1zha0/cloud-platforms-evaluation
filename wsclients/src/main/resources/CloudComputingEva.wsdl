@@ -1,538 +1,729 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://cloudComputingEvaluation.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://cloudComputingEvaluation.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions name="CloudComputingEvaluation" targetNamespace="http://cloudComputingEvaluation.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://cloudComputingEvaluation.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
     <wsdl:types>
-        <s:schema elementFormDefault="qualified" targetNamespace="http://cloudComputingEvaluation.org/">
-            <s:element name="InstanceResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="yourNamePlz" type="s:string" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="InstanceResponseResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="InstanceResponseResult" type="tns:Result" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:complexType name="Result">
-                <s:sequence>
-                    <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
-                    <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
-                    <s:element minOccurs="1" maxOccurs="1" name="timer" type="s:long" />
-                </s:sequence>
-            </s:complexType>
-            <s:element name="create">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="createResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="createResult" type="tns:Result" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="read">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="readResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="readResult" type="tns:Result" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="update">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="oldValue" type="s:string" />
-                        <s:element minOccurs="0" maxOccurs="1" name="newValue" type="s:string" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="updateResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="updateResult" type="tns:Result" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="delete">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="deleteResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="deleteResult" type="tns:Result" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="createDataByNumber">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="createDataByNumberResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="createDataByNumberResult" type="tns:Result" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="readDataByNumber">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="readDataByNumberResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="readDataByNumberResult" type="tns:Result" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="updateDataByNumber">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="updateDataByNumberResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="updateDataByNumberResult" type="tns:Result" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="deleteDataByNumber">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="deleteDataByNumberResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="deleteDataByNumberResult" type="tns:Result" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="bigFileReceive">
-                <s:complexType />
-            </s:element>
-            <s:element name="bigFileReceiveResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="0" maxOccurs="1" name="bigFileReceiveResult" type="tns:Result" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="setupDefaultData">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="numberOfEntries" type="s:int" />
-                        <s:element minOccurs="1" maxOccurs="1" name="offset" type="s:int" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="setupDefaultDataResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="setupDefaultDataResult" type="s:int" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="cleanDefaultData">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="numberOfEntries" type="s:int" />
-                        <s:element minOccurs="1" maxOccurs="1" name="offset" type="s:int" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-            <s:element name="cleanDefaultDataResponse">
-                <s:complexType>
-                    <s:sequence>
-                        <s:element minOccurs="1" maxOccurs="1" name="cleanDefaultDataResult" type="s:boolean" />
-                    </s:sequence>
-                </s:complexType>
-            </s:element>
-        </s:schema>
+        <xsd:schema elementFormDefault="qualified" targetNamespace="http://cloudComputingEvaluation.org/">
+            <xsd:element name="InstanceResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="InstanceResponseResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="InstanceResponseResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="Result">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="Id" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="Timer" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="Value" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="Result" nillable="true" type="tns:Result"/>
+            <xsd:complexType name="CloudComputatonEvaluationException">
+                <xsd:complexContent mixed="false">
+                    <xsd:extension base="q1:Error" xmlns:q1="http://schemas.microsoft.com/sitka/2008/03/">
+                        <xsd:sequence>
+                            <xsd:element minOccurs="0" name="Reason" nillable="true" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:element name="CloudComputatonEvaluationException" nillable="true" type="tns:CloudComputatonEvaluationException"/>
+            <xsd:element name="Create">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="content" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CreateResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="CreateResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Read">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="content" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ReadResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="ReadResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Update">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="oldValue" nillable="true" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="newValue" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UpdateResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="UpdateResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Delete">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="content" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DeleteResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="DeleteResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CreateDataByNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="count" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CreateDataByNumberResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="CreateDataByNumberResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ReadDataByNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="count" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ReadDataByNumberResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="ReadDataByNumberResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UpdateDataByNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="count" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UpdateDataByNumberResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="UpdateDataByNumberResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DeleteDataByNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="count" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DeleteDataByNumberResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="DeleteDataByNumberResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BigFileReceive">
+                <xsd:complexType>
+                    <xsd:sequence/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BigFileReceiveResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="BigFileReceiveResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="SetupDefaultData">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="numberOfEntries" type="xsd:int"/>
+                        <xsd:element minOccurs="0" name="offset" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="SetupDefaultDataResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="SetupDefaultDataResult" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CleanDefaultData">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="numberOfEntries" type="xsd:int"/>
+                        <xsd:element minOccurs="0" name="offset" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="CleanDefaultDataResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="CleanDefaultDataResult" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+        <xsd:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/sitka/2008/03/" xmlns:tns="http://schemas.microsoft.com/sitka/2008/03/">
+            <xsd:complexType name="Error">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="Message" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="StatusCode" type="tns:ErrorCodes"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="Error" nillable="true" type="tns:Error"/>
+            <xsd:simpleType name="ErrorCodes">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Success"/>
+                    <xsd:enumeration value="EntityNotFound">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1001</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="EntityExists">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1002</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="InvalidEntity">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1003</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="EntityNotModified">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1004</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="InvalidContainerSpecification">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2001</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="UnableToCreateDnsRecord">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3001</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="UnableToRemoveDnsRecord">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3002</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="NoAuthoritySpecified">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3003</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="InvalidContainerQueryRequest">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4001</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="InvalidQueryDefinition">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4002</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="ServiceNotAvailable">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5001</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="OperationTimeout">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5002</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="InvalidRequest">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6001</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="InvalidScope">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6002</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="PreconditionFailed">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6003</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="ContentMatchFailed">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6004</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="SecurityError">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7001</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="InvalidUserId">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7002</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="UnknownError">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8001</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="UnexpectedError">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8002</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="ConcurrencyConflictError">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8003</EnumerationValue>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:element name="ErrorCodes" nillable="true" type="tns:ErrorCodes"/>
+        </xsd:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+            <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+            <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+            <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+            <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+            <xs:element name="byte" nillable="true" type="xs:byte"/>
+            <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+            <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+            <xs:element name="double" nillable="true" type="xs:double"/>
+            <xs:element name="float" nillable="true" type="xs:float"/>
+            <xs:element name="int" nillable="true" type="xs:int"/>
+            <xs:element name="long" nillable="true" type="xs:long"/>
+            <xs:element name="QName" nillable="true" type="xs:QName"/>
+            <xs:element name="short" nillable="true" type="xs:short"/>
+            <xs:element name="string" nillable="true" type="xs:string"/>
+            <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+            <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+            <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+            <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+            <xs:element name="char" nillable="true" type="tns:char"/>
+            <xs:simpleType name="char">
+                <xs:restriction base="xs:int"/>
+            </xs:simpleType>
+            <xs:element name="duration" nillable="true" type="tns:duration"/>
+            <xs:simpleType name="duration">
+                <xs:restriction base="xs:duration">
+                    <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+                    <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+                    <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="guid" nillable="true" type="tns:guid"/>
+            <xs:simpleType name="guid">
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:attribute name="FactoryType" type="xs:QName"/>
+            <xs:attribute name="Id" type="xs:ID"/>
+            <xs:attribute name="Ref" type="xs:IDREF"/>
+        </xs:schema>
     </wsdl:types>
-    <wsdl:message name="InstanceResponseSoapIn">
-        <wsdl:part name="parameters" element="tns:InstanceResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_InstanceResponse_InputMessage">
+        <wsdl:part name="parameters" element="tns:InstanceResponse"/>
     </wsdl:message>
-    <wsdl:message name="InstanceResponseSoapOut">
-        <wsdl:part name="parameters" element="tns:InstanceResponseResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_InstanceResponse_OutputMessage">
+        <wsdl:part name="parameters" element="tns:InstanceResponseResponse"/>
     </wsdl:message>
-    <wsdl:message name="createSoapIn">
-        <wsdl:part name="parameters" element="tns:create" />
+    <wsdl:message name="ICloudComputingEvaluation_InstanceResponse_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
-    <wsdl:message name="createSoapOut">
-        <wsdl:part name="parameters" element="tns:createResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_Create_InputMessage">
+        <wsdl:part name="parameters" element="tns:Create"/>
     </wsdl:message>
-    <wsdl:message name="readSoapIn">
-        <wsdl:part name="parameters" element="tns:read" />
+    <wsdl:message name="ICloudComputingEvaluation_Create_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CreateResponse"/>
     </wsdl:message>
-    <wsdl:message name="readSoapOut">
-        <wsdl:part name="parameters" element="tns:readResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_Create_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
-    <wsdl:message name="updateSoapIn">
-        <wsdl:part name="parameters" element="tns:update" />
+    <wsdl:message name="ICloudComputingEvaluation_Read_InputMessage">
+        <wsdl:part name="parameters" element="tns:Read"/>
     </wsdl:message>
-    <wsdl:message name="updateSoapOut">
-        <wsdl:part name="parameters" element="tns:updateResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_Read_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ReadResponse"/>
     </wsdl:message>
-    <wsdl:message name="deleteSoapIn">
-        <wsdl:part name="parameters" element="tns:delete" />
+    <wsdl:message name="ICloudComputingEvaluation_Read_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
-    <wsdl:message name="deleteSoapOut">
-        <wsdl:part name="parameters" element="tns:deleteResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_Update_InputMessage">
+        <wsdl:part name="parameters" element="tns:Update"/>
     </wsdl:message>
-    <wsdl:message name="createDataByNumberSoapIn">
-        <wsdl:part name="parameters" element="tns:createDataByNumber" />
+    <wsdl:message name="ICloudComputingEvaluation_Update_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateResponse"/>
     </wsdl:message>
-    <wsdl:message name="createDataByNumberSoapOut">
-        <wsdl:part name="parameters" element="tns:createDataByNumberResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_Update_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
-    <wsdl:message name="readDataByNumberSoapIn">
-        <wsdl:part name="parameters" element="tns:readDataByNumber" />
+    <wsdl:message name="ICloudComputingEvaluation_Delete_InputMessage">
+        <wsdl:part name="parameters" element="tns:Delete"/>
     </wsdl:message>
-    <wsdl:message name="readDataByNumberSoapOut">
-        <wsdl:part name="parameters" element="tns:readDataByNumberResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_Delete_OutputMessage">
+        <wsdl:part name="parameters" element="tns:DeleteResponse"/>
     </wsdl:message>
-    <wsdl:message name="updateDataByNumberSoapIn">
-        <wsdl:part name="parameters" element="tns:updateDataByNumber" />
+    <wsdl:message name="ICloudComputingEvaluation_Delete_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
-    <wsdl:message name="updateDataByNumberSoapOut">
-        <wsdl:part name="parameters" element="tns:updateDataByNumberResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_CreateDataByNumber_InputMessage">
+        <wsdl:part name="parameters" element="tns:CreateDataByNumber"/>
     </wsdl:message>
-    <wsdl:message name="deleteDataByNumberSoapIn">
-        <wsdl:part name="parameters" element="tns:deleteDataByNumber" />
+    <wsdl:message name="ICloudComputingEvaluation_CreateDataByNumber_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CreateDataByNumberResponse"/>
     </wsdl:message>
-    <wsdl:message name="deleteDataByNumberSoapOut">
-        <wsdl:part name="parameters" element="tns:deleteDataByNumberResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_CreateDataByNumber_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
-    <wsdl:message name="bigFileReceiveSoapIn">
-        <wsdl:part name="parameters" element="tns:bigFileReceive" />
+    <wsdl:message name="ICloudComputingEvaluation_ReadDataByNumber_InputMessage">
+        <wsdl:part name="parameters" element="tns:ReadDataByNumber"/>
     </wsdl:message>
-    <wsdl:message name="bigFileReceiveSoapOut">
-        <wsdl:part name="parameters" element="tns:bigFileReceiveResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_ReadDataByNumber_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ReadDataByNumberResponse"/>
     </wsdl:message>
-    <wsdl:message name="setupDefaultDataSoapIn">
-        <wsdl:part name="parameters" element="tns:setupDefaultData" />
+    <wsdl:message name="ICloudComputingEvaluation_ReadDataByNumber_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
-    <wsdl:message name="setupDefaultDataSoapOut">
-        <wsdl:part name="parameters" element="tns:setupDefaultDataResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_UpdateDataByNumber_InputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateDataByNumber"/>
     </wsdl:message>
-    <wsdl:message name="cleanDefaultDataSoapIn">
-        <wsdl:part name="parameters" element="tns:cleanDefaultData" />
+    <wsdl:message name="ICloudComputingEvaluation_UpdateDataByNumber_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateDataByNumberResponse"/>
     </wsdl:message>
-    <wsdl:message name="cleanDefaultDataSoapOut">
-        <wsdl:part name="parameters" element="tns:cleanDefaultDataResponse" />
+    <wsdl:message name="ICloudComputingEvaluation_UpdateDataByNumber_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
-    <wsdl:portType name="CloudComputingEvaluationSoap">
+    <wsdl:message name="ICloudComputingEvaluation_DeleteDataByNumber_InputMessage">
+        <wsdl:part name="parameters" element="tns:DeleteDataByNumber"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_DeleteDataByNumber_OutputMessage">
+        <wsdl:part name="parameters" element="tns:DeleteDataByNumberResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_DeleteDataByNumber_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_BigFileReceive_InputMessage">
+        <wsdl:part name="parameters" element="tns:BigFileReceive"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_BigFileReceive_OutputMessage">
+        <wsdl:part name="parameters" element="tns:BigFileReceiveResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_BigFileReceive_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_SetupDefaultData_InputMessage">
+        <wsdl:part name="parameters" element="tns:SetupDefaultData"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_SetupDefaultData_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SetupDefaultDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_SetupDefaultData_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_CleanDefaultData_InputMessage">
+        <wsdl:part name="parameters" element="tns:CleanDefaultData"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_CleanDefaultData_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CleanDefaultDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_CleanDefaultData_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
+    </wsdl:message>
+    <wsdl:portType name="ICloudComputingEvaluation">
         <wsdl:operation name="InstanceResponse">
-            <wsdl:input message="tns:InstanceResponseSoapIn" />
-            <wsdl:output message="tns:InstanceResponseSoapOut" />
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/InstanceResponse" message="tns:ICloudComputingEvaluation_InstanceResponse_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/InstanceResponseResponse" message="tns:ICloudComputingEvaluation_InstanceResponse_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/InstanceResponseCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_InstanceResponse_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="create">
-            <wsdl:input message="tns:createSoapIn" />
-            <wsdl:output message="tns:createSoapOut" />
+        <wsdl:operation name="Create">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/Create" message="tns:ICloudComputingEvaluation_Create_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/CreateResponse" message="tns:ICloudComputingEvaluation_Create_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/CreateCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_Create_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="read">
-            <wsdl:input message="tns:readSoapIn" />
-            <wsdl:output message="tns:readSoapOut" />
+        <wsdl:operation name="Read">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/Read" message="tns:ICloudComputingEvaluation_Read_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/ReadResponse" message="tns:ICloudComputingEvaluation_Read_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/ReadCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_Read_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="update">
-            <wsdl:input message="tns:updateSoapIn" />
-            <wsdl:output message="tns:updateSoapOut" />
+        <wsdl:operation name="Update">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/Update" message="tns:ICloudComputingEvaluation_Update_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/UpdateResponse" message="tns:ICloudComputingEvaluation_Update_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/UpdateCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_Update_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="delete">
-            <wsdl:input message="tns:deleteSoapIn" />
-            <wsdl:output message="tns:deleteSoapOut" />
+        <wsdl:operation name="Delete">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/Delete" message="tns:ICloudComputingEvaluation_Delete_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/DeleteResponse" message="tns:ICloudComputingEvaluation_Delete_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/DeleteCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_Delete_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="createDataByNumber">
-            <wsdl:input message="tns:createDataByNumberSoapIn" />
-            <wsdl:output message="tns:createDataByNumberSoapOut" />
+        <wsdl:operation name="CreateDataByNumber">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/CreateDataByNumber" message="tns:ICloudComputingEvaluation_CreateDataByNumber_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/CreateDataByNumberResponse" message="tns:ICloudComputingEvaluation_CreateDataByNumber_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/CreateDataByNumberCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_CreateDataByNumber_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="readDataByNumber">
-            <wsdl:input message="tns:readDataByNumberSoapIn" />
-            <wsdl:output message="tns:readDataByNumberSoapOut" />
+        <wsdl:operation name="ReadDataByNumber">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/ReadDataByNumber" message="tns:ICloudComputingEvaluation_ReadDataByNumber_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/ReadDataByNumberResponse" message="tns:ICloudComputingEvaluation_ReadDataByNumber_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/ReadDataByNumberCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_ReadDataByNumber_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="updateDataByNumber">
-            <wsdl:input message="tns:updateDataByNumberSoapIn" />
-            <wsdl:output message="tns:updateDataByNumberSoapOut" />
+        <wsdl:operation name="UpdateDataByNumber">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/UpdateDataByNumber" message="tns:ICloudComputingEvaluation_UpdateDataByNumber_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/UpdateDataByNumberResponse" message="tns:ICloudComputingEvaluation_UpdateDataByNumber_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/UpdateDataByNumberCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_UpdateDataByNumber_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="deleteDataByNumber">
-            <wsdl:input message="tns:deleteDataByNumberSoapIn" />
-            <wsdl:output message="tns:deleteDataByNumberSoapOut" />
+        <wsdl:operation name="DeleteDataByNumber">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/DeleteDataByNumber" message="tns:ICloudComputingEvaluation_DeleteDataByNumber_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/DeleteDataByNumberResponse" message="tns:ICloudComputingEvaluation_DeleteDataByNumber_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/DeleteDataByNumberCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_DeleteDataByNumber_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="bigFileReceive">
-            <wsdl:input message="tns:bigFileReceiveSoapIn" />
-            <wsdl:output message="tns:bigFileReceiveSoapOut" />
+        <wsdl:operation name="BigFileReceive">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/BigFileReceive" message="tns:ICloudComputingEvaluation_BigFileReceive_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BigFileReceiveResponse" message="tns:ICloudComputingEvaluation_BigFileReceive_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BigFileReceiveCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_BigFileReceive_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="setupDefaultData">
-            <wsdl:input message="tns:setupDefaultDataSoapIn" />
-            <wsdl:output message="tns:setupDefaultDataSoapOut" />
+        <wsdl:operation name="SetupDefaultData">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/SetupDefaultData" message="tns:ICloudComputingEvaluation_SetupDefaultData_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/SetupDefaultDataResponse" message="tns:ICloudComputingEvaluation_SetupDefaultData_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/SetupDefaultDataCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_SetupDefaultData_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="cleanDefaultData">
-            <wsdl:input message="tns:cleanDefaultDataSoapIn" />
-            <wsdl:output message="tns:cleanDefaultDataSoapOut" />
+        <wsdl:operation name="CleanDefaultData">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/CleanDefaultData" message="tns:ICloudComputingEvaluation_CleanDefaultData_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/CleanDefaultDataResponse" message="tns:ICloudComputingEvaluation_CleanDefaultData_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/CleanDefaultDataCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_CleanDefaultData_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
     </wsdl:portType>
-    <wsdl:binding name="CloudComputingEvaluationSoap" type="tns:CloudComputingEvaluationSoap">
-        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:binding name="BasicHttpBinding_ICloudComputingEvaluation" type="tns:ICloudComputingEvaluation">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="InstanceResponse">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/InstanceResponse" style="document" />
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/InstanceResponse" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="create">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/create" style="document" />
+        <wsdl:operation name="Create">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/Create" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="read">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/read" style="document" />
+        <wsdl:operation name="Read">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/Read" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="update">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/update" style="document" />
+        <wsdl:operation name="Update">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/Update" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="delete">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/delete" style="document" />
+        <wsdl:operation name="Delete">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/Delete" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="createDataByNumber">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/createDataByNumber" style="document" />
+        <wsdl:operation name="CreateDataByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/CreateDataByNumber" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="readDataByNumber">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/readDataByNumber" style="document" />
+        <wsdl:operation name="ReadDataByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/ReadDataByNumber" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="updateDataByNumber">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/updateDataByNumber" style="document" />
+        <wsdl:operation name="UpdateDataByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/UpdateDataByNumber" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="deleteDataByNumber">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/deleteDataByNumber" style="document" />
+        <wsdl:operation name="DeleteDataByNumber">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/DeleteDataByNumber" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="bigFileReceive">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/bigFileReceive" style="document" />
+        <wsdl:operation name="BigFileReceive">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/BigFileReceive" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="setupDefaultData">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/setupDefaultData" style="document" />
+        <wsdl:operation name="SetupDefaultData">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/SetupDefaultData" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="cleanDefaultData">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/cleanDefaultData" style="document" />
+        <wsdl:operation name="CleanDefaultData">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/CleanDefaultData" style="document"/>
             <wsdl:input>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" />
+                <soap:body use="literal"/>
             </wsdl:output>
-        </wsdl:operation>
-    </wsdl:binding>
-    <wsdl:binding name="CloudComputingEvaluationSoap12" type="tns:CloudComputingEvaluationSoap">
-        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-        <wsdl:operation name="InstanceResponse">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/InstanceResponse" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="create">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/create" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="read">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/read" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="update">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/update" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="delete">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/delete" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="createDataByNumber">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/createDataByNumber" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="readDataByNumber">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/readDataByNumber" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="updateDataByNumber">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/updateDataByNumber" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="deleteDataByNumber">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/deleteDataByNumber" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="bigFileReceive">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/bigFileReceive" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="setupDefaultData">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/setupDefaultData" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="cleanDefaultData">
-            <soap12:operation soapAction="http://cloudComputingEvaluation.org/cleanDefaultData" style="document" />
-            <wsdl:input>
-                <soap12:body use="literal" />
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal" />
-            </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="CloudComputingEvaluation">
-        <wsdl:port name="AzureEvaluationSoap" binding="tns:CloudComputingEvaluationSoap">
-            <soap:address location="http://azureva.cloudapp.net/CloudComputingEvaluation.asmx" />
+        <wsdl:port name="BasicHttpBinding_ICloudComputingEvaluation" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
+            <soap:address location="http://localhost:49314/CloudComputingEvaluation.svc"/>
         </wsdl:port>
-        <wsdl:port name="AzureEvaluationSoap12" binding="tns:CloudComputingEvaluationSoap12">
-            <soap12:address location="http://azureva.cloudapp.net/CloudComputingEvaluation.asmx" />
+    </wsdl:service>
+    <wsdl:service name="CloudComputingEvaluation">
+        <wsdl:port name="AzureEvaluationSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
+            <soap:address location="http://azureva.cloudapp.net/CloudComputingEvaluation.svc" />
         </wsdl:port>
-        <wsdl:port name="AmazonSoap12" binding="tns:CloudComputingEvaluationSoap12">
-            <soap12:address location="http://174.129.238.95:8080/server-1.0-SNAPSHOT/service/cxfserver" />
+        <wsdl:port name="AmazonSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
+            <soap:address location="http://174.129.238.95:8080/server-1.0-SNAPSHOT/service/cxfserver" />
         </wsdl:port>
-        <wsdl:port name="AppEngineSoap11InstanceResponse" binding="tns:CloudComputingEvaluationSoap">
+        <wsdl:port name="AppEngineSoapInstanceResponse" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
             <soap:address location="http://cloudplatformtest.appspot.com/InstanceResponse" />
         </wsdl:port>
     </wsdl:service>

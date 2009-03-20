@@ -1,8 +1,10 @@
 
 package org.cloudcomputingevaluation;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -30,20 +32,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "content"
 })
-@XmlRootElement(name = "create")
+@XmlRootElement(name = "Create")
 public class Create {
 
-    protected String content;
+    @XmlElementRef(name = "content", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<String> content;
 
     /**
      * Gets the value of the content property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
      *     
      */
-    public String getContent() {
+    public JAXBElement<String> getContent() {
         return content;
     }
 
@@ -52,11 +55,11 @@ public class Create {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
      *     
      */
-    public void setContent(String value) {
-        this.content = value;
+    public void setContent(JAXBElement<String> value) {
+        this.content = ((JAXBElement<String> ) value);
     }
 
 }

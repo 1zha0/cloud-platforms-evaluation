@@ -17,8 +17,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="numberOfEntries" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="offset" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="numberOfEntries" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="offset" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -32,41 +32,57 @@ import javax.xml.bind.annotation.XmlType;
     "numberOfEntries",
     "offset"
 })
-@XmlRootElement(name = "cleanDefaultData")
+@XmlRootElement(name = "CleanDefaultData")
 public class CleanDefaultData {
 
-    protected int numberOfEntries;
-    protected int offset;
+    protected Integer numberOfEntries;
+    protected Integer offset;
 
     /**
      * Gets the value of the numberOfEntries property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
      */
-    public int getNumberOfEntries() {
+    public Integer getNumberOfEntries() {
         return numberOfEntries;
     }
 
     /**
      * Sets the value of the numberOfEntries property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
      */
-    public void setNumberOfEntries(int value) {
+    public void setNumberOfEntries(Integer value) {
         this.numberOfEntries = value;
     }
 
     /**
      * Gets the value of the offset property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
      */
-    public int getOffset() {
+    public Integer getOffset() {
         return offset;
     }
 
     /**
      * Sets the value of the offset property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
      */
-    public void setOffset(int value) {
+    public void setOffset(Integer value) {
         this.offset = value;
     }
 

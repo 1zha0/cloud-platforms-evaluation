@@ -1,8 +1,10 @@
 
 package org.cloudcomputingevaluation;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -17,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="deleteDataByNumberResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
+ *         &lt;element name="DeleteDataByNumberResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,20 +32,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "deleteDataByNumberResult"
 })
-@XmlRootElement(name = "deleteDataByNumberResponse")
+@XmlRootElement(name = "DeleteDataByNumberResponse")
 public class DeleteDataByNumberResponse {
 
-    protected Result deleteDataByNumberResult;
+    @XmlElementRef(name = "DeleteDataByNumberResult", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<Result> deleteDataByNumberResult;
 
     /**
      * Gets the value of the deleteDataByNumberResult property.
      * 
      * @return
      *     possible object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public Result getDeleteDataByNumberResult() {
+    public JAXBElement<Result> getDeleteDataByNumberResult() {
         return deleteDataByNumberResult;
     }
 
@@ -52,11 +55,11 @@ public class DeleteDataByNumberResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public void setDeleteDataByNumberResult(Result value) {
-        this.deleteDataByNumberResult = value;
+    public void setDeleteDataByNumberResult(JAXBElement<Result> value) {
+        this.deleteDataByNumberResult = ((JAXBElement<Result> ) value);
     }
 
 }

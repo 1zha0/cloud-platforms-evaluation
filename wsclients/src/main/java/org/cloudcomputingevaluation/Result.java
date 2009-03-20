@@ -1,8 +1,11 @@
 
 package org.cloudcomputingevaluation;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -16,9 +19,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="value" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="timer" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="Id" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Timer" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="Value" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,24 +33,27 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Result", propOrder = {
     "id",
-    "value",
-    "timer"
+    "timer",
+    "value"
 })
 public class Result {
 
-    protected String id;
-    protected String value;
-    protected long timer;
+    @XmlElementRef(name = "Id", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<String> id;
+    @XmlElement(name = "Timer")
+    protected Long timer;
+    @XmlElementRef(name = "Value", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<String> value;
 
     /**
      * Gets the value of the id property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
      *     
      */
-    public String getId() {
+    public JAXBElement<String> getId() {
         return id;
     }
 
@@ -56,11 +62,35 @@ public class Result {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
      *     
      */
-    public void setId(String value) {
-        this.id = value;
+    public void setId(JAXBElement<String> value) {
+        this.id = ((JAXBElement<String> ) value);
+    }
+
+    /**
+     * Gets the value of the timer property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    public Long getTimer() {
+        return timer;
+    }
+
+    /**
+     * Sets the value of the timer property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setTimer(Long value) {
+        this.timer = value;
     }
 
     /**
@@ -68,10 +98,10 @@ public class Result {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
      *     
      */
-    public String getValue() {
+    public JAXBElement<String> getValue() {
         return value;
     }
 
@@ -80,27 +110,11 @@ public class Result {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
      *     
      */
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    /**
-     * Gets the value of the timer property.
-     * 
-     */
-    public long getTimer() {
-        return timer;
-    }
-
-    /**
-     * Sets the value of the timer property.
-     * 
-     */
-    public void setTimer(long value) {
-        this.timer = value;
+    public void setValue(JAXBElement<String> value) {
+        this.value = ((JAXBElement<String> ) value);
     }
 
 }

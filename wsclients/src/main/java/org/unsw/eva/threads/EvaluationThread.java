@@ -1,11 +1,11 @@
 package org.unsw.eva.threads;
 
-import org.cloudcomputingevaluation.Result;
-
 import org.unsw.eva.wsclient.App;
 import org.unsw.eva.wsclient.SOAPVersion;
 import org.unsw.eva.utils.ResourceUtil;
-import org.unsw.eva.threads.exceptions.UnsupportError;
+import org.unsw.eva.exceptions.UnsupportError;
+import org.cloudcomputingevaluation.Result;
+import org.unsw.eva.exceptions.ServerError;
 
 import java.util.Calendar;
 import org.slf4j.Logger;
@@ -42,10 +42,15 @@ public abstract class EvaluationThread implements Runnable {
                 throw new UnsupportError("Unsupported SOAP Version : '" + version + "'");
             }
             app.addConnectionTime(Calendar.getInstance().getTimeInMillis() - start);
-            app.addComputationTime(result.getTimer());
-            if (hasError()) {
+            if (result == null || hasError()) {
                 app.errorOccured();
+            } else {
+//                log.info("result : " + result.getValue().getValue() + " " + result.getTimer());
+                app.addComputationTime(result.getTimer());
             }
+        } catch (ServerError e) {
+            app.errorOccured();
+            log.error("Server error, connection failed while doing : '" + getName() + "'. ", e.getMessage());
         } catch (Exception e) {
             app.errorOccured();
         }
@@ -77,6 +82,10 @@ public abstract class EvaluationThread implements Runnable {
 
     public SOAPVersion getVersion() {
         return version;
+    }
+
+    public void setVersion(SOAPVersion version) {
+        this.version = version;
     }
 
     public abstract Result doSOAP11Call();

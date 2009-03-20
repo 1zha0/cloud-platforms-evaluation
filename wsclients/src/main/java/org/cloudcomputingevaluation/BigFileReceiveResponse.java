@@ -1,8 +1,10 @@
 
 package org.cloudcomputingevaluation;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -17,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="bigFileReceiveResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
+ *         &lt;element name="BigFileReceiveResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,20 +32,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "bigFileReceiveResult"
 })
-@XmlRootElement(name = "bigFileReceiveResponse")
+@XmlRootElement(name = "BigFileReceiveResponse")
 public class BigFileReceiveResponse {
 
-    protected Result bigFileReceiveResult;
+    @XmlElementRef(name = "BigFileReceiveResult", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<Result> bigFileReceiveResult;
 
     /**
      * Gets the value of the bigFileReceiveResult property.
      * 
      * @return
      *     possible object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public Result getBigFileReceiveResult() {
+    public JAXBElement<Result> getBigFileReceiveResult() {
         return bigFileReceiveResult;
     }
 
@@ -52,11 +55,11 @@ public class BigFileReceiveResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public void setBigFileReceiveResult(Result value) {
-        this.bigFileReceiveResult = value;
+    public void setBigFileReceiveResult(JAXBElement<Result> value) {
+        this.bigFileReceiveResult = ((JAXBElement<Result> ) value);
     }
 
 }

@@ -1,9 +1,10 @@
 
 package org.cloudcomputingevaluation;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -34,18 +35,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "InstanceResponseResponse")
 public class InstanceResponseResponse {
 
-    @XmlElement(name = "InstanceResponseResult")
-    protected Result instanceResponseResult;
+    @XmlElementRef(name = "InstanceResponseResult", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<Result> instanceResponseResult;
 
     /**
      * Gets the value of the instanceResponseResult property.
      * 
      * @return
      *     possible object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public Result getInstanceResponseResult() {
+    public JAXBElement<Result> getInstanceResponseResult() {
         return instanceResponseResult;
     }
 
@@ -54,11 +55,11 @@ public class InstanceResponseResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public void setInstanceResponseResult(Result value) {
-        this.instanceResponseResult = value;
+    public void setInstanceResponseResult(JAXBElement<Result> value) {
+        this.instanceResponseResult = ((JAXBElement<Result> ) value);
     }
 
 }

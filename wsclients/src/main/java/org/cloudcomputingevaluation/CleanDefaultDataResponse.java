@@ -3,6 +3,7 @@ package org.cloudcomputingevaluation;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -17,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="cleanDefaultDataResult" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="CleanDefaultDataResult" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,24 +31,33 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "cleanDefaultDataResult"
 })
-@XmlRootElement(name = "cleanDefaultDataResponse")
+@XmlRootElement(name = "CleanDefaultDataResponse")
 public class CleanDefaultDataResponse {
 
-    protected boolean cleanDefaultDataResult;
+    @XmlElement(name = "CleanDefaultDataResult")
+    protected Boolean cleanDefaultDataResult;
 
     /**
      * Gets the value of the cleanDefaultDataResult property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
-    public boolean isCleanDefaultDataResult() {
+    public Boolean isCleanDefaultDataResult() {
         return cleanDefaultDataResult;
     }
 
     /**
      * Sets the value of the cleanDefaultDataResult property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
-    public void setCleanDefaultDataResult(boolean value) {
+    public void setCleanDefaultDataResult(Boolean value) {
         this.cleanDefaultDataResult = value;
     }
 

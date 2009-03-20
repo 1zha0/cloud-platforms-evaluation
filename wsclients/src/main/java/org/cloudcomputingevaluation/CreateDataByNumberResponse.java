@@ -1,8 +1,10 @@
 
 package org.cloudcomputingevaluation;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -17,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="createDataByNumberResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
+ *         &lt;element name="CreateDataByNumberResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,20 +32,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "createDataByNumberResult"
 })
-@XmlRootElement(name = "createDataByNumberResponse")
+@XmlRootElement(name = "CreateDataByNumberResponse")
 public class CreateDataByNumberResponse {
 
-    protected Result createDataByNumberResult;
+    @XmlElementRef(name = "CreateDataByNumberResult", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<Result> createDataByNumberResult;
 
     /**
      * Gets the value of the createDataByNumberResult property.
      * 
      * @return
      *     possible object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public Result getCreateDataByNumberResult() {
+    public JAXBElement<Result> getCreateDataByNumberResult() {
         return createDataByNumberResult;
     }
 
@@ -52,11 +55,11 @@ public class CreateDataByNumberResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Result }
+     *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public void setCreateDataByNumberResult(Result value) {
-        this.createDataByNumberResult = value;
+    public void setCreateDataByNumberResult(JAXBElement<Result> value) {
+        this.createDataByNumberResult = ((JAXBElement<Result> ) value);
     }
 
 }

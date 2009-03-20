@@ -1,7 +1,6 @@
 package org.unsw.eva.wsclient;
 
 import org.unsw.eva.threads.EvaluationThread;
-import org.unsw.eva.threads.instanceRespone.AzureInstanceResponeTests;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -12,6 +11,7 @@ import org.unsw.eva.threads.create.AmazonEC2CreateTests;
 import org.unsw.eva.threads.create.AzureCreateTests;
 import org.unsw.eva.threads.instanceRespone.AmazonEC2InstanceResponseTests;
 import org.unsw.eva.threads.instanceRespone.AppEngineInstanceResponseTests;
+import org.unsw.eva.threads.instanceRespone.AzureInstanceResponeTests;
 
 /**
  * @author shrimpy
@@ -28,7 +28,7 @@ public class App {
     private long maxComputationTime = 0;
     private long errorCounter = 0;
     private static int THREADS = 1;
-    private static int SECONDS = 2;
+    private static int SECONDS = 5;
 
     public static void main(String[] args) {
         new App();
@@ -39,13 +39,11 @@ public class App {
     }
 
     public App() {
-//        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse", this, SOAPVersion.SOAP_11));
-//        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse", this, SOAPVersion.SOAP_12));
-//        testSuit.add(new AzureCreateTests("AzureCreate", this, SOAPVersion.SOAP_11));
-//        testSuit.add(new AzureCreateTests("AzureCreate", this, SOAPVersion.SOAP_12));
-//        testSuit.add(new AppEngineInstanceResponseTests("AppEngineInstanceResponse", this, SOAPVersion.SOAP_11));
-//        testSuit.add(new AmazonEC2InstanceResponseTests("AmazonEC2InstanceResponse", this, SOAPVersion.SOAP_12));
-        testSuit.add(new AmazonEC2CreateTests("AmazonEC2Create", this, SOAPVersion.SOAP_12));
+        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse", this));
+//        testSuit.add(new AzureCreateTests("AzureCreate", this));
+//        testSuit.add(new AppEngineInstanceResponseTests("AppEngineInstanceResponse", this));
+//        testSuit.add(new AmazonEC2InstanceResponseTests("AmazonEC2InstanceResponse", this));
+//        testSuit.add(new AmazonEC2CreateTests("AmazonEC2Create", this));
 
         for (EvaluationThread evaThread : testSuit) {
             log.info(evaThread.getName() + " is running, please wait for " + SECONDS + " seconds.");

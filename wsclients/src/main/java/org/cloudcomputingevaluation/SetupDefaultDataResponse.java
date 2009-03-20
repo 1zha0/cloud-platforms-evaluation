@@ -3,6 +3,7 @@ package org.cloudcomputingevaluation;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -17,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="setupDefaultDataResult" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="SetupDefaultDataResult" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,24 +31,33 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "setupDefaultDataResult"
 })
-@XmlRootElement(name = "setupDefaultDataResponse")
+@XmlRootElement(name = "SetupDefaultDataResponse")
 public class SetupDefaultDataResponse {
 
-    protected int setupDefaultDataResult;
+    @XmlElement(name = "SetupDefaultDataResult")
+    protected Integer setupDefaultDataResult;
 
     /**
      * Gets the value of the setupDefaultDataResult property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
      */
-    public int getSetupDefaultDataResult() {
+    public Integer getSetupDefaultDataResult() {
         return setupDefaultDataResult;
     }
 
     /**
      * Sets the value of the setupDefaultDataResult property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
      */
-    public void setSetupDefaultDataResult(int value) {
+    public void setSetupDefaultDataResult(Integer value) {
         this.setupDefaultDataResult = value;
     }
 
