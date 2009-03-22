@@ -12,29 +12,29 @@ import javax.xml.ws.WebFault;
  */
 
 @WebFault(name = "CloudComputatonEvaluationException", targetNamespace = "http://cloudComputingEvaluation.org/")
-public class ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage extends Exception {
+public class ICloudComputingEvaluationReadByRangeCloudComputatonEvaluationExceptionFaultMessage extends Exception {
     public static final long serialVersionUID = 20090322214200L;
     
     private org.cloudcomputingevaluation.CloudComputatonEvaluationException cloudComputatonEvaluationException;
 
-    public ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage() {
+    public ICloudComputingEvaluationReadByRangeCloudComputatonEvaluationExceptionFaultMessage() {
         super();
     }
     
-    public ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage(String message) {
+    public ICloudComputingEvaluationReadByRangeCloudComputatonEvaluationExceptionFaultMessage(String message) {
         super(message);
     }
     
-    public ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage(String message, Throwable cause) {
+    public ICloudComputingEvaluationReadByRangeCloudComputatonEvaluationExceptionFaultMessage(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage(String message, org.cloudcomputingevaluation.CloudComputatonEvaluationException cloudComputatonEvaluationException) {
+    public ICloudComputingEvaluationReadByRangeCloudComputatonEvaluationExceptionFaultMessage(String message, org.cloudcomputingevaluation.CloudComputatonEvaluationException cloudComputatonEvaluationException) {
         super(message);
         this.cloudComputatonEvaluationException = cloudComputatonEvaluationException;
     }
 
-    public ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage(String message, org.cloudcomputingevaluation.CloudComputatonEvaluationException cloudComputatonEvaluationException, Throwable cause) {
+    public ICloudComputingEvaluationReadByRangeCloudComputatonEvaluationExceptionFaultMessage(String message, org.cloudcomputingevaluation.CloudComputatonEvaluationException cloudComputatonEvaluationException, Throwable cause) {
         super(message, cause);
         this.cloudComputatonEvaluationException = cloudComputatonEvaluationException;
     }

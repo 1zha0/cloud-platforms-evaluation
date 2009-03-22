@@ -185,6 +185,21 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="ReadByRange">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="start" type="xsd:int"/>
+                        <xsd:element minOccurs="0" name="end" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ReadByRangeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="ReadByRangeResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:schema>
         <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
             <xs:element name="anyType" nillable="true" type="xs:anyType"/>
@@ -336,6 +351,15 @@
     <wsdl:message name="ICloudComputingEvaluation_CleanDefaultData_CloudComputatonEvaluationException_FaultMessage">
         <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_ReadByRange_InputMessage">
+        <wsdl:part name="parameters" element="tns:ReadByRange"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_ReadByRange_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ReadByRangeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_ReadByRange_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
+    </wsdl:message>
     <wsdl:portType name="ICloudComputingEvaluation">
         <wsdl:operation name="InstanceResponse">
             <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/InstanceResponse" message="tns:ICloudComputingEvaluation_InstanceResponse_InputMessage"/>
@@ -396,6 +420,11 @@
             <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/CleanDefaultData" message="tns:ICloudComputingEvaluation_CleanDefaultData_InputMessage"/>
             <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/CleanDefaultDataResponse" message="tns:ICloudComputingEvaluation_CleanDefaultData_OutputMessage"/>
             <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/CleanDefaultDataCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_CleanDefaultData_CloudComputatonEvaluationException_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ReadByRange">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/ReadByRange" message="tns:ICloudComputingEvaluation_ReadByRange_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/ReadByRangeResponse" message="tns:ICloudComputingEvaluation_ReadByRange_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/ReadByRangeCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_ReadByRange_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="BasicHttpBinding_ICloudComputingEvaluation" type="tns:ICloudComputingEvaluation">
@@ -544,10 +573,22 @@
                 <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
             </wsdl:fault>
         </wsdl:operation>
+        <wsdl:operation name="ReadByRange">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/ReadByRange" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="CloudComputingEvaluation">
         <wsdl:port name="BasicHttpBinding_ICloudComputingEvaluation" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://rd00155d305aab:20000/CloudComputingEvaluation.svc"/>
+            <soap:address location="http://rd00155d305e93:20000/CloudComputingEvaluation.svc"/>
         </wsdl:port>
     </wsdl:service>
 
