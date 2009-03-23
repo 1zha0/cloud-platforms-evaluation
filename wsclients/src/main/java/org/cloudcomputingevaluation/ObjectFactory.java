@@ -29,6 +29,7 @@ public class ObjectFactory {
     private final static QName _CloudComputatonEvaluationExceptionReason_QNAME = new QName("http://cloudComputingEvaluation.org/", "Reason");
     private final static QName _ResultId_QNAME = new QName("http://cloudComputingEvaluation.org/", "Id");
     private final static QName _ResultValue_QNAME = new QName("http://cloudComputingEvaluation.org/", "Value");
+    private final static QName _InstanceResponseMessage_QNAME = new QName("http://cloudComputingEvaluation.org/", "message");
     private final static QName _UpdateDataByNumberResponseUpdateDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "UpdateDataByNumberResult");
     private final static QName _BigFileReceiveResponseBigFileReceiveResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "BigFileReceiveResult");
     private final static QName _CreateContent_QNAME = new QName("http://cloudComputingEvaluation.org/", "content");
@@ -40,7 +41,6 @@ public class ObjectFactory {
     private final static QName _UpdateNewValue_QNAME = new QName("http://cloudComputingEvaluation.org/", "newValue");
     private final static QName _ReadAndUpdateResponseReadAndUpdateResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadAndUpdateResult");
     private final static QName _DeleteDataByNumberResponseDeleteDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "DeleteDataByNumberResult");
-    private final static QName _InstanceResponseMessage_QNAME = new QName("http://cloudComputingEvaluation.org/", "message");
     private final static QName _InstanceResponseResponseInstanceResponseResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "InstanceResponseResult");
     private final static QName _ReadDataByNumberResponseReadDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadDataByNumberResult");
     private final static QName _ReadByRangeResponseReadByRangeResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadByRangeResult");
@@ -143,14 +143,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InstanceResponse }
-     * 
-     */
-    public InstanceResponse createInstanceResponse() {
-        return new InstanceResponse();
-    }
-
-    /**
      * Create an instance of {@link ReadDataByNumber }
      * 
      */
@@ -244,6 +236,14 @@ public class ObjectFactory {
      */
     public ResetCounterResponse createResetCounterResponse() {
         return new ResetCounterResponse();
+    }
+
+    /**
+     * Create an instance of {@link InstanceResponse }
+     * 
+     */
+    public InstanceResponse createInstanceResponse() {
+        return new InstanceResponse();
     }
 
     /**
@@ -372,6 +372,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "message", scope = InstanceResponse.class)
+    public JAXBElement<String> createInstanceResponseMessage(String value) {
+        return new JAXBElement<String>(_InstanceResponseMessage_QNAME, String.class, InstanceResponse.class, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
      * 
      */
@@ -477,15 +486,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "DeleteDataByNumberResult", scope = DeleteDataByNumberResponse.class)
     public JAXBElement<Result> createDeleteDataByNumberResponseDeleteDataByNumberResult(Result value) {
         return new JAXBElement<Result>(_DeleteDataByNumberResponseDeleteDataByNumberResult_QNAME, Result.class, DeleteDataByNumberResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "message", scope = InstanceResponse.class)
-    public JAXBElement<String> createInstanceResponseMessage(String value) {
-        return new JAXBElement<String>(_InstanceResponseMessage_QNAME, String.class, InstanceResponse.class, value);
     }
 
     /**
