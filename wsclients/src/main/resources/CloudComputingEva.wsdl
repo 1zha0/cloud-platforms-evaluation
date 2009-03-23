@@ -700,13 +700,7 @@
             </wsdl:fault>
         </wsdl:operation>
     </wsdl:binding>
-    <wsdl:service name="CloudComputingEvaluation">
-        <wsdl:port name="BasicHttpBinding_ICloudComputingEvaluation" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://rd00155d305f7b:20000/CloudComputingEvaluation.svc"/>
-        </wsdl:port>
-    </wsdl:service>
-
-
+    
     <wsdl:service name="CloudComputingEvaluation">
         <wsdl:port name="AzureEvaluationSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
             <soap:address location="http://azureva.cloudapp.net/CloudComputingEvaluation.svc" />
