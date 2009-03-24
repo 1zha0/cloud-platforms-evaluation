@@ -1,10 +1,9 @@
 package org.unsw.eva.wsclient;
 
-import junit.framework.TestCase;
 import org.cloudcomputingevaluation.CloudComputingEvaluation;
 import org.cloudcomputingevaluation.ICloudComputingEvaluation;
 
-public abstract class AbstractTest extends TestCase {
+public abstract class AbstractTest {
 
     private CloudComputingEvaluation service = new CloudComputingEvaluation();
 

@@ -5,9 +5,10 @@ import org.cloudcomputingevaluation.ICloudComputingEvaluationDeleteCloudComputat
 import org.cloudcomputingevaluation.ICloudComputingEvaluationReadCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationUpdateCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
-import org.junit.Test;
 import org.unsw.eva.wsclient.AbstractTest;
 
+import org.junit.Test;
+import static org.junit.Assert.*;
 /**
  *
  * @author shrimpy

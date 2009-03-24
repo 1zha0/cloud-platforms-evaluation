@@ -5,12 +5,13 @@ import org.cloudcomputingevaluation.ICloudComputingEvaluationDeleteCloudComputat
 import org.cloudcomputingevaluation.ICloudComputingEvaluationGetCounterCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationReadAndUpdateCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
+import org.unsw.eva.wsclient.AbstractTest;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.unsw.eva.wsclient.AbstractTest;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -22,12 +23,12 @@ public class ReadAndUpdateTest extends AbstractTest {
     private Result result = null;
     private static final String SAMPLE_DATE = "Hello Azure.";
 
-    @Override
+    @Before
     public void setUp() throws ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage {
         result = getAzureServiceEndpoint().create(SAMPLE_DATE);
     }
 
-    @Override
+    @After
     public void tearDown() throws ICloudComputingEvaluationDeleteCloudComputatonEvaluationExceptionFaultMessage {
         getAzureServiceEndpoint().delete(result.getValue().getValue());
     }

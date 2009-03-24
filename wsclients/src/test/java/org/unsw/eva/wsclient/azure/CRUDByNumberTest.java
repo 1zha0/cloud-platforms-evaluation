@@ -4,6 +4,8 @@ import org.cloudcomputingevaluation.ICloudComputingEvaluationCreateDataByNumberC
 import org.cloudcomputingevaluation.ICloudComputingEvaluationDeleteDataByNumberCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationReadDataByNumberCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationUpdateDataByNumberCloudComputatonEvaluationExceptionFaultMessage;
+import org.junit.Before;
+import org.junit.Test;
 import org.unsw.eva.wsclient.AbstractTest;
 
 /**
@@ -14,12 +16,12 @@ public class CRUDByNumberTest extends AbstractTest {
 
     private static final int NUMBER_OF_DATA = 100;
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() throws Exception {
         getAzureServiceEndpoint().cleanDefaultData(0, 0);
     }
 
+    @Test
     public void testCRUDByNumber()
             throws ICloudComputingEvaluationCreateDataByNumberCloudComputatonEvaluationExceptionFaultMessage,
             ICloudComputingEvaluationUpdateDataByNumberCloudComputatonEvaluationExceptionFaultMessage,

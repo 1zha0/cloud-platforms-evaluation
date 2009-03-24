@@ -2,9 +2,9 @@ package org.unsw.eva.wsclient.azure;
 
 import org.cloudcomputingevaluation.ICloudComputingEvaluationGetCounterCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationResetCounterCloudComputatonEvaluationExceptionFaultMessage;
-import org.junit.Test;
 import org.unsw.eva.wsclient.AbstractTest;
-
+import org.junit.Test;
+import static org.junit.Assert.*;
 /**
  *
  * @author shrimpy
