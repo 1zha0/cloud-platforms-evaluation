@@ -1,7 +1,11 @@
 package org.unsw.eva.wsclient;
 
 import org.unsw.eva.threads.EvaluationThread;
+import org.unsw.eva.threads.create.AmazonEC2CreateTests;
+import org.unsw.eva.threads.create.AzureCreateTests;
 import org.unsw.eva.threads.instanceRespone.AzureInstanceResponeTests;
+import org.unsw.eva.threads.instanceRespone.AmazonEC2InstanceResponseTests;
+import org.unsw.eva.threads.instanceRespone.AppEngineInstanceResponseTests;
 
 import java.util.ArrayList;
 import java.util.Calendar;
