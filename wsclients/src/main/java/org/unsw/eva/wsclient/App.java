@@ -1,17 +1,14 @@
 package org.unsw.eva.wsclient;
 
 import org.unsw.eva.threads.EvaluationThread;
+import org.unsw.eva.threads.instanceRespone.AzureInstanceResponeTests;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.unsw.eva.threads.create.AmazonEC2CreateTests;
-import org.unsw.eva.threads.create.AzureCreateTests;
-import org.unsw.eva.threads.instanceRespone.AmazonEC2InstanceResponseTests;
-import org.unsw.eva.threads.instanceRespone.AppEngineInstanceResponseTests;
-import org.unsw.eva.threads.instanceRespone.AzureInstanceResponeTests;
 
 /**
  * @author shrimpy
