@@ -1,11 +1,8 @@
 package org.unsw.eva.wsclient;
 
+import org.unsw.eva.data.Pair;
 import org.unsw.eva.threads.EvaluationThread;
-import org.unsw.eva.threads.create.AmazonEC2CreateTests;
-import org.unsw.eva.threads.create.AzureCreateTests;
 import org.unsw.eva.threads.instanceRespone.AzureInstanceResponeTests;
-import org.unsw.eva.threads.instanceRespone.AmazonEC2InstanceResponseTests;
-import org.unsw.eva.threads.instanceRespone.AppEngineInstanceResponseTests;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,23 +10,17 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.data.ResultData;
 
 /**
  * @author shrimpy
  */
-public class App {
+public class App extends Monitor {
 
-    public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
     private static final Logger log = LoggerFactory.getLogger(App.class);
-    private long totalConnectionTime = 0;
-    private long totalComputationTime = 0;
-    private long minConnectionTime = 0;
-    private long maxConnectionTime = 0;
-    private long minComputationTime = 0;
-    private long maxComputationTime = 0;
-    private long errorCounter = 0;
-    private static int THREADS = 1;
-    private static int SECONDS = 5;
+    public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
+    private static int THREADS = 100;
+    private static int SECONDS = 30;
 
     public static void main(String[] args) {
         new App();
@@ -41,15 +32,21 @@ public class App {
 
     public App() {
         testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse", this));
-//        testSuit.add(new AzureCreateTests("AzureCreate", this));
 //        testSuit.add(new AppEngineInstanceResponseTests("AppEngineInstanceResponse", this));
 //        testSuit.add(new AmazonEC2InstanceResponseTests("AmazonEC2InstanceResponse", this));
+//        testSuit.add(new AzureCreateTests("AzureCreate", this));
 //        testSuit.add(new AmazonEC2CreateTests("AmazonEC2Create", this));
 
         for (EvaluationThread evaThread : testSuit) {
             log.info(evaThread.getName() + " is running, please wait for " + SECONDS + " seconds.");
             reset();
+            getResultData().setDescription(evaThread.getName() + " " + evaThread.getVersion());
             runThreads(evaThread);
+        }
+
+        log.debug("----------------------------------------------------------------------------------------");
+        for (ResultData resultData : getResultList()) {
+            log.debug(resultData.toString());
         }
     }
 
@@ -59,8 +56,9 @@ public class App {
         int numberOfThreads = 0;
 
         try {
-
             long start = Calendar.getInstance().getTimeInMillis();
+            getResultData().setStartingTime(start);
+
             while (currentTimeDifference(start) < SECONDS) {
 
                 for (Thread thread : threadGroup.toArray(new Thread[0])) {
@@ -95,69 +93,21 @@ public class App {
                     }
                 }
             }
+            getResultData().setEndingTime(Calendar.getInstance().getTimeInMillis());
         } catch (Exception e) {
+            log.error("Failed to run thread.", e.getMessage());
         } finally {
-
+            getResultList().add(getResultData());
             log.debug("====================================================================================================================");
             log.debug("SOAP protocal : " + evaThread.getVersion().getValue());
             log.debug(numberOfThreads + " threads in total, " + THREADS + " fired at the same time. Total running time is : " + SECONDS + " seconds.");
             log.debug("Average threads per second : " + numberOfThreads / SECONDS);
-            log.debug("Average connection time : " + totalConnectionTime / numberOfThreads +
-                    " | Average computation time : " + totalComputationTime / numberOfThreads);
-            log.debug("Min connection time : " + minConnectionTime + " | Max connection time : " + maxConnectionTime);
-            log.debug("Min computation time : " + minComputationTime + " | Max computation time : " + maxComputationTime);
-            log.debug("Error number is : " + errorCounter);
+            log.debug("Average connection time : " + getTotalConnectionTime() / numberOfThreads +
+                    " | Average computation time : " + getTotalComputationTime() / numberOfThreads);
+            log.debug("Min connection time : " + getMinConnectionTime() + " | Max connection time : " + getMaxConnectionTime());
+            log.debug("Min computation time : " + getMinComputationTime() + " | Max computation time : " + getMaxComputationTime());
+            log.debug("Error number is : " + getErrorCounter());
             log.debug("====================================================================================================================");
         }
-    }
-
-    public synchronized void addConnectionTime(long i) {
-        calculateMinConnectionTime(i);
-        calculateMaxConnectionTime(i);
-        totalConnectionTime += i;
-    }
-
-    public synchronized void addComputationTime(long i) {
-        calculateMinComputationTime(i);
-        calculateMaxComputationTime(i);
-        totalComputationTime += i;
-    }
-
-    public synchronized void calculateMinConnectionTime(long i) {
-        if (i < minConnectionTime || minConnectionTime == 0) {
-            minConnectionTime = i;
-        }
-    }
-
-    public synchronized void calculateMaxConnectionTime(long i) {
-        if (i > maxConnectionTime || maxConnectionTime == 0) {
-            maxConnectionTime = i;
-        }
-    }
-
-    public synchronized void calculateMinComputationTime(long i) {
-        if (i < minComputationTime || minComputationTime == 0) {
-            minComputationTime = i;
-        }
-    }
-
-    public synchronized void calculateMaxComputationTime(long i) {
-        if (i > maxComputationTime || maxComputationTime == 0) {
-            maxComputationTime = i;
-        }
-    }
-
-    public synchronized void errorOccured() {
-        errorCounter++;
-    }
-
-    private void reset() {
-        totalConnectionTime = 0;
-        totalComputationTime = 0;
-        minConnectionTime = 0;
-        maxConnectionTime = 0;
-        minComputationTime = 0;
-        maxComputationTime = 0;
-        errorCounter = 0;
     }
 }

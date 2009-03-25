@@ -41,12 +41,12 @@ public abstract class EvaluationThread implements Runnable {
             } else {
                 throw new UnsupportError("Unsupported SOAP Version : '" + version + "'");
             }
-            app.addConnectionTime(Calendar.getInstance().getTimeInMillis() - start);
+            app.monitorConnectionTime(Calendar.getInstance().getTimeInMillis() - start);
             if (result == null || hasError()) {
                 app.errorOccured();
             } else {
 //                log.info("result : " + result.getValue().getValue() + " " + result.getTimer());
-                app.addComputationTime(result.getTimer());
+                app.monitorComputationTime(result.getTimer());
             }
         } catch (ServerError e) {
             app.errorOccured();
