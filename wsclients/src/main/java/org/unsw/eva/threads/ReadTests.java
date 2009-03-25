@@ -1,4 +1,4 @@
-package org.unsw.eva.threads.read;
+package org.unsw.eva.threads;
 
 import org.cloudcomputingevaluation.ICloudComputingEvaluationReadCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;

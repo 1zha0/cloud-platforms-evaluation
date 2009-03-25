@@ -1,4 +1,4 @@
-package org.unsw.eva.threads.instanceRespone;
+package org.unsw.eva.threads;
 
 import org.cloudcomputingevaluation.CloudComputingEvaluation;
 
