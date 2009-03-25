@@ -98,10 +98,18 @@ public abstract class EvaluationThread implements Runnable {
         ICloudComputingEvaluation endpoint = null;
         if (serverType.equals(ServerType.AZURE)) {
             endpoint = service.getAzureEvaluationSoap();
-        } else if (serverType.equals(ServerType.AMAZOnE)) {
+        } else if (serverType.equals(ServerType.AMAZONE)) {
             endpoint = service.getAmazonSoap();
         } else if (serverType.equals(ServerType.APP_ENGINE_INSTANCE_RESPONSE)) {
             endpoint = service.getAppEngineSoapInstanceResponse();
+        } else if (serverType.equals(ServerType.APP_ENGINE_CREATE)) {
+            endpoint = service.getAppEngineSoapCreate();
+        } else if (serverType.equals(ServerType.APP_ENGINE_READ)) {
+            endpoint = service.getAppEngineSoapRead();
+        } else if (serverType.equals(ServerType.APP_ENGINE_CREATE_DATA_BY_NUMBER)) {
+            endpoint = service.getAppEngineSoapCreateDataByNumber();
+        } else if (serverType.equals(ServerType.APP_ENGINE_READ_DATA_BY_NUMBER)) {
+            endpoint = service.getAppEngineSoapReadDataByNumber();
         } else {
             throw new UnsupportError("Unsupport server type : " + serverType);
         }

@@ -12,8 +12,9 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.threads.CreateDataByNumberTests;
+import org.unsw.eva.threads.ReadDataByNumberTests;
 import org.unsw.eva.threads.ReadTests;
-import org.unsw.eva.threads.UpdateTests;
 
 /**
  * @author shrimpy
@@ -34,10 +35,16 @@ public class App extends Monitor {
     }
 
     public App() {
-        testSuit.add(new InstanceResponeTests("AzureInstancResponse", this, ServerType.AZURE));
+        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE));
+        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE));
         testSuit.add(new CreateTests("AzureCreate", this, ServerType.AZURE));
-        testSuit.add(new ReadTests("AzureCreate", this, ServerType.AZURE));
-//        testSuit.add(new UpdateTests("AzureCreate", this, ServerType.AZURE));
+        testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE));
+        testSuit.add(new ReadTests("AzureRead", this, ServerType.AZURE));
+        testSuit.add(new ReadTests("AppEngineRead", this, ServerType.APP_ENGINE_READ));
+        testSuit.add(new CreateDataByNumberTests("AzureCreateDataByNumber", this, ServerType.AZURE));
+        testSuit.add(new CreateDataByNumberTests("AppEngineCreateDataByNumber", this, ServerType.APP_ENGINE_CREATE_DATA_BY_NUMBER));
+        testSuit.add(new ReadDataByNumberTests("AzureReadDataByNumber", this, ServerType.AZURE));
+        testSuit.add(new ReadDataByNumberTests("AppEngineReadDataByNumber", this, ServerType.APP_ENGINE_READ_DATA_BY_NUMBER));
 
         for (EvaluationThread evaThread : testSuit) {
             log.info(evaThread.getName() + " is running, please wait for " + SECONDS + " seconds.");

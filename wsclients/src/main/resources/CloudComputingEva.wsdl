@@ -711,5 +711,17 @@
         <wsdl:port name="AppEngineSoapInstanceResponse" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
             <soap:address location="http://cloudplatformtest.appspot.com/InstanceResponse" />
         </wsdl:port>
+        <wsdl:port name="AppEngineSoapCreate" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
+            <soap:address location="http://cloudplatformtest.appspot.com/Create" />
+        </wsdl:port>
+        <wsdl:port name="AppEngineSoapRead" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
+            <soap:address location="http://cloudplatformtest.appspot.com/Read" />
+        </wsdl:port>
+        <wsdl:port name="AppEngineSoapCreateDataByNumber" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
+            <soap:address location="http://cloudplatformtest.appspot.com/CreateDataByNumber" />
+        </wsdl:port>
+        <wsdl:port name="AppEngineSoapReadDataByNumber" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
+            <soap:address location="http://cloudplatformtest.appspot.com/ReadDataByNumber" />
+        </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

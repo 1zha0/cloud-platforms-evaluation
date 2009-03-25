@@ -7,9 +7,12 @@ package org.unsw.eva.wsclient;
 public enum ServerType {
 
     AZURE("azure"),
-    AMAZOnE("amazone"),
-    APP_ENGINE_INSTANCE_RESPONSE("appEngine")
-            ;
+    AMAZONE("amazone"),
+    APP_ENGINE_INSTANCE_RESPONSE("appEngine_instanceResponse"),
+    APP_ENGINE_CREATE("appEngine_create"),
+    APP_ENGINE_READ("appEngine_read"),
+    APP_ENGINE_CREATE_DATA_BY_NUMBER("appEngine_createDataByNumber"),
+    APP_ENGINE_READ_DATA_BY_NUMBER("appEngine_readDataByNumber");
     private String name;
 
     private ServerType(String name) {
