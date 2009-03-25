@@ -103,7 +103,7 @@ public class App extends Monitor {
             getResultList().add(getResultData());
             log.debug("====================================================================================================================");
             log.debug("SOAP protocal : " + evaThread.getVersion().getValue());
-            log.debug(numberOfThreads + " threads in total, " + THREADS + " fired at the same time. Total running time is : " + SECONDS + " seconds.");
+            log.debug(numberOfThreads + " threads in total, " + THREADS + " fired at the same time. Total running time is : " + ((getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000) + " seconds.");
             log.debug("Average threads per second : " + numberOfThreads / SECONDS);
             log.debug("Average connection time : " + getTotalConnectionTime() / numberOfThreads +
                     " | Average computation time : " + getTotalComputationTime() / numberOfThreads);
