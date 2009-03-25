@@ -1,6 +1,5 @@
 package org.unsw.eva.wsclient;
 
-import org.unsw.eva.data.Pair;
 import org.unsw.eva.threads.EvaluationThread;
 import org.unsw.eva.threads.instanceRespone.AzureInstanceResponeTests;
 
@@ -11,6 +10,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.unsw.eva.data.ResultData;
+import org.unsw.eva.data.dataFormatter.ResultListTextFormatter;
+import org.unsw.eva.io.TextWriter;
 
 /**
  * @author shrimpy
@@ -44,10 +45,12 @@ public class App extends Monitor {
             runThreads(evaThread);
         }
 
-        log.debug("----------------------------------------------------------------------------------------");
-        for (ResultData resultData : getResultList()) {
-            log.debug(resultData.toString());
-        }
+        TextWriter.writeToFile(getResultList(), new ResultListTextFormatter());
+
+//        log.debug("----------------------------------------------------------------------------------------");
+//        for (ResultData resultData : getResultList()) {
+//            log.debug(resultData.toString());
+//        }
     }
 
     private void runThreads(EvaluationThread evaThread) {
