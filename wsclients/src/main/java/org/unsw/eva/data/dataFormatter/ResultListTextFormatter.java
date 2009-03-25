@@ -53,8 +53,8 @@ public class ResultListTextFormatter implements ResultListFormatter {
              * print computation time
              */
             subSB = new StringBuilder();
-            for (int i = 0; i < resultData.getConnectionTimers().size(); i++) {
-                Pair<Long, Long> pair = resultData.getConnectionTimers().get(i);
+            for (int i = 0; i < resultData.getComputationTimers().size(); i++) {
+                Pair<Long, Long> pair = resultData.getComputationTimers().get(i);
 
                 /**
                  * x axis
@@ -70,7 +70,7 @@ public class ResultListTextFormatter implements ResultListFormatter {
                  */
                 subSB.append(pair.getB());
 
-                if (i != (resultData.getConnectionTimers().size() - 1)) {
+                if (i != (resultData.getComputationTimers().size() - 1)) {
                     sb.append(",");
                     subSB.append(",");
                 }
