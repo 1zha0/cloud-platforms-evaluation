@@ -47,8 +47,8 @@ public class ResultListTextFormatter implements ResultListFormatter {
             }
             sb.append("\n");
             sb.append(subSB.toString());
-            sb.append("\n");
-
+            sb.append("\n\n");
+            
             /**
              * print computation time
              */
@@ -77,7 +77,7 @@ public class ResultListTextFormatter implements ResultListFormatter {
             }
             sb.append("\n");
             sb.append(subSB.toString());
-            sb.append("\n");
+            sb.append("\n\n");
 
         }
         return sb.toString();
