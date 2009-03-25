@@ -1,31 +1,27 @@
 package org.unsw.eva.threads.create;
 
-import org.cloudcomputingevaluation.CloudComputingEvaluation;
-import org.cloudcomputingevaluation.ICloudComputingEvaluation;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.exceptions.ServerError;
 import org.unsw.eva.threads.EvaluationThread;
 import org.unsw.eva.wsclient.App;
 import org.unsw.eva.wsclient.SOAPVersion;
+import org.unsw.eva.wsclient.ServerType;
 
 /**
  *
  * @author shrimpy
  */
-public class AmazonEC2CreateTests extends EvaluationThread {
+public class CreateTests extends EvaluationThread {
 
-    private CloudComputingEvaluation service = new CloudComputingEvaluation();
-
-    public AmazonEC2CreateTests(String name, App app) {
-        super(name, app, SOAPVersion.SOAP_11);
+    public CreateTests(String name, App app, ServerType serverType) {
+        super(name, app, SOAPVersion.SOAP_11, serverType);
     }
 
     @Override
     public Result doSOAP11Call() {
-        ICloudComputingEvaluation endpoint = service.getAzureEvaluationSoap();
         try {
-            return endpoint.create(getMESSAGE());
+            return getServiceEndpoint().create(getMESSAGE());
         } catch (ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage ex) {
             throw new ServerError(ex.getFaultInfo().getReason().getValue());
         }
@@ -33,11 +29,11 @@ public class AmazonEC2CreateTests extends EvaluationThread {
 
     @Override
     public Result doSOAP12Call() {
-        throw new UnsupportedOperationException("Not support yet.");
+        return null;
     }
 
     @Override
     public Boolean hasError() {
-        return false;
+        return getResult().getId() == null;
     }
 }

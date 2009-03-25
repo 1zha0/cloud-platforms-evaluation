@@ -4,10 +4,13 @@ import org.unsw.eva.wsclient.App;
 import org.unsw.eva.wsclient.SOAPVersion;
 import org.unsw.eva.utils.ResourceUtil;
 import org.unsw.eva.exceptions.UnsupportError;
-import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.exceptions.ServerError;
+import org.unsw.eva.wsclient.ServerType;
+import org.cloudcomputingevaluation.Result;
 
 import java.util.Calendar;
+import org.cloudcomputingevaluation.CloudComputingEvaluation;
+import org.cloudcomputingevaluation.ICloudComputingEvaluation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,16 +21,19 @@ import org.slf4j.LoggerFactory;
 public abstract class EvaluationThread implements Runnable {
 
     private static final Logger log = LoggerFactory.getLogger(EvaluationThread.class);
+    private CloudComputingEvaluation service = new CloudComputingEvaluation();
     private App app;
     private SOAPVersion version;
     private String MESSAGE = ResourceUtil.getSendString();
     private Result result = null;
     private String name;
+    private ServerType serverType;
 
-    public EvaluationThread(String name, App app, SOAPVersion version) {
+    public EvaluationThread(String name, App app, SOAPVersion version, ServerType serverType) {
         this.name = name;
         this.app = app;
         this.version = version;
+        this.serverType = serverType;
     }
 
     public void run() {
@@ -86,6 +92,20 @@ public abstract class EvaluationThread implements Runnable {
 
     public void setVersion(SOAPVersion version) {
         this.version = version;
+    }
+
+    public ICloudComputingEvaluation getServiceEndpoint() {
+        ICloudComputingEvaluation endpoint = null;
+        if (serverType.equals(ServerType.AZURE)) {
+            endpoint = service.getAzureEvaluationSoap();
+        } else if (serverType.equals(ServerType.AMAZOnE)) {
+            endpoint = service.getAmazonSoap();
+        } else if (serverType.equals(ServerType.APP_ENGINE_INSTANCE_RESPONSE)) {
+            endpoint = service.getAppEngineSoapInstanceResponse();
+        } else {
+            throw new UnsupportError("Unsupport server type : " + serverType);
+        }
+        return endpoint;
     }
 
     public abstract Result doSOAP11Call();

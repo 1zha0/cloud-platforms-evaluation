@@ -1,36 +1,27 @@
 package org.unsw.eva.threads.read;
 
 import org.cloudcomputingevaluation.ICloudComputingEvaluationReadCloudComputatonEvaluationExceptionFaultMessage;
-import org.unsw.eva.threads.create.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.cloudcomputingevaluation.CloudComputingEvaluation;
-import org.cloudcomputingevaluation.ICloudComputingEvaluation;
-import org.cloudcomputingevaluation.ICloudComputingEvaluationCleanDefaultDataCloudComputatonEvaluationExceptionFaultMessage;
-import org.cloudcomputingevaluation.ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.exceptions.ServerError;
 import org.unsw.eva.threads.EvaluationThread;
 import org.unsw.eva.wsclient.App;
 import org.unsw.eva.wsclient.SOAPVersion;
+import org.unsw.eva.wsclient.ServerType;
 
 /**
  *
  * @author shrimpy
  */
-public class AzureRestTests extends EvaluationThread {
+public class ReadTests extends EvaluationThread {
 
-    private CloudComputingEvaluation service = new CloudComputingEvaluation();
-
-    public AzureRestTests(String name, App app) {
-        super(name, app, SOAPVersion.SOAP_11);
+    public ReadTests(String name, App app, ServerType serverType) {
+        super(name, app, SOAPVersion.SOAP_11, serverType);
     }
 
     @Override
     public Result doSOAP11Call() {
-        ICloudComputingEvaluation endpoint = service.getAzureEvaluationSoap();
         try {
-            return endpoint.read(getMESSAGE());
+            return getServiceEndpoint().read(getMESSAGE());
         } catch (ICloudComputingEvaluationReadCloudComputatonEvaluationExceptionFaultMessage ex) {
             throw new ServerError(ex.getFaultInfo().getReason().getValue());
         }

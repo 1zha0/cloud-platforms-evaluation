@@ -1,7 +1,7 @@
 package org.unsw.eva.wsclient;
 
 import org.unsw.eva.threads.EvaluationThread;
-import org.unsw.eva.threads.instanceRespone.AzureInstanceResponeTests;
+import org.unsw.eva.threads.instanceRespone.InstanceResponeTests;
 import org.unsw.eva.data.dataFormatter.ResultListTextFormatter;
 import org.unsw.eva.io.TextWriter;
 
@@ -11,6 +11,10 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.threads.create.CreateTests;
+import org.unsw.eva.threads.delete.DeleteTests;
+import org.unsw.eva.threads.read.ReadTests;
+import org.unsw.eva.threads.update.UpdateTests;
 
 /**
  * @author shrimpy
@@ -31,10 +35,13 @@ public class App extends Monitor {
     }
 
     public App() {
-        testSuit.add(new AzureInstanceResponeTests("AzureInstancResponse", this));
+        testSuit.add(new InstanceResponeTests("AzureInstancResponse", this, ServerType.AZURE));
 //        testSuit.add(new AppEngineInstanceResponseTests("AppEngineInstanceResponse", this));
 //        testSuit.add(new AmazonEC2InstanceResponseTests("AmazonEC2InstanceResponse", this));
 //        testSuit.add(new AzureCreateTests("AzureCreate", this));
+//        testSuit.add(new AzureDeleteTests("AzureDelete", this));
+//        testSuit.add(new AzureUpdateTests("AzureUpdate", this));
+//        testSuit.add(new AzureRestTests("AzureRead", this));
 //        testSuit.add(new AmazonEC2CreateTests("AmazonEC2Create", this));
 
         for (EvaluationThread evaThread : testSuit) {
@@ -45,11 +52,6 @@ public class App extends Monitor {
         }
 
         TextWriter.writeToFile(getResultList(), new ResultListTextFormatter());
-
-//        log.debug("----------------------------------------------------------------------------------------");
-//        for (ResultData resultData : getResultList()) {
-//            log.debug(resultData.toString());
-//        }
     }
 
     private void runThreads(EvaluationThread evaThread) {
