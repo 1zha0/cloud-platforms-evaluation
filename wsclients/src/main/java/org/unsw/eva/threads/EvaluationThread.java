@@ -59,6 +59,13 @@ public abstract class EvaluationThread implements Runnable {
             log.error("Server error, connection failed while doing : '" + getName() + "'. ", e.getMessage());
         } catch (Exception e) {
             app.errorOccured();
+            log.error("Unknown exception occured, connection failed while doing : '" + getName() + "'. ", e.getMessage());
+        } finally {
+//            if (result != null) {
+//                log.info("Result from server,  id : '" + result.getId() + "'  value : '" + result.getValue().getValue() + "'  timmer : '" + result.getTimer() + "'");
+//            } else {
+//                log.info("No response from server.");
+//            }
         }
     }
 
