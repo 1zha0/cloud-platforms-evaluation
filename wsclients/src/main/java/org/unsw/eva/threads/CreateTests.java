@@ -2,6 +2,8 @@ package org.unsw.eva.threads;
 
 import org.cloudcomputingevaluation.ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.unsw.eva.exceptions.ServerError;
 import org.unsw.eva.threads.EvaluationThread;
 import org.unsw.eva.wsclient.App;
@@ -14,6 +16,8 @@ import org.unsw.eva.wsclient.ServerType;
  */
 public class CreateTests extends EvaluationThread {
 
+    private static final Logger log = LoggerFactory.getLogger(CreateTests.class);
+
     public CreateTests(String name, App app, ServerType serverType) {
         super(name, app, SOAPVersion.SOAP_11, serverType);
     }
@@ -23,6 +27,7 @@ public class CreateTests extends EvaluationThread {
         try {
             return getServiceEndpoint().create(getMESSAGE());
         } catch (ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage ex) {
+            log.error("Failed in CreateTests.", ex);
             throw new ServerError(ex.getFaultInfo().getReason().getValue());
         }
     }
