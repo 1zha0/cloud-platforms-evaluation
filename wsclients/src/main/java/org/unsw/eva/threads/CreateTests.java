@@ -34,6 +34,6 @@ public class CreateTests extends EvaluationThread {
 
     @Override
     public Boolean hasError() {
-        return getResult().getId() == null;
+        return getResult().getId().getValue() == null;
     }
 }
