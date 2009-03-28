@@ -19,8 +19,8 @@ public class App extends Monitor {
 
     private static final Logger log = LoggerFactory.getLogger(App.class);
     public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
-    private static int THREADS_Fire_AT_THE_SAME_TIME = 50;
-    private static int TOTAL_THREADS = 1000;
+    private static int THREADS_Fire_AT_THE_SAME_TIME = 30;
+    private static int TOTAL_THREADS = 30;
 
     public static void main(String[] args) {
         new App();
@@ -30,7 +30,7 @@ public class App extends Monitor {
 //        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE));
 //        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE));
         testSuit.add(new CreateTests("AzureCreate", this, ServerType.AZURE));
-        testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE));
+//        testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE));
 //        testSuit.add(new ReadTests("AzureRead", this, ServerType.AZURE));
 //        testSuit.add(new ReadTests("AppEngineRead", this, ServerType.APP_ENGINE_READ));
 //        testSuit.add(new CreateDataByNumberTests("AzureCreateDataByNumber", this, ServerType.AZURE));
@@ -39,7 +39,7 @@ public class App extends Monitor {
 //        testSuit.add(new ReadDataByNumberTests("AppEngineReadDataByNumber", this, ServerType.APP_ENGINE_READ_DATA_BY_NUMBER));
 
         for (EvaluationThread evaThread : testSuit) {
-            log.info(evaThread.getName() + " is running, please wait for " + TOTAL_THREADS + " seconds.");
+            log.info(evaThread.getName() + " is running.");
             reset();
             getResultData().setDescription(evaThread.getName() + " " + evaThread.getVersion());
             runThreads(evaThread);
@@ -57,7 +57,7 @@ public class App extends Monitor {
             long start = Calendar.getInstance().getTimeInMillis();
             getResultData().setStartingTime(start);
 
-            while (numberOfThreads <= TOTAL_THREADS) {
+            while (numberOfThreads < TOTAL_THREADS) {
 
                 for (Thread thread : threadGroup.toArray(new Thread[0])) {
                     if (!thread.isAlive()) {
