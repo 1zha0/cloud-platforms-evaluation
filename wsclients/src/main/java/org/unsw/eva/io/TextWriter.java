@@ -21,12 +21,12 @@ public class TextWriter extends IOWriterHelper {
 
     private static final Logger log = LoggerFactory.getLogger(TextWriter.class);
 
-    public static void writeToFile(List<ResultData> resultList, ResultListFormatter formatter) {
+    public static void writeToFile(List<ResultData> resultList, ResultListFormatter formatter, String filename) {
         Validate.notNull(resultList);
         Validate.notNull(formatter);
 
         log.info("Createing result file from '" + resultList.size() + "' record(s)");
-        File file = getOutputFile();
+        File file = getOutputFile(filename);
         Writer output = null;
         try {
             output = new BufferedWriter(new FileWriter(file));

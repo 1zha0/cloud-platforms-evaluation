@@ -3,7 +3,6 @@ package org.unsw.eva.wsclient;
 import org.unsw.eva.threads.EvaluationThread;
 import org.unsw.eva.data.dataFormatter.ResultListTextFormatter;
 import org.unsw.eva.io.TextWriter;
-import org.unsw.eva.threads.CreateTests;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -11,6 +10,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.threads.InstanceResponeTests;
 
 /**
  * @author shrimpy
@@ -19,8 +19,9 @@ public class App extends Monitor {
 
     private static final Logger log = LoggerFactory.getLogger(App.class);
     public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
-    private static int THREADS_Fire_AT_THE_SAME_TIME = 30;
-    private static int TOTAL_THREADS = 30;
+    private static int THREADS_Fire_AT_THE_SAME_TIME = 800;
+    private static int TOTAL_THREADS = 800;
+    private static int RUNNING_TIMES = 20;
 
     public static void main(String[] args) {
         new App();
@@ -28,8 +29,9 @@ public class App extends Monitor {
 
     public App() {
 //        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE));
-//        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE));
-        testSuit.add(new CreateTests("AzureCreate", this, ServerType.AZURE));
+        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE));
+//        testSuit.add(new CreateTests("AzureCreate", this, ServerType.AZURE));
+//        testSuit.add(new CreateTests("AmazonCreate", this, ServerType.AMAZONE));
 //        testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE));
 //        testSuit.add(new ReadTests("AzureRead", this, ServerType.AZURE));
 //        testSuit.add(new ReadTests("AppEngineRead", this, ServerType.APP_ENGINE_READ));
@@ -40,12 +42,14 @@ public class App extends Monitor {
 
         for (EvaluationThread evaThread : testSuit) {
             log.info(evaThread.getName() + " is running.");
-            reset();
-            getResultData().setDescription(evaThread.getName() + " " + evaThread.getVersion());
-            runThreads(evaThread);
+            for (int i = 0; i < RUNNING_TIMES; i++) {
+                reset();
+                getResultData().setDescription(evaThread.getName() + " " + evaThread.getVersion());
+                runThreads(evaThread);
+            }
         }
 
-        TextWriter.writeToFile(getResultList(), new ResultListTextFormatter());
+        TextWriter.writeToFile(getResultList(), new ResultListTextFormatter(), "AzureInstanceResponse-" + TOTAL_THREADS + ".csv");
     }
 
     private void runThreads(EvaluationThread evaThread) {
@@ -96,16 +100,21 @@ public class App extends Monitor {
             log.error("Failed to run thread.", e.getMessage());
         } finally {
             getResultList().add(getResultData());
-            log.debug("====================================================================================================================");
-            log.debug("SOAP protocal : " + evaThread.getVersion().getValue());
-            log.debug(numberOfThreads + " threads in total, " + THREADS_Fire_AT_THE_SAME_TIME + " fired at the same time. Total running time is : " + ((getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000) + " seconds.");
-            log.debug("Average threads per second : " + numberOfThreads / ((getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000));
-            log.debug("Average connection time : " + getTotalConnectionTime() / numberOfThreads +
-                    " | Average computation time : " + getTotalComputationTime() / numberOfThreads);
-            log.debug("Min connection time : " + getMinConnectionTime() + " | Max connection time : " + getMaxConnectionTime());
-            log.debug("Min computation time : " + getMinComputationTime() + " | Max computation time : " + getMaxComputationTime());
-            log.debug("Error number is : " + getErrorCounter());
-            log.debug("====================================================================================================================");
+//            log.debug("====================================================================================================================");
+//            log.debug("SOAP protocal : " + evaThread.getVersion().getValue());
+//            log.debug(numberOfThreads + " threads in total, " + THREADS_Fire_AT_THE_SAME_TIME + " fired at the same time. Total running time is : " + ((getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000) + " seconds.");
+//            log.debug("Average threads per second : " + numberOfThreads / ((getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000));
+//            log.debug("Average connection time : " + getTotalConnectionTime() / numberOfThreads +
+//                    " | Average computation time : " + getTotalComputationTime() / numberOfThreads);
+//            log.debug("Min connection time : " + getMinConnectionTime() + " | Max connection time : " + getMaxConnectionTime());
+//            log.debug("Min computation time : " + getMinComputationTime() + " | Max computation time : " + getMaxComputationTime());
+//            log.debug("Error number is : " + getErrorCounter());
+//            log.debug("====================================================================================================================");
+            log.debug((getResultData().getEndingTime() - getResultData().getStartingTime()) + "," +
+                    numberOfThreads / ((getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000 < 1 ? 1 : (getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000) + "," +
+                    getTotalConnectionTime() / numberOfThreads + "," + getTotalComputationTime() / numberOfThreads + "," +
+                    getMinConnectionTime() + "," + getMaxConnectionTime() + "," + getMinComputationTime() + "," +
+                    getMaxComputationTime() + "," + getErrorCounter());
         }
     }
 }
