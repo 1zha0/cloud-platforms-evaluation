@@ -19,6 +19,6 @@ public class InstanceTest extends AbstractTest {
     public void testInstanceTest() throws ICloudComputingEvaluationInstanceResponseCloudComputatonEvaluationExceptionFaultMessage {
         Result result = getAmazonEndpoint().instanceResponse(STRING_OF_DATA);
 
-        assertEquals(STRING_OF_DATA, result.getValue());
+        assertEquals(STRING_OF_DATA, result.getValue().getValue());
     }
 }
