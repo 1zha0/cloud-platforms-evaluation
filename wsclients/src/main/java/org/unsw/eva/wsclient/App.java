@@ -19,8 +19,8 @@ public class App extends Monitor {
 
     private static final Logger log = LoggerFactory.getLogger(App.class);
     public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
-    private static int THREADS_Fire_AT_THE_SAME_TIME = 20;
-    private static int TOTAL_THREADS = 20;
+    private static int THREADS_Fire_AT_THE_SAME_TIME = 1;
+    private static int TOTAL_THREADS = 1;
     private static int RUNNING_TIMES = 20;
 
     public static void main(String[] args) {
@@ -28,9 +28,9 @@ public class App extends Monitor {
     }
 
     public App() {
-//        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE));
+        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE));
 //        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE));
-        testSuit.add(new InstanceResponeTests("AmazonInstanceResponse", this, ServerType.AMAZONE));
+//        testSuit.add(new InstanceResponeTests("AmazonInstanceResponse", this, ServerType.AMAZONE));
 //        testSuit.add(new CreateTests("AzureCreate", this, ServerType.AZURE));
 //        testSuit.add(new CreateTests("AmazonCreate", this, ServerType.AMAZONE));
 //        testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE));
@@ -50,7 +50,7 @@ public class App extends Monitor {
             }
         }
 
-        TextWriter.writeToFile(getResultList(), new ResultListTextFormatter(), "AmazonInstanceResponse-" + TOTAL_THREADS + ".csv");
+        TextWriter.writeToFile(getResultList(), new ResultListTextFormatter(), "AzureInstanceResponse-" + TOTAL_THREADS + ".csv");
     }
 
     private void runThreads(EvaluationThread evaThread) {
