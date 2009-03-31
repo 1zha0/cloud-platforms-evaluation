@@ -19,17 +19,17 @@ public class App extends Monitor {
 
     private static final Logger log = LoggerFactory.getLogger(App.class);
     public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
-    private static int THREADS_Fire_AT_THE_SAME_TIME = 1400;
-    private static int TOTAL_THREADS = 1400;
-    private static int RUNNING_TIMES = 20;
+    private static int THREADS_Fire_AT_THE_SAME_TIME = 1;
+    private static int TOTAL_THREADS = 1;
+    private static int RUNNING_TIMES = 400;
 
     public static void main(String[] args) {
         new App();
     }
 
     public App() {
-//        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE));
-        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE));
+        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE));
+//        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE));
 //        testSuit.add(new InstanceResponeTests("AmazonInstanceResponse", this, ServerType.AMAZONE));
 //        testSuit.add(new CreateTests("AzureCreate", this, ServerType.AZURE));
 //        testSuit.add(new CreateTests("AmazonCreate", this, ServerType.AMAZONE));
@@ -71,7 +71,7 @@ public class App extends Monitor {
                 }
                 if (threadGroup.size() >= THREADS_Fire_AT_THE_SAME_TIME) {
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(5);
                         continue;
                     } catch (InterruptedException ex) {
                         log.error("Failed to sleep thread in App.", ex);
@@ -87,9 +87,9 @@ public class App extends Monitor {
              * Waiting for all the thread finished running.
              */
             for (Thread thread : threadGroup) {
-                if (thread.isAlive()) {
+                while (thread.isAlive()) {
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(5);
                         continue;
                     } catch (InterruptedException ex) {
                         log.error("Failed to sleep thread in App.", ex);
