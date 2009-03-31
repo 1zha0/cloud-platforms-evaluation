@@ -28,9 +28,9 @@ public class App extends Monitor {
     }
 
     public App() {
-        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE));
+//        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE));
 //        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE));
-//        testSuit.add(new InstanceResponeTests("AmazonInstanceResponse", this, ServerType.AMAZONE));
+        testSuit.add(new InstanceResponeTests("AmazonInstanceResponse", this, ServerType.AMAZONE));
 //        testSuit.add(new CreateTests("AzureCreate", this, ServerType.AZURE));
 //        testSuit.add(new CreateTests("AmazonCreate", this, ServerType.AMAZONE));
 //        testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE));
