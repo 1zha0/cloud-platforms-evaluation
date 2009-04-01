@@ -108,6 +108,8 @@ public abstract class EvaluationThread implements Runnable {
             endpoint = service.getAzureEvaluationSoap();
         } else if (serverType.equals(ServerType.AMAZONE)) {
             endpoint = service.getAmazonSoap();
+        } else if (serverType.equals(ServerType.AMAZONE_SIMPLEDB)) {
+            endpoint = service.getAmazonSoapSimpleDB();
         } else if (serverType.equals(ServerType.APP_ENGINE_INSTANCE_RESPONSE)) {
             endpoint = service.getAppEngineSoapInstanceResponse();
         } else if (serverType.equals(ServerType.APP_ENGINE_CREATE)) {

@@ -8,6 +8,7 @@ public enum ServerType {
 
     AZURE("azure"),
     AMAZONE("amazone"),
+    AMAZONE_SIMPLEDB("amazone_simpleDB"),
     APP_ENGINE_INSTANCE_RESPONSE("appEngine_instanceResponse"),
     APP_ENGINE_CREATE("appEngine_create"),
     APP_ENGINE_READ("appEngine_read"),

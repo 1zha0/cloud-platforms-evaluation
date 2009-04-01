@@ -13,6 +13,8 @@ import org.unsw.eva.wsclient.ServerType;
  */
 public class CreateDataByNumberTests extends EvaluationThread {
 
+    private static int TOTAL_NUMBERS = 400;
+
     public CreateDataByNumberTests(String name, App app, ServerType serverType) {
         super(name, app, SOAPVersion.SOAP_11, serverType);
     }
@@ -20,7 +22,7 @@ public class CreateDataByNumberTests extends EvaluationThread {
     @Override
     public Result doSOAP11Call() {
         try {
-            return getServiceEndpoint().createDataByNumber(500);
+            return getServiceEndpoint().createDataByNumber(TOTAL_NUMBERS);
         } catch (ICloudComputingEvaluationCreateDataByNumberCloudComputatonEvaluationExceptionFaultMessage ex) {
             throw new ServerError(ex.getFaultInfo().getReason().getValue());
         }
@@ -33,6 +35,6 @@ public class CreateDataByNumberTests extends EvaluationThread {
 
     @Override
     public Boolean hasError() {
-        return getResult().getId() == null;
+        return getResult().getValue().getValue() == String.valueOf(TOTAL_NUMBERS);
     }
 }
