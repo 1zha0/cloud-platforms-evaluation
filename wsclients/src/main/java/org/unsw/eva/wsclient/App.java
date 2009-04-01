@@ -111,11 +111,11 @@ public class App extends Monitor {
 //            log.debug("Min computation time : " + getMinComputationTime() + " | Max computation time : " + getMaxComputationTime());
 //            log.debug("Error number is : " + getErrorCounter());
 //            log.debug("====================================================================================================================");
-//            log.debug((getResultData().getEndingTime() - getResultData().getStartingTime()) + "," +
-//                    numberOfThreads / ((getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000 < 1 ? 1 : (getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000) + "," +
-//                    getTotalConnectionTime() / numberOfThreads + "," + getTotalComputationTime() / numberOfThreads + "," +
-//                    getMinConnectionTime() + "," + getMaxConnectionTime() + "," + getMinComputationTime() + "," +
-//                    getMaxComputationTime() + "," + getErrorCounter());
+            log.debug((getResultData().getEndingTime() - getResultData().getStartingTime()) + "," +
+                    numberOfThreads / ((getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000 < 1 ? 1 : (getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000) + "," +
+                    getTotalConnectionTime() / numberOfThreads + "," + getTotalComputationTime() / numberOfThreads + "," +
+                    getMinConnectionTime() + "," + getMaxConnectionTime() + "," + getMinComputationTime() + "," +
+                    getMaxComputationTime() + "," + getErrorCounter());
         }
     }
 }
