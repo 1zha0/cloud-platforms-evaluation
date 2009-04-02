@@ -11,7 +11,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.unsw.eva.threads.CreateDataByNumberTests;
-import org.unsw.eva.threads.CreateTests;
 
 /**
  * @author shrimpy
@@ -20,7 +19,7 @@ public class App extends Monitor {
 
     private static final Logger log = LoggerFactory.getLogger(App.class);
     public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
-    private static int THREADS_Fire_AT_THE_SAME_TIME = 1;
+    private static int THREADS_FIRE_AT_THE_SAME_TIME = 1;
     private static int TOTAL_THREADS = 1;
     private static int RUNNING_TIMES = 20;
 
@@ -71,7 +70,7 @@ public class App extends Monitor {
                         threadGroup.remove(thread);
                     }
                 }
-                if (threadGroup.size() >= THREADS_Fire_AT_THE_SAME_TIME) {
+                if (threadGroup.size() >= THREADS_FIRE_AT_THE_SAME_TIME) {
                     try {
                         Thread.sleep(5);
                         continue;
