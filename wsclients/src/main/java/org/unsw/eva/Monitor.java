@@ -28,11 +28,9 @@ public class Monitor {
     public void threadIsGoingToBeStarted(String name) {
         reset();
         resultData.setDescription(name);
-        resultGroupData.setStartingTime(Calendar.getInstance().getTimeInMillis());
     }
 
     public void threadFinished() {
-        resultGroupData.setEndingTime(Calendar.getInstance().getTimeInMillis());
 //        log.debug(" Total connection time : " + totalConnectionTime +
 //                " min Connection time : " + minConnectionTime +
 //                " max Connection time : " + maxConnectionTime +

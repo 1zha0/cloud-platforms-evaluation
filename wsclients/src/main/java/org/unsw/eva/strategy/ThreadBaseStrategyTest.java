@@ -53,7 +53,6 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
 
     private void runThreads(EvaluationThread evaThread) {
         List<Thread> threadGroup = new ArrayList<Thread>();
-        long numberOfThreadsHaveRun = 0;
 
         /**
          * initiate the amount of threads, 
@@ -69,7 +68,6 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
              */
             for (Thread thread : threadGroup) {
                 thread.start();
-                numberOfThreadsHaveRun++;
             }
 
             /**
