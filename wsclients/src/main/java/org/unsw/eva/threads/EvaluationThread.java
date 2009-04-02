@@ -1,11 +1,11 @@
 package org.unsw.eva.threads;
 
-import org.unsw.eva.wsclient.SOAPVersion;
+import org.unsw.eva.SOAPVersion;
 import org.unsw.eva.utils.ResourceUtil;
 import org.unsw.eva.exceptions.UnsupportError;
 import org.unsw.eva.exceptions.ServerError;
-import org.unsw.eva.wsclient.ServerType;
-import org.unsw.eva.wsclient.Monitor;
+import org.unsw.eva.ServerType;
+import org.unsw.eva.Monitor;
 import org.cloudcomputingevaluation.Result;
 import org.cloudcomputingevaluation.CloudComputingEvaluation;
 import org.cloudcomputingevaluation.ICloudComputingEvaluation;
@@ -28,15 +28,20 @@ public abstract class EvaluationThread<T extends Monitor> implements Runnable {
     private Result result = null;
     private String name;
     private ServerType serverType;
+    private int repeatNumberOfTime;
 
-    public EvaluationThread(String name, T app, SOAPVersion version, ServerType serverType) {
+    public EvaluationThread(String name, T app, SOAPVersion version, ServerType serverType, int repeatNumberOfTime) {
         this.name = name;
         this.app = app;
         this.version = version;
         this.serverType = serverType;
+        this.repeatNumberOfTime = repeatNumberOfTime;
     }
 
-    public void run() {
+    /**
+     * What the job suppose to do in one request
+     */
+    private void runThread() {
         long start = Calendar.getInstance().getTimeInMillis();
 
         try {
@@ -63,10 +68,16 @@ public abstract class EvaluationThread<T extends Monitor> implements Runnable {
         } finally {
             if (result != null) {
 //                log.info("Result from server,  id : '" + result.getId() + "'  value : '" + result.getValue().getValue() + "'  timmer : '" + result.getTimer() + "'");
-            }// else {
-//                log.info("No response from server.");
-//            }
+            }
+        }
+    }
 
+    /**
+     * fire multiple request sequencely
+     */
+    public void run() {
+        for (int i = 0; i < repeatNumberOfTime; i++) {
+            runThread();
         }
     }
 

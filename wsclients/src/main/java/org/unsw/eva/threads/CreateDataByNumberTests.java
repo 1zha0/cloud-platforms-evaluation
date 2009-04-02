@@ -3,9 +3,9 @@ package org.unsw.eva.threads;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationCreateDataByNumberCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.exceptions.ServerError;
-import org.unsw.eva.wsclient.Monitor;
-import org.unsw.eva.wsclient.SOAPVersion;
-import org.unsw.eva.wsclient.ServerType;
+import org.unsw.eva.Monitor;
+import org.unsw.eva.SOAPVersion;
+import org.unsw.eva.ServerType;
 
 /**
  *
@@ -15,8 +15,8 @@ public class CreateDataByNumberTests<T extends Monitor> extends EvaluationThread
 
     private static int TOTAL_NUMBERS = 400;
 
-    public CreateDataByNumberTests(String name, T app, ServerType serverType) {
-        super(name, app, SOAPVersion.SOAP_11, serverType);
+    public CreateDataByNumberTests(String name, T app, ServerType serverType,int repeatNumberOfTime) {
+        super(name, app, SOAPVersion.SOAP_11, serverType, repeatNumberOfTime);
     }
 
     @Override

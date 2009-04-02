@@ -3,9 +3,9 @@ package org.unsw.eva.threads;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationInstanceResponseCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.exceptions.ServerError;
-import org.unsw.eva.wsclient.Monitor;
-import org.unsw.eva.wsclient.SOAPVersion;
-import org.unsw.eva.wsclient.ServerType;
+import org.unsw.eva.Monitor;
+import org.unsw.eva.SOAPVersion;
+import org.unsw.eva.ServerType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +18,8 @@ public class InstanceResponeTests<T extends Monitor> extends EvaluationThread {
 
     private static final Logger log = LoggerFactory.getLogger(InstanceResponeTests.class);
 
-    public InstanceResponeTests(String name, T app, ServerType serverType) {
-        super(name, app, SOAPVersion.SOAP_11, serverType);
+    public InstanceResponeTests(String name, T app, ServerType serverType, int repeatNumberOfTime) {
+        super(name, app, SOAPVersion.SOAP_11, serverType, repeatNumberOfTime);
     }
 
     @Override

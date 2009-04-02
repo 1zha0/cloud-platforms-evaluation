@@ -2,14 +2,13 @@ package org.unsw.eva.threads;
 
 import org.cloudcomputingevaluation.ICloudComputingEvaluationCreateCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
+import org.unsw.eva.exceptions.ServerError;
+import org.unsw.eva.Monitor;
+import org.unsw.eva.SOAPVersion;
+import org.unsw.eva.ServerType;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.unsw.eva.exceptions.ServerError;
-import org.unsw.eva.threads.EvaluationThread;
-import org.unsw.eva.wsclient.Monitor;
-import org.unsw.eva.wsclient.SOAPVersion;
-import org.unsw.eva.wsclient.ServerType;
-
 /**
  *
  * @author shrimpy
@@ -18,8 +17,8 @@ public class CreateTests<T extends Monitor> extends EvaluationThread {
 
     private static final Logger log = LoggerFactory.getLogger(CreateTests.class);
 
-    public CreateTests(String name, T app, ServerType serverType) {
-        super(name, app, SOAPVersion.SOAP_11, serverType);
+    public CreateTests(String name, T app, ServerType serverType, int repeatNumberOfTime) {
+        super(name, app, SOAPVersion.SOAP_11, serverType, repeatNumberOfTime);
     }
 
     @Override

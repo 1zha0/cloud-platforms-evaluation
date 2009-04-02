@@ -1,4 +1,4 @@
-package org.unsw.eva.wsclient;
+package org.unsw.eva;
 
 /**
  *
