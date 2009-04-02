@@ -3,15 +3,15 @@ package org.unsw.eva.threads;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationUpdateCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.exceptions.ServerError;
-import org.unsw.eva.Monitor;
 import org.unsw.eva.SOAPVersion;
 import org.unsw.eva.ServerType;
+import org.unsw.eva.strategy.AbstractStrageyTest;
 
 /**
  *
  * @author shrimpy
  */
-public class UpdateTests<T extends Monitor> extends EvaluationThread {
+public class UpdateTests<T extends AbstractStrageyTest> extends EvaluationThread {
 
     public UpdateTests(String name, T app, ServerType serverType, int repeatNumberOfTime) {
         super(name, app, SOAPVersion.SOAP_11, serverType, repeatNumberOfTime);

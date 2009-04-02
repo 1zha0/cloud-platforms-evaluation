@@ -1,10 +1,12 @@
-package org.unsw.eva.strategy;
+package org.unsw.eva.wsclient;
+
+import org.unsw.eva.strategy.*;
 
 /**
  *
  * @author shrimpy
  */
-public class StrategyTest {
+public class App {
 
     public static void main(String[] args) {
         new ThreadBaseStrategyTest();

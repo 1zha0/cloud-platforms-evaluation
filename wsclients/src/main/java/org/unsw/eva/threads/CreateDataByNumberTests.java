@@ -3,15 +3,15 @@ package org.unsw.eva.threads;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationCreateDataByNumberCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.exceptions.ServerError;
-import org.unsw.eva.Monitor;
 import org.unsw.eva.SOAPVersion;
 import org.unsw.eva.ServerType;
+import org.unsw.eva.strategy.AbstractStrageyTest;
 
 /**
  *
  * @author shrimpy
  */
-public class CreateDataByNumberTests<T extends Monitor> extends EvaluationThread {
+public class CreateDataByNumberTests<T extends AbstractStrageyTest> extends EvaluationThread {
 
     private static int TOTAL_NUMBERS = 400;
 

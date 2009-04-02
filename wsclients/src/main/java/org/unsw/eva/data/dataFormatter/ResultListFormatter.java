@@ -1,7 +1,8 @@
 package org.unsw.eva.data.dataFormatter;
 
 import java.util.List;
-import org.unsw.eva.data.ResultData;
+import org.unsw.eva.FileSuffix;
+import org.unsw.eva.data.ResultGroupData;
 
 /**
  *
@@ -9,5 +10,7 @@ import org.unsw.eva.data.ResultData;
  */
 public interface ResultListFormatter {
 
-    String formatResultData(List<ResultData> dataList);
+    String formatResultData(List<ResultGroupData> dataList);
+
+    FileSuffix getSuffix();
 }

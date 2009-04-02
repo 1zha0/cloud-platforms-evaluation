@@ -1,7 +1,6 @@
 package org.unsw.eva.strategy;
 
 import org.unsw.eva.ServerType;
-import org.unsw.eva.Monitor;
 import org.unsw.eva.threads.EvaluationThread;
 import org.unsw.eva.threads.InstanceResponeTests;
 
@@ -15,7 +14,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @author shrimpy
  */
-public class TimeBaseStrategyTest extends Monitor {
+public class TimeBaseStrategyTest extends AbstractStrageyTest {
 
     private static final Logger log = LoggerFactory.getLogger(TimeBaseStrategyTest.class);
     public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
@@ -40,8 +39,6 @@ public class TimeBaseStrategyTest extends Monitor {
 //        testSuit.add(new ReadDataByNumberTests("AppEngineReadDataByNumber", this, ServerType.APP_ENGINE_READ_DATA_BY_NUMBER, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
         for (EvaluationThread evaThread : testSuit) {
             log.info(evaThread.getName() + " is running.");
-            reset();
-            getResultData().setDescription(evaThread.getName() + " " + evaThread.getVersion());
             runThreads(evaThread);
         }
 
@@ -60,7 +57,6 @@ public class TimeBaseStrategyTest extends Monitor {
 
         try {
             long start = Calendar.getInstance().getTimeInMillis();
-            getResultData().setStartingTime(start);
 
             while (currentTimeDifference(start) < TOTAL_RUNNING_TIME_IN_SECONDS) {
 
@@ -98,11 +94,9 @@ public class TimeBaseStrategyTest extends Monitor {
                     }
                 }
             }
-            getResultData().setEndingTime(Calendar.getInstance().getTimeInMillis());
         } catch (Exception e) {
             log.error("Failed to run thread.", e.getMessage());
         } finally {
-            getResultList().add(getResultData());
 //            log.debug("====================================================================================================================");
 //            log.debug("SOAP protocal : " + evaThread.getVersion().getValue());
 //            log.debug(numberOfThreads + " threads in total, " + THREADS_Fire_AT_THE_SAME_TIME + " fired at the same time. Total running time is : " + ((getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000) + " seconds.");
@@ -113,41 +107,11 @@ public class TimeBaseStrategyTest extends Monitor {
 //            log.debug("Min computation time : " + getMinComputationTime() + " | Max computation time : " + getMaxComputationTime());
 //            log.debug("Error number is : " + getErrorCounter());
 //            log.debug("====================================================================================================================");
-            log.debug((getResultData().getEndingTime() - getResultData().getStartingTime()) + "," +
-                    numberOfThreadsHaveRun / ((getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000 < 1 ? 1 : (getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000) + "," +
-                    getTotalConnectionTime() / numberOfThreadsHaveRun + "," + getTotalComputationTime() / numberOfThreadsHaveRun + "," +
-                    getMinConnectionTime() + "," + getMaxConnectionTime() + "," + getMinComputationTime() + "," +
-                    getMaxComputationTime() + "," + getErrorCounter());
-        }
-    }
-
-    public class ThreadSupplier extends ArrayList {
-
-        public ThreadSupplier(EvaluationThread evaThread) {
-            super(THREADS_FIRE_AT_THE_SAME_TIME);
-            initList(evaThread);
-        }
-
-        private void initList(EvaluationThread evaThread) {
-            for (int i = 0; i < THREADS_FIRE_AT_THE_SAME_TIME; i++) {
-                add(new Thread(evaThread));
-            }
-        }
-
-        public Thread getThread() {
-            Thread t = null;
-            if (size() > 0) {
-                t = (Thread) get(0);
-                remove(0);
-            }
-            return t;
-        }
-
-        public void maintainSupply(EvaluationThread evaThread) {
-            int miss = THREADS_FIRE_AT_THE_SAME_TIME - size();
-            for (int i = 0; i < miss; i++) {
-                add(new Thread(evaThread));
-            }
+//            log.debug((getResultData().getEndingTime() - getResultData().getStartingTime()) + "," +
+//                    numberOfThreadsHaveRun / ((getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000 < 1 ? 1 : (getResultData().getEndingTime() - getResultData().getStartingTime()) / 1000) + "," +
+//                    getTotalConnectionTime() / numberOfThreadsHaveRun + "," + getTotalComputationTime() / numberOfThreadsHaveRun + "," +
+//                    getMinConnectionTime() + "," + getMaxConnectionTime() + "," + getMinComputationTime() + "," +
+//                    getMaxComputationTime() + "," + getErrorCounter());
         }
     }
 }

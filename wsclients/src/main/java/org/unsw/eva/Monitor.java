@@ -1,10 +1,12 @@
 package org.unsw.eva;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import org.unsw.eva.data.Pair;
 import org.unsw.eva.data.ResultData;
+import org.unsw.eva.data.ResultGroupData;
+
+import java.util.Calendar;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -12,132 +14,75 @@ import org.unsw.eva.data.ResultData;
  */
 public class Monitor {
 
-    private long totalConnectionTime = 0;
-    private long totalComputationTime = 0;
-    private long minConnectionTime = 0;
-    private long maxConnectionTime = 0;
-    private long minComputationTime = 0;
-    private long maxComputationTime = 0;
-    private long currentConnectionTime = 0;
-    private long currentComputationTime = 0;
+    private static final Logger log = LoggerFactory.getLogger(Monitor.class);
     private ResultData resultData;
-    private List<ResultData> resultList = new ArrayList<ResultData>();
-    private long errorCounter = 0;
+    private ResultGroupData resultGroupData = new ResultGroupData();
 
-    protected void reset() {
-        totalConnectionTime = 0;
-        totalComputationTime = 0;
-        minConnectionTime = 0;
-        maxConnectionTime = 0;
-        minComputationTime = 0;
-        maxComputationTime = 0;
-        currentConnectionTime = 0;
-        currentComputationTime = 0;
+    /**
+     * Reset counters for thread.
+     */
+    private void reset() {
         resultData = new ResultData();
-        errorCounter = 0;
     }
 
-    public synchronized void monitorConnectionTime(long timeStamp) {
+    public void threadIsGoingToBeStarted(String name) {
+        reset();
+        resultData.setDescription(name);
+        resultGroupData.setStartingTime(Calendar.getInstance().getTimeInMillis());
+    }
+
+    public void threadFinished() {
+        resultGroupData.setEndingTime(Calendar.getInstance().getTimeInMillis());
+//        log.debug(" Total connection time : " + totalConnectionTime +
+//                " min Connection time : " + minConnectionTime +
+//                " max Connection time : " + maxConnectionTime +
+//                " total computation time :" + totalComputationTime +
+//                " min computation time :" + minComputationTime +
+//                " max computation time :" + maxComputationTime);
+        resultGroupData.add(resultData);
+    }
+
+    public void monitorConnectionTime(long timeStamp) {
         calculateMinConnectionTime(timeStamp);
         calculateMaxConnectionTime(timeStamp);
-        setCurrentConnectionTime(timeStamp);
-        setTotalConnectionTime(getTotalConnectionTime() + timeStamp);
-        getResultData().getConnectionTimers().add(new Pair<Long, Long>(Calendar.getInstance().getTimeInMillis(), timeStamp));
+        resultGroupData.setTotalConnectionTime(resultGroupData.getTotalConnectionTime() + timeStamp);
     }
 
-    public synchronized void monitorComputationTime(long timeStamp) {
+    public void monitorComputationTime(long timeStamp) {
         calculateMinComputationTime(timeStamp);
         calculateMaxComputationTime(timeStamp);
-        setCurrentComputationTime(timeStamp);
-        setTotalComputationTime(getTotalComputationTime() + timeStamp);
-        getResultData().getComputationTimers().add(new Pair<Long, Long>(Calendar.getInstance().getTimeInMillis(), timeStamp));
+        resultGroupData.setTotalComputationTime(resultGroupData.getTotalComputationTime() + timeStamp);
     }
 
-    public synchronized void calculateMinConnectionTime(long i) {
-        if (i < minConnectionTime || minConnectionTime == 0) {
-            minConnectionTime = i;
+    public void calculateMinConnectionTime(long timeStamp) {
+        if (timeStamp < resultGroupData.getMinConnectionTime() || resultGroupData.getMinConnectionTime() == 0) {
+            resultGroupData.setMinConnectionTime(timeStamp);
         }
     }
 
-    public synchronized void calculateMaxConnectionTime(long i) {
-        if (i > maxConnectionTime || maxConnectionTime == 0) {
-            maxConnectionTime = i;
+    public void calculateMaxConnectionTime(long timeStamp) {
+        if (timeStamp > resultGroupData.getMaxConnectionTime() || resultGroupData.getMaxConnectionTime() == 0) {
+            resultGroupData.setMaxConnectionTime(timeStamp);
         }
     }
 
-    public synchronized void calculateMinComputationTime(long i) {
-        if (i < minComputationTime || minComputationTime == 0) {
-            minComputationTime = i;
+    public void calculateMinComputationTime(long timeStamp) {
+        if (timeStamp < resultGroupData.getMinComputationTime() || resultGroupData.getMinComputationTime() == 0) {
+            resultGroupData.setMinComputationTime(timeStamp);
         }
     }
 
-    public synchronized void calculateMaxComputationTime(long i) {
-        if (i > maxComputationTime || maxComputationTime == 0) {
-            maxComputationTime = i;
+    public void calculateMaxComputationTime(long timeStamp) {
+        if (timeStamp > resultGroupData.getMaxComputationTime() || resultGroupData.getMaxComputationTime() == 0) {
+            resultGroupData.setMaxComputationTime(timeStamp);
         }
     }
 
-    public synchronized void errorOccured() {
-        errorCounter++;
+    public void errorOccured() {
+        resultGroupData.errorOccured();
     }
 
-    public synchronized long getCurrentComputationTime() {
-        return currentComputationTime;
-    }
-
-    public synchronized void setCurrentComputationTime(long currentComputationTime) {
-        this.currentComputationTime = currentComputationTime;
-    }
-
-    public synchronized long getCurrentConnectionTime() {
-        return currentConnectionTime;
-    }
-
-    public synchronized void setCurrentConnectionTime(long currentConnectionTime) {
-        this.currentConnectionTime = currentConnectionTime;
-    }
-
-    public synchronized ResultData getResultData() {
-        return resultData;
-    }
-
-    public synchronized List<ResultData> getResultList() {
-        return resultList;
-    }
-
-    public synchronized long getErrorCounter() {
-        return errorCounter;
-    }
-
-    public synchronized long getMaxComputationTime() {
-        return maxComputationTime;
-    }
-
-    public synchronized long getMaxConnectionTime() {
-        return maxConnectionTime;
-    }
-
-    public synchronized long getMinComputationTime() {
-        return minComputationTime;
-    }
-
-    public synchronized long getMinConnectionTime() {
-        return minConnectionTime;
-    }
-
-    public synchronized long getTotalComputationTime() {
-        return totalComputationTime;
-    }
-
-    public void setTotalComputationTime(long totalComputationTime) {
-        this.totalComputationTime = totalComputationTime;
-    }
-
-    public void setTotalConnectionTime(long totalConnectionTime) {
-        this.totalConnectionTime = totalConnectionTime;
-    }
-
-    public synchronized long getTotalConnectionTime() {
-        return totalConnectionTime;
+    public ResultGroupData getResultGroupData() {
+        return resultGroupData;
     }
 }

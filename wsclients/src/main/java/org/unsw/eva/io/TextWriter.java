@@ -1,7 +1,7 @@
 package org.unsw.eva.io;
 
-import org.unsw.eva.data.ResultData;
 import org.unsw.eva.data.dataFormatter.ResultListFormatter;
+import org.unsw.eva.data.ResultGroupData;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,12 +21,12 @@ public class TextWriter extends IOWriterHelper {
 
     private static final Logger log = LoggerFactory.getLogger(TextWriter.class);
 
-    public static void writeToFile(List<ResultData> resultList, ResultListFormatter formatter, String filename) {
+    public static void writeToFile(List<ResultGroupData> resultList, ResultListFormatter formatter, String filename) {
         Validate.notNull(resultList);
         Validate.notNull(formatter);
 
         log.info("Createing result file from '" + resultList.size() + "' record(s)");
-        File file = getOutputFile(filename);
+        File file = getOutputFile(filename, formatter.getSuffix());
         Writer output = null;
         try {
             output = new BufferedWriter(new FileWriter(file));

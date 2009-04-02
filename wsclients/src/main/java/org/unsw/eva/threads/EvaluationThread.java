@@ -6,11 +6,14 @@ import org.unsw.eva.exceptions.UnsupportError;
 import org.unsw.eva.exceptions.ServerError;
 import org.unsw.eva.ServerType;
 import org.unsw.eva.Monitor;
+import org.unsw.eva.strategy.AbstractStrageyTest;
+
 import org.cloudcomputingevaluation.Result;
 import org.cloudcomputingevaluation.CloudComputingEvaluation;
 import org.cloudcomputingevaluation.ICloudComputingEvaluation;
 
 import java.util.Calendar;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,11 +21,11 @@ import org.slf4j.LoggerFactory;
  *
  * @author shrimpy
  */
-public abstract class EvaluationThread<T extends Monitor> implements Runnable {
+public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Monitor implements Runnable {
 
     private static final Logger log = LoggerFactory.getLogger(EvaluationThread.class);
     private CloudComputingEvaluation service = new CloudComputingEvaluation();
-    private T app;
+    private T strageyTest;
     private SOAPVersion version;
     private String MESSAGE = ResourceUtil.getSendString();
     private Result result = null;
@@ -30,9 +33,9 @@ public abstract class EvaluationThread<T extends Monitor> implements Runnable {
     private ServerType serverType;
     private int repeatNumberOfTime;
 
-    public EvaluationThread(String name, T app, SOAPVersion version, ServerType serverType, int repeatNumberOfTime) {
+    public EvaluationThread(String name, T strageyTest, SOAPVersion version, ServerType serverType, int repeatNumberOfTime) {
         this.name = name;
-        this.app = app;
+        this.strageyTest = strageyTest;
         this.version = version;
         this.serverType = serverType;
         this.repeatNumberOfTime = repeatNumberOfTime;
@@ -42,7 +45,7 @@ public abstract class EvaluationThread<T extends Monitor> implements Runnable {
      * What the job suppose to do in one request
      */
     private void runThread() {
-        long start = Calendar.getInstance().getTimeInMillis();
+        long timer = Calendar.getInstance().getTimeInMillis();
 
         try {
             if (SOAPVersion.SOAP_11.equals(version)) {
@@ -52,22 +55,19 @@ public abstract class EvaluationThread<T extends Monitor> implements Runnable {
             } else {
                 throw new UnsupportError("Unsupported SOAP Version : '" + version + "'");
             }
-            app.monitorConnectionTime(Calendar.getInstance().getTimeInMillis() - start);
+            monitorConnectionTime(Calendar.getInstance().getTimeInMillis() - timer);
             if (result == null || hasError()) {
-                app.errorOccured();
+                errorOccured();
             } else {
-//                log.info("result : " + result.getValue().getValue() + " " + result.getTimer());
-                app.monitorComputationTime(result.getTimer());
+                monitorComputationTime(result.getTimer());
             }
         } catch (ServerError e) {
-            app.errorOccured();
-//            log.error("Server error, connection failed while doing : '" + getName() + "'. ", e.getMessage());
+            errorOccured();
         } catch (Exception e) {
-            app.errorOccured();
-//            log.error("Unknown exception occured, connection failed while doing : '" + getName() + "'. ", e.getMessage());
+            errorOccured();
         } finally {
             if (result != null) {
-//                log.info("Result from server,  id : '" + result.getId() + "'  value : '" + result.getValue().getValue() + "'  timmer : '" + result.getTimer() + "'");
+                // can do sth here
             }
         }
     }
@@ -77,16 +77,20 @@ public abstract class EvaluationThread<T extends Monitor> implements Runnable {
      */
     public void run() {
         for (int i = 0; i < repeatNumberOfTime; i++) {
+            super.threadIsGoingToBeStarted(name);
             runThread();
+            super.threadFinished();
         }
+        /**
+         * all the requests have been finished running,
+         * thead is going to destoried,
+         * output result to public result list.
+         */
+        strageyTest.getResultList().add(getResultGroupData());
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getMESSAGE() {
@@ -101,16 +105,8 @@ public abstract class EvaluationThread<T extends Monitor> implements Runnable {
         return result;
     }
 
-    public void setResult(Result result) {
-        this.result = result;
-    }
-
     public SOAPVersion getVersion() {
         return version;
-    }
-
-    public void setVersion(SOAPVersion version) {
-        this.version = version;
     }
 
     public ICloudComputingEvaluation getServiceEndpoint() {
