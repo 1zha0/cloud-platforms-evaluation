@@ -1,16 +1,16 @@
 package org.unsw.eva.threads;
 
-import org.unsw.eva.wsclient.App;
 import org.unsw.eva.wsclient.SOAPVersion;
 import org.unsw.eva.utils.ResourceUtil;
 import org.unsw.eva.exceptions.UnsupportError;
 import org.unsw.eva.exceptions.ServerError;
 import org.unsw.eva.wsclient.ServerType;
+import org.unsw.eva.wsclient.Monitor;
 import org.cloudcomputingevaluation.Result;
-
-import java.util.Calendar;
 import org.cloudcomputingevaluation.CloudComputingEvaluation;
 import org.cloudcomputingevaluation.ICloudComputingEvaluation;
+
+import java.util.Calendar;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,18 +18,18 @@ import org.slf4j.LoggerFactory;
  *
  * @author shrimpy
  */
-public abstract class EvaluationThread implements Runnable {
+public abstract class EvaluationThread<T extends Monitor> implements Runnable {
 
     private static final Logger log = LoggerFactory.getLogger(EvaluationThread.class);
     private CloudComputingEvaluation service = new CloudComputingEvaluation();
-    private App app;
+    private T app;
     private SOAPVersion version;
     private String MESSAGE = ResourceUtil.getSendString();
     private Result result = null;
     private String name;
     private ServerType serverType;
 
-    public EvaluationThread(String name, App app, SOAPVersion version, ServerType serverType) {
+    public EvaluationThread(String name, T app, SOAPVersion version, ServerType serverType) {
         this.name = name;
         this.app = app;
         this.version = version;

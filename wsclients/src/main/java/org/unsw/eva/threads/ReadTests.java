@@ -3,8 +3,7 @@ package org.unsw.eva.threads;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationReadCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.exceptions.ServerError;
-import org.unsw.eva.threads.EvaluationThread;
-import org.unsw.eva.wsclient.App;
+import org.unsw.eva.wsclient.Monitor;
 import org.unsw.eva.wsclient.SOAPVersion;
 import org.unsw.eva.wsclient.ServerType;
 
@@ -12,9 +11,9 @@ import org.unsw.eva.wsclient.ServerType;
  *
  * @author shrimpy
  */
-public class ReadTests extends EvaluationThread {
+public class ReadTests<T extends Monitor> extends EvaluationThread {
 
-    public ReadTests(String name, App app, ServerType serverType) {
+    public ReadTests(String name, T app, ServerType serverType) {
         super(name, app, SOAPVersion.SOAP_11, serverType);
     }
 

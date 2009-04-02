@@ -3,7 +3,7 @@ package org.unsw.eva.threads;
 import org.cloudcomputingevaluation.ICloudComputingEvaluationCreateDataByNumberCloudComputatonEvaluationExceptionFaultMessage;
 import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.exceptions.ServerError;
-import org.unsw.eva.wsclient.App;
+import org.unsw.eva.wsclient.Monitor;
 import org.unsw.eva.wsclient.SOAPVersion;
 import org.unsw.eva.wsclient.ServerType;
 
@@ -11,11 +11,11 @@ import org.unsw.eva.wsclient.ServerType;
  *
  * @author shrimpy
  */
-public class CreateDataByNumberTests extends EvaluationThread {
+public class CreateDataByNumberTests<T extends Monitor> extends EvaluationThread {
 
     private static int TOTAL_NUMBERS = 400;
 
-    public CreateDataByNumberTests(String name, App app, ServerType serverType) {
+    public CreateDataByNumberTests(String name, T app, ServerType serverType) {
         super(name, app, SOAPVersion.SOAP_11, serverType);
     }
 

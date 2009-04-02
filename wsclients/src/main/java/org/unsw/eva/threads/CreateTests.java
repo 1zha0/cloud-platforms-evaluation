@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.unsw.eva.exceptions.ServerError;
 import org.unsw.eva.threads.EvaluationThread;
-import org.unsw.eva.wsclient.App;
+import org.unsw.eva.wsclient.Monitor;
 import org.unsw.eva.wsclient.SOAPVersion;
 import org.unsw.eva.wsclient.ServerType;
 
@@ -14,11 +14,11 @@ import org.unsw.eva.wsclient.ServerType;
  *
  * @author shrimpy
  */
-public class CreateTests extends EvaluationThread {
+public class CreateTests<T extends Monitor> extends EvaluationThread {
 
     private static final Logger log = LoggerFactory.getLogger(CreateTests.class);
 
-    public CreateTests(String name, App app, ServerType serverType) {
+    public CreateTests(String name, T app, ServerType serverType) {
         super(name, app, SOAPVersion.SOAP_11, serverType);
     }
 
