@@ -27,12 +27,6 @@ public abstract class Monitor {
     }
 
     public void threadFinished() {
-//        log.debug(" Total connection time : " + totalConnectionTime +
-//                " min Connection time : " + minConnectionTime +
-//                " max Connection time : " + maxConnectionTime +
-//                " total computation time :" + totalComputationTime +
-//                " min computation time :" + minComputationTime +
-//                " max computation time :" + maxComputationTime);
         resultGroupData.add(resultDatas[getCurrentThreadIndex()]);
     }
 
