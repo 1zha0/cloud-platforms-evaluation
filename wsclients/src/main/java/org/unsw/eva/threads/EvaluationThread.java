@@ -32,8 +32,10 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
     private String name;
     private ServerType serverType;
     private int repeatNumberOfTime;
+    public int currentThreadIndex;
 
     public EvaluationThread(String name, T strageyTest, SOAPVersion version, ServerType serverType, int repeatNumberOfTime) {
+        super(repeatNumberOfTime);
         this.name = name;
         this.strageyTest = strageyTest;
         this.version = version;
@@ -77,6 +79,7 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
      */
     public void run() {
         for (int i = 0; i < repeatNumberOfTime; i++) {
+            currentThreadIndex = i;
             super.threadIsGoingToBeStarted(name);
             runThread();
             super.threadFinished();
@@ -131,6 +134,10 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
             throw new UnsupportError("Unsupport server type : " + serverType);
         }
         return endpoint;
+    }
+
+    public int getCurrentThreadIndex() {
+        return currentThreadIndex;
     }
 
     public abstract Result doSOAP11Call();

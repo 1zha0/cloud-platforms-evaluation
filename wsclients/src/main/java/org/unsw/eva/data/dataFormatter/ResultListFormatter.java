@@ -10,6 +10,8 @@ import org.unsw.eva.data.ResultGroupData;
  */
 public interface ResultListFormatter {
 
+    public static final String COLUMN_SPERATOR = ",";
+
     String formatResultData(List<ResultGroupData> dataList);
 
     FileSuffix getSuffix();
