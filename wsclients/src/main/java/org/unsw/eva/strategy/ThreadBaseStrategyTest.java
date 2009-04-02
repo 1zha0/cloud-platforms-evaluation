@@ -48,7 +48,7 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
                 runThreads(evaThread);
             }
         }
-        TextWriter.writeToFile(getResultList(), new ResultListCSVFormatter(), TOTAL_THREADS + ".csv");
+        TextWriter.writeToFile(getResultList(), new ResultListCSVFormatter(), "FileName");
     }
 
     private void runThreads(EvaluationThread evaThread) {
