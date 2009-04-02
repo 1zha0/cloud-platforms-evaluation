@@ -11,6 +11,7 @@ import org.unsw.eva.data.ResultGroupData;
 public interface ResultListFormatter {
 
     public static final String COLUMN_SPERATOR = ",";
+    public static final String NEW_LINE = "\n";
 
     String formatResultData(List<ResultGroupData> dataList);
 

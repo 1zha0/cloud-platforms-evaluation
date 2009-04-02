@@ -16,10 +16,15 @@ public class ResultListCSVFormatter implements ResultListFormatter {
         StringBuilder sb = new StringBuilder("Name,");
 
         for (ResultGroupData resultGroup : dataList) {
-            for (Object object : resultGroup) {
-                ResultData data = (ResultData) object;
+            for (ResultData data : resultGroup.getResultDatas()) {
                 sb.append(data.getDescription());
                 sb.append(COLUMN_SPERATOR);
+                sb.append(data.getConnectionTime());
+                sb.append(COLUMN_SPERATOR);
+                sb.append(data.getComputationTime());
+                sb.append(COLUMN_SPERATOR);
+                sb.append(data.getIsError());
+                sb.append(NEW_LINE);
             }
         }
         return sb.toString();

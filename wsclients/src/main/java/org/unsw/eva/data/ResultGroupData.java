@@ -1,15 +1,15 @@
 package org.unsw.eva.data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author shrimpy
  */
-public class ResultGroupData<ResultData> extends ArrayList<ResultData> {
+public class ResultGroupData {
 
-    private Long startingTime = 0L;
-    private Long endingTime = 0L;
+    private List<ResultData> resultDatas = new ArrayList<ResultData>();
     private Long totalConnectionTime = 0L;
     private Long totalComputationTime = 0L;
     private Long minConnectionTime = 0L;
@@ -18,79 +18,82 @@ public class ResultGroupData<ResultData> extends ArrayList<ResultData> {
     private Long maxComputationTime = 0L;
     private Long errorCounter = 0L;
 
-    public Long getEndingTime() {
-        return endingTime;
+    public void add(ResultData data) {
+        resultDatas.add(data);
     }
 
-    public void setEndingTime(Long endingTime) {
-        this.endingTime = endingTime;
-    }
-
-    public Long getStartingTime() {
-        return startingTime;
-    }
-
-    public void setStartingTime(Long startingTime) {
-        this.startingTime = startingTime;
+    public List<ResultData> getResultDatas() {
+        return resultDatas;
     }
 
     public Long getErrorCounter() {
         return errorCounter;
     }
 
-    public void setErrorCounter(Long errorCounter) {
-        this.errorCounter = errorCounter;
-    }
-
     public Long getMaxComputationTime() {
         return maxComputationTime;
-    }
-
-    public void setMaxComputationTime(Long maxComputationTime) {
-        this.maxComputationTime = maxComputationTime;
     }
 
     public Long getMaxConnectionTime() {
         return maxConnectionTime;
     }
 
-    public void setMaxConnectionTime(Long maxConnectionTime) {
-        this.maxConnectionTime = maxConnectionTime;
-    }
-
     public Long getMinComputationTime() {
         return minComputationTime;
-    }
-
-    public void setMinComputationTime(Long minComputationTime) {
-        this.minComputationTime = minComputationTime;
     }
 
     public Long getMinConnectionTime() {
         return minConnectionTime;
     }
 
-    public void setMinConnectionTime(Long minConnectionTime) {
-        this.minConnectionTime = minConnectionTime;
-    }
-
     public Long getTotalComputationTime() {
         return totalComputationTime;
-    }
-
-    public void setTotalComputationTime(Long totalComputationTime) {
-        this.totalComputationTime = totalComputationTime;
     }
 
     public Long getTotalConnectionTime() {
         return totalConnectionTime;
     }
 
-    public void setTotalConnectionTime(Long totalConnectionTime) {
-        this.totalConnectionTime = totalConnectionTime;
-    }
-
     public void errorOccured() {
         errorCounter++;
+    }
+
+    //=========================================================================
+    public void populateData() {
+        for (ResultData resultData : resultDatas) {
+            totalComputationTime += resultData.getComputationTime();
+            totalConnectionTime += resultData.getConnectionTime();
+            calculateMinComputationTime(resultData.getComputationTime());
+            calculateMaxComputationTime(resultData.getComputationTime());
+            calculateMinConnectionTime(resultData.getConnectionTime());
+            calculateMaxConnectionTime(resultData.getConnectionTime());
+            if (resultData.getIsError()) {
+                errorOccured();
+            }
+        }
+    }
+
+    public void calculateMinConnectionTime(long timeStamp) {
+        if (timeStamp < minConnectionTime || minConnectionTime == 0) {
+            minConnectionTime = timeStamp;
+        }
+    }
+
+    public void calculateMaxConnectionTime(long timeStamp) {
+        if (timeStamp > maxConnectionTime || maxConnectionTime == 0) {
+            maxConnectionTime = timeStamp;
+        }
+    }
+
+    public void calculateMinComputationTime(long timeStamp) {
+        if (timeStamp < minComputationTime || minComputationTime == 0) {
+            minComputationTime = timeStamp;
+        }
+    }
+
+    public void calculateMaxComputationTime(long timeStamp) {
+        if (timeStamp > maxComputationTime || maxComputationTime == 0) {
+            maxComputationTime = timeStamp;
+        }
     }
 }
