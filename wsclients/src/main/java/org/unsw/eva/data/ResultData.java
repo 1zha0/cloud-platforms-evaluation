@@ -8,6 +8,22 @@ import java.io.Serializable;
  */
 public class ResultData implements Serializable {
 
+    public enum Field {
+
+        DESCRIPTION("Description"),
+        CONNECTION_TIME("Connection Time"),
+        COMPUTATION_TIME("Computation Time"),
+        ERROR("Error");
+        private String value;
+
+        private Field(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
     private String description;
     private Long connectionTime;
     private Long computationTime;

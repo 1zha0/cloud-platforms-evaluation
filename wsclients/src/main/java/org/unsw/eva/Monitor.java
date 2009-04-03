@@ -19,7 +19,13 @@ public abstract class Monitor {
     public abstract int getCurrentThreadIndex();
 
     public Monitor(int numberOfThread) {
+        /**
+         * Initialize container to store results.
+         */
         resultDatas = new ResultData[numberOfThread];
+        for (int i = 0; i < resultDatas.length; i++) {
+            resultDatas[i] = new ResultData();
+        }
     }
 
     public void threadIsGoingToBeStarted(String name) {
