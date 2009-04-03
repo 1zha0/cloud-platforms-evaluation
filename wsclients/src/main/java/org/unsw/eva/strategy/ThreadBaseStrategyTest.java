@@ -3,14 +3,14 @@ package org.unsw.eva.strategy;
 import org.unsw.eva.ServerType;
 import org.unsw.eva.threads.EvaluationThread;
 import org.unsw.eva.threads.InstanceResponeTests;
+import org.unsw.eva.data.dataFormatter.ExportCSVFormatter;
+import org.unsw.eva.io.TextWriter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.unsw.eva.data.dataFormatter.ExportCSVFormatter;
-import org.unsw.eva.io.TextWriter;
 
 /**
  * @author shrimpy
