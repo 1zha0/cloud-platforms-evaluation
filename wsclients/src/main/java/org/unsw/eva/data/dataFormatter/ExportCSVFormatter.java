@@ -10,7 +10,7 @@ import org.unsw.eva.data.ResultGroupData;
  *
  * @author shrimpy
  */
-public class ResultListCSVFormatter implements ResultListFormatter {
+public class ExportCSVFormatter implements ExportFormatter {
 
     public String formatResultData(List<ResultGroupData> dataList) {
         StringBuilder sb = new StringBuilder("Name,");

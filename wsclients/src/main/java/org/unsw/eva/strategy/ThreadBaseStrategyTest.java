@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.unsw.eva.data.dataFormatter.ResultListCSVFormatter;
+import org.unsw.eva.data.dataFormatter.ExportCSVFormatter;
 import org.unsw.eva.io.TextWriter;
 
 /**
@@ -48,7 +48,7 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
                 runThreads(evaThread);
             }
         }
-        TextWriter.writeToFile(getResultList(), new ResultListCSVFormatter(), "FileName");
+        TextWriter.writeToFile(getResultList(), new ExportCSVFormatter(), "FileName");
     }
 
     private void runThreads(EvaluationThread evaThread) {

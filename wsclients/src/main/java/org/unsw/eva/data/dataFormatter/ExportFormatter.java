@@ -8,7 +8,7 @@ import org.unsw.eva.data.ResultGroupData;
  *
  * @author shrimpy
  */
-public interface ResultListFormatter {
+public interface ExportFormatter {
 
     public static final String COLUMN_SPERATOR = ",";
     public static final String NEW_LINE = "\n";

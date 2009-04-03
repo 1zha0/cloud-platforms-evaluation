@@ -1,6 +1,6 @@
 package org.unsw.eva.io;
 
-import org.unsw.eva.data.dataFormatter.ResultListFormatter;
+import org.unsw.eva.data.dataFormatter.ExportFormatter;
 import org.unsw.eva.data.ResultGroupData;
 
 import java.io.BufferedWriter;
@@ -21,7 +21,7 @@ public class TextWriter extends IOWriterHelper {
 
     private static final Logger log = LoggerFactory.getLogger(TextWriter.class);
 
-    public static void writeToFile(List<ResultGroupData> resultList, ResultListFormatter formatter, String filename) {
+    public static void writeToFile(List<ResultGroupData> resultList, ExportFormatter formatter, String filename) {
         Validate.notNull(resultList);
         Validate.notNull(formatter);
 
