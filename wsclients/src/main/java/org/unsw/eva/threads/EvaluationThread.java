@@ -44,7 +44,7 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
     }
 
     /**
-     * What the job suppose to do in one request
+     * What the job suppose to be done in one request
      */
     private void runThread() {
         long timer = Calendar.getInstance().getTimeInMillis();
