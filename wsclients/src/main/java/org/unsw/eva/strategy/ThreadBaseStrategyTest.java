@@ -20,8 +20,8 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
     private static final Logger log = LoggerFactory.getLogger(ThreadBaseStrategyTest.class);
     public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
     private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 1;
-    private static int TOTAL_THREADS = 5;
-    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 100;
+    private static int TOTAL_THREADS = 2;
+    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 10;
 
     public ThreadBaseStrategyTest() {
         log.info("We are now running " + this.getClass().getSimpleName());
@@ -48,7 +48,7 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
                 runThreads(evaThread);
             }
         }
-        TextWriter.writeToFile(getResultList(), new ExportCSVFormatter(), this.getClass().getSimpleName() + TOTAL_THREADS + "_" + NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD);
+        TextWriter.writeToFile(getResultList(), new ExportCSVFormatter(), this.getClass().getSimpleName() + "_" + TOTAL_THREADS + "_" + NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD);
     }
 
     private void runThreads(EvaluationThread evaThread) {
