@@ -1,6 +1,5 @@
 package org.unsw.eva.strategy;
 
-import java.util.logging.Level;
 import org.unsw.eva.ServerType;
 import org.unsw.eva.threads.EvaluationThread;
 import org.unsw.eva.threads.InstanceResponeTests;
@@ -22,7 +21,7 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
     private static final Logger log = LoggerFactory.getLogger(ThreadBaseStrategyTest.class);
     public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
     private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 1;
-    private static int TOTAL_THREADS = 5;
+    private static int TOTAL_THREADS = 1;
     private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 10;
 
     public ThreadBaseStrategyTest() {
@@ -30,7 +29,7 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
         /**
          * ==================== Register all the test case here. ====================
          */
-        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new InstanceResponeTests("AmazonInstanceResponse", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AzureCreate", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));

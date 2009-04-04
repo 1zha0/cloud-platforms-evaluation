@@ -11,6 +11,10 @@ public abstract class AbstractTest {
         return service.getAzureEvaluationSoap();
     }
 
+    public ICloudComputingEvaluation getAzureStorageServiceEndpoint() {
+        return service.getAzureStorageEvaluationSoap();
+    }
+
     public ICloudComputingEvaluation getAppEngineEndpoint() {
         return service.getAppEngineSoapInstanceResponse();
     }

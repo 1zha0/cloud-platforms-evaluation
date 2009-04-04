@@ -705,6 +705,9 @@
         <wsdl:port name="AzureEvaluationSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
             <soap:address location="http://azureva.cloudapp.net/CloudComputingEvaluation.svc" />
         </wsdl:port>
+        <wsdl:port name="AzureStorageEvaluationSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
+            <soap:address location="http://azureva.cloudapp.net/CloudComputingEvaluationAzureStorage.svc" />
+        </wsdl:port>
         <wsdl:port name="AmazonSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
             <soap:address location="http://174.129.238.95:8080/server-1.0-SNAPSHOT/service/local" />
         </wsdl:port>

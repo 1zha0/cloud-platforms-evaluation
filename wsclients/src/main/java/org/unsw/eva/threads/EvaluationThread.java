@@ -99,6 +99,8 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
         ICloudComputingEvaluation endpoint = null;
         if (serverType.equals(ServerType.AZURE)) {
             endpoint = service.getAzureEvaluationSoap();
+        } else if (serverType.equals(ServerType.AZURE_STORAGE)) {
+            endpoint = service.getAzureStorageEvaluationSoap();
         } else if (serverType.equals(ServerType.AMAZONE)) {
             endpoint = service.getAmazonSoap();
         } else if (serverType.equals(ServerType.AMAZONE_SIMPLEDB)) {

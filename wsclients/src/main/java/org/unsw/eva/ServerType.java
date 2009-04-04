@@ -7,6 +7,7 @@ package org.unsw.eva;
 public enum ServerType {
 
     AZURE("azure"),
+    AZURE_STORAGE("azure_storage"),
     AMAZONE("amazone"),
     AMAZONE_SIMPLEDB("amazone_simpleDB"),
     APP_ENGINE_INSTANCE_RESPONSE("appEngine_instanceResponse"),
