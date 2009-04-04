@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author shrimpy
  */
-public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Monitor implements Runnable {
+public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Monitor implements Runnable, Cloneable {
 
     private static final Logger log = LoggerFactory.getLogger(EvaluationThread.class);
     private CloudComputingEvaluation service = new CloudComputingEvaluation();
@@ -32,10 +32,13 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
     private String name;
     private ServerType serverType;
     private int repeatNumberOfTime;
-    public int currentThreadIndex;
+    private int currentThreadIndex;
+
+    public EvaluationThread() {
+    }
 
     public EvaluationThread(String name, T strageyTest, SOAPVersion version, ServerType serverType, int repeatNumberOfTime) {
-        super(repeatNumberOfTime);
+        initiate(repeatNumberOfTime);
         this.name = name;
         this.strageyTest = strageyTest;
         this.version = version;
@@ -92,26 +95,6 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
         strageyTest.getResultList().add(getResultGroupData());
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getMESSAGE() {
-        return MESSAGE;
-    }
-
-    public void setMESSAGE(String MESSAGE) {
-        this.MESSAGE = MESSAGE;
-    }
-
-    public Result getResult() {
-        return result;
-    }
-
-    public SOAPVersion getVersion() {
-        return version;
-    }
-
     public ICloudComputingEvaluation getServiceEndpoint() {
         ICloudComputingEvaluation endpoint = null;
         if (serverType.equals(ServerType.AZURE)) {
@@ -138,6 +121,54 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
 
     public int getCurrentThreadIndex() {
         return currentThreadIndex;
+    }
+
+    public String getMESSAGE() {
+        return MESSAGE;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getRepeatNumberOfTime() {
+        return repeatNumberOfTime;
+    }
+
+    public void setRepeatNumberOfTime(int repeatNumberOfTime) {
+        this.repeatNumberOfTime = repeatNumberOfTime;
+    }
+
+    public Result getResult() {
+        return result;
+    }
+
+    public ServerType getServerType() {
+        return serverType;
+    }
+
+    public void setServerType(ServerType serverType) {
+        this.serverType = serverType;
+    }
+
+    public T getStrageyTest() {
+        return strageyTest;
+    }
+
+    public void setStrageyTest(T strageyTest) {
+        this.strageyTest = strageyTest;
+    }
+
+    public SOAPVersion getVersion() {
+        return version;
+    }
+
+    public void setVersion(SOAPVersion version) {
+        this.version = version;
     }
 
     public abstract Result doSOAP11Call();

@@ -18,6 +18,9 @@ public class InstanceResponeTests<T extends AbstractStrageyTest> extends Evaluat
 
     private static final Logger log = LoggerFactory.getLogger(InstanceResponeTests.class);
 
+    public InstanceResponeTests() {
+    }
+
     public InstanceResponeTests(String name, T strageyTest, ServerType serverType, int repeatNumberOfTime) {
         super(name, strageyTest, SOAPVersion.SOAP_11, serverType, repeatNumberOfTime);
     }

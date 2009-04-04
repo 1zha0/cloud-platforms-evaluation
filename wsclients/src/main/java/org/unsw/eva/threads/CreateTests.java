@@ -9,6 +9,7 @@ import org.unsw.eva.ServerType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.unsw.eva.strategy.AbstractStrageyTest;
+
 /**
  *
  * @author shrimpy
@@ -16,6 +17,9 @@ import org.unsw.eva.strategy.AbstractStrageyTest;
 public class CreateTests<T extends AbstractStrageyTest> extends EvaluationThread {
 
     private static final Logger log = LoggerFactory.getLogger(CreateTests.class);
+
+    public CreateTests() {
+    }
 
     public CreateTests(String name, T app, ServerType serverType, int repeatNumberOfTime) {
         super(name, app, SOAPVersion.SOAP_11, serverType, repeatNumberOfTime);

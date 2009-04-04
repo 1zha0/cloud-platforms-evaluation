@@ -15,7 +15,10 @@ public class CreateDataByNumberTests<T extends AbstractStrageyTest> extends Eval
 
     private static int TOTAL_NUMBERS = 400;
 
-    public CreateDataByNumberTests(String name, T app, ServerType serverType,int repeatNumberOfTime) {
+    public CreateDataByNumberTests() {
+    }
+
+    public CreateDataByNumberTests(String name, T app, ServerType serverType, int repeatNumberOfTime) {
         super(name, app, SOAPVersion.SOAP_11, serverType, repeatNumberOfTime);
     }
 

@@ -18,7 +18,7 @@ public abstract class Monitor {
 
     public abstract int getCurrentThreadIndex();
 
-    public Monitor(int numberOfThread) {
+    public void initiate(int numberOfThread) {
         /**
          * Initialize container to store results.
          */

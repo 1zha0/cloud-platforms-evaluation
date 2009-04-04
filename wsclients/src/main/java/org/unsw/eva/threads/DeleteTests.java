@@ -17,6 +17,9 @@ public class DeleteTests<T extends AbstractStrageyTest> extends EvaluationThread
         super(name, app, SOAPVersion.SOAP_11, serverType, repeatNumberOfTime);
     }
 
+    public DeleteTests() {
+    }
+
     @Override
     public Result doSOAP11Call() {
         try {

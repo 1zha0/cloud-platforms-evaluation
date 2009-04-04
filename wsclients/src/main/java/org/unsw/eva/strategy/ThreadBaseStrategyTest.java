@@ -1,5 +1,6 @@
 package org.unsw.eva.strategy;
 
+import java.util.logging.Level;
 import org.unsw.eva.ServerType;
 import org.unsw.eva.threads.EvaluationThread;
 import org.unsw.eva.threads.InstanceResponeTests;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.threads.ThreadFactory;
 
 /**
  * @author shrimpy
@@ -20,7 +22,7 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
     private static final Logger log = LoggerFactory.getLogger(ThreadBaseStrategyTest.class);
     public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
     private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 1;
-    private static int TOTAL_THREADS = 2;
+    private static int TOTAL_THREADS = 5;
     private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 10;
 
     public ThreadBaseStrategyTest() {
@@ -51,6 +53,13 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
         TextWriter.writeToFile(getResultList(), new ExportCSVFormatter(), this.getClass().getSimpleName() + "_" + TOTAL_THREADS + "_" + NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD);
     }
 
+    /**
+     * We need to pass a instance into the function, coz
+     * we need those params to init new instance
+     *
+     * it is a hack, maybe should find a better way to deal with it.
+     * and this hack end up we have to create a ThreadFactory
+     */
     private void runThreads(EvaluationThread evaThread) {
         List<Thread> threadGroup = new ArrayList<Thread>();
 
@@ -59,7 +68,7 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
          * so that we can make sure that these amount of time is not included in our testing
          */
         for (int i = 0; i < TOTAL_THREADS; i++) {
-            threadGroup.add(new Thread(evaThread));
+            threadGroup.add(new Thread(ThreadFactory.coloneThreadInstance(evaThread)));
         }
 
         try {

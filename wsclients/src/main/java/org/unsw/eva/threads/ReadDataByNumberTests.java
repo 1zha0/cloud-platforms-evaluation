@@ -13,6 +13,9 @@ import org.unsw.eva.strategy.AbstractStrageyTest;
  */
 public class ReadDataByNumberTests<T extends AbstractStrageyTest> extends EvaluationThread {
 
+    public ReadDataByNumberTests() {
+    }
+
     public ReadDataByNumberTests(String name, T app, ServerType serverType, int repeatNumberOfTime) {
         super(name, app, SOAPVersion.SOAP_11, serverType, repeatNumberOfTime);
     }
