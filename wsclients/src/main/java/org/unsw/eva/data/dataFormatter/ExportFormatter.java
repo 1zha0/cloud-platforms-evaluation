@@ -15,5 +15,7 @@ public interface ExportFormatter {
 
     String formatResultData(List<ResultGroupData> dataList);
 
+    String formatResultDataGroup(List<ResultGroupData> dataList);
+
     FileSuffix getSuffix();
 }

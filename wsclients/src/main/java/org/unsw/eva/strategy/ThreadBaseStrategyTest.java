@@ -24,8 +24,13 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
      * Assign value to be "1", means won`t repeat.
      */
     private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 1;
-    private static int TOTAL_THREADS = 20;
-    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 50;
+    private static int TOTAL_THREADS = 10;
+    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 5;
+
+    /**
+     * we will get ride of the first three request, and the last
+     */
+    private static int INTERVAL = 3;
 
     public ThreadBaseStrategyTest() {
         log.info("We are now running " + this.getClass().getSimpleName());
@@ -35,7 +40,7 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
 //        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new InstanceResponeTests("AmazonInstanceResponse", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-//        testSuit.add(new CreateTests("AzureStorageCreate", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        testSuit.add(new CreateTests("AzureStorageCreate", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
         testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AmazonCreateSimpleDB", this, ServerType.AMAZONE_SIMPLEDB, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AmazonCreate", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
@@ -89,12 +94,14 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
                     try {
                         Thread.sleep(5);
                         continue;
-                    } catch (InterruptedException ex) {
+                    }
+                    catch (InterruptedException ex) {
                         log.error("Failed to sleep thread in App.", ex);
                     }
                 }
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             log.error("Failed to run thread.", e.getMessage());
         }
     }

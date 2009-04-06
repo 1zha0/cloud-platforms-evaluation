@@ -1,12 +1,21 @@
 package org.unsw.eva.utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.cloudcomputingevaluation.Result;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.unsw.eva.data.ResultGroupData;
 
 /**
  *
  * @author shrimpy
  */
 public class ResourceUtil {
+
+    private static final Logger log = LoggerFactory.getLogger(ResourceUtil.class);
 
     public static synchronized String convertResultToString(Result result) {
 
@@ -33,5 +42,30 @@ public class ResourceUtil {
         return sb.toString();
     }
 
-    
+    public static synchronized List<ResultGroupData> aggreagateResultGroup(List<ResultGroupData> list) {
+        List<ResultGroupData> result = new ArrayList<ResultGroupData>();
+
+        Map<String, ResultGroupData> resultMap = new HashMap<String, ResultGroupData>();
+
+        for (ResultGroupData rg : list) {
+            rg.populateData();
+            if (resultMap.get(rg.getDescription()) == null) {
+                ResultGroupData newRGD = new ResultGroupData();
+                newRGD.getResultDatas().addAll(rg.getResultDatas());
+                newRGD.setDescription(rg.getDescription());
+                newRGD.setTotalRunningTime(newRGD.getTotalRunningTime() + rg.getTotalRunningTime());
+
+                resultMap.put(rg.getDescription(), newRGD);
+            }
+            else {
+                ResultGroupData temp = resultMap.get(rg.getDescription());
+                temp.getResultDatas().addAll(rg.getResultDatas());
+            }
+        }
+        for (String key : resultMap.keySet()) {
+            result.add(resultMap.get(key));
+        }
+
+        return result;
+    }
 }
