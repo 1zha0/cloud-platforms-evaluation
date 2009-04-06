@@ -2,7 +2,6 @@ package org.unsw.eva.strategy;
 
 import org.unsw.eva.ServerType;
 import org.unsw.eva.threads.EvaluationThread;
-import org.unsw.eva.threads.InstanceResponeTests;
 import org.unsw.eva.data.dataFormatter.ExportCSVFormatter;
 import org.unsw.eva.io.TextWriter;
 
@@ -11,6 +10,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.threads.CreateTests;
 import org.unsw.eva.threads.ThreadFactory;
 
 /**
@@ -20,20 +20,23 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
 
     private static final Logger log = LoggerFactory.getLogger(ThreadBaseStrategyTest.class);
     public List<EvaluationThread> testSuit = new ArrayList<EvaluationThread>();
+    /**
+     * Assign value to be "1", means won`t repeat.
+     */
     private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 1;
-    private static int TOTAL_THREADS = 1;
-    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 10;
+    private static int TOTAL_THREADS = 20;
+    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 50;
 
     public ThreadBaseStrategyTest() {
         log.info("We are now running " + this.getClass().getSimpleName());
         /**
          * ==================== Register all the test case here. ====================
          */
-        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+//        testSuit.add(new InstanceResponeTests("AzureInstanceResponse", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new InstanceResponeTests("AmazonInstanceResponse", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-//        testSuit.add(new CreateTests("AzureCreate", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-//        testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+//        testSuit.add(new CreateTests("AzureStorageCreate", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AmazonCreateSimpleDB", this, ServerType.AMAZONE_SIMPLEDB, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AmazonCreate", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new ReadTests("AzureRead", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
