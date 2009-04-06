@@ -66,10 +66,12 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
             } else {
                 monitorComputationTime(result.getTimer());
             }
-        } catch (ServerError e) {
+        } catch (ServerError ex) {
             errorOccured();
-        } catch (Exception e) {
+            log.error("Server error for " + getName(), ex);
+        } catch (Exception ex) {
             errorOccured();
+            log.error("Unknow error for " + getName(), ex);
         } finally {
             if (result != null) {
                 // can do sth here
