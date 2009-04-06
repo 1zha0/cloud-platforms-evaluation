@@ -13,7 +13,8 @@ public class ResultData implements Serializable {
         DESCRIPTION("Description"),
         CONNECTION_TIME("Connection Time"),
         COMPUTATION_TIME("Computation Time"),
-        ERROR("Error");
+        ERROR("Error"),
+        ENDING_TIME("Ending Time");
         private String value;
 
         private Field(String value) {
@@ -28,6 +29,15 @@ public class ResultData implements Serializable {
     private Long connectionTime;
     private Long computationTime;
     private Boolean isError = Boolean.FALSE;
+    private Long EndingTime;
+
+    public Long getEndingTime() {
+        return EndingTime;
+    }
+
+    public void setEndingTime(Long EndingTime) {
+        this.EndingTime = EndingTime;
+    }
 
     public Long getComputationTime() {
         return computationTime;

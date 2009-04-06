@@ -28,6 +28,8 @@ public class ExportCSVFormatter implements ExportFormatter {
         sb.append(ResultData.Field.COMPUTATION_TIME.getValue());
         sb.append(COLUMN_SPERATOR);
         sb.append(ResultData.Field.ERROR.getValue());
+        sb.append(COLUMN_SPERATOR);
+        sb.append(ResultData.Field.ENDING_TIME.getValue());
         sb.append(NEW_LINE);
 
         /**
@@ -42,6 +44,8 @@ public class ExportCSVFormatter implements ExportFormatter {
                 sb.append(data.getComputationTime());
                 sb.append(COLUMN_SPERATOR);
                 sb.append(data.getIsError());
+                sb.append(COLUMN_SPERATOR);
+                sb.append(data.getEndingTime());
                 sb.append(NEW_LINE);
             }
         }

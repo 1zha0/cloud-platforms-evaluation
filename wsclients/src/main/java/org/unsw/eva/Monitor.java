@@ -36,8 +36,9 @@ public abstract class Monitor {
         resultGroupData.add(resultDatas[getCurrentThreadIndex()]);
     }
 
-    public void monitorConnectionTime(long timeStamp) {
-        resultDatas[getCurrentThreadIndex()].setConnectionTime(timeStamp);
+    public void monitorConnectionTime(long current, long start) {
+        resultDatas[getCurrentThreadIndex()].setEndingTime(current);
+        resultDatas[getCurrentThreadIndex()].setConnectionTime(current - start);
     }
 
     public void monitorComputationTime(long timeStamp) {

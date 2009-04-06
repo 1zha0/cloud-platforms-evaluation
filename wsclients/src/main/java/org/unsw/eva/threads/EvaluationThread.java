@@ -50,7 +50,7 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
      * What the job suppose to be done in one request
      */
     private void runThread() {
-        long timer = Calendar.getInstance().getTimeInMillis();
+        long start = Calendar.getInstance().getTimeInMillis();
 
         try {
             if (SOAPVersion.SOAP_11.equals(version)) {
@@ -62,7 +62,7 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
             else {
                 throw new UnsupportError("Unsupported SOAP Version : '" + version + "'");
             }
-            monitorConnectionTime(Calendar.getInstance().getTimeInMillis() - timer);
+            monitorConnectionTime(Calendar.getInstance().getTimeInMillis(), start);
             if (result == null || hasError()) {
                 errorOccured();
             }
