@@ -17,7 +17,7 @@ import org.unsw.eva.wsclient.AbstractTest;
 public class CRUDByNumberTest extends AbstractTest {
 
     private static final Logger log = LoggerFactory.getLogger(CRUDByNumberTest.class);
-    private static final int NUMBER_OF_DATA = 100;
+    private static final int NUMBER_OF_DATA = 10;
 
     @Before
     public void setUp() throws Exception {
