@@ -1,5 +1,6 @@
 package org.unsw.eva.data.dataFormatter;
 
+import java.util.Date;
 import org.unsw.eva.FileSuffix;
 import org.unsw.eva.data.ResultData;
 import org.unsw.eva.data.ResultGroupData;
@@ -45,7 +46,7 @@ public class ExportCSVFormatter implements ExportFormatter {
                 sb.append(COLUMN_SPERATOR);
                 sb.append(data.getIsError());
                 sb.append(COLUMN_SPERATOR);
-                sb.append(data.getEndingTime());
+                sb.append(formatter.format(new Date(data.getEndingTime())));
                 sb.append(NEW_LINE);
             }
         }
