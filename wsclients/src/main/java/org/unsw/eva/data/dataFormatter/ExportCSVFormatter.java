@@ -59,13 +59,15 @@ public class ExportCSVFormatter implements ExportFormatter {
          */
         StringBuilder sb = new StringBuilder("Name");
         sb.append(COLUMN_SPERATOR);
+        sb.append("Total threads");
+        sb.append(COLUMN_SPERATOR);
         sb.append("Total requests");
         sb.append(COLUMN_SPERATOR);
         sb.append("Error num.");
         sb.append(COLUMN_SPERATOR);
         sb.append("Total running time");
         sb.append(COLUMN_SPERATOR);
-        sb.append("Avg. threads/Sec.");
+        sb.append("Avg. request/Sec.");
         sb.append(COLUMN_SPERATOR);
         sb.append("Avg. conn. Time");
         sb.append(COLUMN_SPERATOR);
@@ -91,13 +93,15 @@ public class ExportCSVFormatter implements ExportFormatter {
 
             sb.append(rg.getDescription());
             sb.append(COLUMN_SPERATOR);
+            sb.append(rg.getThreadNumber());
+            sb.append(COLUMN_SPERATOR);
             sb.append(rg.getResultDatas().size());
             sb.append(COLUMN_SPERATOR);
             sb.append(rg.getErrorCounter());
             sb.append(COLUMN_SPERATOR);
-            sb.append(rg.getTotalRunningTime());
+            sb.append(rg.getTotalRunningTime() / rg.getThreadNumber());
             sb.append(COLUMN_SPERATOR);
-            sb.append(rg.getAverageThreadsPerSec());
+            sb.append(Float.valueOf(rg.getGoodRequestSize()) / (Float.valueOf(rg.getTotalRunningTime()) / 1000F / Float.valueOf(rg.getThreadNumber())));
             sb.append(COLUMN_SPERATOR);
             sb.append(rg.getAverageConnTime());
             sb.append(COLUMN_SPERATOR);

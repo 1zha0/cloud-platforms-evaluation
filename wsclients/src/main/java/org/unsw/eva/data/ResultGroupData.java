@@ -19,9 +19,12 @@ public class ResultGroupData {
     private Long minComputationTime = 0L;
     private Long maxComputationTime = 0L;
     private Long errorCounter = 0L;
-    private Float averageThreadsPerSec = 0F;
     private Long averageConnTime = 0L;
     private Long averageCompTime = 0L;
+    /**
+     * for ResourceUtil.aggreagateResultGroup use only
+     */
+    private Long threadNumber = 0L;
 
     public void add(ResultData data) {
         resultDatas.add(data);
@@ -29,6 +32,10 @@ public class ResultGroupData {
 
     public List<ResultData> getResultDatas() {
         return resultDatas;
+    }
+
+    public void setErrorCounter(Long errorCounter) {
+        this.errorCounter = errorCounter;
     }
 
     public Long getErrorCounter() {
@@ -83,16 +90,20 @@ public class ResultGroupData {
         return averageConnTime;
     }
 
-    public Float getAverageThreadsPerSec() {
-        return averageThreadsPerSec;
-    }
-
     public void errorOccured() {
         errorCounter++;
     }
 
-    public Long getGoodThreadsSize() {
+    public Long getGoodRequestSize() {
         return resultDatas.size() - errorCounter;
+    }
+
+    public Long getThreadNumber() {
+        return threadNumber;
+    }
+
+    public void setThreadNumber(Long threadNumber) {
+        this.threadNumber = threadNumber;
     }
 
     //=========================================================================
@@ -100,8 +111,7 @@ public class ResultGroupData {
         for (ResultData resultData : resultDatas) {
             if (resultData.getIsError()) {
                 errorOccured();
-            }
-            else {
+            } else {
                 setDescription(resultData.getDescription());
                 totalComputationTime += resultData.getComputationTime();
                 totalConnectionTime += resultData.getConnectionTime();
@@ -111,7 +121,6 @@ public class ResultGroupData {
                 calculateMaxConnectionTime(resultData.getConnectionTime());
             }
         }
-        averageThreadsPerSec = Float.valueOf(getGoodThreadsSize()) / Float.valueOf(totalRunningTime / 1000);
         averageConnTime = totalConnectionTime / resultDatas.size();
         averageCompTime = totalComputationTime / resultDatas.size();
     }

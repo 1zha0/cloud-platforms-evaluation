@@ -53,13 +53,17 @@ public class ResourceUtil {
                 ResultGroupData newRGD = new ResultGroupData();
                 newRGD.getResultDatas().addAll(rg.getResultDatas());
                 newRGD.setDescription(rg.getDescription());
-                newRGD.setTotalRunningTime(newRGD.getTotalRunningTime() + rg.getTotalRunningTime());
+                newRGD.setTotalRunningTime(rg.getTotalRunningTime());
+                newRGD.setThreadNumber(newRGD.getThreadNumber() + 1);
 
                 resultMap.put(rg.getDescription(), newRGD);
-            }
-            else {
+            } else {
                 ResultGroupData temp = resultMap.get(rg.getDescription());
+                temp.setThreadNumber(temp.getThreadNumber() + 1);
+                temp.setTotalRunningTime(temp.getTotalRunningTime() + rg.getTotalRunningTime());
                 temp.getResultDatas().addAll(rg.getResultDatas());
+                
+                resultMap.put(rg.getDescription(), temp);
             }
         }
         for (String key : resultMap.keySet()) {
