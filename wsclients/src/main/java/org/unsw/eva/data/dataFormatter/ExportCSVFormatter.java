@@ -1,5 +1,7 @@
 package org.unsw.eva.data.dataFormatter;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import org.unsw.eva.FileSuffix;
 import org.unsw.eva.data.ResultData;
@@ -117,6 +119,61 @@ public class ExportCSVFormatter implements ExportFormatter {
             sb.append(NEW_LINE);
         }
         return sb.toString();
+    }
+
+    public String formatTimestampWithResponesCount(List<ResultGroupData> dataList) {
+        String result = "";
+
+        List<ResultGroupData> groupByName = ResourceUtil.aggreagateResultGroup(dataList);
+
+        Comparator<ResultData> cp = new Comparator<ResultData>() {
+
+            public int compare(ResultData o1, ResultData o2) {
+                return o1.getEndingTime().compareTo(o2.getEndingTime());
+            }
+        };
+
+        for (ResultGroupData resultGroupData : groupByName) {
+            resultGroupData.populateData();
+            result += resultGroupData.getDescription() + NEW_LINE;
+            
+            List<ResultData> datas = resultGroupData.getResultDatas();
+            Collections.sort(datas, cp);
+
+            int counter = 0;
+            long tempTime = 0;
+            for (int i = 0; i < datas.size(); i++) {
+                ResultData resultData = datas.get(i);
+                if (tempTime == 0) {
+                    counter++;
+                    tempTime = resultData.getEndingTime();
+                } else if (i == (datas.size() - 1)) {
+                    if (resultData.getEndingTime() < (tempTime + INTERVAL_FOR_TIME_STAMP)) {
+                        counter++;
+                    } else {
+                        tempTime += INTERVAL_FOR_TIME_STAMP;
+                        counter = 0;
+                        if (resultData.getEndingTime() < (tempTime + INTERVAL_FOR_TIME_STAMP)) {
+                            counter++;
+                        }
+                    }
+                    result += counter + NEW_LINE;
+                } else {
+                    if (resultData.getEndingTime() < (tempTime + INTERVAL_FOR_TIME_STAMP)) {
+                        counter++;
+                    } else {
+                        tempTime += INTERVAL_FOR_TIME_STAMP;
+                        result += counter + NEW_LINE;
+                        counter = 0;
+                        if (resultData.getEndingTime() < (tempTime + INTERVAL_FOR_TIME_STAMP)) {
+                            counter++;
+                        }
+                    }
+                }
+            }
+        }
+
+        return result;
     }
 
     public FileSuffix getSuffix() {
