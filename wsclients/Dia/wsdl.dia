@@ -65,13 +65,13 @@
   <dia:layer name="背景" visible="true">
     <dia:object type="Cisco - Cloud Gold" version="0" id="O0">
       <dia:attribute name="obj_pos">
-        <dia:point val="18.9134,1.15"/>
+        <dia:point val="19.6134,1.9"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="18.7748,1.1495;32.3112,9.4505"/>
+        <dia:rectangle val="19.4748,1.8995;32.6505,10.2005"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="18.9134,1.15"/>
+        <dia:point val="19.6134,1.9"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="13.036612980588849"/>
@@ -104,13 +104,13 @@
     </dia:object>
     <dia:object type="Cisco - Cloud White" version="0" id="O1">
       <dia:attribute name="obj_pos">
-        <dia:point val="5.31429,10.5"/>
+        <dia:point val="5.61429,11.5"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="4.32989,10.4995;17.9005,18.1505"/>
+        <dia:rectangle val="5.61379,11.4995;18.2005,19.1505"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="5.31429,10.5"/>
+        <dia:point val="5.61429,11.5"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="12.585709267146497"/>
@@ -143,13 +143,13 @@
     </dia:object>
     <dia:object type="Cisco - Cloud" version="0" id="O2">
       <dia:attribute name="obj_pos">
-        <dia:point val="34.1643,13"/>
+        <dia:point val="31.0143,12.5"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="34.1638,12.9995;45.9505,21.1758"/>
+        <dia:rectangle val="31.0138,12.4995;42.8005,20.6758"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="34.1643,13"/>
+        <dia:point val="31.0143,12.5"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="11.785709267146487"/>
@@ -221,13 +221,13 @@
     </dia:object>
     <dia:object type="Cisco - IBM Tower" version="0" id="O4">
       <dia:attribute name="obj_pos">
-        <dia:point val="11.7905,12.177"/>
+        <dia:point val="11.7905,13.027"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="11.7784,11.73;15.0759,17.8149"/>
+        <dia:rectangle val="11.7784,12.58;15.0758,18.6649"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="11.7905,12.177"/>
+        <dia:point val="11.7905,13.027"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="2.5516144624903223"/>
@@ -260,13 +260,13 @@
     </dia:object>
     <dia:object type="Cisco - IBM Tower" version="0" id="O5">
       <dia:attribute name="obj_pos">
-        <dia:point val="37.8405,14.177"/>
+        <dia:point val="35.2405,14.077"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="37.8284,13.73;41.1259,19.8149"/>
+        <dia:rectangle val="35.2284,13.63;38.5258,19.7149"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="37.8405,14.177"/>
+        <dia:point val="35.2405,14.077"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="2.5516144624903219"/>
@@ -338,10 +338,10 @@
     </dia:object>
     <dia:object type="Standard - Text" version="1" id="O7">
       <dia:attribute name="obj_pos">
-        <dia:point val="24.1134,19.3"/>
+        <dia:point val="24.4134,19.85"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="24.1134,18.6016;26.2918,19.6218"/>
+        <dia:rectangle val="24.4134,18.1079;29.858,20.6593"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -352,13 +352,13 @@
             <dia:font family="sans" style="0" name="Helvetica"/>
           </dia:attribute>
           <dia:attribute name="height">
-            <dia:real val="0.80000000000000004"/>
+            <dia:real val="2"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="24.1134,19.3"/>
+            <dia:point val="24.4134,19.85"/>
           </dia:attribute>
           <dia:attribute name="color">
-            <dia:color val="#000000"/>
+            <dia:color val="#0000ff"/>
           </dia:attribute>
           <dia:attribute name="alignment">
             <dia:enum val="0"/>
@@ -374,11 +374,11 @@
         <dia:point val="25.2479,17.5295"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="20.3053,5.31779;25.3095,17.5911"/>
+        <dia:rectangle val="20.6337,8.30192;25.3106,17.5922"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="25.2479,17.5295"/>
-        <dia:point val="21.9006,5.5"/>
+        <dia:point val="22.4,8.5"/>
       </dia:attribute>
       <dia:attribute name="curve_distance">
         <dia:real val="-3.0399342095688531"/>
@@ -401,7 +401,7 @@
         <dia:point val="25.2479,19.1341"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="25.1849,12.5118;37.4917,19.1972"/>
+        <dia:rectangle val="25.1848,12.5118;37.4916,19.1972"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="25.2479,19.1341"/>
@@ -428,7 +428,7 @@
         <dia:point val="25.2479,19.1341"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="15.0563,13.6539;25.3149,20.5334"/>
+        <dia:rectangle val="15.0562,13.654;25.3149,20.5334"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="25.2479,19.1341"/>
@@ -452,10 +452,10 @@
     </dia:object>
     <dia:object type="Standard - Text" version="1" id="O11">
       <dia:attribute name="obj_pos">
-        <dia:point val="7.16429,13.7"/>
+        <dia:point val="4.86429,13.3"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="7.16429,12.8289;10.6104,16.1046"/>
+        <dia:rectangle val="4.86429,11.61;11.7118,18.005"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -468,10 +468,10 @@ Service#</dia:string>
             <dia:font family="sans" style="0" name="Helvetica"/>
           </dia:attribute>
           <dia:attribute name="height">
-            <dia:real val="1"/>
+            <dia:real val="2"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="7.16429,13.7"/>
+            <dia:point val="4.86429,13.3"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000"/>
@@ -490,7 +490,7 @@ Service#</dia:string>
         <dia:point val="27.4506,4.15"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="27.4506,3.27894;30.5867,6.55463"/>
+        <dia:rectangle val="27.4506,2.46;33.6781,8.855"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -503,7 +503,7 @@ Service#</dia:string>
             <dia:font family="sans" style="0" name="Helvetica"/>
           </dia:attribute>
           <dia:attribute name="height">
-            <dia:real val="1"/>
+            <dia:real val="2"/>
           </dia:attribute>
           <dia:attribute name="pos">
             <dia:point val="27.4506,4.15"/>
@@ -522,10 +522,10 @@ Service#</dia:string>
     </dia:object>
     <dia:object type="Standard - Text" version="1" id="O13">
       <dia:attribute name="obj_pos">
-        <dia:point val="40.9506,15.9"/>
+        <dia:point val="39.9506,14.7"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="40.9506,15.0289;43.9792,18.3046"/>
+        <dia:rectangle val="39.9506,13.01;45.9681,19.405"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -538,10 +538,10 @@ Engine#</dia:string>
             <dia:font family="sans" style="0" name="Helvetica"/>
           </dia:attribute>
           <dia:attribute name="height">
-            <dia:real val="1"/>
+            <dia:real val="2"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="40.9506,15.9"/>
+            <dia:point val="39.9506,14.7"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000"/>
@@ -557,13 +557,13 @@ Engine#</dia:string>
     </dia:object>
     <dia:object type="Cisco - CiscoSecurity" version="0" id="O14">
       <dia:attribute name="obj_pos">
-        <dia:point val="21.2506,26.8"/>
+        <dia:point val="20.9006,23.65"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="21.2481,26.7977;29.9094,34.6179"/>
+        <dia:rectangle val="20.8981,23.6477;29.5594,31.4679"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="21.2506,26.8"/>
+        <dia:point val="20.9006,23.65"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="8.6028024911031995"/>
@@ -599,27 +599,53 @@ Engine#</dia:string>
         <dia:point val="25.2479,19.1341"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="24.2002,19.0841;25.7524,31.0077"/>
+        <dia:rectangle val="24.225,19.0838;25.3527,28.3078"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="25.2479,19.1341"/>
-        <dia:point val="25.2524,30.9575"/>
+        <dia:point val="25.3024,28.2575"/>
       </dia:attribute>
       <dia:attribute name="curve_distance">
         <dia:real val="1"/>
       </dia:attribute>
-      <dia:attribute name="end_arrow">
-        <dia:enum val="22"/>
-      </dia:attribute>
-      <dia:attribute name="end_arrow_length">
-        <dia:real val="0.5"/>
-      </dia:attribute>
-      <dia:attribute name="end_arrow_width">
-        <dia:real val="0.5"/>
-      </dia:attribute>
       <dia:connections>
         <dia:connection handle="0" to="O6" connection="4"/>
+        <dia:connection handle="1" to="O14" connection="11"/>
       </dia:connections>
+    </dia:object>
+    <dia:object type="Standard - Text" version="1" id="O16">
+      <dia:attribute name="obj_pos">
+        <dia:point val="17.1,31.05"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="17.1,29.3079;38.6321,33.8593"/>
+      </dia:attribute>
+      <dia:attribute name="text">
+        <dia:composite type="text">
+          <dia:attribute name="string">
+            <dia:string>#Java testing application,
+Implement by using CXF2#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="font">
+            <dia:font family="sans" style="0" name="Helvetica"/>
+          </dia:attribute>
+          <dia:attribute name="height">
+            <dia:real val="2"/>
+          </dia:attribute>
+          <dia:attribute name="pos">
+            <dia:point val="17.1,31.05"/>
+          </dia:attribute>
+          <dia:attribute name="color">
+            <dia:color val="#0000ff"/>
+          </dia:attribute>
+          <dia:attribute name="alignment">
+            <dia:enum val="0"/>
+          </dia:attribute>
+        </dia:composite>
+      </dia:attribute>
+      <dia:attribute name="valign">
+        <dia:enum val="3"/>
+      </dia:attribute>
     </dia:object>
   </dia:layer>
 </dia:diagram>
