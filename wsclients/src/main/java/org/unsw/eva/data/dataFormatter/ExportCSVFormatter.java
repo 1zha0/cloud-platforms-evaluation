@@ -150,14 +150,15 @@ public class ExportCSVFormatter implements ExportFormatter {
                 } else if (i == (datas.size() - 1)) {
                     if (resultData.getEndingTime() < (tempTime + INTERVAL_FOR_TIME_STAMP)) {
                         counter++;
+                        result += counter + NEW_LINE;
                     } else {
                         tempTime += INTERVAL_FOR_TIME_STAMP;
+                        result += counter + NEW_LINE;
                         counter = 0;
                         if (resultData.getEndingTime() < (tempTime + INTERVAL_FOR_TIME_STAMP)) {
                             counter++;
                         }
                     }
-                    result += counter + NEW_LINE;
                 } else {
                     if (resultData.getEndingTime() < (tempTime + INTERVAL_FOR_TIME_STAMP)) {
                         counter++;
