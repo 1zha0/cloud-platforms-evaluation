@@ -27,8 +27,8 @@ public class TextWriter extends IOWriterHelper {
 
         log.info("Createing result file from '" + resultList.size() + "' record(s)");
         File file = getOutputFile(filename, formatter.getSuffix());
-        File fileGroup = getOutputFile(filename + "_group", formatter.getSuffix());
-        File fileTimestamp = getOutputFile(filename + "_timestamp", formatter.getSuffix());
+//        File fileGroup = getOutputFile(filename + "_group", formatter.getSuffix());
+//        File fileTimestamp = getOutputFile(filename + "_timestamp", formatter.getSuffix());
         Writer output = null;
         Writer outputGroup = null;
         Writer outputTimestamp = null;
@@ -36,19 +36,19 @@ public class TextWriter extends IOWriterHelper {
             output = new BufferedWriter(new FileWriter(file));
             output.write(formatter.formatResultData(resultList));
 
-            outputGroup = new BufferedWriter(new FileWriter(fileGroup));
-            outputGroup.write(formatter.formatResultDataGroup(resultList));
-
-            outputTimestamp = new BufferedWriter(new FileWriter(fileTimestamp));
-            outputTimestamp.write(formatter.formatTimestampWithResponesCount(resultList));
-
+//            outputGroup = new BufferedWriter(new FileWriter(fileGroup));
+//            outputGroup.write(formatter.formatResultDataGroup(resultList));
+//
+//            outputTimestamp = new BufferedWriter(new FileWriter(fileTimestamp));
+//            outputTimestamp.write(formatter.formatTimestampWithResponesCount(resultList));
+//
         } catch (IOException ex) {
             log.error("Failed to write ResultList into file.", ex);
         } finally {
             try {
                 output.close();
-                outputGroup.close();
-                outputTimestamp.close();
+//                outputGroup.close();
+//                outputTimestamp.close();
             } catch (IOException ex) {
                 log.error("Failed to close buffer writer.", ex);
             }

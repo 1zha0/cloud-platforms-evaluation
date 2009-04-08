@@ -1,6 +1,7 @@
 package org.unsw.eva.io;
 
 import java.io.File;
+import org.slf4j.Logger;
 import org.unsw.eva.FileSuffix;
 
 /**
