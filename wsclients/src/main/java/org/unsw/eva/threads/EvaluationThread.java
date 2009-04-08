@@ -38,7 +38,6 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
     }
 
     public EvaluationThread(String name, T strageyTest, SOAPVersion version, ServerType serverType, int repeatNumberOfTime) {
-        initiate(repeatNumberOfTime);
         this.name = name;
         this.strageyTest = strageyTest;
         this.version = version;
