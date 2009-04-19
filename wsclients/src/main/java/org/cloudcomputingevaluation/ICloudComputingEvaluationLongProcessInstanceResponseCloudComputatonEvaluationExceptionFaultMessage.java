@@ -12,29 +12,29 @@ import javax.xml.ws.WebFault;
  */
 
 @WebFault(name = "CloudComputatonEvaluationException", targetNamespace = "http://cloudComputingEvaluation.org/")
-public class ICloudComputingEvaluationSetupDefaultDataCloudComputatonEvaluationExceptionFaultMessage extends Exception {
+public class ICloudComputingEvaluationLongProcessInstanceResponseCloudComputatonEvaluationExceptionFaultMessage extends Exception {
     public static final long serialVersionUID = 20090420003543L;
     
     private org.cloudcomputingevaluation.CloudComputatonEvaluationException cloudComputatonEvaluationException;
 
-    public ICloudComputingEvaluationSetupDefaultDataCloudComputatonEvaluationExceptionFaultMessage() {
+    public ICloudComputingEvaluationLongProcessInstanceResponseCloudComputatonEvaluationExceptionFaultMessage() {
         super();
     }
     
-    public ICloudComputingEvaluationSetupDefaultDataCloudComputatonEvaluationExceptionFaultMessage(String message) {
+    public ICloudComputingEvaluationLongProcessInstanceResponseCloudComputatonEvaluationExceptionFaultMessage(String message) {
         super(message);
     }
     
-    public ICloudComputingEvaluationSetupDefaultDataCloudComputatonEvaluationExceptionFaultMessage(String message, Throwable cause) {
+    public ICloudComputingEvaluationLongProcessInstanceResponseCloudComputatonEvaluationExceptionFaultMessage(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public ICloudComputingEvaluationSetupDefaultDataCloudComputatonEvaluationExceptionFaultMessage(String message, org.cloudcomputingevaluation.CloudComputatonEvaluationException cloudComputatonEvaluationException) {
+    public ICloudComputingEvaluationLongProcessInstanceResponseCloudComputatonEvaluationExceptionFaultMessage(String message, org.cloudcomputingevaluation.CloudComputatonEvaluationException cloudComputatonEvaluationException) {
         super(message);
         this.cloudComputatonEvaluationException = cloudComputatonEvaluationException;
     }
 
-    public ICloudComputingEvaluationSetupDefaultDataCloudComputatonEvaluationExceptionFaultMessage(String message, org.cloudcomputingevaluation.CloudComputatonEvaluationException cloudComputatonEvaluationException, Throwable cause) {
+    public ICloudComputingEvaluationLongProcessInstanceResponseCloudComputatonEvaluationExceptionFaultMessage(String message, org.cloudcomputingevaluation.CloudComputatonEvaluationException cloudComputatonEvaluationException, Throwable cause) {
         super(message, cause);
         this.cloudComputatonEvaluationException = cloudComputatonEvaluationException;
     }

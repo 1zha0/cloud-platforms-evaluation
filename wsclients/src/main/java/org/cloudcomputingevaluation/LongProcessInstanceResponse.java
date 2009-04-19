@@ -19,8 +19,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="oldValue" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="newValue" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="times" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,63 +31,62 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "oldValue",
-    "newValue"
+    "times",
+    "message"
 })
-@XmlRootElement(name = "Update")
-public class Update {
+@XmlRootElement(name = "LongProcessInstanceResponse")
+public class LongProcessInstanceResponse {
 
-    @XmlElementRef(name = "oldValue", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
-    protected JAXBElement<String> oldValue;
-    @XmlElementRef(name = "newValue", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
-    protected JAXBElement<String> newValue;
+    protected Integer times;
+    @XmlElementRef(name = "message", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<String> message;
 
     /**
-     * Gets the value of the oldValue property.
+     * Gets the value of the times property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
+     */
+    public Integer getTimes() {
+        return times;
+    }
+
+    /**
+     * Sets the value of the times property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
+     */
+    public void setTimes(Integer value) {
+        this.times = value;
+    }
+
+    /**
+     * Gets the value of the message property.
      * 
      * @return
      *     possible object is
      *     {@link JAXBElement }{@code <}{@link String }{@code >}
      *     
      */
-    public JAXBElement<String> getOldValue() {
-        return oldValue;
+    public JAXBElement<String> getMessage() {
+        return message;
     }
 
     /**
-     * Sets the value of the oldValue property.
+     * Sets the value of the message property.
      * 
      * @param value
      *     allowed object is
      *     {@link JAXBElement }{@code <}{@link String }{@code >}
      *     
      */
-    public void setOldValue(JAXBElement<String> value) {
-        this.oldValue = ((JAXBElement<String> ) value);
-    }
-
-    /**
-     * Gets the value of the newValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
-     *     
-     */
-    public JAXBElement<String> getNewValue() {
-        return newValue;
-    }
-
-    /**
-     * Sets the value of the newValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
-     *     
-     */
-    public void setNewValue(JAXBElement<String> value) {
-        this.newValue = ((JAXBElement<String> ) value);
+    public void setMessage(JAXBElement<String> value) {
+        this.message = ((JAXBElement<String> ) value);
     }
 
 }

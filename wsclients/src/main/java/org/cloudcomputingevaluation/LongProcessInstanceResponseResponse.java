@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="DeleteResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
+ *         &lt;element name="LongProcessInstanceResponseResult" type="{http://cloudComputingEvaluation.org/}Result" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,36 +30,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "deleteResult"
+    "longProcessInstanceResponseResult"
 })
-@XmlRootElement(name = "DeleteResponse")
-public class DeleteResponse {
+@XmlRootElement(name = "LongProcessInstanceResponseResponse")
+public class LongProcessInstanceResponseResponse {
 
-    @XmlElementRef(name = "DeleteResult", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
-    protected JAXBElement<Result> deleteResult;
+    @XmlElementRef(name = "LongProcessInstanceResponseResult", namespace = "http://cloudComputingEvaluation.org/", type = JAXBElement.class)
+    protected JAXBElement<Result> longProcessInstanceResponseResult;
 
     /**
-     * Gets the value of the deleteResult property.
+     * Gets the value of the longProcessInstanceResponseResult property.
      * 
      * @return
      *     possible object is
      *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public JAXBElement<Result> getDeleteResult() {
-        return deleteResult;
+    public JAXBElement<Result> getLongProcessInstanceResponseResult() {
+        return longProcessInstanceResponseResult;
     }
 
     /**
-     * Sets the value of the deleteResult property.
+     * Sets the value of the longProcessInstanceResponseResult property.
      * 
      * @param value
      *     allowed object is
      *     {@link JAXBElement }{@code <}{@link Result }{@code >}
      *     
      */
-    public void setDeleteResult(JAXBElement<Result> value) {
-        this.deleteResult = ((JAXBElement<Result> ) value);
+    public void setLongProcessInstanceResponseResult(JAXBElement<Result> value) {
+        this.longProcessInstanceResponseResult = ((JAXBElement<Result> ) value);
     }
 
 }
