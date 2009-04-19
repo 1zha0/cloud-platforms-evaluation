@@ -151,6 +151,10 @@ public class ExportCSVFormatter implements ExportFormatter {
             long tempTime = 0;
             for (int i = 0; i < datas.size(); i++) {
                 ResultData resultData = datas.get(i);
+                if (resultData == null || resultData.getEndingTime() == null) {
+                    continue;
+                }
+                
                 if (tempTime == 0) {
                     counter++;
                     tempTime = resultData.getEndingTime();
