@@ -48,7 +48,7 @@ public class ExportCSVFormatter implements ExportFormatter {
                 sb.append(COLUMN_SPERATOR);
                 sb.append(data.getIsError());
                 sb.append(COLUMN_SPERATOR);
-                sb.append(formatter.format(new Date(data.getEndingTime())));
+                sb.append(data.getEndingTime() == null ? null : formatter.format(new Date(data.getEndingTime())));
                 sb.append(NEW_LINE);
             }
         }
@@ -136,7 +136,7 @@ public class ExportCSVFormatter implements ExportFormatter {
         for (ResultGroupData resultGroupData : groupByName) {
             resultGroupData.populateData();
             result += resultGroupData.getDescription() + NEW_LINE;
-            
+
             List<ResultData> datas = resultGroupData.getResultDatas();
             Collections.sort(datas, cp);
 
