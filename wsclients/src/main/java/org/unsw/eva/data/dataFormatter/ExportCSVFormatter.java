@@ -1,16 +1,17 @@
 package org.unsw.eva.data.dataFormatter;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
 import org.unsw.eva.FileSuffix;
 import org.unsw.eva.data.ResultData;
 import org.unsw.eva.data.ResultGroupData;
+import org.unsw.eva.utils.ResourceUtil;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.unsw.eva.utils.ResourceUtil;
 
 /**
  *
