@@ -130,7 +130,13 @@ public class ExportCSVFormatter implements ExportFormatter {
         Comparator<ResultData> cp = new Comparator<ResultData>() {
 
             public int compare(ResultData o1, ResultData o2) {
-                return o1.getEndingTime().compareTo(o2.getEndingTime());
+                if (o1.getEndingTime() == null) {
+                    return -1;
+                } else if (o2.getEndingTime() == null) {
+                    return 1;
+                } else {
+                    return o1.getEndingTime().compareTo(o2.getEndingTime());
+                }
             }
         };
 
