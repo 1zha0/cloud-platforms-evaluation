@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
  *
  * @author shrimpy
  */
-public class SetUpAndCleanDefaultDataTest extends AbstractTest {
+public class AzureStorageSetUpAndCleanDefaultDataTest extends AbstractTest {
 
     public static final int NUMBER_OF_DATA = 10;
 
