@@ -2,17 +2,18 @@
 <wsdl:definitions name="CloudComputingEvaluation" targetNamespace="http://cloudComputingEvaluation.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://cloudComputingEvaluation.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
     <wsdl:types>
         <xsd:schema elementFormDefault="qualified" targetNamespace="http://cloudComputingEvaluation.org/">
-            <xsd:element name="InstanceResponse">
+            <xsd:element name="LongProcessInstanceResponse">
                 <xsd:complexType>
                     <xsd:sequence>
+                        <xsd:element minOccurs="0" name="times" type="xsd:int"/>
                         <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="InstanceResponseResponse">
+            <xsd:element name="LongProcessInstanceResponseResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element minOccurs="0" name="InstanceResponseResult" nillable="true" type="tns:Result"/>
+                        <xsd:element minOccurs="0" name="LongProcessInstanceResponseResult" nillable="true" type="tns:Result"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -30,6 +31,20 @@
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="CloudComputatonEvaluationException" nillable="true" type="tns:CloudComputatonEvaluationException"/>
+            <xsd:element name="InstanceResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="InstanceResponseResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="InstanceResponseResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="Create">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -279,6 +294,15 @@
             <xs:attribute name="Ref" type="xs:IDREF"/>
         </xs:schema>
     </wsdl:types>
+    <wsdl:message name="ICloudComputingEvaluation_LongProcessInstanceResponse_InputMessage">
+        <wsdl:part name="parameters" element="tns:LongProcessInstanceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_LongProcessInstanceResponse_OutputMessage">
+        <wsdl:part name="parameters" element="tns:LongProcessInstanceResponseResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_LongProcessInstanceResponse_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
+    </wsdl:message>
     <wsdl:message name="ICloudComputingEvaluation_InstanceResponse_InputMessage">
         <wsdl:part name="parameters" element="tns:InstanceResponse"/>
     </wsdl:message>
@@ -424,6 +448,11 @@
         <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
     <wsdl:portType name="ICloudComputingEvaluation">
+        <wsdl:operation name="LongProcessInstanceResponse">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/LongProcessInstanceResponse" message="tns:ICloudComputingEvaluation_LongProcessInstanceResponse_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/LongProcessInstanceResponseResponse" message="tns:ICloudComputingEvaluation_LongProcessInstanceResponse_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/LongProcessInstanceResponseCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_LongProcessInstanceResponse_CloudComputatonEvaluationException_FaultMessage"/>
+        </wsdl:operation>
         <wsdl:operation name="InstanceResponse">
             <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/InstanceResponse" message="tns:ICloudComputingEvaluation_InstanceResponse_InputMessage"/>
             <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/InstanceResponseResponse" message="tns:ICloudComputingEvaluation_InstanceResponse_OutputMessage"/>
@@ -507,6 +536,18 @@
     </wsdl:portType>
     <wsdl:binding name="BasicHttpBinding_ICloudComputingEvaluation" type="tns:ICloudComputingEvaluation">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="LongProcessInstanceResponse">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/LongProcessInstanceResponse" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
         <wsdl:operation name="InstanceResponse">
             <soap:operation soapAction="http://cloudComputingEvaluation.org/InstanceResponse" style="document"/>
             <wsdl:input>
@@ -700,13 +741,14 @@
             </wsdl:fault>
         </wsdl:operation>
     </wsdl:binding>
-    
+
+
     <wsdl:service name="CloudComputingEvaluation">
         <wsdl:port name="AzureEvaluationSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
             <soap:address location="http://azureva.cloudapp.net/CloudComputingEvaluation.svc" />
         </wsdl:port>
         <wsdl:port name="AzureStorageEvaluationSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://azureva.cloudapp.net/CloudComputingEvaluationAzureStorage.svc" />
+            <soap:address location="http://2430c58e-0c40-4ca4-a65a-2886c5d58f92.cloudapp.net/CloudComputingEvaluationAzureStorage.svc?wsdl" />
         </wsdl:port>
         <wsdl:port name="AmazonSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
             <soap:address location="http://174.129.238.95:8080/server-1.0-SNAPSHOT/service/local" />
