@@ -158,29 +158,31 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="BigFileReceive">
-                <xsd:complexType>
-                    <xsd:sequence/>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="BigFileReceiveResponse">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element minOccurs="0" name="BigFileReceiveResult" nillable="true" type="tns:Result"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="BigFileResponse">
+            <xsd:element name="BinaryFileWrite">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element minOccurs="0" name="key" nillable="true" type="xsd:string"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="BigFileResponseResponse">
+            <xsd:element name="BinaryFileWriteResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element minOccurs="0" name="BigFileResponseResult" nillable="true" type="tns:Result"/>
+                        <xsd:element minOccurs="0" name="BinaryFileWriteResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BinaryFileRead">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="key" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BinaryFileReadResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="BinaryFileReadResult" nillable="true" type="tns:Result"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -398,22 +400,22 @@
     <wsdl:message name="ICloudComputingEvaluation_DeleteDataByNumber_CloudComputatonEvaluationException_FaultMessage">
         <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
-    <wsdl:message name="ICloudComputingEvaluation_BigFileReceive_InputMessage">
-        <wsdl:part name="parameters" element="tns:BigFileReceive"/>
+    <wsdl:message name="ICloudComputingEvaluation_BinaryFileWrite_InputMessage">
+        <wsdl:part name="parameters" element="tns:BinaryFileWrite"/>
     </wsdl:message>
-    <wsdl:message name="ICloudComputingEvaluation_BigFileReceive_OutputMessage">
-        <wsdl:part name="parameters" element="tns:BigFileReceiveResponse"/>
+    <wsdl:message name="ICloudComputingEvaluation_BinaryFileWrite_OutputMessage">
+        <wsdl:part name="parameters" element="tns:BinaryFileWriteResponse"/>
     </wsdl:message>
-    <wsdl:message name="ICloudComputingEvaluation_BigFileReceive_CloudComputatonEvaluationException_FaultMessage">
+    <wsdl:message name="ICloudComputingEvaluation_BinaryFileWrite_CloudComputatonEvaluationException_FaultMessage">
         <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
-    <wsdl:message name="ICloudComputingEvaluation_BigFileResponse_InputMessage">
-        <wsdl:part name="parameters" element="tns:BigFileResponse"/>
+    <wsdl:message name="ICloudComputingEvaluation_BinaryFileRead_InputMessage">
+        <wsdl:part name="parameters" element="tns:BinaryFileRead"/>
     </wsdl:message>
-    <wsdl:message name="ICloudComputingEvaluation_BigFileResponse_OutputMessage">
-        <wsdl:part name="parameters" element="tns:BigFileResponseResponse"/>
+    <wsdl:message name="ICloudComputingEvaluation_BinaryFileRead_OutputMessage">
+        <wsdl:part name="parameters" element="tns:BinaryFileReadResponse"/>
     </wsdl:message>
-    <wsdl:message name="ICloudComputingEvaluation_BigFileResponse_CloudComputatonEvaluationException_FaultMessage">
+    <wsdl:message name="ICloudComputingEvaluation_BinaryFileRead_CloudComputatonEvaluationException_FaultMessage">
         <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
     <wsdl:message name="ICloudComputingEvaluation_SetupDefaultData_InputMessage">
@@ -521,15 +523,15 @@
             <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/DeleteDataByNumberResponse" message="tns:ICloudComputingEvaluation_DeleteDataByNumber_OutputMessage"/>
             <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/DeleteDataByNumberCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_DeleteDataByNumber_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="BigFileReceive">
-            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/BigFileReceive" message="tns:ICloudComputingEvaluation_BigFileReceive_InputMessage"/>
-            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BigFileReceiveResponse" message="tns:ICloudComputingEvaluation_BigFileReceive_OutputMessage"/>
-            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BigFileReceiveCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_BigFileReceive_CloudComputatonEvaluationException_FaultMessage"/>
+        <wsdl:operation name="BinaryFileWrite">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/BinaryFileWrite" message="tns:ICloudComputingEvaluation_BinaryFileWrite_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BinaryFileWriteResponse" message="tns:ICloudComputingEvaluation_BinaryFileWrite_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BinaryFileWriteCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_BinaryFileWrite_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
-        <wsdl:operation name="BigFileResponse">
-            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/BigFileResponse" message="tns:ICloudComputingEvaluation_BigFileResponse_InputMessage"/>
-            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BigFileResponseResponse" message="tns:ICloudComputingEvaluation_BigFileResponse_OutputMessage"/>
-            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BigFileResponseCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_BigFileResponse_CloudComputatonEvaluationException_FaultMessage"/>
+        <wsdl:operation name="BinaryFileRead">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/BinaryFileRead" message="tns:ICloudComputingEvaluation_BinaryFileRead_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BinaryFileReadResponse" message="tns:ICloudComputingEvaluation_BinaryFileRead_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BinaryFileReadCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_BinaryFileRead_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
         <wsdl:operation name="SetupDefaultData">
             <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/SetupDefaultData" message="tns:ICloudComputingEvaluation_SetupDefaultData_InputMessage"/>
@@ -684,8 +686,8 @@
                 <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="BigFileReceive">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/BigFileReceive" style="document"/>
+        <wsdl:operation name="BinaryFileWrite">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/BinaryFileWrite" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -696,8 +698,8 @@
                 <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
             </wsdl:fault>
         </wsdl:operation>
-        <wsdl:operation name="BigFileResponse">
-            <soap:operation soapAction="http://cloudComputingEvaluation.org/BigFileResponse" style="document"/>
+        <wsdl:operation name="BinaryFileRead">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/BinaryFileRead" style="document"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -781,6 +783,8 @@
             </wsdl:fault>
         </wsdl:operation>
     </wsdl:binding>
+
+
 
     <wsdl:service name="CloudComputingEvaluation">
         <wsdl:port name="AzureEvaluationSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
