@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions name="CloudComputingEvaluation" targetNamespace="http://cloudComputingEvaluation.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://cloudComputingEvaluation.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+<wsdl:definitions name="CloudComputingEvaluation" targetNamespace="http://cloudComputingEvaluation.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://cloudComputingEvaluation.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
     <wsdl:types>
         <xsd:schema elementFormDefault="qualified" targetNamespace="http://cloudComputingEvaluation.org/">
             <xsd:element name="LongProcessInstanceResponse">
@@ -167,6 +167,20 @@
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element minOccurs="0" name="BigFileReceiveResult" nillable="true" type="tns:Result"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BigFileResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="key" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BigFileResponseResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="BigFileResponseResult" nillable="true" type="tns:Result"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -393,6 +407,15 @@
     <wsdl:message name="ICloudComputingEvaluation_BigFileReceive_CloudComputatonEvaluationException_FaultMessage">
         <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
     </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_BigFileResponse_InputMessage">
+        <wsdl:part name="parameters" element="tns:BigFileResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_BigFileResponse_OutputMessage">
+        <wsdl:part name="parameters" element="tns:BigFileResponseResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICloudComputingEvaluation_BigFileResponse_CloudComputatonEvaluationException_FaultMessage">
+        <wsdl:part name="detail" element="tns:CloudComputatonEvaluationException"/>
+    </wsdl:message>
     <wsdl:message name="ICloudComputingEvaluation_SetupDefaultData_InputMessage">
         <wsdl:part name="parameters" element="tns:SetupDefaultData"/>
     </wsdl:message>
@@ -502,6 +525,11 @@
             <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/BigFileReceive" message="tns:ICloudComputingEvaluation_BigFileReceive_InputMessage"/>
             <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BigFileReceiveResponse" message="tns:ICloudComputingEvaluation_BigFileReceive_OutputMessage"/>
             <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BigFileReceiveCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_BigFileReceive_CloudComputatonEvaluationException_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="BigFileResponse">
+            <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/BigFileResponse" message="tns:ICloudComputingEvaluation_BigFileResponse_InputMessage"/>
+            <wsdl:output wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BigFileResponseResponse" message="tns:ICloudComputingEvaluation_BigFileResponse_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://cloudComputingEvaluation.org/ICloudComputingEvaluation/BigFileResponseCloudComputatonEvaluationException" name="CloudComputatonEvaluationException" message="tns:ICloudComputingEvaluation_BigFileResponse_CloudComputatonEvaluationException_FaultMessage"/>
         </wsdl:operation>
         <wsdl:operation name="SetupDefaultData">
             <wsdl:input wsaw:Action="http://cloudComputingEvaluation.org/SetupDefaultData" message="tns:ICloudComputingEvaluation_SetupDefaultData_InputMessage"/>
@@ -668,6 +696,18 @@
                 <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
             </wsdl:fault>
         </wsdl:operation>
+        <wsdl:operation name="BigFileResponse">
+            <soap:operation soapAction="http://cloudComputingEvaluation.org/BigFileResponse" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="CloudComputatonEvaluationException">
+                <soap:fault name="CloudComputatonEvaluationException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
         <wsdl:operation name="SetupDefaultData">
             <soap:operation soapAction="http://cloudComputingEvaluation.org/SetupDefaultData" style="document"/>
             <wsdl:input>
@@ -741,7 +781,6 @@
             </wsdl:fault>
         </wsdl:operation>
     </wsdl:binding>
-
 
     <wsdl:service name="CloudComputingEvaluation">
         <wsdl:port name="AzureEvaluationSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
