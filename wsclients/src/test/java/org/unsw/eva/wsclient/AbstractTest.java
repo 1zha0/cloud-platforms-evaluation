@@ -22,4 +22,8 @@ public abstract class AbstractTest {
     public ICloudComputingEvaluation getAmazonEndpoint() {
         return service.getAmazonSoap();
     }
+
+    public ICloudComputingEvaluation getAmazonSimpleDBEndpoint() {
+        return service.getAmazonSoapSimpleDB();
+    }
 }
