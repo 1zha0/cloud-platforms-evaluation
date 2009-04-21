@@ -24,11 +24,7 @@ public class CRUDByNumberTest extends AbstractTest {
     }
 
     @Test
-    public void testCRUDByNumber()
-            throws ICloudComputingEvaluationCreateDataByNumberCloudComputatonEvaluationExceptionFaultMessage,
-            ICloudComputingEvaluationUpdateDataByNumberCloudComputatonEvaluationExceptionFaultMessage,
-            ICloudComputingEvaluationReadDataByNumberCloudComputatonEvaluationExceptionFaultMessage,
-            ICloudComputingEvaluationDeleteDataByNumberCloudComputatonEvaluationExceptionFaultMessage {
+    public void testCRUDByNumber() throws Exception {
 
         getAmazonEndpoint().createDataByNumber(NUMBER_OF_DATA);
         getAmazonEndpoint().updateDataByNumber(NUMBER_OF_DATA);
