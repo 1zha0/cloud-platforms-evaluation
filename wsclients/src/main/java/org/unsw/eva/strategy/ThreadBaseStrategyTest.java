@@ -21,9 +21,9 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
     /**
      * Assign value to be "1", means won`t repeat.
      */
-    private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 1;
+    private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 10;
     private static int TOTAL_THREADS = 3;
-    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 10;
+    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 1;
     /**
      * we will get ride of the first three request, and the last
      */
@@ -49,9 +49,11 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
 //        testSuit.add(new ReadDataByNumberTests("AzureReadDataByNumber", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new ReadDataByNumberTests("AppEngineReadDataByNumber", this, ServerType.APP_ENGINE_READ_DATA_BY_NUMBER, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
         testSuit.add(new BinaryFileWriteTests("AzureStorageBinaryFileWrite", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-        testSuit.add(new BinaryFileWriteTests("AppEngineBinaryFileWrite", this, ServerType.APP_ENGINE_BINARY_FILE_WRITE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+//        testSuit.add(new BinaryFileWriteTests("AppEngineBinaryFileWrite", this, ServerType.APP_ENGINE_BINARY_FILE_WRITE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
         testSuit.add(new BinaryFileWriteTests("AmazonBinaryFileWrite", this, ServerType.AMAZONE_SIMPLEDB, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+    }
 
+    public void run() {
         for (EvaluationThread evaThread : testSuit) {
             log.info(evaThread.getName() + " is running.");
             for (int i = 0; i < REPEAT_RUNNING_NUMBER_OF_TIMES; i++) {

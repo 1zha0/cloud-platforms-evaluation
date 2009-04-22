@@ -28,7 +28,6 @@ public class ObjectFactory {
     private final static QName _Result_QNAME = new QName("http://cloudComputingEvaluation.org/", "Result");
     private final static QName _UpdateOldValue_QNAME = new QName("http://cloudComputingEvaluation.org/", "oldValue");
     private final static QName _UpdateNewValue_QNAME = new QName("http://cloudComputingEvaluation.org/", "newValue");
-    private final static QName _CreateResponseCreateResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "CreateResult");
     private final static QName _UpdateResponseUpdateResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "UpdateResult");
     private final static QName _InstanceResponseResponseInstanceResponseResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "InstanceResponseResult");
     private final static QName _ReadAndUpdateId_QNAME = new QName("http://cloudComputingEvaluation.org/", "id");
@@ -39,15 +38,16 @@ public class ObjectFactory {
     private final static QName _BinaryFileWriteResponseBinaryFileWriteResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "BinaryFileWriteResult");
     private final static QName _ReadResponseReadResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadResult");
     private final static QName _DeleteResponseDeleteResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "DeleteResult");
-    private final static QName _InstanceResponseMessage_QNAME = new QName("http://cloudComputingEvaluation.org/", "message");
-    private final static QName _LongProcessInstanceResponseResponseLongProcessInstanceResponseResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "LongProcessInstanceResponseResult");
     private final static QName _BinaryFileReadResponseBinaryFileReadResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "BinaryFileReadResult");
+    private final static QName _LongProcessInstanceResponseResponseLongProcessInstanceResponseResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "LongProcessInstanceResponseResult");
+    private final static QName _InstanceResponseMessage_QNAME = new QName("http://cloudComputingEvaluation.org/", "message");
     private final static QName _UpdateDataByNumberResponseUpdateDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "UpdateDataByNumberResult");
     private final static QName _ResultId_QNAME = new QName("http://cloudComputingEvaluation.org/", "Id");
     private final static QName _ResultValue_QNAME = new QName("http://cloudComputingEvaluation.org/", "Value");
     private final static QName _DeleteDataByNumberResponseDeleteDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "DeleteDataByNumberResult");
     private final static QName _CloudComputatonEvaluationExceptionReason_QNAME = new QName("http://cloudComputingEvaluation.org/", "Reason");
     private final static QName _ReadDataByNumberResponseReadDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadDataByNumberResult");
+    private final static QName _CreateResponseCreateResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "CreateResult");
     private final static QName _CreateDataByNumberResponseCreateDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "CreateDataByNumberResult");
 
     /**
@@ -71,14 +71,6 @@ public class ObjectFactory {
      */
     public Update createUpdate() {
         return new Update();
-    }
-
-    /**
-     * Create an instance of {@link CreateResponse }
-     * 
-     */
-    public CreateResponse createCreateResponse() {
-        return new CreateResponse();
     }
 
     /**
@@ -210,11 +202,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link BinaryFileReadResponse }
+     * 
+     */
+    public BinaryFileReadResponse createBinaryFileReadResponse() {
+        return new BinaryFileReadResponse();
+    }
+
+    /**
      * Create an instance of {@link DeleteResponse }
      * 
      */
     public DeleteResponse createDeleteResponse() {
         return new DeleteResponse();
+    }
+
+    /**
+     * Create an instance of {@link LongProcessInstanceResponseResponse }
+     * 
+     */
+    public LongProcessInstanceResponseResponse createLongProcessInstanceResponseResponse() {
+        return new LongProcessInstanceResponseResponse();
     }
 
     /**
@@ -255,22 +263,6 @@ public class ObjectFactory {
      */
     public ReadByRange createReadByRange() {
         return new ReadByRange();
-    }
-
-    /**
-     * Create an instance of {@link LongProcessInstanceResponseResponse }
-     * 
-     */
-    public LongProcessInstanceResponseResponse createLongProcessInstanceResponseResponse() {
-        return new LongProcessInstanceResponseResponse();
-    }
-
-    /**
-     * Create an instance of {@link BinaryFileReadResponse }
-     * 
-     */
-    public BinaryFileReadResponse createBinaryFileReadResponse() {
-        return new BinaryFileReadResponse();
     }
 
     /**
@@ -338,6 +330,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CreateResponse }
+     * 
+     */
+    public CreateResponse createCreateResponse() {
+        return new CreateResponse();
+    }
+
+    /**
      * Create an instance of {@link GetCounterResponse }
      * 
      */
@@ -395,15 +395,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "newValue", scope = Update.class)
     public JAXBElement<String> createUpdateNewValue(String value) {
         return new JAXBElement<String>(_UpdateNewValue_QNAME, String.class, Update.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "CreateResult", scope = CreateResponse.class)
-    public JAXBElement<Result> createCreateResponseCreateResult(Result value) {
-        return new JAXBElement<Result>(_CreateResponseCreateResult_QNAME, Result.class, CreateResponse.class, value);
     }
 
     /**
@@ -506,6 +497,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "BinaryFileReadResult", scope = BinaryFileReadResponse.class)
+    public JAXBElement<Result> createBinaryFileReadResponseBinaryFileReadResult(Result value) {
+        return new JAXBElement<Result>(_BinaryFileReadResponseBinaryFileReadResult_QNAME, Result.class, BinaryFileReadResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "LongProcessInstanceResponseResult", scope = LongProcessInstanceResponseResponse.class)
+    public JAXBElement<Result> createLongProcessInstanceResponseResponseLongProcessInstanceResponseResult(Result value) {
+        return new JAXBElement<Result>(_LongProcessInstanceResponseResponseLongProcessInstanceResponseResult_QNAME, Result.class, LongProcessInstanceResponseResponse.class, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
@@ -530,24 +539,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "message", scope = InstanceResponse.class)
     public JAXBElement<String> createInstanceResponseMessage(String value) {
         return new JAXBElement<String>(_InstanceResponseMessage_QNAME, String.class, InstanceResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "LongProcessInstanceResponseResult", scope = LongProcessInstanceResponseResponse.class)
-    public JAXBElement<Result> createLongProcessInstanceResponseResponseLongProcessInstanceResponseResult(Result value) {
-        return new JAXBElement<Result>(_LongProcessInstanceResponseResponseLongProcessInstanceResponseResult_QNAME, Result.class, LongProcessInstanceResponseResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "BinaryFileReadResult", scope = BinaryFileReadResponse.class)
-    public JAXBElement<Result> createBinaryFileReadResponseBinaryFileReadResult(Result value) {
-        return new JAXBElement<Result>(_BinaryFileReadResponseBinaryFileReadResult_QNAME, Result.class, BinaryFileReadResponse.class, value);
     }
 
     /**
@@ -611,6 +602,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "ReadDataByNumberResult", scope = ReadDataByNumberResponse.class)
     public JAXBElement<Result> createReadDataByNumberResponseReadDataByNumberResult(Result value) {
         return new JAXBElement<Result>(_ReadDataByNumberResponseReadDataByNumberResult_QNAME, Result.class, ReadDataByNumberResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "CreateResult", scope = CreateResponse.class)
+    public JAXBElement<Result> createCreateResponseCreateResult(Result value) {
+        return new JAXBElement<Result>(_CreateResponseCreateResult_QNAME, Result.class, CreateResponse.class, value);
     }
 
     /**

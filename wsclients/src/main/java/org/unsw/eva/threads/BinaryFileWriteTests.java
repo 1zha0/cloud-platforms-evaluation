@@ -16,7 +16,6 @@ import org.unsw.eva.strategy.AbstractStrageyTest;
 public class BinaryFileWriteTests<T extends AbstractStrageyTest> extends EvaluationThread {
 
     private static final Logger log = LoggerFactory.getLogger(BinaryFileWriteTests.class);
-    private T strageyTest;
 
     @Deprecated
     public BinaryFileWriteTests() {
@@ -24,13 +23,12 @@ public class BinaryFileWriteTests<T extends AbstractStrageyTest> extends Evaluat
 
     public BinaryFileWriteTests(String name, T strageyTest, ServerType serverType, int repeatNumberOfTime) {
         super(name, strageyTest, SOAPVersion.SOAP_11, serverType, repeatNumberOfTime);
-        this.strageyTest = strageyTest;
     }
 
     @Override
     public Result doSOAP11Call() {
         try {
-            return getServiceEndpoint().binaryFileWrite(String.valueOf(this.strageyTest.getNextGenId()));
+            return getServiceEndpoint().binaryFileWrite(String.valueOf(getStrageyTest().getNextGenId()));
         } catch (ICloudComputingEvaluationBinaryFileWriteCloudComputatonEvaluationExceptionFaultMessage ex) {
             throw new ServerError(ex.getFaultInfo().getReason().getValue());
         }

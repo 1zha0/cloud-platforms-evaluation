@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author shrimpy
  */
-public class AbstractStrageyTest {
+public abstract class AbstractStrageyTest {
 
     private List<ResultGroupData> resultList = new ArrayList<ResultGroupData>();
 
@@ -26,6 +26,9 @@ public class AbstractStrageyTest {
     private int startCounter = 0;
 
     public synchronized int getNextGenId() {
-        return startCounter++;
+        startCounter = startCounter + 1;
+        return startCounter;
     }
+
+    public abstract void run();
 }

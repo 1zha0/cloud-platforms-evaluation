@@ -38,12 +38,16 @@ public class TimeBaseStrategyTest extends AbstractStrageyTest {
 //        testSuit.add(new CreateDataByNumberTests("AppEngineCreateDataByNumber", this, ServerType.APP_ENGINE_CREATE_DATA_BY_NUMBER, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new ReadDataByNumberTests("AzureReadDataByNumber", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new ReadDataByNumberTests("AppEngineReadDataByNumber", this, ServerType.APP_ENGINE_READ_DATA_BY_NUMBER, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+    }
+
+    public void run() {
         for (EvaluationThread evaThread : testSuit) {
             log.info(evaThread.getName() + " is running.");
             runThreads(evaThread);
         }
 
 //        TextWriter.writeToFile(getResultList(), new ResultListTextFormatter(), "AppEngineCreateDataByNumber-" + TOTAL_THREADS + ".csv");
+
     }
 
     private long currentTimeDifference(long startTime) {

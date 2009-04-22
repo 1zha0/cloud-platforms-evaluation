@@ -16,20 +16,18 @@ import org.unsw.eva.strategy.AbstractStrageyTest;
 public class BinaryFileReadTests<T extends AbstractStrageyTest> extends EvaluationThread {
 
     private static final Logger log = LoggerFactory.getLogger(BinaryFileReadTests.class);
-    private T strageyTest;
 
     public BinaryFileReadTests() {
     }
 
     public BinaryFileReadTests(String name, T strageyTest, ServerType serverType, int repeatNumberOfTime) {
         super(name, strageyTest, SOAPVersion.SOAP_11, serverType, repeatNumberOfTime);
-        this.strageyTest = strageyTest;
     }
 
     @Override
     public Result doSOAP11Call() {
         try {
-            return getServiceEndpoint().binaryFileRead(String.valueOf(strageyTest.getNextGenId()));
+            return getServiceEndpoint().binaryFileRead(String.valueOf(getStrageyTest().getNextGenId()));
         } catch (ICloudComputingEvaluationBinaryFileReadCloudComputatonEvaluationExceptionFaultMessage ex) {
             throw new ServerError(ex.getFaultInfo().getReason().getValue());
         }
