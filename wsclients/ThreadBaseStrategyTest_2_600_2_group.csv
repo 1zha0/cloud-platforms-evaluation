@@ -1,7 +1,0 @@
-Name,Total threads,Total requests,Error num.,Total running time,Avg. request/Sec.,Avg. conn. Time,Avg. comp. Time,Min. conn. Time,Max. conn. Time,Min. comp. Time,Max. comp. Time
-null,862,1724,1724,15833,0.0,0,0,0,0,0,0
-AzureWithSDSCreate,868,1736,577,3090,375.0068,1006,22,220,6292,15,671
-AmazonCreateSimpleDB,1200,2400,1,24003,99.94575,11957,313,297,46339,50,8594
-AmazonCreate,1126,2252,341,34218,55.84728,8089,354,255,51353,6,1747
-AppEngineCreate,1197,2394,0,3780,633.2751,1890,90,344,9274,25,972
-AzureStorageCreate,743,1486,543,11101,84.941696,3361,62,613,11769,46,890

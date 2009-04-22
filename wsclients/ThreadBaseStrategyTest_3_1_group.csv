@@ -1,3 +1,0 @@
-Name,Total threads,Total requests,Error num.,Total running time,Avg. request/Sec.,Avg. conn. Time,Avg. comp. Time,Min. conn. Time,Max. conn. Time,Min. comp. Time,Max. comp. Time
-AzureStorageBinaryFileWrite,30,30,0,9247,3.2440617,9247,835,6612,14798,156,3452
-AmazonBinaryFileWrite,30,30,0,1526,19.650227,1526,63,1097,3050,1,583

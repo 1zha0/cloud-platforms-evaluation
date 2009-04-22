@@ -1,4 +1,0 @@
-Name,Total threads,Total requests,Error num.,Total running time,Avg. request/Sec.,Avg. conn. Time,Avg. comp. Time,Min. conn. Time,Max. conn. Time,Min. comp. Time,Max. comp. Time
-AzureStorageInstanceResponse,1799,5397,0,23168,232.94983,7721,0,192,58638,0,15
-AppEngineInstanceResponse,1800,5400,0,6557,823.4394,2185,0,306,19941,0,0
-AmazonInstanceResponse,1798,5394,0,3829,1408.666,1276,0,234,6178,0,1
