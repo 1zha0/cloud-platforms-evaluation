@@ -21,8 +21,8 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
     /**
      * Assign value to be "1", means won`t repeat.
      */
-    private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 20;
-    private static int TOTAL_THREADS = 40;
+    private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 3;
+    private static int TOTAL_THREADS = 800;
     private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 3;
     /**
      * we will get ride of the first three request, and the last

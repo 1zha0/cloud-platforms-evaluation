@@ -26,9 +26,9 @@ public class TextWriter extends IOWriterHelper {
         Validate.notNull(formatter);
 
         log.info("Createing result file from '" + resultList.size() + "' record(s)");
-        File file = getOutputFile(filename, formatter.getSuffix());
-        File fileGroup = getOutputFile(filename + "_group", formatter.getSuffix());
-        File fileTimestamp = getOutputFile(filename + "_timestamp", formatter.getSuffix());
+        File file = getOutputFile(filename + "_xiaomin", formatter.getSuffix());
+        File fileGroup = getOutputFile(filename + "_group_xiaomin", formatter.getSuffix());
+        File fileTimestamp = getOutputFile(filename + "_timestamp_xiaomin", formatter.getSuffix());
         Writer output = null;
         Writer outputGroup = null;
         Writer outputTimestamp = null;
