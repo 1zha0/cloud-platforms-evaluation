@@ -14,7 +14,9 @@ public enum ServerType {
     APP_ENGINE_CREATE("appEngine_create"),
     APP_ENGINE_READ("appEngine_read"),
     APP_ENGINE_CREATE_DATA_BY_NUMBER("appEngine_createDataByNumber"),
-    APP_ENGINE_READ_DATA_BY_NUMBER("appEngine_readDataByNumber");
+    APP_ENGINE_READ_DATA_BY_NUMBER("appEngine_readDataByNumber"),
+    APP_ENGINE_BINARY_FILE_WRITE("appEngine_binaryFileWrite"),
+    APP_ENGINE_BINARY_FILE_READ("appEngine_binaryFileRead");
     private String name;
 
     private ServerType(String name) {

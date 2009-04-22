@@ -54,30 +54,24 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
         try {
             if (SOAPVersion.SOAP_11.equals(version)) {
                 result = doSOAP11Call();
-            }
-            else if (SOAPVersion.SOAP_12.equals(version)) {
+            } else if (SOAPVersion.SOAP_12.equals(version)) {
                 result = doSOAP12Call();
-            }
-            else {
+            } else {
                 throw new UnsupportError("Unsupported SOAP Version : '" + version + "'");
             }
             monitorConnectionTime(Calendar.getInstance().getTimeInMillis(), start);
             if (result == null || hasError()) {
                 errorOccured();
-            }
-            else {
+            } else {
                 monitorComputationTime(result.getTimer());
             }
-        }
-        catch (ServerError ex) {
+        } catch (ServerError ex) {
             errorOccured();
             log.error("Server error for " + getName(), ex);
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             errorOccured();
             log.error("Unknow error for " + getName(), ex);
-        }
-        finally {
+        } finally {
             if (result != null) {
                 // can do sth here
             }
@@ -108,32 +102,27 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
         ICloudComputingEvaluation endpoint = null;
         if (serverType.equals(ServerType.AZURE)) {
             endpoint = service.getAzureEvaluationSoap();
-        }
-        else if (serverType.equals(ServerType.AZURE_STORAGE)) {
+        } else if (serverType.equals(ServerType.AZURE_STORAGE)) {
             endpoint = service.getAzureStorageEvaluationSoap();
-        }
-        else if (serverType.equals(ServerType.AMAZONE)) {
+        } else if (serverType.equals(ServerType.AMAZONE)) {
             endpoint = service.getAmazonSoap();
-        }
-        else if (serverType.equals(ServerType.AMAZONE_SIMPLEDB)) {
+        } else if (serverType.equals(ServerType.AMAZONE_SIMPLEDB)) {
             endpoint = service.getAmazonSoapSimpleDB();
-        }
-        else if (serverType.equals(ServerType.APP_ENGINE_INSTANCE_RESPONSE)) {
+        } else if (serverType.equals(ServerType.APP_ENGINE_INSTANCE_RESPONSE)) {
             endpoint = service.getAppEngineSoapInstanceResponse();
-        }
-        else if (serverType.equals(ServerType.APP_ENGINE_CREATE)) {
+        } else if (serverType.equals(ServerType.APP_ENGINE_CREATE)) {
             endpoint = service.getAppEngineSoapCreate();
-        }
-        else if (serverType.equals(ServerType.APP_ENGINE_READ)) {
+        } else if (serverType.equals(ServerType.APP_ENGINE_READ)) {
             endpoint = service.getAppEngineSoapRead();
-        }
-        else if (serverType.equals(ServerType.APP_ENGINE_CREATE_DATA_BY_NUMBER)) {
+        } else if (serverType.equals(ServerType.APP_ENGINE_CREATE_DATA_BY_NUMBER)) {
             endpoint = service.getAppEngineSoapCreateDataByNumber();
-        }
-        else if (serverType.equals(ServerType.APP_ENGINE_READ_DATA_BY_NUMBER)) {
+        } else if (serverType.equals(ServerType.APP_ENGINE_READ_DATA_BY_NUMBER)) {
             endpoint = service.getAppEngineSoapReadDataByNumber();
-        }
-        else {
+        } else if (serverType.equals(ServerType.APP_ENGINE_BINARY_FILE_READ)) {
+            endpoint = service.getAppEngineSoapBinaryFileRead();
+        } else if (serverType.equals(ServerType.APP_ENGINE_BINARY_FILE_WRITE)) {
+            endpoint = service.getAppEngineSoapBinaryFileWrite();
+        } else {
             throw new UnsupportError("Unsupport server type : " + serverType);
         }
         return endpoint;
