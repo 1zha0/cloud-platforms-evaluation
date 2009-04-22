@@ -15,8 +15,12 @@ public abstract class AbstractTest {
         return service.getAzureStorageEvaluationSoap();
     }
 
-    public ICloudComputingEvaluation getAppEngineEndpoint() {
+    public ICloudComputingEvaluation getAppEngineInstanceResponseEndpoint() {
         return service.getAppEngineSoapInstanceResponse();
+    }
+
+    public ICloudComputingEvaluation getAppEngineCleanDefaultDataEndpoint() {
+        return service.getAppEngineSoapCleanDefaultData();
     }
 
     public ICloudComputingEvaluation getAmazonEndpoint() {
