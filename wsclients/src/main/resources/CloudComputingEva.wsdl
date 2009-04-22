@@ -823,5 +823,8 @@
         <wsdl:port name="AppEngineSoapBinaryFileRead" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
             <soap:address location="http://cloudplatformtest.appspot.com/BinaryFileRead" />
         </wsdl:port>
+        <wsdl:port name="AppEngineSoapCleanDefaultData" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
+            <soap:address location="http://cloudplatformtest.appspot.com/CleanDefaultData" />
+        </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>
