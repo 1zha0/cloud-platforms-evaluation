@@ -1,7 +1,6 @@
 package org.unsw.eva.strategy;
 
 import org.unsw.eva.ServerType;
-import org.unsw.eva.threads.EvaluationThread;
 import org.unsw.eva.data.dataFormatter.ExportCSVFormatter;
 import org.unsw.eva.io.TextWriter;
 
@@ -10,8 +9,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.unsw.eva.threads.CreateTests;
-import org.unsw.eva.threads.ThreadFactory;
+import org.unsw.eva.threads.*;
 
 /**
  * @author shrimpy
@@ -23,9 +21,9 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
     /**
      * Assign value to be "1", means won`t repeat.
      */
-    private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 1;
-    private static int TOTAL_THREADS = 50;
-    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 1;
+    private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 20;
+    private static int TOTAL_THREADS = 40;
+    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 3;
     /**
      * we will get ride of the first three request, and the last
      */
@@ -36,10 +34,10 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
         /**
          * ==================== Register all the test case here. ====================
          */
-//        testSuit.add(new InstanceResponeTests("AzureStorageInstanceResponse", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-//        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-//        testSuit.add(new InstanceResponeTests("AmazonInstanceResponse", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-        testSuit.add(new CreateTests("AzureStorageCreate", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        testSuit.add(new InstanceResponeTests("AzureStorageInstanceResponse", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        testSuit.add(new InstanceResponeTests("AmazonInstanceResponse", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+//        testSuit.add(new CreateTests("AzureStorageCreate", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AmazonCreateSimpleDB", this, ServerType.AMAZONE_SIMPLEDB, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AmazonCreate", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
