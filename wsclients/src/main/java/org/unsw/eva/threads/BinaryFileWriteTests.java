@@ -28,7 +28,7 @@ public class BinaryFileWriteTests<T extends AbstractStrageyTest> extends Evaluat
     @Override
     public Result doSOAP11Call() {
         try {
-            return getServiceEndpoint().binaryFileWrite(String.valueOf(getStrageyTest().getNextGenId()));
+            return getServiceEndpoint().binaryFileWrite(getStrageyTest().getNextGenId());
         } catch (ICloudComputingEvaluationBinaryFileWriteCloudComputatonEvaluationExceptionFaultMessage ex) {
             throw new ServerError(ex.getFaultInfo().getReason().getValue());
         }

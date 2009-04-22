@@ -25,9 +25,9 @@ public abstract class AbstractStrageyTest {
     }
     private int startCounter = 0;
 
-    public synchronized int getNextGenId() {
+    public synchronized String getNextGenId() {
         startCounter = startCounter + 1;
-        return startCounter;
+        return "a" + startCounter;
     }
 
     public abstract void run();

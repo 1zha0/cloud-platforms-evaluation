@@ -15,7 +15,7 @@ public class App {
     public static void main(String[] args) {
         AbstractStrageyTest test1 = new ThreadBaseStrategyTest();
         test1.run();
-        log.debug("All test finished, Next Gen id is up to  ============== " + (test1.getNextGenId() == 1 ? test1.getNextGenId() : test1.getNextGenId() - 1) + " ==============");
+        log.debug("All test finished, Next Gen id is up to  ============== " + test1.getNextGenId() + " ==============");
 //      AbstractStrageyTest test2 =  new TimeBaseStrategyTest();
     }
 }

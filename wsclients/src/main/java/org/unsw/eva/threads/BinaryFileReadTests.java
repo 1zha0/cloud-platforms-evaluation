@@ -27,7 +27,7 @@ public class BinaryFileReadTests<T extends AbstractStrageyTest> extends Evaluati
     @Override
     public Result doSOAP11Call() {
         try {
-            return getServiceEndpoint().binaryFileRead(String.valueOf(getStrageyTest().getNextGenId()));
+            return getServiceEndpoint().binaryFileRead(getStrageyTest().getNextGenId());
         } catch (ICloudComputingEvaluationBinaryFileReadCloudComputatonEvaluationExceptionFaultMessage ex) {
             throw new ServerError(ex.getFaultInfo().getReason().getValue());
         }
