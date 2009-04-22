@@ -1,5 +1,6 @@
 package org.unsw.eva.wsclient.amazon;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -26,5 +27,10 @@ public class CRUDByNumberTest extends AbstractTest {
         getAmazonEndpoint().updateDataByNumber(NUMBER_OF_DATA);
         getAmazonEndpoint().readDataByNumber(NUMBER_OF_DATA);
         getAmazonEndpoint().deleteDataByNumber(NUMBER_OF_DATA);
+    }
+
+    @After
+    public void cleanUp() throws Exception {
+        getAmazonSimpleDBEndpoint().cleanDefaultData(0, 0);
     }
 }
