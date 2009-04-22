@@ -17,21 +17,21 @@ public class SetUpAndCleanDefaultDataTest extends AbstractTest {
 
     @Before
     public void setUp() throws Exception {
-        getAmazonEndpoint().cleanDefaultData(0, 0);
+//        getAmazonEndpoint().cleanDefaultData(0, 0);
     }
 
     @Test
     public void testSetUpDefaultData()
             throws ICloudComputingEvaluationSetupDefaultDataCloudComputatonEvaluationExceptionFaultMessage {
 
-        assertEquals(10, getAmazonEndpoint().setupDefaultData(NUMBER_OF_DATA, 0).intValue());
+//        assertEquals(10, getAmazonEndpoint().setupDefaultData(NUMBER_OF_DATA, 0).intValue());
     }
 
     @Test
     public void testCleanDefaultData()
             throws ICloudComputingEvaluationCleanDefaultDataCloudComputatonEvaluationExceptionFaultMessage {
 
-        assertTrue(getAmazonEndpoint().cleanDefaultData(0, 0));
+//        assertTrue(getAmazonEndpoint().cleanDefaultData(0, 0));
     }
 }
 
