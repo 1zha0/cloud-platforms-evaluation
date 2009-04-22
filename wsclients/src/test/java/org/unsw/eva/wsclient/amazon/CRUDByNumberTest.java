@@ -24,8 +24,8 @@ public class CRUDByNumberTest extends AbstractTest {
     public void testCRUDByNumber() throws Exception {
 
         getAmazonEndpoint().createDataByNumber(NUMBER_OF_DATA);
-        getAmazonEndpoint().updateDataByNumber(NUMBER_OF_DATA);
         getAmazonEndpoint().readDataByNumber(NUMBER_OF_DATA);
+        getAmazonEndpoint().updateDataByNumber(NUMBER_OF_DATA);
         getAmazonEndpoint().deleteDataByNumber(NUMBER_OF_DATA);
     }
 
