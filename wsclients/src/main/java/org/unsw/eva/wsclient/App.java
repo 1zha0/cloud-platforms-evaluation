@@ -1,5 +1,7 @@
 package org.unsw.eva.wsclient;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.unsw.eva.strategy.*;
 
 /**
@@ -8,9 +10,12 @@ import org.unsw.eva.strategy.*;
  */
 public class App {
 
+    private static final Logger log = LoggerFactory.getLogger(App.class);
+
     public static void main(String[] args) {
-        new ThreadBaseStrategyTest();
-//        new TimeBaseStrategyTest();
+        AbstractStrageyTest test1 = new ThreadBaseStrategyTest();
+        log.debug("All test finished, Next Gen id is up to  ============== " + (test1.getNextGenId() - 1) + " ==============");
+//      AbstractStrageyTest test2 =  new TimeBaseStrategyTest();
     }
 }
 

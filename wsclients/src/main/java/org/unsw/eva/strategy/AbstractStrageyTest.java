@@ -23,4 +23,9 @@ public class AbstractStrageyTest {
     public synchronized List<ResultGroupData> getResultList() {
         return resultList;
     }
+    private int startCounter = 0;
+
+    public synchronized int getNextGenId() {
+        return startCounter++;
+    }
 }
