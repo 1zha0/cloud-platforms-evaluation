@@ -16,7 +16,7 @@ public class AzureStorageSetUpAndCleanDefaultDataTest extends AbstractTest {
 
     @Before
     public void setUp() throws Exception {
-//        getAzureStorageServiceEndpoint().cleanDefaultData(0, 0);
+        getAzureStorageServiceEndpoint().cleanDefaultData(0, 0);
     }
 
 //    @Test
@@ -29,6 +29,6 @@ public class AzureStorageSetUpAndCleanDefaultDataTest extends AbstractTest {
     public void testCleanDefaultData()
             throws ICloudComputingEvaluationCleanDefaultDataCloudComputatonEvaluationExceptionFaultMessage {
 
-//        assertTrue(getAzureStorageServiceEndpoint().cleanDefaultData(0, 0));
+        assertTrue(getAzureStorageServiceEndpoint().cleanDefaultData(0, 0));
     }
 }
