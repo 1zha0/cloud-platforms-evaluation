@@ -1,2 +1,0 @@
-Name,Total threads,Total requests,Error num.,Total running time,Avg. request/Sec.,Avg. conn. Time,Avg. comp. Time,Min. conn. Time,Max. conn. Time,Min. comp. Time,Max. comp. Time
-AzureStorageInstanceResponse,20,60,0,11977,5.0094347,3992,0,414,10090,0,0
