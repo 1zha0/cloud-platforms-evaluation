@@ -98,14 +98,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ReadByRange }
-     * 
-     */
-    public ReadByRange createReadByRange() {
-        return new ReadByRange();
-    }
-
-    /**
      * Create an instance of {@link LongProcessInstanceResponse }
      * 
      */
@@ -167,14 +159,6 @@ public class ObjectFactory {
      */
     public UpdateDataByNumber createUpdateDataByNumber() {
         return new UpdateDataByNumber();
-    }
-
-    /**
-     * Create an instance of {@link SetupDefaultDataResponse }
-     * 
-     */
-    public SetupDefaultDataResponse createSetupDefaultDataResponse() {
-        return new SetupDefaultDataResponse();
     }
 
     /**
@@ -247,6 +231,14 @@ public class ObjectFactory {
      */
     public ResetCounter createResetCounter() {
         return new ResetCounter();
+    }
+
+    /**
+     * Create an instance of {@link SetupDefaultDataResponse }
+     * 
+     */
+    public SetupDefaultDataResponse createSetupDefaultDataResponse() {
+        return new SetupDefaultDataResponse();
     }
 
     /**
@@ -330,6 +322,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link BinaryFileWrite }
+     * 
+     */
+    public BinaryFileWrite createBinaryFileWrite() {
+        return new BinaryFileWrite();
+    }
+
+    /**
      * Create an instance of {@link Read }
      * 
      */
@@ -346,11 +346,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BinaryFileWrite }
+     * Create an instance of {@link ReadByRange }
      * 
      */
-    public BinaryFileWrite createBinaryFileWrite() {
-        return new BinaryFileWrite();
+    public ReadByRange createReadByRange() {
+        return new ReadByRange();
     }
 
     /**
@@ -590,6 +590,15 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "key", scope = BinaryFileWrite.class)
+    public JAXBElement<String> createBinaryFileWriteKey(String value) {
+        return new JAXBElement<String>(_BinaryFileReadKey_QNAME, String.class, BinaryFileWrite.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
     @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "content", scope = Read.class)
     public JAXBElement<String> createReadContent(String value) {
         return new JAXBElement<String>(_DeleteContent_QNAME, String.class, Read.class, value);
@@ -602,15 +611,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "DeleteDataByNumberResult", scope = DeleteDataByNumberResponse.class)
     public JAXBElement<Result> createDeleteDataByNumberResponseDeleteDataByNumberResult(Result value) {
         return new JAXBElement<Result>(_DeleteDataByNumberResponseDeleteDataByNumberResult_QNAME, Result.class, DeleteDataByNumberResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "key", scope = BinaryFileWrite.class)
-    public JAXBElement<String> createBinaryFileWriteKey(String value) {
-        return new JAXBElement<String>(_BinaryFileReadKey_QNAME, String.class, BinaryFileWrite.class, value);
     }
 
     /**
