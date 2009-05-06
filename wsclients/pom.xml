@@ -60,6 +60,8 @@
                 <configuration>
                     <executable>java</executable>
                     <arguments>
+                        <argument>-Xms32m</argument>
+                        <argument>-Xmx1024m</argument>
                         <argument>-classpath</argument>
                         <classpath />
                   <!-- Uncomment below for debugging with Metro. -->
