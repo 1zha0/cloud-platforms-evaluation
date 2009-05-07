@@ -40,8 +40,8 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
         //testSuit.add(new CreateTests("AmazonCreateSimpleDB", this, ServerType.AMAZONE_SIMPLEDB, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
         testSuit.add(new CreateTests("AzureStorageCreate", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
         testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-    //testSuit.add(new CreateTests("AmazonCreate", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-//        testSuit.add(new CreateTests("AzureWithSDSCreate", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        //testSuit.add(new CreateTests("AmazonCreate", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        testSuit.add(new CreateTests("AzureWithSDSCreate", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AzureSDSCreate", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new ReadTests("AzureRead", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new ReadTests("AppEngineRead", this, ServerType.APP_ENGINE_READ, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
@@ -49,9 +49,9 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
 //        testSuit.add(new CreateDataByNumberTests("AppEngineCreateDataByNumber", this, ServerType.APP_ENGINE_CREATE_DATA_BY_NUMBER, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new ReadDataByNumberTests("AzureReadDataByNumber", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new ReadDataByNumberTests("AppEngineReadDataByNumber", this, ServerType.APP_ENGINE_READ_DATA_BY_NUMBER, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-    //testSuit.add(new BinaryFileWriteTests("AppEngineBinaryFileWrite", this, ServerType.APP_ENGINE_BINARY_FILE_WRITE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-    //testSuit.add(new BinaryFileWriteTests("AmazonBinaryFileWrite", this, ServerType.AMAZONE_SIMPLEDB, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-//        testSuit.add(new BinaryFileWriteTests("AzureStorageBinaryFileWrite", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        testSuit.add(new BinaryFileWriteTests("AppEngineBinaryFileWrite", this, ServerType.APP_ENGINE_BINARY_FILE_WRITE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        //testSuit.add(new BinaryFileWriteTests("AmazonBinaryFileWrite", this, ServerType.AMAZONE_SIMPLEDB, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        testSuit.add(new BinaryFileWriteTests("AzureStorageBinaryFileWrite", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 
     }
 
