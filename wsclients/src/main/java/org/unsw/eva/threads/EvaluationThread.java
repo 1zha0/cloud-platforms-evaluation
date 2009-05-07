@@ -63,7 +63,7 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
             if (result == null || hasError()) {
                 errorOccured();
             } else {
-                monitorComputationTime(result.getTimer());
+                monitorResult(result);
             }
         } catch (ServerError ex) {
             errorOccured();

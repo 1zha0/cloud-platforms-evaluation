@@ -1,5 +1,6 @@
 package org.unsw.eva;
 
+import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.data.ResultData;
 import org.unsw.eva.data.ResultGroupData;
 
@@ -41,8 +42,9 @@ public abstract class Monitor {
         resultDatas[getCurrentThreadIndex()].setConnectionTime(current - start);
     }
 
-    public void monitorComputationTime(long timeStamp) {
-        resultDatas[getCurrentThreadIndex()].setComputationTime(timeStamp);
+    public void monitorResult(Result result) {
+        resultDatas[getCurrentThreadIndex()].setComputationTime(result.getTimer());
+        resultDatas[getCurrentThreadIndex()].setServerSideEndingTime(Long.valueOf(result.getValue().getValue()));
     }
 
     public void errorOccured() {

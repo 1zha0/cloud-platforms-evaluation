@@ -14,7 +14,8 @@ public class ResultData implements Serializable {
         CONNECTION_TIME("Connection Time"),
         COMPUTATION_TIME("Computation Time"),
         ERROR("Error"),
-        ENDING_TIME("Ending Time");
+        ENDING_TIME("Ending Time"),
+        SERVER_ENDING_TIME("Server Ending Time");
         private String value;
 
         private Field(String value) {

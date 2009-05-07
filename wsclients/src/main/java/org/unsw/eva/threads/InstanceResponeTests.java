@@ -41,6 +41,6 @@ public class InstanceResponeTests<T extends AbstractStrageyTest> extends Evaluat
 
     @Override
     public Boolean hasError() {
-        return !getResult().getValue().getValue().equals(getMESSAGE());
+        return getResult().getValue().getValue() == null;
     }
 }

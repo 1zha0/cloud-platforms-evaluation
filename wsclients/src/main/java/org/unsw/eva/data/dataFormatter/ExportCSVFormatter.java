@@ -34,6 +34,8 @@ public class ExportCSVFormatter implements ExportFormatter {
         sb.append(ResultData.Field.ERROR.getValue());
         sb.append(COLUMN_SPERATOR);
         sb.append(ResultData.Field.ENDING_TIME.getValue());
+        sb.append(COLUMN_SPERATOR);
+        sb.append(ResultData.Field.SERVER_ENDING_TIME.getValue());
         sb.append(NEW_LINE);
 
         /**
@@ -50,6 +52,8 @@ public class ExportCSVFormatter implements ExportFormatter {
                 sb.append(data.getIsError());
                 sb.append(COLUMN_SPERATOR);
                 sb.append(data.getEndingTime() == null ? null : formatter.format(new Date(data.getEndingTime())));
+                sb.append(COLUMN_SPERATOR);
+                sb.append(data.getServerSideEndingTime() == null ? null : formatter.format(new Date(data.getServerSideEndingTime())));
                 sb.append(NEW_LINE);
             }
         }
