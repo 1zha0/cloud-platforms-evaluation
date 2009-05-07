@@ -30,6 +30,15 @@ public class ResultData implements Serializable {
     private Long computationTime;
     private Boolean isError = Boolean.FALSE;
     private Long EndingTime;
+    private Long ServerSideEndingTime;
+
+    public Long getServerSideEndingTime() {
+        return ServerSideEndingTime;
+    }
+
+    public void setServerSideEndingTime(Long ServerSideEndingTime) {
+        this.ServerSideEndingTime = ServerSideEndingTime;
+    }
 
     public Long getEndingTime() {
         return EndingTime;
