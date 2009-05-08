@@ -36,10 +36,10 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
          * ==================== Register all the test case here. ====================
          */
 //        testSuit.add(new InstanceResponeTests("AzureStorageInstanceResponse", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-//        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        testSuit.add(new InstanceResponeTests("AppEngineInstanceResponse", this, ServerType.APP_ENGINE_INSTANCE_RESPONSE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new InstanceResponeTests("AmazonInstanceResponse", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AmazonCreateSimpleDB", this, ServerType.AMAZONE_SIMPLEDB, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-        testSuit.add(new CreateTests("AzureStorageCreate", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+//        testSuit.add(new CreateTests("AzureStorageCreate", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AmazonCreate", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AzureWithSDSCreate", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
