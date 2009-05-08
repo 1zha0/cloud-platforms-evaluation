@@ -16,6 +16,7 @@ import java.util.Calendar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.exceptions.ConnectionError;
 
 /**
  *
@@ -66,10 +67,13 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
             }
         } catch (ServerError ex) {
             errorOccured();
-            log.error("Server error for " + getName(), ex);
+            log.error("Server error for " + getName() + " : " + ex.getMessage());
+        } catch (ConnectionError ex) {
+            errorOccured();
+            log.error("Connection error for " + getName() + " : " + (ex.getMessage().length() > 100 ? ex.getMessage().substring(0, 100) + "..." : ex.getMessage()));
         } catch (Exception ex) {
             errorOccured();
-            log.error("Connection Or Server error for " + getName(), ex);
+            log.error("Unknown error for " + getName(), ex);
         } finally {
             monitorConnectionTime(Calendar.getInstance().getTimeInMillis(), start);
             if (result != null) {
