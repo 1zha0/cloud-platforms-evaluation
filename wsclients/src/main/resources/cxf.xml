@@ -14,13 +14,21 @@
   xmlns:http="http://cxf.apache.org/transports/http/configuration"
   xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
   xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
+  xmlns:cxf="http://cxf.apache.org/core"
   xsi:schemaLocation="
   		   http://cxf.apache.org/configuration/security
            http://cxf.apache.org/schemas/configuration/security.xsd
            http://cxf.apache.org/transports/http/configuration
            http://cxf.apache.org/schemas/configuration/http-conf.xsd
            http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
+
+    <cxf:bus>
+        <cxf:features>
+            <cxf:logging />
+        </cxf:features>
+    </cxf:bus>
 
     <http-conf:conduit name="*.http-conduit">
 

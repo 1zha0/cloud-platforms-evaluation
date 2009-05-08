@@ -62,6 +62,7 @@
                     <arguments>
                         <argument>-Xms32m</argument>
                         <argument>-Xmx1024m</argument>
+                        <argument>-Dorg.apache.cxf.Logger=org.apache.cxf.common.logging.Log4jLogger</argument>
                         <argument>-classpath</argument>
                         <classpath />
                   <!-- Uncomment below for debugging with Metro. -->
