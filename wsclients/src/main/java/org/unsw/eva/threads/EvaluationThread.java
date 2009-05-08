@@ -59,7 +59,6 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
             } else {
                 throw new UnsupportError("Unsupported SOAP Version : '" + version + "'");
             }
-            monitorConnectionTime(Calendar.getInstance().getTimeInMillis(), start);
             if (result == null || hasError()) {
                 errorOccured();
             } else {
@@ -70,8 +69,9 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
             log.error("Server error for " + getName(), ex);
         } catch (Exception ex) {
             errorOccured();
-            log.error("Unknow error for " + getName(), ex);
+            log.error("Connection Or Server error for " + getName(), ex);
         } finally {
+            monitorConnectionTime(Calendar.getInstance().getTimeInMillis(), start);
             if (result != null) {
                 // can do sth here
             }
