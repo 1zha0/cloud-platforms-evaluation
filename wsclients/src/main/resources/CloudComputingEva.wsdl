@@ -800,31 +800,31 @@
             <soap:address location="http://ec2-174-129-82-8.compute-1.amazonaws.com:8080/server-1.0-SNAPSHOT/service/simpleDB" />
         </wsdl:port>
         <wsdl:port name="AppEngineSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://cloudplatformeva.appspot.com/" />
+            <soap:address location="http://cloudplatformtest.appspot.com/" />
         </wsdl:port>
         <wsdl:port name="AppEngineSoapInstanceResponse" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://cloudplatformeva.appspot.com/InstanceResponse" />
+            <soap:address location="http://cloudplatformtest.appspot.com/InstanceResponse" />
         </wsdl:port>
         <wsdl:port name="AppEngineSoapCreate" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://cloudplatformeva.appspot.com/Create" />
+            <soap:address location="http://cloudplatformtest.appspot.com/Create" />
         </wsdl:port>
         <wsdl:port name="AppEngineSoapRead" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://cloudplatformeva.appspot.com/Read" />
+            <soap:address location="http://cloudplatformtest.appspot.com/Read" />
         </wsdl:port>
         <wsdl:port name="AppEngineSoapCreateDataByNumber" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://cloudplatformeva.appspot.com/CreateDataByNumber" />
+            <soap:address location="http://cloudplatformtest.appspot.com/CreateDataByNumber" />
         </wsdl:port>
         <wsdl:port name="AppEngineSoapReadDataByNumber" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://cloudplatformeva.appspot.com/ReadDataByNumber" />
+            <soap:address location="http://cloudplatformtest.appspot.com/ReadDataByNumber" />
         </wsdl:port>
         <wsdl:port name="AppEngineSoapBinaryFileWrite" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://cloudplatformeva.appspot.com/BinaryFileWrite" />
+            <soap:address location="http://cloudplatformtest.appspot.com/BinaryFileWrite" />
         </wsdl:port>
         <wsdl:port name="AppEngineSoapBinaryFileRead" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://cloudplatformeva.appspot.com/BinaryFileRead" />
+            <soap:address location="http://cloudplatformtest.appspot.com/BinaryFileRead" />
         </wsdl:port>
         <wsdl:port name="AppEngineSoapCleanDefaultData" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://cloudplatformeva.appspot.com/CleanDefaultData" />
+            <soap:address location="http://cloudplatformtest.appspot.com/CleanDefaultData" />
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>
