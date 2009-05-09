@@ -26,29 +26,29 @@ public class ObjectFactory {
 
     private final static QName _CloudComputatonEvaluationException_QNAME = new QName("http://cloudComputingEvaluation.org/", "CloudComputatonEvaluationException");
     private final static QName _Result_QNAME = new QName("http://cloudComputingEvaluation.org/", "Result");
-    private final static QName _UpdateOldValue_QNAME = new QName("http://cloudComputingEvaluation.org/", "oldValue");
-    private final static QName _UpdateNewValue_QNAME = new QName("http://cloudComputingEvaluation.org/", "newValue");
-    private final static QName _ReadByRangeResponseReadByRangeResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadByRangeResult");
-    private final static QName _ReadDataByNumberResponseReadDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadDataByNumberResult");
-    private final static QName _BinaryFileReadKey_QNAME = new QName("http://cloudComputingEvaluation.org/", "key");
-    private final static QName _CreateContent_QNAME = new QName("http://cloudComputingEvaluation.org/", "content");
-    private final static QName _BinaryFileReadResponseBinaryFileReadResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "BinaryFileReadResult");
-    private final static QName _UpdateDataByNumberResponseUpdateDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "UpdateDataByNumberResult");
-    private final static QName _CloudComputatonEvaluationExceptionReason_QNAME = new QName("http://cloudComputingEvaluation.org/", "Reason");
-    private final static QName _InstanceResponseResponseInstanceResponseResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "InstanceResponseResult");
+    private final static QName _ReadContent_QNAME = new QName("http://cloudComputingEvaluation.org/", "content");
     private final static QName _CreateResponseCreateResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "CreateResult");
-    private final static QName _ReadResponseReadResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadResult");
-    private final static QName _ReadAndUpdateId_QNAME = new QName("http://cloudComputingEvaluation.org/", "id");
-    private final static QName _LongProcessInstanceResponseResponseLongProcessInstanceResponseResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "LongProcessInstanceResponseResult");
-    private final static QName _ReadAndUpdateResponseReadAndUpdateResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadAndUpdateResult");
+    private final static QName _CreateDataByNumberResponseCreateDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "CreateDataByNumberResult");
+    private final static QName _InstanceResponseResponseInstanceResponseResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "InstanceResponseResult");
+    private final static QName _InstanceResponseMessage_QNAME = new QName("http://cloudComputingEvaluation.org/", "message");
+    private final static QName _UpdateResponseUpdateResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "UpdateResult");
+    private final static QName _ReadByRangeResponseReadByRangeResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadByRangeResult");
     private final static QName _ResultId_QNAME = new QName("http://cloudComputingEvaluation.org/", "Id");
     private final static QName _ResultValue_QNAME = new QName("http://cloudComputingEvaluation.org/", "Value");
     private final static QName _DeleteResponseDeleteResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "DeleteResult");
-    private final static QName _LongProcessInstanceResponseMessage_QNAME = new QName("http://cloudComputingEvaluation.org/", "message");
     private final static QName _BinaryFileWriteResponseBinaryFileWriteResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "BinaryFileWriteResult");
-    private final static QName _CreateDataByNumberResponseCreateDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "CreateDataByNumberResult");
-    private final static QName _UpdateResponseUpdateResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "UpdateResult");
     private final static QName _DeleteDataByNumberResponseDeleteDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "DeleteDataByNumberResult");
+    private final static QName _ReadAndUpdateResponseReadAndUpdateResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadAndUpdateResult");
+    private final static QName _LongProcessInstanceResponseResponseLongProcessInstanceResponseResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "LongProcessInstanceResponseResult");
+    private final static QName _UpdateDataByNumberResponseUpdateDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "UpdateDataByNumberResult");
+    private final static QName _ReadResponseReadResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadResult");
+    private final static QName _UpdateOldValue_QNAME = new QName("http://cloudComputingEvaluation.org/", "oldValue");
+    private final static QName _UpdateNewValue_QNAME = new QName("http://cloudComputingEvaluation.org/", "newValue");
+    private final static QName _BinaryFileWriteKey_QNAME = new QName("http://cloudComputingEvaluation.org/", "key");
+    private final static QName _BinaryFileReadResponseBinaryFileReadResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "BinaryFileReadResult");
+    private final static QName _CloudComputatonEvaluationExceptionReason_QNAME = new QName("http://cloudComputingEvaluation.org/", "Reason");
+    private final static QName _ReadAndUpdateId_QNAME = new QName("http://cloudComputingEvaluation.org/", "id");
+    private final static QName _ReadDataByNumberResponseReadDataByNumberResult_QNAME = new QName("http://cloudComputingEvaluation.org/", "ReadDataByNumberResult");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.cloudcomputingevaluation
@@ -58,115 +58,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetCounterResponse }
+     * Create an instance of {@link Read }
      * 
      */
-    public GetCounterResponse createGetCounterResponse() {
-        return new GetCounterResponse();
-    }
-
-    /**
-     * Create an instance of {@link ReadByRangeResponse }
-     * 
-     */
-    public ReadByRangeResponse createReadByRangeResponse() {
-        return new ReadByRangeResponse();
-    }
-
-    /**
-     * Create an instance of {@link DeleteDataByNumber }
-     * 
-     */
-    public DeleteDataByNumber createDeleteDataByNumber() {
-        return new DeleteDataByNumber();
-    }
-
-    /**
-     * Create an instance of {@link Update }
-     * 
-     */
-    public Update createUpdate() {
-        return new Update();
-    }
-
-    /**
-     * Create an instance of {@link ReadDataByNumber }
-     * 
-     */
-    public ReadDataByNumber createReadDataByNumber() {
-        return new ReadDataByNumber();
-    }
-
-    /**
-     * Create an instance of {@link ReadDataByNumberResponse }
-     * 
-     */
-    public ReadDataByNumberResponse createReadDataByNumberResponse() {
-        return new ReadDataByNumberResponse();
-    }
-
-    /**
-     * Create an instance of {@link SetupDefaultDataResponse }
-     * 
-     */
-    public SetupDefaultDataResponse createSetupDefaultDataResponse() {
-        return new SetupDefaultDataResponse();
-    }
-
-    /**
-     * Create an instance of {@link BinaryFileRead }
-     * 
-     */
-    public BinaryFileRead createBinaryFileRead() {
-        return new BinaryFileRead();
-    }
-
-    /**
-     * Create an instance of {@link GetCounter }
-     * 
-     */
-    public GetCounter createGetCounter() {
-        return new GetCounter();
-    }
-
-    /**
-     * Create an instance of {@link Create }
-     * 
-     */
-    public Create createCreate() {
-        return new Create();
-    }
-
-    /**
-     * Create an instance of {@link BinaryFileReadResponse }
-     * 
-     */
-    public BinaryFileReadResponse createBinaryFileReadResponse() {
-        return new BinaryFileReadResponse();
-    }
-
-    /**
-     * Create an instance of {@link CleanDefaultData }
-     * 
-     */
-    public CleanDefaultData createCleanDefaultData() {
-        return new CleanDefaultData();
-    }
-
-    /**
-     * Create an instance of {@link UpdateDataByNumberResponse }
-     * 
-     */
-    public UpdateDataByNumberResponse createUpdateDataByNumberResponse() {
-        return new UpdateDataByNumberResponse();
-    }
-
-    /**
-     * Create an instance of {@link CloudComputatonEvaluationException }
-     * 
-     */
-    public CloudComputatonEvaluationException createCloudComputatonEvaluationException() {
-        return new CloudComputatonEvaluationException();
+    public Read createRead() {
+        return new Read();
     }
 
     /**
@@ -178,6 +74,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CreateDataByNumberResponse }
+     * 
+     */
+    public CreateDataByNumberResponse createCreateDataByNumberResponse() {
+        return new CreateDataByNumberResponse();
+    }
+
+    /**
+     * Create an instance of {@link InstanceResponse }
+     * 
+     */
+    public InstanceResponse createInstanceResponse() {
+        return new InstanceResponse();
+    }
+
+    /**
      * Create an instance of {@link InstanceResponseResponse }
      * 
      */
@@ -186,51 +98,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CleanDefaultDataResponse }
+     * Create an instance of {@link ResetCounterResponse }
      * 
      */
-    public CleanDefaultDataResponse createCleanDefaultDataResponse() {
-        return new CleanDefaultDataResponse();
+    public ResetCounterResponse createResetCounterResponse() {
+        return new ResetCounterResponse();
     }
 
     /**
-     * Create an instance of {@link UpdateDataByNumber }
+     * Create an instance of {@link Delete }
      * 
      */
-    public UpdateDataByNumber createUpdateDataByNumber() {
-        return new UpdateDataByNumber();
+    public Delete createDelete() {
+        return new Delete();
     }
 
     /**
-     * Create an instance of {@link ReadResponse }
+     * Create an instance of {@link UpdateResponse }
      * 
      */
-    public ReadResponse createReadResponse() {
-        return new ReadResponse();
+    public UpdateResponse createUpdateResponse() {
+        return new UpdateResponse();
     }
 
     /**
-     * Create an instance of {@link ReadAndUpdate }
+     * Create an instance of {@link CleanDefaultData }
      * 
      */
-    public ReadAndUpdate createReadAndUpdate() {
-        return new ReadAndUpdate();
+    public CleanDefaultData createCleanDefaultData() {
+        return new CleanDefaultData();
     }
 
     /**
-     * Create an instance of {@link LongProcessInstanceResponseResponse }
+     * Create an instance of {@link ReadByRangeResponse }
      * 
      */
-    public LongProcessInstanceResponseResponse createLongProcessInstanceResponseResponse() {
-        return new LongProcessInstanceResponseResponse();
-    }
-
-    /**
-     * Create an instance of {@link ReadAndUpdateResponse }
-     * 
-     */
-    public ReadAndUpdateResponse createReadAndUpdateResponse() {
-        return new ReadAndUpdateResponse();
+    public ReadByRangeResponse createReadByRangeResponse() {
+        return new ReadByRangeResponse();
     }
 
     /**
@@ -250,99 +154,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LongProcessInstanceResponse }
-     * 
-     */
-    public LongProcessInstanceResponse createLongProcessInstanceResponse() {
-        return new LongProcessInstanceResponse();
-    }
-
-    /**
-     * Create an instance of {@link Read }
-     * 
-     */
-    public Read createRead() {
-        return new Read();
-    }
-
-    /**
-     * Create an instance of {@link SetupDefaultData }
-     * 
-     */
-    public SetupDefaultData createSetupDefaultData() {
-        return new SetupDefaultData();
-    }
-
-    /**
-     * Create an instance of {@link InstanceResponse }
-     * 
-     */
-    public InstanceResponse createInstanceResponse() {
-        return new InstanceResponse();
-    }
-
-    /**
      * Create an instance of {@link BinaryFileWriteResponse }
      * 
      */
     public BinaryFileWriteResponse createBinaryFileWriteResponse() {
         return new BinaryFileWriteResponse();
-    }
-
-    /**
-     * Create an instance of {@link ResetCounter }
-     * 
-     */
-    public ResetCounter createResetCounter() {
-        return new ResetCounter();
-    }
-
-    /**
-     * Create an instance of {@link CreateDataByNumber }
-     * 
-     */
-    public CreateDataByNumber createCreateDataByNumber() {
-        return new CreateDataByNumber();
-    }
-
-    /**
-     * Create an instance of {@link CreateDataByNumberResponse }
-     * 
-     */
-    public CreateDataByNumberResponse createCreateDataByNumberResponse() {
-        return new CreateDataByNumberResponse();
-    }
-
-    /**
-     * Create an instance of {@link BinaryFileWrite }
-     * 
-     */
-    public BinaryFileWrite createBinaryFileWrite() {
-        return new BinaryFileWrite();
-    }
-
-    /**
-     * Create an instance of {@link UpdateResponse }
-     * 
-     */
-    public UpdateResponse createUpdateResponse() {
-        return new UpdateResponse();
-    }
-
-    /**
-     * Create an instance of {@link ReadByRange }
-     * 
-     */
-    public ReadByRange createReadByRange() {
-        return new ReadByRange();
-    }
-
-    /**
-     * Create an instance of {@link ResetCounterResponse }
-     * 
-     */
-    public ResetCounterResponse createResetCounterResponse() {
-        return new ResetCounterResponse();
     }
 
     /**
@@ -354,11 +170,195 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Delete }
+     * Create an instance of {@link ReadAndUpdateResponse }
      * 
      */
-    public Delete createDelete() {
-        return new Delete();
+    public ReadAndUpdateResponse createReadAndUpdateResponse() {
+        return new ReadAndUpdateResponse();
+    }
+
+    /**
+     * Create an instance of {@link Create }
+     * 
+     */
+    public Create createCreate() {
+        return new Create();
+    }
+
+    /**
+     * Create an instance of {@link LongProcessInstanceResponseResponse }
+     * 
+     */
+    public LongProcessInstanceResponseResponse createLongProcessInstanceResponseResponse() {
+        return new LongProcessInstanceResponseResponse();
+    }
+
+    /**
+     * Create an instance of {@link CleanDefaultDataResponse }
+     * 
+     */
+    public CleanDefaultDataResponse createCleanDefaultDataResponse() {
+        return new CleanDefaultDataResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateDataByNumber }
+     * 
+     */
+    public UpdateDataByNumber createUpdateDataByNumber() {
+        return new UpdateDataByNumber();
+    }
+
+    /**
+     * Create an instance of {@link ResetCounter }
+     * 
+     */
+    public ResetCounter createResetCounter() {
+        return new ResetCounter();
+    }
+
+    /**
+     * Create an instance of {@link DeleteDataByNumber }
+     * 
+     */
+    public DeleteDataByNumber createDeleteDataByNumber() {
+        return new DeleteDataByNumber();
+    }
+
+    /**
+     * Create an instance of {@link LongProcessInstanceResponse }
+     * 
+     */
+    public LongProcessInstanceResponse createLongProcessInstanceResponse() {
+        return new LongProcessInstanceResponse();
+    }
+
+    /**
+     * Create an instance of {@link CreateDataByNumber }
+     * 
+     */
+    public CreateDataByNumber createCreateDataByNumber() {
+        return new CreateDataByNumber();
+    }
+
+    /**
+     * Create an instance of {@link ReadByRange }
+     * 
+     */
+    public ReadByRange createReadByRange() {
+        return new ReadByRange();
+    }
+
+    /**
+     * Create an instance of {@link UpdateDataByNumberResponse }
+     * 
+     */
+    public UpdateDataByNumberResponse createUpdateDataByNumberResponse() {
+        return new UpdateDataByNumberResponse();
+    }
+
+    /**
+     * Create an instance of {@link SetupDefaultDataResponse }
+     * 
+     */
+    public SetupDefaultDataResponse createSetupDefaultDataResponse() {
+        return new SetupDefaultDataResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReadResponse }
+     * 
+     */
+    public ReadResponse createReadResponse() {
+        return new ReadResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetCounter }
+     * 
+     */
+    public GetCounter createGetCounter() {
+        return new GetCounter();
+    }
+
+    /**
+     * Create an instance of {@link Update }
+     * 
+     */
+    public Update createUpdate() {
+        return new Update();
+    }
+
+    /**
+     * Create an instance of {@link BinaryFileWrite }
+     * 
+     */
+    public BinaryFileWrite createBinaryFileWrite() {
+        return new BinaryFileWrite();
+    }
+
+    /**
+     * Create an instance of {@link BinaryFileRead }
+     * 
+     */
+    public BinaryFileRead createBinaryFileRead() {
+        return new BinaryFileRead();
+    }
+
+    /**
+     * Create an instance of {@link BinaryFileReadResponse }
+     * 
+     */
+    public BinaryFileReadResponse createBinaryFileReadResponse() {
+        return new BinaryFileReadResponse();
+    }
+
+    /**
+     * Create an instance of {@link CloudComputatonEvaluationException }
+     * 
+     */
+    public CloudComputatonEvaluationException createCloudComputatonEvaluationException() {
+        return new CloudComputatonEvaluationException();
+    }
+
+    /**
+     * Create an instance of {@link ReadDataByNumber }
+     * 
+     */
+    public ReadDataByNumber createReadDataByNumber() {
+        return new ReadDataByNumber();
+    }
+
+    /**
+     * Create an instance of {@link GetCounterResponse }
+     * 
+     */
+    public GetCounterResponse createGetCounterResponse() {
+        return new GetCounterResponse();
+    }
+
+    /**
+     * Create an instance of {@link SetupDefaultData }
+     * 
+     */
+    public SetupDefaultData createSetupDefaultData() {
+        return new SetupDefaultData();
+    }
+
+    /**
+     * Create an instance of {@link ReadAndUpdate }
+     * 
+     */
+    public ReadAndUpdate createReadAndUpdate() {
+        return new ReadAndUpdate();
+    }
+
+    /**
+     * Create an instance of {@link ReadDataByNumberResponse }
+     * 
+     */
+    public ReadDataByNumberResponse createReadDataByNumberResponse() {
+        return new ReadDataByNumberResponse();
     }
 
     /**
@@ -383,90 +383,9 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "oldValue", scope = Update.class)
-    public JAXBElement<String> createUpdateOldValue(String value) {
-        return new JAXBElement<String>(_UpdateOldValue_QNAME, String.class, Update.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "newValue", scope = Update.class)
-    public JAXBElement<String> createUpdateNewValue(String value) {
-        return new JAXBElement<String>(_UpdateNewValue_QNAME, String.class, Update.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "ReadByRangeResult", scope = ReadByRangeResponse.class)
-    public JAXBElement<Result> createReadByRangeResponseReadByRangeResult(Result value) {
-        return new JAXBElement<Result>(_ReadByRangeResponseReadByRangeResult_QNAME, Result.class, ReadByRangeResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "ReadDataByNumberResult", scope = ReadDataByNumberResponse.class)
-    public JAXBElement<Result> createReadDataByNumberResponseReadDataByNumberResult(Result value) {
-        return new JAXBElement<Result>(_ReadDataByNumberResponseReadDataByNumberResult_QNAME, Result.class, ReadDataByNumberResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "key", scope = BinaryFileRead.class)
-    public JAXBElement<String> createBinaryFileReadKey(String value) {
-        return new JAXBElement<String>(_BinaryFileReadKey_QNAME, String.class, BinaryFileRead.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "content", scope = Create.class)
-    public JAXBElement<String> createCreateContent(String value) {
-        return new JAXBElement<String>(_CreateContent_QNAME, String.class, Create.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "BinaryFileReadResult", scope = BinaryFileReadResponse.class)
-    public JAXBElement<Result> createBinaryFileReadResponseBinaryFileReadResult(Result value) {
-        return new JAXBElement<Result>(_BinaryFileReadResponseBinaryFileReadResult_QNAME, Result.class, BinaryFileReadResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "UpdateDataByNumberResult", scope = UpdateDataByNumberResponse.class)
-    public JAXBElement<Result> createUpdateDataByNumberResponseUpdateDataByNumberResult(Result value) {
-        return new JAXBElement<Result>(_UpdateDataByNumberResponseUpdateDataByNumberResult_QNAME, Result.class, UpdateDataByNumberResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "Reason", scope = CloudComputatonEvaluationException.class)
-    public JAXBElement<String> createCloudComputatonEvaluationExceptionReason(String value) {
-        return new JAXBElement<String>(_CloudComputatonEvaluationExceptionReason_QNAME, String.class, CloudComputatonEvaluationException.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "InstanceResponseResult", scope = InstanceResponseResponse.class)
-    public JAXBElement<Result> createInstanceResponseResponseInstanceResponseResult(Result value) {
-        return new JAXBElement<Result>(_InstanceResponseResponseInstanceResponseResult_QNAME, Result.class, InstanceResponseResponse.class, value);
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "content", scope = Read.class)
+    public JAXBElement<String> createReadContent(String value) {
+        return new JAXBElement<String>(_ReadContent_QNAME, String.class, Read.class, value);
     }
 
     /**
@@ -482,36 +401,54 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "ReadResult", scope = ReadResponse.class)
-    public JAXBElement<Result> createReadResponseReadResult(Result value) {
-        return new JAXBElement<Result>(_ReadResponseReadResult_QNAME, Result.class, ReadResponse.class, value);
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "CreateDataByNumberResult", scope = CreateDataByNumberResponse.class)
+    public JAXBElement<Result> createCreateDataByNumberResponseCreateDataByNumberResult(Result value) {
+        return new JAXBElement<Result>(_CreateDataByNumberResponseCreateDataByNumberResult_QNAME, Result.class, CreateDataByNumberResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "InstanceResponseResult", scope = InstanceResponseResponse.class)
+    public JAXBElement<Result> createInstanceResponseResponseInstanceResponseResult(Result value) {
+        return new JAXBElement<Result>(_InstanceResponseResponseInstanceResponseResult_QNAME, Result.class, InstanceResponseResponse.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "id", scope = ReadAndUpdate.class)
-    public JAXBElement<String> createReadAndUpdateId(String value) {
-        return new JAXBElement<String>(_ReadAndUpdateId_QNAME, String.class, ReadAndUpdate.class, value);
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "message", scope = InstanceResponse.class)
+    public JAXBElement<String> createInstanceResponseMessage(String value) {
+        return new JAXBElement<String>(_InstanceResponseMessage_QNAME, String.class, InstanceResponse.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "LongProcessInstanceResponseResult", scope = LongProcessInstanceResponseResponse.class)
-    public JAXBElement<Result> createLongProcessInstanceResponseResponseLongProcessInstanceResponseResult(Result value) {
-        return new JAXBElement<Result>(_LongProcessInstanceResponseResponseLongProcessInstanceResponseResult_QNAME, Result.class, LongProcessInstanceResponseResponse.class, value);
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "UpdateResult", scope = UpdateResponse.class)
+    public JAXBElement<Result> createUpdateResponseUpdateResult(Result value) {
+        return new JAXBElement<Result>(_UpdateResponseUpdateResult_QNAME, Result.class, UpdateResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "content", scope = Delete.class)
+    public JAXBElement<String> createDeleteContent(String value) {
+        return new JAXBElement<String>(_ReadContent_QNAME, String.class, Delete.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "ReadAndUpdateResult", scope = ReadAndUpdateResponse.class)
-    public JAXBElement<Result> createReadAndUpdateResponseReadAndUpdateResult(Result value) {
-        return new JAXBElement<Result>(_ReadAndUpdateResponseReadAndUpdateResult_QNAME, Result.class, ReadAndUpdateResponse.class, value);
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "ReadByRangeResult", scope = ReadByRangeResponse.class)
+    public JAXBElement<Result> createReadByRangeResponseReadByRangeResult(Result value) {
+        return new JAXBElement<Result>(_ReadByRangeResponseReadByRangeResult_QNAME, Result.class, ReadByRangeResponse.class, value);
     }
 
     /**
@@ -542,33 +479,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "message", scope = LongProcessInstanceResponse.class)
-    public JAXBElement<String> createLongProcessInstanceResponseMessage(String value) {
-        return new JAXBElement<String>(_LongProcessInstanceResponseMessage_QNAME, String.class, LongProcessInstanceResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "content", scope = Read.class)
-    public JAXBElement<String> createReadContent(String value) {
-        return new JAXBElement<String>(_CreateContent_QNAME, String.class, Read.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "message", scope = InstanceResponse.class)
-    public JAXBElement<String> createInstanceResponseMessage(String value) {
-        return new JAXBElement<String>(_LongProcessInstanceResponseMessage_QNAME, String.class, InstanceResponse.class, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
      * 
      */
@@ -581,9 +491,81 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "CreateDataByNumberResult", scope = CreateDataByNumberResponse.class)
-    public JAXBElement<Result> createCreateDataByNumberResponseCreateDataByNumberResult(Result value) {
-        return new JAXBElement<Result>(_CreateDataByNumberResponseCreateDataByNumberResult_QNAME, Result.class, CreateDataByNumberResponse.class, value);
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "DeleteDataByNumberResult", scope = DeleteDataByNumberResponse.class)
+    public JAXBElement<Result> createDeleteDataByNumberResponseDeleteDataByNumberResult(Result value) {
+        return new JAXBElement<Result>(_DeleteDataByNumberResponseDeleteDataByNumberResult_QNAME, Result.class, DeleteDataByNumberResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "ReadAndUpdateResult", scope = ReadAndUpdateResponse.class)
+    public JAXBElement<Result> createReadAndUpdateResponseReadAndUpdateResult(Result value) {
+        return new JAXBElement<Result>(_ReadAndUpdateResponseReadAndUpdateResult_QNAME, Result.class, ReadAndUpdateResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "content", scope = Create.class)
+    public JAXBElement<String> createCreateContent(String value) {
+        return new JAXBElement<String>(_ReadContent_QNAME, String.class, Create.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "LongProcessInstanceResponseResult", scope = LongProcessInstanceResponseResponse.class)
+    public JAXBElement<Result> createLongProcessInstanceResponseResponseLongProcessInstanceResponseResult(Result value) {
+        return new JAXBElement<Result>(_LongProcessInstanceResponseResponseLongProcessInstanceResponseResult_QNAME, Result.class, LongProcessInstanceResponseResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "message", scope = LongProcessInstanceResponse.class)
+    public JAXBElement<String> createLongProcessInstanceResponseMessage(String value) {
+        return new JAXBElement<String>(_InstanceResponseMessage_QNAME, String.class, LongProcessInstanceResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "UpdateDataByNumberResult", scope = UpdateDataByNumberResponse.class)
+    public JAXBElement<Result> createUpdateDataByNumberResponseUpdateDataByNumberResult(Result value) {
+        return new JAXBElement<Result>(_UpdateDataByNumberResponseUpdateDataByNumberResult_QNAME, Result.class, UpdateDataByNumberResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "ReadResult", scope = ReadResponse.class)
+    public JAXBElement<Result> createReadResponseReadResult(Result value) {
+        return new JAXBElement<Result>(_ReadResponseReadResult_QNAME, Result.class, ReadResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "oldValue", scope = Update.class)
+    public JAXBElement<String> createUpdateOldValue(String value) {
+        return new JAXBElement<String>(_UpdateOldValue_QNAME, String.class, Update.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "newValue", scope = Update.class)
+    public JAXBElement<String> createUpdateNewValue(String value) {
+        return new JAXBElement<String>(_UpdateNewValue_QNAME, String.class, Update.class, value);
     }
 
     /**
@@ -592,34 +574,52 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "key", scope = BinaryFileWrite.class)
     public JAXBElement<String> createBinaryFileWriteKey(String value) {
-        return new JAXBElement<String>(_BinaryFileReadKey_QNAME, String.class, BinaryFileWrite.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "UpdateResult", scope = UpdateResponse.class)
-    public JAXBElement<Result> createUpdateResponseUpdateResult(Result value) {
-        return new JAXBElement<Result>(_UpdateResponseUpdateResult_QNAME, Result.class, UpdateResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "DeleteDataByNumberResult", scope = DeleteDataByNumberResponse.class)
-    public JAXBElement<Result> createDeleteDataByNumberResponseDeleteDataByNumberResult(Result value) {
-        return new JAXBElement<Result>(_DeleteDataByNumberResponseDeleteDataByNumberResult_QNAME, Result.class, DeleteDataByNumberResponse.class, value);
+        return new JAXBElement<String>(_BinaryFileWriteKey_QNAME, String.class, BinaryFileWrite.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "content", scope = Delete.class)
-    public JAXBElement<String> createDeleteContent(String value) {
-        return new JAXBElement<String>(_CreateContent_QNAME, String.class, Delete.class, value);
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "key", scope = BinaryFileRead.class)
+    public JAXBElement<String> createBinaryFileReadKey(String value) {
+        return new JAXBElement<String>(_BinaryFileWriteKey_QNAME, String.class, BinaryFileRead.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "BinaryFileReadResult", scope = BinaryFileReadResponse.class)
+    public JAXBElement<Result> createBinaryFileReadResponseBinaryFileReadResult(Result value) {
+        return new JAXBElement<Result>(_BinaryFileReadResponseBinaryFileReadResult_QNAME, Result.class, BinaryFileReadResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "Reason", scope = CloudComputatonEvaluationException.class)
+    public JAXBElement<String> createCloudComputatonEvaluationExceptionReason(String value) {
+        return new JAXBElement<String>(_CloudComputatonEvaluationExceptionReason_QNAME, String.class, CloudComputatonEvaluationException.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "id", scope = ReadAndUpdate.class)
+    public JAXBElement<String> createReadAndUpdateId(String value) {
+        return new JAXBElement<String>(_ReadAndUpdateId_QNAME, String.class, ReadAndUpdate.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Result }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cloudComputingEvaluation.org/", name = "ReadDataByNumberResult", scope = ReadDataByNumberResponse.class)
+    public JAXBElement<Result> createReadDataByNumberResponseReadDataByNumberResult(Result value) {
+        return new JAXBElement<Result>(_ReadDataByNumberResponseReadDataByNumberResult_QNAME, Result.class, ReadDataByNumberResponse.class, value);
     }
 
 }
