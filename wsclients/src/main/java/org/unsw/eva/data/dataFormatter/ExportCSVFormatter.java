@@ -33,9 +33,13 @@ public class ExportCSVFormatter implements ExportFormatter {
         sb.append(COLUMN_SPERATOR);
         sb.append(ResultData.Field.ERROR.getValue());
         sb.append(COLUMN_SPERATOR);
+        sb.append(ResultData.Field.STARTING_TIME.getValue());
+        sb.append(COLUMN_SPERATOR);
         sb.append(ResultData.Field.ENDING_TIME.getValue());
         sb.append(COLUMN_SPERATOR);
         sb.append(ResultData.Field.SERVER_ENDING_TIME.getValue());
+        sb.append(COLUMN_SPERATOR);
+        sb.append(ResultData.Field.ROUND_BELONG_TO.getValue());
         sb.append(NEW_LINE);
 
         /**
@@ -49,11 +53,15 @@ public class ExportCSVFormatter implements ExportFormatter {
                 sb.append(COLUMN_SPERATOR);
                 sb.append(data.getComputationTime());
                 sb.append(COLUMN_SPERATOR);
-                sb.append(data.getIsError());
+                sb.append(data.getError().getCode());
+                sb.append(COLUMN_SPERATOR);
+                sb.append(data.getStartingTime() == null ? null : formatter.format(new Date(data.getStartingTime())));
                 sb.append(COLUMN_SPERATOR);
                 sb.append(data.getEndingTime() == null ? null : formatter.format(new Date(data.getEndingTime())));
                 sb.append(COLUMN_SPERATOR);
                 sb.append(data.getServerSideEndingTime() == null ? null : formatter.format(new Date(data.getServerSideEndingTime())));
+                sb.append(COLUMN_SPERATOR);
+                sb.append(data.getRound());
                 sb.append(NEW_LINE);
             }
         }
@@ -158,7 +166,7 @@ public class ExportCSVFormatter implements ExportFormatter {
                 if (resultData == null || resultData.getEndingTime() == null) {
                     continue;
                 }
-                
+
                 if (tempTime == 0) {
                     counter++;
                     tempTime = resultData.getEndingTime();

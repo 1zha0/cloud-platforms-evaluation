@@ -21,7 +21,6 @@ import org.slf4j.LoggerFactory;
  */
 public class TextWriter extends IOWriterHelper {
 
-    private static final SimpleDateFormat simpleDateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss.SSS");
     private static final Logger log = LoggerFactory.getLogger(TextWriter.class);
 
     public static void writeToFile(List<ResultGroupData> resultList, ExportFormatter formatter, String filename) {
@@ -29,10 +28,9 @@ public class TextWriter extends IOWriterHelper {
         Validate.notNull(formatter);
 
         log.info("Createing result file from '" + resultList.size() + "' record(s)");
-        Date currentDate = new Date();
-        File file = getOutputFile(filename + "_" + simpleDateFormatter.format(currentDate), formatter.getSuffix());
-        File fileGroup = getOutputFile(filename + "_group_" + simpleDateFormatter.format(currentDate), formatter.getSuffix());
-        File fileTimestamp = getOutputFile(filename + "_timestamp_" + simpleDateFormatter.format(currentDate), formatter.getSuffix());
+        File file = getOutputFile(filename, formatter.getSuffix());
+        File fileGroup = getOutputFile(filename + "_group", formatter.getSuffix());
+        File fileTimestamp = getOutputFile(filename + "_timestamp", formatter.getSuffix());
         Writer output = null;
         Writer outputGroup = null;
         Writer outputTimestamp = null;

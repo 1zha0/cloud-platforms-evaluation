@@ -1,6 +1,7 @@
 package org.unsw.eva.data;
 
 import java.io.Serializable;
+import org.unsw.eva.ErrorCode;
 
 /**
  *
@@ -14,8 +15,10 @@ public class ResultData implements Serializable {
         CONNECTION_TIME("Connection Time"),
         COMPUTATION_TIME("Computation Time"),
         ERROR("Error"),
+        STARTING_TIME("Starting Time"),
         ENDING_TIME("Ending Time"),
-        SERVER_ENDING_TIME("Server Ending Time");
+        SERVER_ENDING_TIME("Server Ending Time"),
+        ROUND_BELONG_TO("Round");
         private String value;
 
         private Field(String value) {
@@ -29,9 +32,19 @@ public class ResultData implements Serializable {
     private String description;
     private Long connectionTime;
     private Long computationTime;
-    private Boolean isError = Boolean.FALSE;
+    private ErrorCode error = ErrorCode.NONE;
+    private Long startingTime;
     private Long EndingTime;
     private Long ServerSideEndingTime;
+    private Integer round;
+
+    public Integer getRound() {
+        return round;
+    }
+
+    public void setRound(Integer round) {
+        this.round = round;
+    }
 
     public Long getServerSideEndingTime() {
         return ServerSideEndingTime;
@@ -73,11 +86,19 @@ public class ResultData implements Serializable {
         this.description = description;
     }
 
-    public Boolean getIsError() {
-        return isError;
+    public Long getStartingTime() {
+        return startingTime;
     }
 
-    public void setIsError(Boolean isError) {
-        this.isError = isError;
+    public void setStartingTime(Long startingTime) {
+        this.startingTime = startingTime;
+    }
+
+    public ErrorCode getError() {
+        return error;
+    }
+
+    public void setError(ErrorCode error) {
+        this.error = error;
     }
 }

@@ -12,7 +12,7 @@ public class ThreadFactory {
 
     private static final Logger log = LoggerFactory.getLogger(ThreadFactory.class);
 
-    public static EvaluationThread coloneThreadInstance(EvaluationThread e) {
+    public static EvaluationThread coloneThreadInstance(EvaluationThread e, Integer round) {
         EvaluationThread t = null;
         try {
             t = e.getClass().newInstance();
@@ -21,6 +21,7 @@ public class ThreadFactory {
             t.setServerType(e.getServerType());
             t.setStrageyTest(e.getStrageyTest());
             t.setVersion(e.getVersion());
+            t.setRound(round);
 
             /**
              * i know it is a hack, but cannot think of a better way to do it so far...

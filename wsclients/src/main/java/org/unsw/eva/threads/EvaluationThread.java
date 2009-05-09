@@ -16,6 +16,7 @@ import java.util.Calendar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.ErrorCode;
 import org.unsw.eva.exceptions.ConnectionError;
 
 /**
@@ -61,18 +62,18 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
                 throw new UnsupportError("Unsupported SOAP Version : '" + version + "'");
             }
             if (result == null || hasError()) {
-                errorOccured();
+                errorOccured(ErrorCode.SERVER_ERROR);
             } else {
                 monitorResult(result);
             }
         } catch (ServerError ex) {
-            errorOccured();
+            errorOccured(ErrorCode.SERVER_ERROR);
             log.error("Server error for " + getName() + " : " + ex.getMessage());
         } catch (ConnectionError ex) {
-            errorOccured();
+            errorOccured(ErrorCode.CONNECTION_ERROR);
             log.error("Connection error for " + getName() + " : " + (ex.getMessage().length() > 100 ? ex.getMessage().substring(0, 100) + "..." : ex.getMessage()));
         } catch (Exception ex) {
-            errorOccured();
+            errorOccured(ErrorCode.UNKNOWN_ERROR);
             log.error("Unknown error for " + getName(), ex);
         } finally {
             monitorConnectionTime(Calendar.getInstance().getTimeInMillis(), start);

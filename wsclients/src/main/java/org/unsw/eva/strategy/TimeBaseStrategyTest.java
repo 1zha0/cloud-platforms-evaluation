@@ -14,7 +14,12 @@ import org.unsw.eva.threads.ThreadFactory;
 
 /**
  * @author shrimpy
+ *
+ * @Deprecated
+ *      Data strutures have been changed a lot, have to fix something before running this strategy.
+ *      See ThreadBaseStrategyTest
  */
+@Deprecated
 public class TimeBaseStrategyTest extends AbstractStrageyTest {
 
     private static final Logger log = LoggerFactory.getLogger(TimeBaseStrategyTest.class);
@@ -80,7 +85,7 @@ public class TimeBaseStrategyTest extends AbstractStrageyTest {
                     }
                 }
 
-                t = new Thread(ThreadFactory.coloneThreadInstance(evaThread));
+                t = new Thread(ThreadFactory.coloneThreadInstance(evaThread, 0));
                 threadGroup.add(t);
                 numberOfThreadsHaveRun++;
                 t.start();

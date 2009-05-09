@@ -1,5 +1,7 @@
 package org.unsw.eva.data;
 
+import org.unsw.eva.ErrorCode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,7 +111,7 @@ public class ResultGroupData {
     //=========================================================================
     public void populateData() {
         for (ResultData resultData : resultDatas) {
-            if (resultData.getIsError()) {
+            if (!resultData.getError().equals(ErrorCode.NONE)) {
                 errorOccured();
             } else {
                 setDescription(resultData.getDescription());
