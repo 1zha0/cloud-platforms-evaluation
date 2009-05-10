@@ -25,12 +25,12 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
      * Assign value to be "1", means won`t repeat.
      */
     private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 6;
-    private static int TOTAL_THREADS = 100;
-    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 3;
+    private static int TOTAL_THREADS = 10;
+    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 2;
     /**
      * we will get ride of the first three request, and the last
      */
-    private static int INTERVAL = 200;
+    private static int INTERVAL = 0;
 
     public ThreadBaseStrategyTest() {
         log.info("We are now running " + this.getClass().getSimpleName());

@@ -1,5 +1,6 @@
 package org.unsw.eva.data.dataFormatter;
 
+import java.util.ArrayList;
 import org.unsw.eva.FileSuffix;
 import org.unsw.eva.data.ResultData;
 import org.unsw.eva.data.ResultGroupData;
@@ -8,10 +9,14 @@ import org.unsw.eva.utils.ResourceUtil;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.unsw.eva.ErrorCode;
+import org.unsw.eva.data.Pair;
 
 /**
  *
@@ -65,6 +70,95 @@ public class ExportCSVFormatter implements ExportFormatter {
                 sb.append(NEW_LINE);
             }
         }
+        return sb.toString();
+    }
+
+    public String formatResultDataToCdfDataOutputByRound(List<ResultGroupData> dataList) {
+
+        Map<Integer, List<Long>> connectionTimeMap = new HashMap<Integer, List<Long>>();
+        Map<Integer, List<Long>> computationTimeMap = new HashMap<Integer, List<Long>>();
+
+        for (ResultGroupData resultGroup : dataList) {
+            for (ResultData data : resultGroup.getResultDatas()) {
+                Integer round = data.getRound();
+                List<Long> connectionTimes = connectionTimeMap.get(round);
+                List<Long> computationTimes = computationTimeMap.get(round);
+
+                if (connectionTimes == null) {
+                    connectionTimes = new ArrayList<Long>();
+                }
+                if (computationTimes == null) {
+                    computationTimes = new ArrayList<Long>();
+                }
+
+                if (data.getError().equals(ErrorCode.NONE) && data.getConnectionTime() != null) {
+                    connectionTimes.add(data.getConnectionTime());
+                }
+                if (data.getError().equals(ErrorCode.NONE) && data.getComputationTime() != null) {
+                    computationTimes.add(data.getComputationTime());
+                }
+
+                connectionTimeMap.put(round, connectionTimes);
+                computationTimeMap.put(round, computationTimes);
+            }
+        }
+
+        List<Pair<Integer, List<Long>>> connList = new ArrayList<Pair<Integer, List<Long>>>();
+        List<Pair<Integer, List<Long>>> compList = new ArrayList<Pair<Integer, List<Long>>>();
+
+        Comparator<Long> cpLong = new Comparator<Long>() {
+
+            public int compare(Long o1, Long o2) {
+                return o1.compareTo(o2);
+            }
+        };
+
+        for (Integer keyOfRound : connectionTimeMap.keySet()) {
+            List<Long> conns = connectionTimeMap.get(keyOfRound);
+            Collections.sort(conns, cpLong);
+            connList.add(new Pair<Integer, List<Long>>(keyOfRound, conns));
+        }
+
+        for (Integer keyOfRound : computationTimeMap.keySet()) {
+            List<Long> comps = computationTimeMap.get(keyOfRound);
+            Collections.sort(comps, cpLong);
+            compList.add(new Pair<Integer, List<Long>>(keyOfRound, comps));
+        }
+
+        Comparator<Pair<Integer, List<Long>>> cpPair = new Comparator<Pair<Integer, List<Long>>>() {
+
+            public int compare(Pair<Integer, List<Long>> o1, Pair<Integer, List<Long>> o2) {
+                return o1.getA().compareTo(o2.getA());
+            }
+        };
+
+        Collections.sort(connList, cpPair);
+        Collections.sort(compList, cpPair);
+
+        StringBuilder sb = new StringBuilder("Connection in round:");
+        sb.append(NEW_LINE);
+        for (Pair<Integer, List<Long>> conn : connList) {
+            sb.append("Round " + conn.getA());
+            sb.append(NEW_LINE);
+            for (Long connTime : conn.getB()) {
+                sb.append(connTime);
+                sb.append(SPACE);
+            }
+            sb.append(NEW_LINE);
+        }
+        sb.append(NEW_LINE);
+        sb.append("Computation in round:");
+        sb.append(NEW_LINE);
+        for (Pair<Integer, List<Long>> comp : compList) {
+            sb.append("Round " + comp.getA());
+            sb.append(NEW_LINE);
+            for (Long compTime : comp.getB()) {
+                sb.append(compTime);
+                sb.append(SPACE);
+            }
+            sb.append(NEW_LINE);
+        }
+
         return sb.toString();
     }
 

@@ -29,14 +29,19 @@ public class TextWriter extends IOWriterHelper {
 
         log.info("Createing result file from '" + resultList.size() + "' record(s)");
         File file = getOutputFile(filename, formatter.getSuffix());
+        File fileCDF = getOutputFile(filename + "_CDF_byRound", formatter.getSuffix());
         File fileGroup = getOutputFile(filename + "_group", formatter.getSuffix());
         File fileTimestamp = getOutputFile(filename + "_timestamp", formatter.getSuffix());
         Writer output = null;
+        Writer outputCDF = null;
         Writer outputGroup = null;
         Writer outputTimestamp = null;
         try {
             output = new BufferedWriter(new FileWriter(file));
             output.write(formatter.formatResultData(resultList));
+
+            outputCDF = new BufferedWriter(new FileWriter(fileCDF));
+            outputCDF.write(formatter.formatResultDataToCdfDataOutputByRound(resultList));
 
             outputGroup = new BufferedWriter(new FileWriter(fileGroup));
             outputGroup.write(formatter.formatResultDataGroup(resultList));
@@ -50,6 +55,9 @@ public class TextWriter extends IOWriterHelper {
             try {
                 if (output != null) {
                     output.close();
+                }
+                if (outputCDF != null) {
+                    outputCDF.close();
                 }
                 if (outputGroup != null) {
                     outputGroup.close();
