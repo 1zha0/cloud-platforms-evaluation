@@ -95,13 +95,13 @@ public class ResourceUtil {
      * @return
      *      Round number in Interger.
      */
-    public synchronized static Integer generateCurrentRoundNumber(int maxRoundNum) {
+    public synchronized static Integer generateNumberOfTotalThreads(int start, int maxRoundNum, int interval) {
         String filename = "ROUND.txt";
-        Integer round = null;
+        Integer numbe = null;
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(filename));
-            round = Integer.valueOf(reader.readLine());
+            numbe = Integer.valueOf(reader.readLine());
         } catch (Exception ex) {
             log.error("Failed to load round number from file " + filename, ex);
         } finally {
@@ -114,15 +114,15 @@ public class ResourceUtil {
             }
         }
 
-        round++;
+        numbe = numbe + interval;
 
         PrintWriter outputStream = null;
         try {
             outputStream = new PrintWriter(new FileWriter(filename));
-            if (round == null || round >= maxRoundNum) {
-                round = 0;
+            if (numbe == null || numbe > maxRoundNum) {
+                numbe = start;
             }
-            outputStream.print(round);
+            outputStream.print(numbe);
         } catch (Exception ex) {
             log.error("Failed to update round number to file " + filename, ex);
         } finally {
@@ -130,6 +130,6 @@ public class ResourceUtil {
                 outputStream.close();
             }
         }
-        return round;
+        return numbe;
     }
 }
