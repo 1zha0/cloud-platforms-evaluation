@@ -96,7 +96,7 @@ public class ResourceUtil {
      *      Round number in Interger.
      */
     public synchronized static Integer generateNumberOfTotalThreads(int start, int maxRoundNum, int interval) {
-        String filename = "ROUND.txt";
+        String filename = "THREADS.txt";
         Integer numbe = null;
         BufferedReader reader = null;
         try {
