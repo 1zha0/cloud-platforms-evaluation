@@ -1,9 +1,15 @@
 package org.unsw.eva.utils;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 import org.cloudcomputingevaluation.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,7 +68,7 @@ public class ResourceUtil {
                 temp.setThreadNumber(temp.getThreadNumber() + 1);
                 temp.setTotalRunningTime(temp.getTotalRunningTime() + rg.getTotalRunningTime());
                 temp.getResultDatas().addAll(rg.getResultDatas());
-                
+
                 resultMap.put(rg.getDescription(), temp);
             }
         }
@@ -71,5 +77,59 @@ public class ResourceUtil {
         }
 
         return result;
+    }
+
+    /**
+     * Read round number from file ./ROUND.txt
+     * and plus one to be the current round,
+     * if it is equal to the given maxRoundNum,
+     * reset the round to be zero.
+     *
+     * E.g maxRoundNum = 3
+     * Correct round number will be 0, 1, 2
+     * when it comes to 3, will be reset back to be 0 again
+     *
+     * @param maxRoundNum
+     *      Must not be null.
+     * 
+     * @return
+     *      Round number in Interger.
+     */
+    public synchronized static Integer generateCurrentRoundNumber(int maxRoundNum) {
+        String filename = "ROUND.txt";
+        Integer round = null;
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(filename));
+            round = Integer.valueOf(reader.readLine());
+        } catch (Exception ex) {
+            log.error("Failed to load round number from file " + filename, ex);
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException ex) {
+                    log.error("Failed to close BufferedReader for " + filename, ex);
+                }
+            }
+        }
+
+        round++;
+
+        PrintWriter outputStream = null;
+        try {
+            outputStream = new PrintWriter(new FileWriter(filename));
+            if (round == null || round >= maxRoundNum) {
+                round = 0;
+            }
+            outputStream.print(round);
+        } catch (Exception ex) {
+            log.error("Failed to update round number to file " + filename, ex);
+        } finally {
+            if (outputStream != null) {
+                outputStream.close();
+            }
+        }
+        return round;
     }
 }
