@@ -68,10 +68,10 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
             }
         } catch (ServerError ex) {
             errorOccured(ErrorCode.SERVER_ERROR);
-            log.error("Server error for " + getName() + " : " + ex.getMessage());
+            log.error("Server error for " + getName() + " : " + ex.getMessage(), ex);
         } catch (ConnectionError ex) {
             errorOccured(ErrorCode.CONNECTION_ERROR);
-            log.error("Connection error for " + getName() + " : " + (ex.getMessage().length() > 100 ? ex.getMessage().substring(0, 100) + "..." : ex.getMessage()));
+            log.error("Connection error for " + getName() + " : " + (ex.getMessage().length() > 500 ? ex.getMessage().substring(0, 100) + "..." : ex.getMessage()));
         } catch (Exception ex) {
             errorOccured(ErrorCode.UNKNOWN_ERROR);
             log.error("Unknown error for " + getName(), ex);
