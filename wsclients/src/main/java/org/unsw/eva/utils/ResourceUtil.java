@@ -81,7 +81,6 @@ public class ResourceUtil {
     }
 
     public static synchronized String getSendString() {
-	setSendString();
 //        StringBuilder sb = new StringBuilder();
 //        for (int i = 0; i < 10; i++) {
 //            sb.append("0123456789");
@@ -139,7 +138,7 @@ public class ResourceUtil {
      */
     public synchronized static Integer generateNumberOfTotalThreads(int start, int maxRoundNum, int interval) {
         String filename = "THREADS.txt";
-        Integer numbe = null;
+        Integer numbe = 0;
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(filename));
