@@ -39,13 +39,67 @@ public class ResourceUtil {
 
         return sb.toString();
     }
+    private static String sendString = "";
+
+    public static synchronized void setSendString() {
+        String filename = "RESOURCE.txt";
+        Integer numbe = null;
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(filename));
+            numbe = Integer.valueOf(reader.readLine());
+        } catch (Exception ex) {
+            log.error("Failed to load round number from file " + filename, ex);
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException ex) {
+                    log.error("Failed to close BufferedReader for " + filename, ex);
+                }
+            }
+        }
+
+        if (numbe == 1) {
+            numbe = 100;
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 10; i++) {
+                sb.append("a123456789");
+            }
+            sendString = sb.toString();
+        } else if (numbe == 100) {
+            numbe = 1000;
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 100; i++) {
+                sb.append("a123456789");
+            }
+            sendString = sb.toString();
+        } else {
+            numbe = 1;
+            sendString = "a";
+        }
+
+        PrintWriter outputStream = null;
+        try {
+            outputStream = new PrintWriter(new FileWriter(filename));
+            outputStream.print(numbe);
+        } catch (Exception ex) {
+            log.error("Failed to update round number to file " + filename, ex);
+        } finally {
+            if (outputStream != null) {
+                outputStream.close();
+            }
+        }
+
+    }
 
     public static synchronized String getSendString() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 10; i++) {
-            sb.append("0123456789");
-        }
-        return sb.toString();
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = 0; i < 10; i++) {
+//            sb.append("0123456789");
+//        }
+//        return sb.toString();
+        return sendString;
     }
 
     public static synchronized List<ResultGroupData> aggreagateResultGroup(List<ResultGroupData> list) {
