@@ -30,7 +30,8 @@ public class CreateTests<T extends AbstractStrageyTest> extends EvaluationThread
         try {
             return getServiceEndpoint().create(getMESSAGE());
         } catch (Exception ex) {
-            if (ex.getMessage().startsWith("Response was of unexpected text/html ContentType.")) {
+            if (ex.getMessage().startsWith("Response was of unexpected text/html ContentType.")
+                    || ex.getMessage().startsWith("Could not send Message.")) {
                 throw new ConnectionError(ex.getMessage());
             } else {
                 throw new ServerError(ex.getMessage());

@@ -27,7 +27,8 @@ public class CreateDataByNumberTests<T extends AbstractStrageyTest> extends Eval
         try {
             return getServiceEndpoint().createDataByNumber(TOTAL_NUMBERS);
         } catch (Exception ex) {
-            if (ex.getMessage().startsWith("Response was of unexpected text/html ContentType.")) {
+            if (ex.getMessage().startsWith("Response was of unexpected text/html ContentType.")
+                    || ex.getMessage().startsWith("Could not send Message.")) {
                 throw new ConnectionError(ex.getMessage());
             } else {
                 throw new ServerError(ex.getMessage());

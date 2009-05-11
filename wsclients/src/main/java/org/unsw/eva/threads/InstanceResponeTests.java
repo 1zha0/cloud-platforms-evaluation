@@ -30,7 +30,8 @@ public class InstanceResponeTests<T extends AbstractStrageyTest> extends Evaluat
         try {
             return getServiceEndpoint().instanceResponse(getMESSAGE());
         } catch (Exception ex) {
-            if (ex.getMessage().startsWith("Response was of unexpected text/html ContentType.")) {
+            if (ex.getMessage().startsWith("Response was of unexpected text/html ContentType.")
+                    || ex.getMessage().startsWith("Could not send Message.")) {
                 throw new ConnectionError(ex.getMessage());
             } else {
                 throw new ServerError(ex.getMessage());
