@@ -81,6 +81,7 @@ public class ResourceUtil {
     }
 
     public static synchronized String getSendString() {
+	setSendString();
 //        StringBuilder sb = new StringBuilder();
 //        for (int i = 0; i < 10; i++) {
 //            sb.append("0123456789");
