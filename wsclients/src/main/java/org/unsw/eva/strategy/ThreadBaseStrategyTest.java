@@ -1,6 +1,7 @@
 package org.unsw.eva.strategy;
 
 import java.text.SimpleDateFormat;
+import org.unsw.eva.ServerType;
 import org.unsw.eva.data.dataFormatter.ExportCSVFormatter;
 import org.unsw.eva.io.TextWriter;
 
@@ -11,8 +12,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.unsw.eva.threads.*;
-import org.unsw.eva.utils.ResourceUtil;
-import org.unsw.eva.ServerType;
 
 /**
  * @author shrimpy
@@ -26,12 +25,13 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
      * Assign value to be "1", means won`t repeat.
      */
     private static int REPEAT_RUNNING_NUMBER_OF_TIMES = 1;
-    private static int TOTAL_THREADS = 10;
-    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 2;
+    private static int TOTAL_THREADS = 100;
+    private static int NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD = 1;
     /**
      * we will get ride of the first three request, and the last
      */
     private static int INTERVAL = 0;
+    private int times = 0;
 
     public ThreadBaseStrategyTest() {
         log.info("We are now running " + this.getClass().getSimpleName());
@@ -44,7 +44,7 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
 //        testSuit.add(new CreateTests("AmazonCreateSimpleDB", this, ServerType.AMAZONE_SIMPLEDB, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AzureStorageCreate", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AppEngineCreate", this, ServerType.APP_ENGINE_CREATE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-        testSuit.add(new CreateTests("AmazonCreate_"+ResourceUtil.getSendString().length(), this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+//        testSuit.add(new CreateTests("AmazonCreate", this, ServerType.AMAZONE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AzureWithSDSCreate", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new CreateTests("AzureSDSCreate", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new ReadTests("AzureRead", this, ServerType.AZURE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
@@ -55,7 +55,7 @@ public class ThreadBaseStrategyTest extends AbstractStrageyTest {
 //        testSuit.add(new ReadDataByNumberTests("AppEngineReadDataByNumber", this, ServerType.APP_ENGINE_READ_DATA_BY_NUMBER, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new BinaryFileWriteTests("AppEngineBinaryFileWrite", this, ServerType.APP_ENGINE_BINARY_FILE_WRITE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 //        testSuit.add(new BinaryFileWriteTests("AmazonBinaryFileWrite", this, ServerType.AMAZONE_SIMPLEDB, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
-//        testSuit.add(new BinaryFileWriteTests("AzureStorageBinaryFileWrite", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
+        testSuit.add(new BinaryFileWriteTests("AzureStorageBinaryFileWrite", this, ServerType.AZURE_STORAGE, NUMBER_OF_REQUESTS_SEND_WITHIN_ONE_THREAD));
 
     }
 
