@@ -78,19 +78,6 @@ public class ResourceUtil {
             numbe = 1;
             sendString = "a";
         }
-
-        PrintWriter outputStream = null;
-        try {
-            outputStream = new PrintWriter(new FileWriter(filename));
-            outputStream.print(numbe);
-        } catch (Exception ex) {
-            log.error("Failed to update round number to file " + filename, ex);
-        } finally {
-            if (outputStream != null) {
-                outputStream.close();
-            }
-        }
-
     }
 
     public static synchronized String getSendString() {
@@ -167,23 +154,22 @@ public class ResourceUtil {
                 }
             }
         }
-
-        numbe = numbe + interval;
-
-        PrintWriter outputStream = null;
-        try {
-            outputStream = new PrintWriter(new FileWriter(filename));
-            if (numbe == null || numbe > maxRoundNum) {
-                numbe = start;
-            }
-            outputStream.print(numbe);
-        } catch (Exception ex) {
-            log.error("Failed to update round number to file " + filename, ex);
-        } finally {
-            if (outputStream != null) {
-                outputStream.close();
-            }
-        }
+//        numbe = numbe + interval;
+//
+//        PrintWriter outputStream = null;
+//        try {
+//            outputStream = new PrintWriter(new FileWriter(filename));
+//            if (numbe == null || numbe > maxRoundNum) {
+//                numbe = start;
+//            }
+//            outputStream.print(numbe);
+//        } catch (Exception ex) {
+//            log.error("Failed to update round number to file " + filename, ex);
+//        } finally {
+//            if (outputStream != null) {
+//                outputStream.close();
+//            }
+//        }
         return numbe;
     }
 }
