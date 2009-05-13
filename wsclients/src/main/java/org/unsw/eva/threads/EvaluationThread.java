@@ -71,7 +71,8 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
             log.error("Server error for " + getName() + " : " + ex.getMessage(), ex);
         } catch (ConnectionError ex) {
             errorOccured(ErrorCode.CONNECTION_ERROR);
-            log.error("Connection error for " + getName() + " : " + (ex.getMessage().length() > 500 ? ex.getMessage().substring(0, 100) + "..." : ex.getMessage()));
+//            log.error("Connection error for " + getName() + " : " + (ex.getMessage().length() > 500 ? ex.getMessage().substring(0, 100) + "..." : ex.getMessage()));
+            log.error("Connection error for " + getName() + " : " + ex.getMessage());
         } catch (Exception ex) {
             errorOccured(ErrorCode.UNKNOWN_ERROR);
             log.error("Unknown error for " + getName(), ex);
