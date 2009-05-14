@@ -32,9 +32,9 @@ public class LongProcessInstanceResponeTests<T extends AbstractStrageyTest> exte
         } catch (Exception ex) {
             if (ex.getMessage().startsWith("Response was of unexpected text/html ContentType.")
                     || ex.getMessage().startsWith("Could not send Message.")) {
-                throw new ConnectionError(ex.getMessage());
+                throw new ConnectionError(ex.getMessage(), ex);
             } else {
-                throw new ServerError(ex.getMessage());
+                throw new ServerError(ex.getMessage(), ex);
             }
         }
     }
