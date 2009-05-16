@@ -60,24 +60,12 @@ public class ResourceUtil {
             }
         }
 
-        if (numbe == 1) {
-            numbe = 100;
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 10; i++) {
-                sb.append("a123456789");
-            }
-            sendString = sb.toString();
-        } else if (numbe == 100) {
-            numbe = 1000;
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 100; i++) {
-                sb.append("a123456789");
-            }
-            sendString = sb.toString();
-        } else {
-            numbe = 1;
-            sendString = "a";
+        String seed = "a";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < numbe; i++) {
+            sb.append(seed);
         }
+        sendString = sb.toString();
     }
 
     public static synchronized String getSendString() {
