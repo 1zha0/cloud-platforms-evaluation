@@ -1,10 +1,8 @@
 package org.unsw.eva.threads;
 
 import org.cloudcomputingevaluation.Result;
-import org.unsw.eva.exceptions.ServerError;
 import org.unsw.eva.SOAPVersion;
 import org.unsw.eva.ServerType;
-import org.unsw.eva.exceptions.ConnectionError;
 import org.unsw.eva.strategy.AbstractStrageyTest;
 
 /**
@@ -21,21 +19,12 @@ public class UpdateTests<T extends AbstractStrageyTest> extends EvaluationThread
     }
 
     @Override
-    public Result doSOAP11Call() {
-        try {
-            return getServiceEndpoint().update(getMESSAGE(), getMESSAGE());
-        } catch (Exception ex) {
-            if (ex.getMessage().startsWith("Response was of unexpected text/html ContentType.")
-                    || ex.getMessage().startsWith("Could not send Message.")) {
-                throw new ConnectionError(ex.getMessage(), ex);
-            } else {
-                throw new ServerError(ex.getMessage(), ex);
-            }
-        }
+    public Result doSOAP11Call() throws Exception {
+        return getServiceEndpoint().update(getMESSAGE(), getMESSAGE());
     }
 
     @Override
-    public Result doSOAP12Call() {
+    public Result doSOAP12Call() throws Exception {
         return null;
     }
 

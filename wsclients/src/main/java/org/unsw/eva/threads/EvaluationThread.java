@@ -14,6 +14,7 @@ import org.cloudcomputingevaluation.ICloudComputingEvaluation;
 
 import java.util.Calendar;
 
+import javax.xml.ws.soap.SOAPFaultException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.unsw.eva.ErrorCode;
@@ -66,16 +67,30 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
             } else {
                 monitorResult(result);
             }
-        } catch (ServerError ex) {
-            errorOccured(ErrorCode.SERVER_ERROR);
-            log.error("Server error for " + getName() + " : " + ex.getMessage(), ex);
-        } catch (ConnectionError ex) {
-            errorOccured(ErrorCode.CONNECTION_ERROR);
-//            log.error("Connection error for " + getName() + " : " + (ex.getMessage().length() > 500 ? ex.getMessage().substring(0, 100) + "..." : ex.getMessage()));
-            log.error("Connection error for " + getName() + " : " + ex.getMessage(), ex);
+        } catch (SOAPFaultException sfe) {
+            if (sfe.getFault().getDetail() != null) {
+                errorOccured(ErrorCode.SERVER_ERROR);
+                log.error(ErrorCode.SERVER_ERROR.getCode());
+                log.error("Fault Code   : " + sfe.getFault().getFaultCode());
+                log.error("Falut String : " + sfe.getFault().getFaultString());
+                log.error("Falut Detail : " + sfe.getFault().getDetail().getTextContent());
+            } else {
+                errorOccured(ErrorCode.CONNECTION_ERROR);
+                log.error(sfe.getMessage(), sfe);
+            }
         } catch (Exception ex) {
-            errorOccured(ErrorCode.UNKNOWN_ERROR);
-            log.error("Unknown error for " + getName(), ex);
+            /**
+             * Special case handle exception for Amazon
+             */
+            if (ex.getMessage().startsWith("Cloud Eva Amazon")) {
+                errorOccured(ErrorCode.SERVER_ERROR);
+                log.error(ErrorCode.SERVER_ERROR.getCode());
+                log.error(ex.getMessage());
+            } else {
+                errorOccured(ErrorCode.UNKNOWN_ERROR);
+                log.error("Unknown error for " + getName(), ex);
+            }
+
         } finally {
             monitorConnectionTime(Calendar.getInstance().getTimeInMillis(), start);
             if (result != null) {
@@ -186,9 +201,9 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
         this.version = version;
     }
 
-    public abstract Result doSOAP11Call();
+    public abstract Result doSOAP11Call() throws Exception;
 
-    public abstract Result doSOAP12Call();
+    public abstract Result doSOAP12Call() throws Exception;
 
     public abstract Boolean hasError();
 }
