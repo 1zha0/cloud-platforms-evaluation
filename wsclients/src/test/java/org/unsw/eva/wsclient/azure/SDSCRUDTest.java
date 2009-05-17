@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  *
  * @author shrimpy
  */
-public class CRUDTest extends AbstractTest {
+public class SDSCRUDTest extends AbstractTest {
 
     private static final String CONTENT = "Hello Azure";
 
