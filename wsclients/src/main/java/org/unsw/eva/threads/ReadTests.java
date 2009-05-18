@@ -20,7 +20,7 @@ public class ReadTests<T extends AbstractStrageyTest> extends EvaluationThread {
 
     @Override
     public Result doSOAP11Call() throws Exception {
-        return getServiceEndpoint().read(getMESSAGE());
+        return getServiceEndpoint().read("1");
     }
 
     @Override
