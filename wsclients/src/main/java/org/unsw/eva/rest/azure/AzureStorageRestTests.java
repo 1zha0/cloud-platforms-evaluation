@@ -21,7 +21,7 @@ import org.unsw.eva.exceptions.ServerError;
 public class AzureStorageRestTests extends AbstractAzureStorageRestAction {
 
     private static final Logger log = LoggerFactory.getLogger(AzureStorageRestTests.class);
-    private static final int NUMBER_OF_REQUEST = 1;
+    private static final int NUMBER_OF_REQUEST = 10;
     private static HttpClient client = getClient();
     private static List<String> FILE_PATHS = new ArrayList<String>() {
 
