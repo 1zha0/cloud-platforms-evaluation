@@ -21,10 +21,13 @@ public class AzureStorageSetUpAndCleanDefaultDataTest extends AbstractTest {
     public void setUp() throws Exception {
         getAzureStorageServiceEndpoint().cleanDefaultData(0, 0);
         boolean val = true;
-        try {
-            val = getAppEngineCleanDefaultDataEndpoint().cleanDefaultData(500, 0);
-        } catch (Exception ex) {
-        }
+
+	while(val){
+	        try {
+	            val = getAppEngineCleanDefaultDataEndpoint().cleanDefaultData(500, 0);		
+	        } catch (Exception ex) {
+	        }
+	}
         log.debug("AppEngine clean " + val);
     }
 
