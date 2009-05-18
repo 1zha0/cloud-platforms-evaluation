@@ -1,16 +1,14 @@
 package org.unsw.eva.rest.azure;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+//import org.apache.http.HttpEntity;
+//import org.apache.http.client.HttpClient;
+//import org.apache.http.client.methods.HttpGet;
+//import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.methods.GetMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
 /**
  *
@@ -21,22 +19,18 @@ public class GetBlob extends AbstractAzureStorageRestAction {
     private static final Logger log = LoggerFactory.getLogger(GetBlob.class);
 
     public static void main(String args[]) throws Exception {
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpGet get = new HttpGet("http://" + GetBlob.ACCOUNT + ".blob.core.windows.net/container?comp=list");
-//        get.addHeader(GetBlob.ContentType, GetBlob.CONTENT_TYPE.TEXT_PLAIN.getValue());
-//        get.setEntity(new StringEntity("Hello world!!---", "UTF-8"));
-        Sign(get, GetBlob.ACCOUNT, GetBlob.KEY);
+        HttpClient client = PutBlob.getClient();
 
-        HttpEntity entity = httpclient.execute(get).getEntity();
+        GetMethod get = new GetMethod("http://" + PutBlob.ACCOUNT + ".blob.core.windows.net/container/abc");
+        Sign(get, PutBlob.ACCOUNT, PutBlob.KEY);
 
-
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(entity.getContent());
-
-        Element element = doc.getDocumentElement();
-        element.getElementsByTagName("Blobs");
-
-        log.debug("abc");
+        int status = client.executeMethod(get);
+        log.debug("status ==> " + status);
+        if (status == HttpStatus.SC_OK) {
+            byte[] responseBody = get.getResponseBody();
+            log.debug(new String(responseBody));
+        } else {
+            log.error("Failed to GET data to remove database.");
+        }
     }
 }

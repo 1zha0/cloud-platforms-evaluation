@@ -1,9 +1,8 @@
 package org.unsw.eva.rest.azure;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.methods.DeleteMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,10 +15,18 @@ public class DeleteBlob extends AbstractAzureStorageRestAction {
     private static final Logger log = LoggerFactory.getLogger(DeleteBlob.class);
 
     public static void main(String args[]) throws Exception {
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpDelete delete = new HttpDelete("http://" + DeleteBlob.ACCOUNT + ".blob.core.windows.net/container/abc");
-        Sign(delete, DeleteBlob.ACCOUNT, DeleteBlob.KEY);
+        HttpClient client = PutBlob.getClient();
 
-        log.debug(EntityUtils.toString(httpclient.execute(delete).getEntity()));
+        DeleteMethod delete = new DeleteMethod("http://" + PutBlob.ACCOUNT + ".blob.core.windows.net/container/abc");
+        Sign(delete, PutBlob.ACCOUNT, PutBlob.KEY);
+
+        int status = client.executeMethod(delete);
+        log.debug("status ==> " + status);
+        if (status == HttpStatus.SC_ACCEPTED) {
+            byte[] responseBody = delete.getResponseBody();
+            log.debug(new String(responseBody));
+        } else {
+            log.error("Failed to GET data to remove database.");
+        }
     }
 }
