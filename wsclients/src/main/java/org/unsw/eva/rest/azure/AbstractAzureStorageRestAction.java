@@ -20,7 +20,8 @@ public abstract class AbstractAzureStorageRestAction {
 
     public enum CONTENT_TYPE {
 
-        TEXT_PLAIN("text/plain; charset=UTF-8");
+        TEXT_PLAIN("text/plain; charset=UTF-8"),
+        X_TAR("application/x-tar");
         private String value;
 
         private CONTENT_TYPE(String value) {
