@@ -30,6 +30,6 @@ public class ReadTests<T extends AbstractStrageyTest> extends EvaluationThread {
 
     @Override
     public Boolean hasError() {
-        return getResult().getId() == null;
+        return getResult().getId().getValue().equals("1");
     }
 }
