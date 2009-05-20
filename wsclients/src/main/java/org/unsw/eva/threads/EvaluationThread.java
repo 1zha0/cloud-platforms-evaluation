@@ -68,35 +68,32 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
                 monitorResult(result);
             }
         } catch (SOAPFaultException sfe) {
+            log.error("------------------------------------------------------------");
             if (sfe.getFault().getDetail() != null) {
-                log.error("------------------------------------------------------------");
                 errorOccured(ErrorCode.SERVER_ERROR);
                 log.error(ErrorCode.SERVER_ERROR.getCode());
                 log.error("Fault Code   : " + sfe.getFault().getFaultCode());
                 log.error("Falut String : " + sfe.getFault().getFaultString());
                 log.error("Falut Detail : " + sfe.getFault().getDetail().getTextContent());
-                log.error("============================================================");
             } else {
                 errorOccured(ErrorCode.CONNECTION_ERROR);
                 log.error(sfe.getMessage(), sfe);
             }
+            log.error("============================================================");
         } catch (Exception ex) {
+            log.error("------------------------------------------------------------");
             /**
              * Special case handle exception for Amazon
              */
             if (ex.getMessage().startsWith("Cloud Eva Amazon")) {
-                log.error("------------------------------------------------------------");
                 errorOccured(ErrorCode.SERVER_ERROR);
                 log.error(ErrorCode.SERVER_ERROR.getCode());
                 log.error(ex.getMessage());
-                log.error("============================================================");
             } else {
-                log.error("------------------------------------------------------------");
                 errorOccured(ErrorCode.UNKNOWN_ERROR);
                 log.error("Unknown error for " + getName(), ex);
-                log.error("============================================================");
             }
-
+            log.error("============================================================");
         } finally {
             monitorConnectionTime(Calendar.getInstance().getTimeInMillis(), start);
             if (result != null) {
