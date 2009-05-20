@@ -8,10 +8,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-
 import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,12 +27,12 @@ public class TextWriter extends IOWriterHelper {
         log.info("Createing result file from '" + resultList.size() + "' record(s)");
         File file = getOutputFile(filename, formatter.getSuffix());
         File fileCDF = getOutputFile(filename + "_CDF_byRound", formatter.getSuffix());
-        File fileGroup = getOutputFile(filename + "_group", formatter.getSuffix());
-        File fileTimestamp = getOutputFile(filename + "_timestamp", formatter.getSuffix());
+//        File fileGroup = getOutputFile(filename + "_group", formatter.getSuffix());
+//        File fileTimestamp = getOutputFile(filename + "_timestamp", formatter.getSuffix());
         Writer output = null;
         Writer outputCDF = null;
-        Writer outputGroup = null;
-        Writer outputTimestamp = null;
+//        Writer outputGroup = null;
+//        Writer outputTimestamp = null;
         try {
             output = new BufferedWriter(new FileWriter(file));
             output.write(formatter.formatResultData(resultList));
@@ -43,11 +40,11 @@ public class TextWriter extends IOWriterHelper {
             outputCDF = new BufferedWriter(new FileWriter(fileCDF));
             outputCDF.write(formatter.formatResultDataToCdfDataOutputByRound(resultList));
 
-            outputGroup = new BufferedWriter(new FileWriter(fileGroup));
-            outputGroup.write(formatter.formatResultDataGroup(resultList));
-
-            outputTimestamp = new BufferedWriter(new FileWriter(fileTimestamp));
-            outputTimestamp.write(formatter.formatTimestampWithResponesCount(resultList));
+//            outputGroup = new BufferedWriter(new FileWriter(fileGroup));
+//            outputGroup.write(formatter.formatResultDataGroup(resultList));
+//
+//            outputTimestamp = new BufferedWriter(new FileWriter(fileTimestamp));
+//            outputTimestamp.write(formatter.formatTimestampWithResponesCount(resultList));
 
         } catch (IOException ex) {
             log.error("Failed to write ResultList into file.", ex);
@@ -59,12 +56,12 @@ public class TextWriter extends IOWriterHelper {
                 if (outputCDF != null) {
                     outputCDF.close();
                 }
-                if (outputGroup != null) {
-                    outputGroup.close();
-                }
-                if (outputTimestamp != null) {
-                    outputTimestamp.close();
-                }
+//                if (outputGroup != null) {
+//                    outputGroup.close();
+//                }
+//                if (outputTimestamp != null) {
+//                    outputTimestamp.close();
+//                }
             } catch (IOException ex) {
                 log.error("Failed to close buffer writer.", ex);
             }
