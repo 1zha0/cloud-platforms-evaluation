@@ -15,7 +15,7 @@ public class ReadTest extends AbstractTest {
     
     @Test
     public void testCreate() throws Exception {
-        Result rt = getAmazonEndpoint().read("");
+        Result rt = getAmazonEndpoint().read("1");
         log.warn("========id:" + rt.getId().getValue());
     }
 }

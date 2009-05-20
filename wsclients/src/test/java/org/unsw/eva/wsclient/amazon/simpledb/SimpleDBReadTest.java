@@ -15,7 +15,7 @@ public class SimpleDBReadTest extends AbstractTest {
 
     @Test
     public void testCreate() throws Exception {
-        Result rt = getAmazonSimpleDBEndpoint().read("");
+        Result rt = getAmazonSimpleDBEndpoint().read("1");
         log.warn("=============id:" + rt.getId().getValue());
     }
 }

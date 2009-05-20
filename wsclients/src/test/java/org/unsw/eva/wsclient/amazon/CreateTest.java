@@ -1,19 +1,18 @@
-package org.unsw.eva.wsclient.amazon.simpledb;
+package org.unsw.eva.wsclient.amazon;
 
+import org.junit.Before;
+import org.unsw.eva.wsclient.AbstractTest;
+import org.junit.Test;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.cloudcomputingevaluation.Result;
-import org.junit.Before;
-import org.junit.Test;
-import org.unsw.eva.wsclient.AbstractTest;
-
 /**
  * @author fei
  */
-public class SimpleDBCreateTest extends AbstractTest {
+public class CreateTest extends AbstractTest {
 
-    private final static Log log = LogFactory.getLog(SimpleDBCreateTest.class);
     private StringBuilder content = new StringBuilder();
+    private final static Log log = LogFactory.getLog(CreateTest.class);
 
     @Before
     public void testBefore() throws Exception {
@@ -25,7 +24,7 @@ public class SimpleDBCreateTest extends AbstractTest {
 
     @Test
     public void testCreate() throws Exception {
-        Result result = getAmazonSimpleDBEndpoint().create(content.toString());
-        log.warn("=======id:" + result.getId().getValue());
+        Result result = getAmazonEndpoint().create(content.toString());
+        log.warn("=====id: " + result.getId().getValue());
     }
 }
