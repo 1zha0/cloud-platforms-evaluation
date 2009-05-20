@@ -69,11 +69,13 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
             }
         } catch (SOAPFaultException sfe) {
             if (sfe.getFault().getDetail() != null) {
+                log.error("------------------------------------------------------------");
                 errorOccured(ErrorCode.SERVER_ERROR);
                 log.error(ErrorCode.SERVER_ERROR.getCode());
                 log.error("Fault Code   : " + sfe.getFault().getFaultCode());
                 log.error("Falut String : " + sfe.getFault().getFaultString());
                 log.error("Falut Detail : " + sfe.getFault().getDetail().getTextContent());
+                log.error("============================================================");
             } else {
                 errorOccured(ErrorCode.CONNECTION_ERROR);
                 log.error(sfe.getMessage(), sfe);
@@ -83,12 +85,16 @@ public abstract class EvaluationThread<T extends AbstractStrageyTest> extends Mo
              * Special case handle exception for Amazon
              */
             if (ex.getMessage().startsWith("Cloud Eva Amazon")) {
+                log.error("------------------------------------------------------------");
                 errorOccured(ErrorCode.SERVER_ERROR);
                 log.error(ErrorCode.SERVER_ERROR.getCode());
                 log.error(ex.getMessage());
+                log.error("============================================================");
             } else {
+                log.error("------------------------------------------------------------");
                 errorOccured(ErrorCode.UNKNOWN_ERROR);
                 log.error("Unknown error for " + getName(), ex);
+                log.error("============================================================");
             }
 
         } finally {
