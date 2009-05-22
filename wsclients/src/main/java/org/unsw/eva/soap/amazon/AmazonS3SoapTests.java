@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -98,6 +99,7 @@ public class AmazonS3SoapTests {
                 log.error(ex.getMessage());
                 continue;
             } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(AmazonS3SoapTests.class.getName()).log(Level.SEVERE, null, ex);
                 errors++;
                 log.error(ex.getMessage());
                 continue;
