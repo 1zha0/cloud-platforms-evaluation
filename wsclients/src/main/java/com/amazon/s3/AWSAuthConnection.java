@@ -522,10 +522,14 @@ public class AWSAuthConnection {
 
         // build the domain based on the calling format
         URL url = callingFormat.getURL(isSecure, server, this.port, bucket, key, pathArgs);
+
+        
         // proxy setting for CSE
         SocketAddress addr = new InetSocketAddress("www-proxy.cse.unsw.edu.au", 3128);
         Proxy proxy = new Proxy(Proxy.Type.HTTP, addr);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection(proxy);
+
+        
         connection.setRequestMethod(method);
 
         // subdomain-style urls may encounter http redirects.  
