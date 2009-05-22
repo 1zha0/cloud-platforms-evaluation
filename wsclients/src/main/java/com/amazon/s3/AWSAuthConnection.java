@@ -220,7 +220,6 @@ public class AWSAuthConnection {
             makeRequest("PUT", bucket, Utils.urlencode(key), null, headers, object);
 
         request.setDoOutput(true);
-        System.out.println("if using proxcy" + (request.usingProxy()));
         request.getOutputStream().write(object.data == null ? new byte[] {} : object.data);
 
         return new Response(request);
