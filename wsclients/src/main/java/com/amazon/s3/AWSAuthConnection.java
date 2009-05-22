@@ -14,6 +14,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.SocketAddress;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -518,8 +521,10 @@ public class AWSAuthConnection {
 
         // build the domain based on the calling format
         URL url = callingFormat.getURL(isSecure, server, this.port, bucket, key, pathArgs);
-        
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        // proxy setting for CSE
+        SocketAddress addr = new InetSocketAddress("www-proxy.cse.unsw.edu.au", 3128);
+        Proxy proxy = new Proxy(Proxy.Type.HTTP, addr);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection(proxy);
         connection.setRequestMethod(method);
 
         // subdomain-style urls may encounter http redirects.  
