@@ -33,9 +33,9 @@ public class AmazonS3SoapTests {
     private static List<String> FILE_PATHS = new ArrayList<String>() {
 
         {
-            add("sampleData/oneM.txt");
-            add("sampleData/tenM.txt");
-            add("sampleData/fifiteenM.txt");
+            add("sampleData/oneM.tar");
+            add("sampleData/tenM.tar");
+            add("sampleData/fifiteenM.tar");
         }
     };
 
