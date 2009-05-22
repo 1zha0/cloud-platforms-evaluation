@@ -29,7 +29,7 @@ public class AmazonS3SoapTests {
     private static String bucketName = "largefile";
     private static String accessKeyId = "1JZY11RXWCCX5AD7ADR2";
     private static String secretAccessKey = "V2IjiHjxfR3y/q4y9c3JaA0kitLLwFMFB+fec1os";
-    private static AWSAuthConnection conn = new AWSAuthConnection(accessKeyId, secretAccessKey);
+    private static AWSAuthConnection conn = new AWSAuthConnection(accessKeyId, secretAccessKey,false);
     private static List<String> FILE_PATHS = new ArrayList<String>() {
 
         {
