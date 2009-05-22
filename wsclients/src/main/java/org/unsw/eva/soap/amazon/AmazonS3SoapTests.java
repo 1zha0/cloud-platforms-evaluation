@@ -58,6 +58,9 @@ public class AmazonS3SoapTests {
 //            log.error(ex.getMessage());
 //        }
 //        LIST();
+        System.getProperties().put("proxySet", "true");
+        System.getProperties().put("proxyHost", "www-proxy.cse.unsw.edu.au");
+        System.getProperties().put("proxyPort", "3128");
         for (int i = 0; i < FILE_PATHS.size(); i++) {
             PUT(FILE_PATHS.get(i), i);
             GET(i);

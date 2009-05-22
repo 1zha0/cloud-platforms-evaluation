@@ -521,9 +521,6 @@ public class AWSAuthConnection {
         
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod(method);
-        System.getProperties().put("proxySet", "true");
-        System.getProperties().put("proxyHost", "www-proxy.cse.unsw.edu.au");
-        System.getProperties().put("proxyPort", "3128");
 
         // subdomain-style urls may encounter http redirects.  
         // Ensure that redirects are supported.
