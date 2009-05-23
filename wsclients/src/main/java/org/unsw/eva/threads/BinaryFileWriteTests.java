@@ -1,5 +1,6 @@
 package org.unsw.eva.threads;
 
+import java.util.Calendar;
 import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.SOAPVersion;
 import org.unsw.eva.ServerType;
@@ -25,7 +26,7 @@ public class BinaryFileWriteTests<T extends AbstractStrageyTest> extends Evaluat
 
     @Override
     public Result doSOAP11Call() throws Exception {
-        return getServiceEndpoint().binaryFileWrite(getStrageyTest().getNextGenId());
+        return getServiceEndpoint().binaryFileWrite("aa" + String.valueOf(Calendar.getInstance().getTimeInMillis()));
     }
 
     @Override
