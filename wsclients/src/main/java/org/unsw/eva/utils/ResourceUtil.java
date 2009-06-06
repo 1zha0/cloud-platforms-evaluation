@@ -41,6 +41,26 @@ public class ResourceUtil {
     }
     private static String sendString = "";
 
+    public static synchronized String getPredefineId() {
+        String filename = "RESOURCE.txt";
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(filename));
+            return reader.readLine();
+        } catch (Exception ex) {
+            log.error("Failed to load round number from file " + filename, ex);
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException ex) {
+                    log.error("Failed to close BufferedReader for " + filename, ex);
+                }
+            }
+        }
+        return null;
+    }
+
     public static synchronized void setSendString() {
         String filename = "RESOURCE.txt";
         Integer numbe = null;

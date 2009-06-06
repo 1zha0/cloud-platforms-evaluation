@@ -21,7 +21,7 @@ public class ReadTests<T extends AbstractStrageyTest> extends EvaluationThread {
 
     @Override
     public Result doSOAP11Call() throws Exception {
-        return getServiceEndpoint().read(ResourceUtil.getSendString());
+        return getServiceEndpoint().read(ResourceUtil.getPredefineId());
     }
 
     @Override
