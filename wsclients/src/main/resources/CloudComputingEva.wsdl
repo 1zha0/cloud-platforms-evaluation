@@ -794,10 +794,10 @@
             <soap:address location="http://azureva.cloudapp.net/CloudComputingEvaluationAzureStorage.svc" />
         </wsdl:port>
         <wsdl:port name="AmazonSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://ec2-174-129-82-8.compute-1.amazonaws.com:8080/server-1.0-SNAPSHOT/service/local" />
+            <soap:address location="http://ec2-174-129-105-231.compute-1.amazonaws.com:8080/server-1.0-SNAPSHOT/service/local" />
         </wsdl:port>
         <wsdl:port name="AmazonSoapSimpleDB" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
-            <soap:address location="http://ec2-174-129-82-8.compute-1.amazonaws.com:8080/server-1.0-SNAPSHOT/service/simpleDB" />
+            <soap:address location="ec2-174-129-105-231.compute-1.amazonaws.com:8080/server-1.0-SNAPSHOT/service/simpleDB" />
         </wsdl:port>
         <wsdl:port name="AppEngineSoap" binding="tns:BasicHttpBinding_ICloudComputingEvaluation">
             <soap:address location="http://cloudplatformeva.appspot.com/" />
