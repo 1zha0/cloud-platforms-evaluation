@@ -4,6 +4,7 @@ import org.cloudcomputingevaluation.Result;
 import org.unsw.eva.SOAPVersion;
 import org.unsw.eva.ServerType;
 import org.unsw.eva.strategy.AbstractStrageyTest;
+import org.unsw.eva.utils.ResourceUtil;
 
 /**
  *
@@ -20,7 +21,7 @@ public class ReadTests<T extends AbstractStrageyTest> extends EvaluationThread {
 
     @Override
     public Result doSOAP11Call() throws Exception {
-        return getServiceEndpoint().read("1");
+        return getServiceEndpoint().read(ResourceUtil.getSendString());
     }
 
     @Override
