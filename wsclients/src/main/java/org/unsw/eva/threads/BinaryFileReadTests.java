@@ -24,7 +24,7 @@ public class BinaryFileReadTests<T extends AbstractStrageyTest> extends Evaluati
 
     @Override
     public Result doSOAP11Call() throws Exception {
-        return getServiceEndpoint().binaryFileRead(getStrageyTest().getNextGenId());
+        return getServiceEndpoint().binaryFileRead("4");
     }
 
     @Override
