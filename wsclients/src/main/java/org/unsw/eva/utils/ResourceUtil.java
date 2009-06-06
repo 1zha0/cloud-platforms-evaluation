@@ -40,13 +40,15 @@ public class ResourceUtil {
         return sb.toString();
     }
     private static String sendString = "";
+    private static String predefineId = "";
 
-    public static synchronized String getPredefineId() {
+    public static synchronized void setPredefineId(){
+        predefineId = "";
         String filename = "RESOURCE.txt";
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(filename));
-            return reader.readLine();
+            predefineId = reader.readLine();
         } catch (Exception ex) {
             log.error("Failed to load round number from file " + filename, ex);
         } finally {
@@ -58,7 +60,11 @@ public class ResourceUtil {
                 }
             }
         }
-        return null;
+    }
+
+    public static synchronized String getPredefineId() {
+        
+        return predefineId;
     }
 
     public static synchronized void setSendString() {
