@@ -27,8 +27,10 @@ public class AmazonS3SoapTests {
     private static final Logger log = LoggerFactory.getLogger(AmazonS3SoapTests.class);
     private static final int NUMBER_OF_REQUEST = 10;
     private static String bucketName = "largefile";
-    private static String accessKeyId = "1JZY11RXWCCX5AD7ADR2";
-    private static String secretAccessKey = "V2IjiHjxfR3y/q4y9c3JaA0kitLLwFMFB+fec1os";
+//    private static String accessKeyId = "1JZY11RXWCCX5AD7ADR2";
+//    private static String secretAccessKey = "V2IjiHjxfR3y/q4y9c3JaA0kitLLwFMFB+fec1os";
+    private static String accessKeyId = "18PAJ56XX4EBGXHE5MG2";
+    private static String secretAccessKey = "MWGL+xUaIae3Rs1L7SFxh7YKKC9AF5GBwFnq0tT+";
     private static AWSAuthConnection conn = new AWSAuthConnection(accessKeyId, secretAccessKey,false);
     private static List<String> FILE_PATHS = new ArrayList<String>() {
 
