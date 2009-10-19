@@ -26,9 +26,10 @@ public class AzureStorageRestTests extends AbstractAzureStorageRestAction {
     private static List<String> FILE_PATHS = new ArrayList<String>() {
 
         {
-//            add("sampleData/oneM.tar");
-//            add("sampleData/tenM.tar");
+            add("sampleData/Data1M");
             add("sampleData/Data5M");
+            add("sampleData/Data10M");
+            add("sampleData/Data15M");
         }
     };
 
@@ -60,10 +61,7 @@ public class AzureStorageRestTests extends AbstractAzureStorageRestAction {
 
                 log.debug(azureUri + " : " + diff);
             }
-            log.debug(filepath + " PUT " + NUMBER_OF_REQUEST + " | " +
-                    " errors : " + errors +
-                    " TotalTimeConsume : " + totalTimeConsume +
-                    " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
+            log.debug(filepath + " PUT " + NUMBER_OF_REQUEST + " | " + " errors : " + errors + " TotalTimeConsume : " + totalTimeConsume + " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
 
             // ======================= GET =======================
             errors = 0;
@@ -85,10 +83,7 @@ public class AzureStorageRestTests extends AbstractAzureStorageRestAction {
 
                 log.debug(azureUri + " : " + diff);
             }
-            log.debug(filepath + " GET " + NUMBER_OF_REQUEST + " | " +
-                    " errors : " + errors +
-                    " TotalTimeConsume : " + totalTimeConsume +
-                    " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
+            log.debug(filepath + " GET " + NUMBER_OF_REQUEST + " | " + " errors : " + errors + " TotalTimeConsume : " + totalTimeConsume + " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
             // ======================= DELETE =======================
             errors = 0;
             totalTimeConsume = 0;
@@ -109,10 +104,7 @@ public class AzureStorageRestTests extends AbstractAzureStorageRestAction {
 
                 log.debug(azureUri + " : " + diff);
             }
-            log.debug(filepath + " DELETE " + NUMBER_OF_REQUEST + " | " +
-                    " errors : " + errors +
-                    " TotalTimeConsume : " + totalTimeConsume +
-                    " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
+            log.debug(filepath + " DELETE " + NUMBER_OF_REQUEST + " | " + " errors : " + errors + " TotalTimeConsume : " + totalTimeConsume + " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
         }
     }
 

@@ -31,13 +31,14 @@ public class AmazonS3SoapTests {
 //    private static String secretAccessKey = "V2IjiHjxfR3y/q4y9c3JaA0kitLLwFMFB+fec1os";
     private static String accessKeyId = "18PAJ56XX4EBGXHE5MG2";
     private static String secretAccessKey = "MWGL+xUaIae3Rs1L7SFxh7YKKC9AF5GBwFnq0tT+";
-    private static AWSAuthConnection conn = new AWSAuthConnection(accessKeyId, secretAccessKey,false);
+    private static AWSAuthConnection conn = new AWSAuthConnection(accessKeyId, secretAccessKey, false);
     private static List<String> FILE_PATHS = new ArrayList<String>() {
 
         {
-//            add("sampleData/oneM.tar");
-//            add("sampleData/tenM.tar");
+            add("sampleData/Data1M");
             add("sampleData/Data5M");
+            add("sampleData/Data10M");
+            add("sampleData/Data15M");
         }
     };
 
@@ -110,10 +111,7 @@ public class AmazonS3SoapTests {
             totalTimeConsume += diff;
             log.debug("PUT key" + (key - 1) + " : " + diff);
         }
-        log.debug(filepath + " PUT " + NUMBER_OF_REQUEST + " | " +
-                " errors : " + errors +
-                " TotalTimeConsume : " + totalTimeConsume +
-                " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
+        log.debug(filepath + " PUT " + NUMBER_OF_REQUEST + " | " + " errors : " + errors + " TotalTimeConsume : " + totalTimeConsume + " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
     }
 
     private static void GET(int st) {
@@ -147,10 +145,7 @@ public class AmazonS3SoapTests {
             totalTimeConsume += diff;
             log.debug("GET key" + (key - 1) + " : " + diff);
         }
-        log.debug(" GET " + NUMBER_OF_REQUEST + " | " +
-                " errors : " + errors +
-                " TotalTimeConsume : " + totalTimeConsume +
-                " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
+        log.debug(" GET " + NUMBER_OF_REQUEST + " | " + " errors : " + errors + " TotalTimeConsume : " + totalTimeConsume + " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
     }
 
     private static void DEL(int st) {
@@ -188,10 +183,7 @@ public class AmazonS3SoapTests {
             totalTimeConsume += diff;
             log.debug("DEL key" + (key - 1) + " : " + diff);
         }
-        log.debug(" DELETE " + NUMBER_OF_REQUEST + " | " +
-                " errors : " + errors +
-                " TotalTimeConsume : " + totalTimeConsume +
-                " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
+        log.debug(" DELETE " + NUMBER_OF_REQUEST + " | " + " errors : " + errors + " TotalTimeConsume : " + totalTimeConsume + " AverageTimeConsume : " + totalTimeConsume / (NUMBER_OF_REQUEST - errors));
     }
 
     private static void LIST() {
