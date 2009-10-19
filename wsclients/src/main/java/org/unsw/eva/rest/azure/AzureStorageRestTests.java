@@ -21,14 +21,14 @@ import org.unsw.eva.exceptions.ServerError;
 public class AzureStorageRestTests extends AbstractAzureStorageRestAction {
 
     private static final Logger log = LoggerFactory.getLogger(AzureStorageRestTests.class);
-    private static final int NUMBER_OF_REQUEST = 10;
+    private static final int NUMBER_OF_REQUEST = 100;
     private static HttpClient client = getClient();
     private static List<String> FILE_PATHS = new ArrayList<String>() {
 
         {
-            add("sampleData/oneM.tar");
-            add("sampleData/tenM.tar");
-            add("sampleData/fifiteenM.tar");
+//            add("sampleData/oneM.tar");
+//            add("sampleData/tenM.tar");
+            add("sampleData/Data5M");
         }
     };
 

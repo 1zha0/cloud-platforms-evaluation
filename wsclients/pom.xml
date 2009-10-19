@@ -79,7 +79,9 @@
                   <!--argument>
                      -Djava.util.logging.config.file=${env.CXF_HOME}/etc/logging.properties
                      </argument-->
-                        <argument>org.unsw.eva.wsclient.App</argument>
+                        <!--<argument>org.unsw.eva.wsclient.App</argument>-->
+                        <argument>org.unsw.eva.rest.azure.AzureStorageRestTests</argument>
+                        <!--<argument>org.unsw.eva.soap.amazon.AmazonS3SoapTests</argument>-->
                     </arguments>
                 </configuration>
             </plugin>

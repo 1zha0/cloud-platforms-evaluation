@@ -25,8 +25,8 @@ import org.slf4j.LoggerFactory;
 public class AmazonS3SoapTests {
 
     private static final Logger log = LoggerFactory.getLogger(AmazonS3SoapTests.class);
-    private static final int NUMBER_OF_REQUEST = 10;
-    private static String bucketName = "largefile";
+    private static final int NUMBER_OF_REQUEST = 100;
+    private static String bucketName = "shrimpy";
 //    private static String accessKeyId = "1JZY11RXWCCX5AD7ADR2";
 //    private static String secretAccessKey = "V2IjiHjxfR3y/q4y9c3JaA0kitLLwFMFB+fec1os";
     private static String accessKeyId = "18PAJ56XX4EBGXHE5MG2";
@@ -35,9 +35,9 @@ public class AmazonS3SoapTests {
     private static List<String> FILE_PATHS = new ArrayList<String>() {
 
         {
-            add("sampleData/oneM.tar");
-            add("sampleData/tenM.tar");
-            add("sampleData/fifiteenM.tar");
+//            add("sampleData/oneM.tar");
+//            add("sampleData/tenM.tar");
+            add("sampleData/Data5M");
         }
     };
 
