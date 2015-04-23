@@ -1,0 +1,16 @@
+# m     h       dom     mon     dow     command
+  0    0-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/CreateTests-AmazonLocalDB_compile.sh
+  15   0-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/CreateTests-AppEngine_compile.sh
+  30   0-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/CreateTests-AmazonSimpleDB_compile.sh
+  45   0-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/CreateTests-AzureStorage_compile.sh
+  0    1-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/BinaryFileWriteTests-AppEngine_compile.sh
+  20   1-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/BinaryFileWriteTests-AzureStorage_compile.sh
+  40   1-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/BinaryFileWriteTests-AmazonS3_compile.sh
+  3    0-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/ThreadBaseStrategyTest_exec.sh
+  18   0-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/ThreadBaseStrategyTest_exec.sh
+  33   0-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/ThreadBaseStrategyTest_exec.sh
+  48   0-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/ThreadBaseStrategyTest_exec.sh
+  3    1-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/ThreadBaseStrategyTest_exec.sh
+  23   1-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/ThreadBaseStrategyTest_exec.sh
+  43   1-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/ThreadBaseStrategyTest_exec.sh
+  57   1-23/2  *       *       *       ~/wsclients/wsclients/candidates/one_round_Read_test/changeResource.sh

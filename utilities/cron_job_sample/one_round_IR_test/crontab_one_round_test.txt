@@ -1,0 +1,8 @@
+# m     h       dom     mon     dow     command
+  0   *  *       *       *       ~/wsclients/wsclients/candidates/one_round_IR_test/InstanceResponeTests-Azure_compile.sh
+  20    *  *       *       *       ~/wsclients/wsclients/candidates/one_round_IR_test/InstanceResponeTests-AppEngine_compile.sh
+  40   *  *       *       *       ~/wsclients/wsclients/candidates/one_round_IR_test/InstanceResponeTests-AmazonEC2_compile.sh
+  3    *  *       *       *       ~/wsclients/wsclients/candidates/one_round_IR_test/ThreadBaseStrategyTest_exec.sh
+  23   *  *       *       *       ~/wsclients/wsclients/candidates/one_round_IR_test/ThreadBaseStrategyTest_exec.sh
+  43    *  *       *       *       ~/wsclients/wsclients/candidates/one_round_IR_test/ThreadBaseStrategyTest_exec.sh
+  59    *  *       *       *       ~/wsclients/wsclients/candidates/one_round_IR_test/changeThreads.sh

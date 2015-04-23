@@ -1,0 +1,11 @@
+# m     h       dom     mon     dow     command
+  0    0-23/3  *       *       *       ~/wsclients/wsclients/candidates/presure_create/CreateTests-AmazonSimpleDB_compile.sh
+  30   0-23/3  *       *       *       ~/wsclients/wsclients/candidates/presure_create/CreateTests-AzureStorage_compile.sh
+  0    1-23/3  *       *       *       ~/wsclients/wsclients/candidates/presure_create/CreateTests-AmazonLocalDB_compile.sh
+  30   1-23/3  *       *       *       ~/wsclients/wsclients/candidates/presure_create/CreateTests-AppEngine_compile.sh
+  0    2-23/3  *       *       *       ~/wsclients/wsclients/candidates/presure_create/CreateTests-AzureSDS_compile.sh
+  3    0-23/3  *       *       *       ~/wsclients/wsclients/candidates/presure_create/ThreadBaseStrategyTest_exec.sh
+  33   0-23/3  *       *       *       ~/wsclients/wsclients/candidates/presure_create/ThreadBaseStrategyTest_exec.sh
+  3    1-23/3  *       *       *       ~/wsclients/wsclients/candidates/presure_create/ThreadBaseStrategyTest_exec.sh
+  33   1-23/3  *       *       *       ~/wsclients/wsclients/candidates/presure_create/ThreadBaseStrategyTest_exec.sh
+  3    2-23/3  *       *       *       ~/wsclients/wsclients/candidates/presure_create/ThreadBaseStrategyTest_exec.sh
